@@ -14,7 +14,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaoma
 https://github.com/xiaomaoJT/QxScript/tree/No_Ad_Branch/rewrite/xiaomao/js#百度翻译api免费注册方法
 
 3、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
-https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoSpotify.js
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSpotify.js
 
 ********************************
 
@@ -22,7 +22,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaoma
 hostname = spclient.wg.spotify.com
 
 [rewrite_local]
-^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoSpotify.js
+^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSpotify.js
 
 
  */
