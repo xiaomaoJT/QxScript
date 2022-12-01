@@ -50,6 +50,8 @@ host-keyword, anti-ad.net, direct
 # > */  
 
 
+# > 中国联通
+HOST-SUFFIX,m1.ad.10010.com, reject
 # > 跳过uc屏蔽
 HOST-SUFFIX,u3.ucweb.com, reject
 # > 全民K歌
