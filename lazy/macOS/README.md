@@ -87,7 +87,6 @@
 
 ##### 🚇 第三步，下载并安装证书。
 
-- [QX证书 地址](https://github.com/xiaomaoJT/QxScript/raw/main/lazy/xiaomao/QX_Mac/rootCA.crt)
 ```text
 - 复制证书地址，到Safari打开，将自动下载证书
 - 点击已下载的证书进行安装，请注意安装到 **系统** 位置，其他位置将不生效。
