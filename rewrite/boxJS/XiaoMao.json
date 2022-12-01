@@ -1,0 +1,38 @@
+{
+    "id": "XiaoMao.app.sub",
+    "name": "XiaoMao辅助脚本订阅",
+    "author": "@XiaoMao",
+    "icon": "https://avatars.githubusercontent.com/u/49260609",
+    "repo": "https://github.com/xiaomaoJT/QxScript",
+    "apps": [
+      {
+        "id": "spotifyApp",
+        "name": "spotify自动翻译",
+        "keys": ["@XiaoMao.AppID","@XiaoMao.securityKey"],
+        "settings": [
+          {
+            "id": "@XiaoMao.AppID",
+            "name": "AppID",
+            "val": null,
+            "type": "textarea",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": "百度翻译API-AppID"
+          },
+          {
+            "id": "@XiaoMao.securityKey",
+            "name": "securityKey",
+            "val": null,
+            "type": "textarea",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": "百度翻译API-securityKey"
+          }
+        ],
+        "author": "@XiaoMao",
+        "repo": "https://github.com/xiaomaoJT/QxScript",
+        "icons": ["https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Spotify.png", "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Spotify.png"],
+        "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoSpotify.js"
+      }
+    ]
+  }
