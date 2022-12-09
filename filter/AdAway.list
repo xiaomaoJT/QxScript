@@ -1041,6 +1041,8 @@ HOST,vcardsdkservice.vivo.com.cn, reject
 HOST-KEYWORD,stsdk.vivo.com.cn, reject
 HOST-KEYWORD,stsdk.vivoglobal.com, reject
 # > 微博
+host,gw.im.weibo.cn,reject
+host,gw1.i.weibo.cn,reject
 HOST-KEYWORD,fastimage.uve.weibo.com, reject
 HOST-KEYWORD,adimg.uve.weibo.com, reject
 HOST-SUFFIX,adimg.vue.weibo.com, reject
