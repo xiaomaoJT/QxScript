@@ -5,6 +5,11 @@
 spotify自动歌词翻译
 
 ********************************
+# 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
+# 微信公众号 【小帽集团】
+# XiaoMao · Tg频道频道：https://t.me/xiaomaoJT
+# XiaoMao · GitHub仓库：https://github.com/xiaomaoJT/QxScript
+
 
 使用方法：
 1、使用BoxJS增加以下脚本订阅。
