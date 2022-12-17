@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20221211
+# 更新时间 20221217
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -50,7 +50,8 @@ host-keyword, anti-ad.net, direct
 # > 某些APP要清除缓存或者重新安装APP，拦截广告才会生效！  
 # > */  
 
-
+# > 微博
+host, sdkapp.uve.weibo.com, reject
 # > 中国联通
 HOST-SUFFIX,m1.ad.10010.com, reject
 # > 跳过uc屏蔽
