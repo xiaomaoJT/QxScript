@@ -23,7 +23,10 @@
 ##### 🎟 [QX_XiaoMao_rw3 去广告脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/QX_XiaoMao_rw3.conf)
 
 > 重度去广告
->
+
+##### 🎟 [QX_XiaoMao_rw4 尊贵的会员](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/QX_XiaoMao_rw4.conf)
+
+> vip
 
 ------
 
@@ -45,7 +48,8 @@
 ##### 🎟 微信自动阅读 薅羊毛
 
 ```text
-保证引用了xiaomao重写3，并处于开启状态
+配置以下重写
+^https?://mp\.weixin\.qq\.com/s\?.* - script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wechat.js
 
 阅读打开地址即可自动阅读: https://zs914-4-1309352875.cos.ap-shanghai.myqcloud.com/zs.html?for=DWtWNtN
 
