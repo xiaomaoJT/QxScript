@@ -66,9 +66,14 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字的更新时间为准。
 >
-> ***最新更新时间 2022.12.29 10:41***
+> ***最新更新时间 2022.12.30 09:35***
 
++ ##### 20221230
 
+  * > 新增[XiaoMao_rw4远程重写](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/QX_XiaoMao_rw4.conf)
+    >
+    > 优化懒人DNS配置
+    >
 
 + ##### 20221201【懒人配置 3.0版本 · 建议更新⚠️】
 
