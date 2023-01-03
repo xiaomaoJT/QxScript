@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 20212-11-24
+ * @LastMod: 2022-11-24
  *
 spotify自动歌词翻译
 
@@ -13,7 +13,7 @@ spotify自动歌词翻译
 
 使用方法：
 1、使用BoxJS增加以下脚本订阅。
-https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMao.json
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json
 
 2、根据以下方法注册翻译API，在boxJS中spotify自动翻译里填写AppID和securityKey
 https://github.com/xiaomaoJT/QxScript/tree/No_Ad_Branch/rewrite/xiaomao/js#百度翻译api免费注册方法
@@ -67,7 +67,7 @@ function XiaoMaoMao() {
       appName +
         "执行异常！" +
         "\n" +
-        "XiaoMao-BoxJs订阅：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMao.json"
+        "XiaoMao-BoxJs订阅：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json"
     );
   } else if (!spotifySecurityKey) {
     $XiaoMao.notify(appName, "", "SecurityKey为空，需前往BoxJs填写");
@@ -75,7 +75,7 @@ function XiaoMaoMao() {
       appName +
         "执行异常！" +
         "\n" +
-        "XiaoMao-BoxJs订阅：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMao.json"
+        "XiaoMao-BoxJs订阅：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json"
     );
   } else {
     $XiaoMao.done();
