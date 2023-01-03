@@ -33,6 +33,26 @@
         "repo": "https://github.com/xiaomaoJT/QxScript",
         "icons": ["https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Spotify.png", "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Spotify.png"],
         "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoSpotify.js"
+      },
+      {
+        "id": "CaiYunApp",
+        "name": "彩云天气Svip",
+        "keys": ["@XiaoMao.Svip"],
+        "settings": [
+          {
+            "id": "@XiaoMao.Svip",
+            "name": "Svip",
+            "val": null,
+            "type": "textarea",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": "Svip过期时间-时间戳格式"
+          }
+        ],
+        "author": "@XiaoMao",
+        "repo": "https://github.com/xiaomaoJT/QxScript",
+        "icons": ["https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1658318.png", "https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1658318.png"],
+        "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoCaiYunWeather.js"
       }
     ]
   }
