@@ -169,6 +169,7 @@ const RIGHTS = {
   rc: 0,
 };
 var magicJS = null;
+let SvipDate = "";
 
 !(async () => {
   await XiaoMaoFunction();
@@ -183,6 +184,9 @@ var magicJS = null;
     console.log(appName + "设置成功");
     magicJS = MagicJS(SCRIPT_NAME);
     Main();
+    setTimeout(() => {
+      $XiaoMaoSvip.done();
+    }, 5000);
   });
 
 function Main() {
@@ -214,9 +218,9 @@ function getGoneDay(n = 0, yearFlag = true) {
   let result =
     "" +
     (yearFlag ? myDate.getFullYear() : "") +
-    "-" +
+    "/" +
     (month < 10 ? "0" + month : month) +
-    "-" +
+    "/" +
     (day < 10 ? "0" + day : day);
   return result;
 }
@@ -228,12 +232,13 @@ function XiaoMaoFunction() {
     $XiaoMaoSvip.read("SvipMonth") &&
     $XiaoMaoSvip.read("SvipDay")
   ) {
-    let SvipDate =
+    SvipDate = new Date(
       $XiaoMaoSvip.read("SvipYear") +
-      "-" +
-      $XiaoMaoSvip.read("SvipMonth") +
-      "-" +
-      $XiaoMaoSvip.read("SvipDay");
+        "/" +
+        $XiaoMaoSvip.read("SvipMonth") +
+        "/" +
+        $XiaoMaoSvip.read("SvipDay")
+    ).getTime();
     if (!SvipDate) {
       $XiaoMaoSvip.notify(
         appName,
@@ -242,7 +247,12 @@ function XiaoMaoFunction() {
       );
       XiaoMaoSvip = getGoneDay(-1);
     } else {
-      XiaoMaoSvip = SvipDate;
+      XiaoMaoSvip =
+        $XiaoMaoSvip.read("SvipYear") +
+        "/" +
+        $XiaoMaoSvip.read("SvipMonth") +
+        "/" +
+        $XiaoMaoSvip.read("SvipDay");
     }
   } else {
     XiaoMaoSvip = getGoneDay(-1);
