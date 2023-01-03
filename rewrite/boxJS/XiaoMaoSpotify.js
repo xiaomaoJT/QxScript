@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2022-11-24
+ * @LastMod: 2023-01-03
  *
 spotify自动歌词翻译
 
@@ -16,7 +16,7 @@ spotify自动歌词翻译
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json
 
 2、根据以下方法注册翻译API，在boxJS中spotify自动翻译里填写AppID和securityKey
-https://github.com/xiaomaoJT/QxScript/tree/No_Ad_Branch/rewrite/xiaomao/js#百度翻译api免费注册方法
+https://github.com/xiaomaoJT/QxScript/tree/main/rewrite/boxJS#--xiaomaospotify
 
 3、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSpotify.js
