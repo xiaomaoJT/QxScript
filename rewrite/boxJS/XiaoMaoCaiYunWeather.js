@@ -1,722 +1,1075 @@
-;
-var encode_version = 'jsjiami.com.v5',
-    udwgc = '__0xd856c',
-    __0xd856c = ['w7zDq0nDiwQ=', 'w5jDisKzw5A=', 'w5tNEQ==', 'wqwHw7QacQ==', 'QRt8w40s', 'KcOew73DjQ==', 'wq7CvsKGCn7DsVodw48=', 'RCfClA==', 'w4LDocOUFgDChsKUAMKlbVbDtcKMw5snwrE=', 'bG5cwrA=', 'w6fCuQNVIg==', 'HcOzwp/Di3XCgQ==', 'w4bDrsKv', 'wr7Dqzc=', '54ur5pyH5Y6L7762BmDkvL7lrYTmnJvlvobnq7fvvYvov7zorL3mlpjmjK/mipjkuqznmZrltbLkvZY=', 'PX3DmsOjw6s=', 'I8OLwqfDlWE=', 'w5rCv8OrwqM0', 'OyDDq8KNKg==', 'wroZwq4=', 'w5PDtSPCnsK7', 'woTDo1oCQA==', 'w4JbDMOWFQ==', 'w4XDpMOKGQ0=', 'woLClhFkJg==', 'w6FhPsOpBQ==', 'BsO7w5oIw7k=', 'XMOSI8OvwrQ=', 'woE3w6bCkGYE', 'w7pZeMKsw78=', 'EhjDqcKnHg==', 'w5YTKQ==', 'J8Oswr3Dj1w=', 'w7HDlGHDkCw=', 'AMOGw6cww5A=', 'DHDDi8K0fA==', 'wpJGbMOvYg==', 'QiTClX8=', 'McOJw7gow5Y=', 'OcOlwrLCqMOF', 'RQhvw50s', 'L1TCt8Ow', 'DiTDqsKQFlE=', 'RCTClX5hYg==', 'w5bDscOJABjCmw==', 'w6fCpCxYLzzDlCsG', 'GMOKwoHCkiPDpcKyw4XDkcK5eA57w5I=', 'PcOAwrlhXcOw', 'woVWw4ANMBTDksKbasKRScK+A3U=', 'WCDCi24=', 'LsKuIwJiwqw=', 'w67CnMOZ', 'OcKlMRViwr1f', 'wrnCo8KWGmLDsQ==', 'GMOuwp0=', 'w63DoVjDgRPDkhrCiMOVJg==', 'AcKwwr3CgUVr', 'BcK8wr4=', 'w5fDosOTBSvCisKDHsOsNW/CucOzwpAP', 'woVwwo8HesOOR8KZPh4=', 'PsKPPsOnGcOk', 'VzXCg1LDtMKv', 'TCPCr1fDqsKyV8KECcOD', 'w6lqwovDtMO+ZSU=', 'wqwQecOrT8Kc', 'J8KAAMOlEcOmw7sFHMKBwrLChWM=', 'wo5sccO3eAk=', 'wpsPVlTDnT4=', 'w5nDgsKxw6FNw7Yhdw==', 'wo8fS0LDhSM8w4TDqMOBwojDmsOpw642w5s=', 'wp9owo8D', 'wqfDokcQUA==', 'JMOSwqk=', 'w6VWJcOBwrttw58Lw5I=', 'wqjDuVkGUBYQTA==', 'CMOCwow=', 'QsOUwqs=', 'w4EHLw==', '54iz5p6d5Yyi77+sw7cB5L2P5a+F5p+/5byK56uT77+B6Lyf6K+b5paQ5o2L5oiS5Lu955qq5ba95L6C', 'JgDDvw==', 'w6EAw7PCv8OEbRrDjkDDqMKWQjDCm2DDqBg=', 'wpTDqMKLCUbCk8OPEsKwOz3CocKfwo1N', 'F8K/wqJ0Vg==', 'w6nDpcKLw5lR', 'LljDuMOmw70=', 'woYCw7cDUg==', 'w5gNw4MmGQ==', 'wrMbV0/DlQ==', 'w6AHA3LDlQ==', 'NcOFw6/DpcOD', 'wo8mTnbDsg==', 'acOzOsOZwrHDpQ==', 'YjnCjEgU', 'wrjDhh5FCA==', 'NlHDocKiQQ==', 'ccO7BA==', 'w7FqW8K8w7I=', 'woMZT0jDkCc6woTCq8KEwrnDnMK/w7E=', '54qh5p2G5Y+S77ytw5s55L2J5ayw5p+X5b+S56mD77++6LyR6Kyz5pWF5o+z5omd5LqY55ux5bSs5L2M', 'w5dyM8OSDw==', 'wr3DgcKOFBw=', 'OcO0w4jDo8O5', 'w4HDpsOO', 'GcKewonChW4=', 'wqVqw6U0Ag==', 'UTfCklgV', 'wpE8c1bDuQ==', 'wpwlU8O9Uw==', 'IcOAw6vDjsOJ', 'w5lBccKNw7A=', 'O8OhwqHDtEI=', 'WcKTAsKcEw==', 'wrsfW8OmRQ==', 'w4hZPcOgHA==', 'woLCpcKJPFs=', 'c8OYwrg=', 'w7zCpSJ6Mg==', 'wqnDuXUtbw==', 'AnPDncOlw6Y=', 'w4/Dj8KNKyQ=', 'w4Y4w6wTLA==', 'w6TDkQPCpcK4', 'w4wTHcKPw70uwplRwozCisKUwo3CnHPDn8ORWk/DmcOnbTojRVvDl0DDqR1fbhhzAsKkdkRCw4HDu8Oew7Zyw4HCmcOKH8OXw5ROPcKjE8K2bcOswplKwqPCssOrDQ==', 'wrvCi8KNK3Y=', 'wqx6WMODRQ==', 'w7gYw6UlEg==', 'wqfCkBN5CQ==', 'F8OiwpluQw==', 'B8ONwpjCuQ==', 'wp0EYHXDhg==', 'HsOGwq3CmcO/', 'B8ONwoHCuDI=', 'QsOVAQ==', 'FsKkwobCuHg=', 'CcKIE8OKFg==', 'WjPCsGFu', 'RRxEw7YQ', 'CsKtwqDCk1o=', 'w5/DocKgw6xQ', 'w4VjFsOgFg==', 'wqLDjcK3Dy8=', 'wq/DvEcJXQ==', 'JcOww7YEw5c=', 'GsOMwpjCuD8=', 'wp0ga8ONaA==', 'R3Z7wpHDgQ==', 'EMKgwqdoWw==', 'dMOlIsOXwrM=', 'wrcuwr/ChcKy', 'VgZzw50mwrXDuA==', 'w5rDkhU=', 'LMKnEQ==', 'w47Dv8K9IQs=', 'wqfClxxjCFHCpw==', 'w7wEw6Y=', 'wqjCqcKLHGHDqVY=', 'wqkUeMOw', 'LMOKwqRnXsOoGA==', 'B8KgwqBuTcOTwpQ=', 'wpVnZMOt', 'wpVpwogESsOFSw==', 'wplxYcOnZAnDq8KAwqo=', 'w7vCmsOHwoMyQXs=', 'wqjDqsK6', 'woFnwpQZ', 'YWVXwrHDgQ==', 'f8O5wpRr', 'w63Dq1rDhxM=', 'KEPCsMOsWjnDuMO+Hw==', 'wqfDqsKzJjpdKg==', 'GcOmwp/DjA==', 'DcOMwp/CvinDscKn', 'KsOkw6kS', 'w77DsRXCocKxwp/ChQ==', 'JcOCw6nDjcOC', 'fMKtEw==', 'dcO4wpx3woYgwrw=', 'wpkgw6nClHc=', 'wqMCw7MKVMKEwpw=', 'w47DosKGEwA=', 'G2zChcOBRQ==', 'wqjDgFwyZw==', 'cnFQwrXDtg==', 'wq56TsOTbA==', 'JsO1w4rDk8OXeMOc', 'TD3CrcKZQlk7woBpJ8Kdw6MRwrdAw5PDuQ==', 'wo95bsOrYA==', 'wq3ClhR/', 'wrkgw5jCoMK9IHjDvMKx', 'wrA3w5w=', 'wp3CgcOZdn8='];
-(function(_0x26b579, _0x536553) {
-    var _0x4d5bde = function(_0x483c15) {
-        while (--_0x483c15) {
-            _0x26b579['push'](_0x26b579['shift']());
-        }
-    };
-    var _0x149033 = function() {
-        var _0x4edd0a = {
-            'data': {
-                'key': 'cookie',
-                'value': 'timeout'
-            },
-            'setCookie': function(_0x210133, _0x5ea365, _0x3e3cf2, _0xaff3c4) {
-                _0xaff3c4 = _0xaff3c4 || {};
-                var _0x4122f4 = _0x5ea365 + '=' + _0x3e3cf2;
-                var _0x32813e = 0x0;
-                for (var _0x32813e = 0x0, _0x3ea4ba = _0x210133['length']; _0x32813e < _0x3ea4ba; _0x32813e++) {
-                    var _0x16149a = _0x210133[_0x32813e];
-                    _0x4122f4 += '; ' + _0x16149a;
-                    var _0x2d09aa = _0x210133[_0x16149a];
-                    _0x210133['push'](_0x2d09aa);
-                    _0x3ea4ba = _0x210133['length'];
-                    if (_0x2d09aa !== !![]) {
-                        _0x4122f4 += '=' + _0x2d09aa;
-                    }
-                }
-                _0xaff3c4['cookie'] = _0x4122f4;
-            },
-            'removeCookie': function() {
-                return 'dev';
-            },
-            'getCookie': function(_0x2c4757, _0x8c0f5a) {
-                _0x2c4757 = _0x2c4757 || function(_0x4bfdbc) {
-                    return _0x4bfdbc;
-                };
-                var _0x16e14b = _0x2c4757(new RegExp('(?:^|; )' + _0x8c0f5a['replace'](/([.$?*|{}()[]\/+^])/g, '$1') + '=([^;]*)'));
-                var _0x25ed26 = function(_0x5f83f0, _0x2c3bd9) {
-                    _0x5f83f0(++_0x2c3bd9);
-                };
-                _0x25ed26(_0x4d5bde, _0x536553);
-                return _0x16e14b ? decodeURIComponent(_0x16e14b[0x1]) : undefined;
-            }
-        };
-        var _0x2ffcf4 = function() {
-            var _0x3dddaa = new RegExp('\w+ *\(\) *{\w+ *['|"].+['|"];? *}');
-            return _0x3dddaa['test'](_0x4edd0a['removeCookie']['toString']());
-        };
-        _0x4edd0a['updateCookie'] = _0x2ffcf4;
-        var _0x377353 = '';
-        var _0x7b95a7 = _0x4edd0a['updateCookie']();
-        if (!_0x7b95a7) {
-            _0x4edd0a['setCookie'](['*'], 'counter', 0x1);
-        } else if (_0x7b95a7) {
-            _0x377353 = _0x4edd0a['getCookie'](null, 'counter');
-        } else {
-            _0x4edd0a['removeCookie']();
-        }
-    };
-    _0x149033();
-}(__0xd856c, 0x1a6));
-var _0xe502 = function(_0x458ac0, _0x3624e5) {
-    _0x458ac0 = _0x458ac0 - 0x0;
-    var _0x335ec0 = __0xd856c[_0x458ac0];
-    if (_0xe502['initialized'] === undefined) {
-        (function() {
-            var _0x24618b = typeof window !== 'undefined' ? window : typeof process === 'object' && typeof require === 'function' && typeof global === 'object' ? global : this;
-            var _0x163a3f = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-            _0x24618b['atob'] || (_0x24618b['atob'] = function(_0x51875c) {
-                var _0x1dfbbf = String(_0x51875c)['replace'](/=+$/, '');
-                for (var _0x5b7934 = 0x0, _0x4a4807, _0x2d5bb9, _0x5f26e4 = 0x0, _0x23368b = ''; _0x2d5bb9 = _0x1dfbbf['charAt'](_0x5f26e4++); ~_0x2d5bb9 && (_0x4a4807 = _0x5b7934 % 0x4 ? _0x4a4807 * 0x40 + _0x2d5bb9 : _0x2d5bb9, _0x5b7934++ % 0x4) ? _0x23368b += String['fromCharCode'](0xff & _0x4a4807 >> (-0x2 * _0x5b7934 & 0x6)) : 0x0) {
-                    _0x2d5bb9 = _0x163a3f['indexOf'](_0x2d5bb9);
-                }
-                return _0x23368b;
-            });
-        }());
-        var _0x56f58e = function(_0xb4fbaa, _0x3021cd) {
-            var _0x388763 = [],
-                _0x55ba3f = 0x0,
-                _0x110877, _0x27752b = '',
-                _0x1db886 = '';
-            _0xb4fbaa = atob(_0xb4fbaa);
-            for (var _0x54f628 = 0x0, _0x49a343 = _0xb4fbaa['length']; _0x54f628 < _0x49a343; _0x54f628++) {
-                _0x1db886 += '%' + ('00' + _0xb4fbaa['charCodeAt'](_0x54f628)['toString'](0x10))['slice'](-0x2);
-            }
-            _0xb4fbaa = decodeURIComponent(_0x1db886);
-            for (var _0x3d7643 = 0x0; _0x3d7643 < 0x100; _0x3d7643++) {
-                _0x388763[_0x3d7643] = _0x3d7643;
-            }
-            for (_0x3d7643 = 0x0; _0x3d7643 < 0x100; _0x3d7643++) {
-                _0x55ba3f = (_0x55ba3f + _0x388763[_0x3d7643] + _0x3021cd['charCodeAt'](_0x3d7643 % _0x3021cd['length'])) % 0x100;
-                _0x110877 = _0x388763[_0x3d7643];
-                _0x388763[_0x3d7643] = _0x388763[_0x55ba3f];
-                _0x388763[_0x55ba3f] = _0x110877;
-            }
-            _0x3d7643 = 0x0;
-            _0x55ba3f = 0x0;
-            for (var _0x77d6a3 = 0x0; _0x77d6a3 < _0xb4fbaa['length']; _0x77d6a3++) {
-                _0x3d7643 = (_0x3d7643 + 0x1) % 0x100;
-                _0x55ba3f = (_0x55ba3f + _0x388763[_0x3d7643]) % 0x100;
-                _0x110877 = _0x388763[_0x3d7643];
-                _0x388763[_0x3d7643] = _0x388763[_0x55ba3f];
-                _0x388763[_0x55ba3f] = _0x110877;
-                _0x27752b += String['fromCharCode'](_0xb4fbaa['charCodeAt'](_0x77d6a3) ^ _0x388763[(_0x388763[_0x3d7643] + _0x388763[_0x55ba3f]) % 0x100]);
-            }
-            return _0x27752b;
-        };
-        _0xe502['rc4'] = _0x56f58e;
-        _0xe502['data'] = {};
-        _0xe502['initialized'] = !![];
+/**************************
+ *  * @Author: XiaoMao
+ * @LastMod: 2023-01-03
+ *
+ * 
+彩/云/天/气/S/v/i/p
+
+********************************
+# 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
+# 微信公众号 【小帽集团】
+# XiaoMao · Tg频道频道：https://t.me/xiaomaoJT
+# XiaoMao · GitHub仓库：https://github.com/xiaomaoJT/QxScript
+
+
+使用方法：
+1、使用BoxJS增加以下脚本订阅。
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json
+
+2、通过boxjs设置天气svip到期时间
+（一二此步骤可省略，会员到期时间永远定格明天）
+
+3、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCaiYunWeather.js
+
+********************************
+
+[mitm]
+hostname = biz.caiyunapp.com
+
+[rewrite_local]
+https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCaiYunWeather.js
+
+ */
+
+const SCRIPT_NAME = "彩云天气";
+const USER_REGEX = /https?:\/\/biz\.caiyunapp\.com\/v2\/user/;
+const RIGHTS_REGEX = /https?:\/\/biz\.caiyunapp\.com\/membership_rights/;
+var RESULT,
+  RESULT_WT = {};
+var $XiaoMaoSvip = "";
+var appName = `XiaoMao-彩云天气Svip`;
+var XiaoMaoSvip = "";
+const RIGHTS = {
+  result: [
+    {
+      name: "\u514d\u5e7f\u544a",
+      enabled: true,
+      vip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/vip-ads-free.png",
+      vip: true,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee08f",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-ads-free.png",
+    },
+    {
+      name: "\u591a\u5730\u5929\u6c14\u63a8\u9001",
+      enabled: true,
+      vip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/vip-custom-push.png",
+      vip: true,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee090",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-custom-push.png",
+    },
+    {
+      name: "\u964d\u6c34\u63d0\u9192",
+      enabled: true,
+      vip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/vip-rain-notification.png",
+      vip: true,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee091",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-rain-notification.png",
+    },
+    {
+      name: "\u536b\u661f\u4e91\u56fe",
+      enabled: true,
+      vip_icon: null,
+      vip: false,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee092",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-satellite-clouds.png",
+    },
+    {
+      name: "\u4e91\u91cf",
+      enabled: true,
+      vip_icon: null,
+      vip: false,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee093",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-cloud-cover.png",
+    },
+    {
+      name: "\u6c14\u6e29\u9884\u62a5",
+      enabled: true,
+      vip_icon: null,
+      vip: false,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee094",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-tmp-forecast.png",
+    },
+    {
+      name: "\u9732\u70b9\u6e29\u5ea6\u9884\u62a5",
+      enabled: true,
+      vip_icon: null,
+      vip: false,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee095",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-dew-point-tmp-forecast.png",
+    },
+    {
+      name: "\u77ed\u6ce2\u8f90\u5c04\u901a\u91cf",
+      enabled: true,
+      vip_icon: null,
+      vip: false,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee096",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-short-wave-radiation.png",
+    },
+    {
+      name: "\u6c14\u538b",
+      enabled: true,
+      vip_icon: null,
+      vip: false,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee097",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-pressure.png",
+    },
+    {
+      name: "\u80fd\u89c1\u5ea6",
+      enabled: true,
+      vip_icon: null,
+      vip: false,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee098",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-visibility.png",
+    },
+    {
+      name: "\u6e7f\u5ea6\u9884\u62a5",
+      enabled: true,
+      vip_icon: null,
+      vip: false,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee099",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-humidity-forecast.png",
+    },
+    {
+      name: "2\u5929\u964d\u96e8\u9884\u62a5\u56fe",
+      enabled: true,
+      vip_icon: null,
+      vip: false,
+      svip: true,
+      _id: "5ee5eb091d28d2634a2ee09a",
+      svip_icon:
+        "https://cdn.caiyunapp.com/ad/img/membership_rights/svip-rain-forecast.png",
+    },
+  ],
+  rc: 0,
+};
+var magicJS = null;
+
+!(async () => {
+  await XiaoMaoFunction();
+})()
+  .catch((err) => {
+    $XiaoMaoSvip.error(err);
+    setTimeout(() => {
+      $XiaoMaoSvip.done();
+    }, 3000);
+  })
+  .finally(() => {
+    console.log(appName + "设置成功");
+    magicJS = MagicJS(SCRIPT_NAME);
+    Main();
+  });
+
+function Main() {
+  if (magicJS.isResponse) {
+    if (USER_REGEX.test(magicJS.request.url)) {
+      try {
+        let obj = JSON.parse(magicJS.response.body);
+        Object.assign(obj["result"], RESULT);
+        Object.assign(obj["result"]["wt"], RESULT_WT);
+        let body = JSON.stringify(obj);
+        magicJS.done({ body });
+      } catch (err) {
+        magicJS.log(`解锁SVIP失败，异常信息${err}`);
+        magicJS.done();
+      }
     }
-    var _0x5e23b3 = _0xe502['data'][_0x458ac0];
-    if (_0x5e23b3 === undefined) {
-        if (_0xe502['once'] === undefined) {
-            var _0x2e4a0e = function(_0x41aa8b) {
-                this['rc4Bytes'] = _0x41aa8b;
-                this['states'] = [0x1, 0x0, 0x0];
-                this['newState'] = function() {
-                    return 'newState';
-                };
-                this['firstState'] = '\w+ *\(\) *{\w+ *';
-                this['secondState'] = '['|"].+['|"];? *}';
-            };
-            _0x2e4a0e['prototype']['checkState'] = function() {
-                var _0x1ae23d = new RegExp(this['firstState'] + this['secondState']);
-                return this['runState'](_0x1ae23d['test'](this['newState']['toString']()) ? --this['states'][0x1] : --this['states'][0x0]);
-            };
-            _0x2e4a0e['prototype']['runState'] = function(_0xcf424e) {
-                if (!Boolean(~_0xcf424e)) {
-                    return _0xcf424e;
-                }
-                return this['getState'](this['rc4Bytes']);
-            };
-            _0x2e4a0e['prototype']['getState'] = function(_0x4f5078) {
-                for (var _0x5a379f = 0x0, _0xc5128a = this['states']['length']; _0x5a379f < _0xc5128a; _0x5a379f++) {
-                    this['states']['push'](Math['round'](Math['random']()));
-                    _0xc5128a = this['states']['length'];
-                }
-                return _0x4f5078(this['states'][0x0]);
-            };
-            new _0x2e4a0e(_0xe502)['checkState']();
-            _0xe502['once'] = !![];
-        }
-        _0x335ec0 = _0xe502['rc4'](_0x335ec0, _0x3624e5);
-        _0xe502['data'][_0x458ac0] = _0x335ec0;
+    if (RIGHTS_REGEX.test(magicJS.request.url)) {
+      let body = JSON.stringify(RIGHTS);
+      magicJS.done({ body });
+    }
+  }
+}
+
+function getGoneDay(n = 0, yearFlag = true) {
+  let myDate = new Date();
+  myDate.setDate(myDate.getDate() - n);
+  let month = myDate.getMonth() + 1;
+  let day = myDate.getDate();
+  let result =
+    "" +
+    (yearFlag ? myDate.getFullYear() : "") +
+    "-" +
+    (month < 10 ? "0" + month : month) +
+    "-" +
+    (day < 10 ? "0" + day : day);
+  return result;
+}
+
+function XiaoMaoFunction() {
+  $XiaoMaoSvip = API("XiaoMao");
+  if (
+    $XiaoMaoSvip.read("SvipYear") &&
+    $XiaoMaoSvip.read("SvipMonth") &&
+    $XiaoMaoSvip.read("SvipDay")
+  ) {
+    let SvipDate =
+      $XiaoMaoSvip.read("SvipYear") +
+      "-" +
+      $XiaoMaoSvip.read("SvipMonth") +
+      "-" +
+      $XiaoMaoSvip.read("SvipDay");
+    if (!SvipDate) {
+      $XiaoMaoSvip.notify(
+        appName,
+        "",
+        "会员日期设置错误，请输入正确的日期范围!"
+      );
+      XiaoMaoSvip = getGoneDay(-1);
     } else {
-        _0x335ec0 = _0x5e23b3;
+      XiaoMaoSvip = SvipDate;
     }
-    return _0x335ec0;
-};
-var _0xe2c1bb = JSON[_0xe502('0x0', 'Eb4t')]($response[_0xe502('0x1', '(VnP')]);
-_0xe2c1bb[_0xe502('0x2', 'j*7c')]['svip_given'] = 0x16d;
-_0xe2c1bb[_0xe502('0x3', 'H!]$')]['is_phone_verified'] = !![];
-_0xe2c1bb[_0xe502('0x4', 'Imt)')][_0xe502('0x5', '0nF%')] = !![];
-_0xe2c1bb['result'][_0xe502('0x6', '^C43')] = 4030000000.16;
-_0xe2c1bb[_0xe502('0x7', 'Tstn')]['is_vip'] = !![];
-setInterval(function() {
-    _0x48c30a();
-}, 0xfa0);
-_0xe2c1bb['result'][_0xe502('0x8', 'X3l#')] = 4030000000.16;
-_0xe2c1bb['result'][_0xe502('0x9', 'H!]$')] = 'XiaoMao';
-_0xe2c1bb[_0xe502('0xa', 'L%hQ')]['wt'][_0xe502('0xb', 'EVt0')][_0xe502('0xc', 'L%hQ')] = !![];
-_0xe2c1bb[_0xe502('0xd', 'Ypgz')]['wt'][_0xe502('0xe', 'u6I[')][_0xe502('0xf', 'kF&C')] = 4030000000.16;
-_0xe2c1bb[_0xe502('0x10', 'ifuU')]['wt'][_0xe502('0x11', 'ifuU')][_0xe502('0x12', 'Imt)')] = 4030000000.16;
-_0xe2c1bb[_0xe502('0xd', 'Ypgz')]['wt'][_0xe502('0x13', 'bY1!')] = 0x16d;
-_0xe2c1bb['result'][_0xe502('0x14', 's@IM')] = 'https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/ScreenShot/R%C2%B7E.jpg';
-_0xe2c1bb[_0xe502('0x15', 'nq]Z')][_0xe502('0x16', 'nq]Z')] = ![];
-_0xe2c1bb['result']['phone_num'] = _0xe502('0x17', '0!o9');
-_0xe2c1bb[_0xe502('0x18', 'lQZJ')][_0xe502('0x19', 's@IM')] = 4030000000.16;
-_0xe2c1bb[_0xe502('0x1a', '@4kL')]['svip_expired_at'] = 4030000000.16;
-_0xe2c1bb[_0xe502('0x1b', '3[^V')][_0xe502('0x1c', '^0y3')] = 's';
-$done({
-    'body': JSON['stringify'](_0xe2c1bb)
-});;
-(function(_0x5768f3, _0x3dfb47, _0x3c1b8a) {
-    var _0x443936 = {
-        'iMyDq': _0xe502('0x1d', '3[^V'),
-        'FNJgh': _0xe502('0x1e', 'bY1!'),
-        'Fojzi': _0xe502('0x1f', 'l)Bh'),
-        'tgvmd': function _0x4fef03(_0x2997ab, _0x12c1bb) {
-            return _0x2997ab === _0x12c1bb;
-        },
-        'HfBTq': _0xe502('0x20', 'Tstn'),
-        'uutGs': function _0x42d61e(_0x5f24cd, _0x525372, _0x406525) {
-            return _0x5f24cd(_0x525372, _0x406525);
-        },
-        'Zqrnd': function _0x56b0ec(_0x31c895, _0x30b777) {
-            return _0x31c895 !== _0x30b777;
-        },
-        'DrXdR': function _0x566454(_0xa60e04) {
-            return _0xa60e04();
-        },
-        'fLkWC': _0xe502('0x21', 'SUwu'),
-        'nNOmk': function _0x3af201(_0x37c98d, _0x1816df) {
-            return _0x37c98d === _0x1816df;
-        },
-        'xbIDG': _0xe502('0x22', 'l)Bh'),
-        'bsYEs': _0xe502('0x23', '&txs'),
-        'ObHYF': function _0x5f11b9(_0x1ccb04, _0x1e828e, _0x5824db) {
-            return _0x1ccb04(_0x1e828e, _0x5824db);
-        },
-        'kpVAe': _0xe502('0x24', 'Priu'),
-        'VWVHo': _0xe502('0x25', '41mG'),
-        'DfyIh': function _0x272b0a(_0x68cee9, _0x4b2d92) {
-            return _0x68cee9 === _0x4b2d92;
-        },
-        'wqeqP': 'jsjiami.com.v5',
-        'RsLQx': _0xe502('0x26', '&txs'),
-        'zCTtB': function _0x3f544e(_0x412612, _0x466ac4) {
-            return _0x412612 === _0x466ac4;
-        },
-        'ljicJ': _0xe502('0x27', 'j*7c'),
-        'Gmxfp': _0xe502('0x28', 'xFSI'),
-        'WkKkz': function _0x3577c0(_0x69abd2) {
-            return _0x69abd2();
+  } else {
+    XiaoMaoSvip = getGoneDay(-1);
+  }
+
+  RESULT = {
+    is_vip: true,
+    vip_type: "s",
+    svip_expired_at: new Date(XiaoMaoSvip).getTime() / 1000,
+  };
+
+  RESULT_WT = {
+    vip: {
+      enable: true,
+      svip_expired_at: new Date(XiaoMaoSvip).getTime() / 1000,
+    },
+  };
+}
+
+function MagicJS(scriptName = "MagicJS", logLevel = "INFO") {
+  return new (class {
+    constructor() {
+      this.scriptName = scriptName;
+      this.logLevel = this.getLogLevels(logLevel.toUpperCase());
+      this.node = { request: undefined, fs: undefined, data: {} };
+      if (this.isNode) {
+        this.node.fs = require("fs");
+        this.node.request = require("request");
+        try {
+          this.node.fs.accessSync("./magic.json");
+        } catch (err) {
+          this.logError(err);
+          this.node.fs.writeFileSync("./magic.json", "{}");
         }
-    };
-    var _0x26494a = _0xe502('0x29', 'Imt)')[_0xe502('0x2a', 'ChYM')]('|'),
-        _0x26498c = 0x0;
-    while (!![]) {
-        switch (_0x26494a[_0x26498c++]) {
-            case '0':
-                var _0x363bf7 = {
-                    'UfLVY': _0x443936['iMyDq'],
-                    'IQvLL': _0x443936[_0xe502('0x2b', '^0y3')],
-                    'ejQxf': _0xe502('0x2c', 'pCQZ'),
-                    'krAZp': _0x443936[_0xe502('0x2d', 'zANc')],
-                    'IclSU': function _0x372d24(_0x3eae40, _0x3ec7b2) {
-                        return _0x443936['tgvmd'](_0x3eae40, _0x3ec7b2);
-                    },
-                    'rrQZd': _0x443936[_0xe502('0x2e', 'DmtJ')],
-                    'guBHK': function _0x388977(_0x2a5fa4, _0x3b41db, _0x1c52df) {
-                        return _0x443936['uutGs'](_0x2a5fa4, _0x3b41db, _0x1c52df);
-                    },
-                    'OCDju': function _0x2e6e40(_0x1d726a, _0xf1ddf4) {
-                        return _0x443936[_0xe502('0x2f', '3[^V')](_0x1d726a, _0xf1ddf4);
-                    },
-                    'eHiMC': function _0x54d689(_0x2839cb) {
-                        return _0x443936[_0xe502('0x30', '41mG')](_0x2839cb);
-                    },
-                    'VSmaD': function _0x5a404b(_0x967d64, _0x4cac2b, _0x6385e5) {
-                        return _0x443936[_0xe502('0x31', 'cOLk')](_0x967d64, _0x4cac2b, _0x6385e5);
-                    },
-                    'fzyye': function _0x437acd(_0x435209, _0x17adfb) {
-                        return _0x435209 !== _0x17adfb;
-                    },
-                    'mwjWW': _0x443936[_0xe502('0x32', '3[^V')],
-                    'VdvGO': function _0x359f06(_0x45b96f, _0x473834) {
-                        return _0x45b96f === _0x473834;
-                    },
-                    'toiuy': _0xe502('0x33', 'A]mH'),
-                    'CUaSK': function _0x4d7a79(_0x15b753, _0x294012) {
-                        return _0x443936['nNOmk'](_0x15b753, _0x294012);
-                    },
-                    'BvNUg': _0x443936[_0xe502('0x34', 'HM@U')],
-                    'MxNIa': function _0x252b06(_0x1b4381, _0x394f2b) {
-                        return _0x443936[_0xe502('0x35', '(D#U')](_0x1b4381, _0x394f2b);
-                    },
-                    'rtrka': function _0x395c40(_0x3be2b8, _0x2dc7fb) {
-                        return _0x3be2b8 !== _0x2dc7fb;
-                    },
-                    'gRtFD': _0x443936[_0xe502('0x36', '3206')]
-                };
-                continue;
-            case '1':
-                var _0x234857 = function() {
-                    var _0x31cbdc = !![];
-                    return function(_0x284369, _0x246bab) {
-                        var _0x34fa7b = {
-                            'szRdd': function _0x44ba2c(_0x948e0a, _0x4f8f26) {
-                                return _0x948e0a !== _0x4f8f26;
-                            },
-                            'eeDyA': 'fff',
-                            'MNnHC': '删除版本号，js会定期弹窗'
-                        };
-                        if (_0x34fa7b['szRdd'](_0xe502('0x37', 'A]mH'), _0x34fa7b[_0xe502('0x38', 'h$^p')])) {
-                            var _0x589808 = _0x31cbdc ? function() {
-                                var _0x1c9fc8 = {
-                                    'tYOhc': function _0x3cb3d6(_0x36c085, _0x2474de) {
-                                        return _0x36c085 !== _0x2474de;
-                                    },
-                                    'yDSAI': 'zOo',
-                                    'jKGqG': function _0x957757(_0x3bdca3, _0x2b5543) {
-                                        return _0x3bdca3 !== _0x2b5543;
-                                    },
-                                    'XEzJD': 'undefined',
-                                    'uGQYK': function _0x2dce54(_0x1c1d2c, _0x46047c) {
-                                        return _0x1c1d2c === _0x46047c;
-                                    },
-                                    'KlWTF': _0xe502('0x39', '3[^V'),
-                                    'xVVwH': function _0xad4dbd(_0x1919da, _0x39abd5) {
-                                        return _0x1919da + _0x39abd5;
-                                    },
-                                    'BPYcp': _0xe502('0x3a', '3[^V')
-                                };
-                                if (_0x1c9fc8[_0xe502('0x3b', '(3)F')](_0x1c9fc8[_0xe502('0x3c', 'dtIF')], _0x1c9fc8[_0xe502('0x3d', 'cOLk')])) {
-                                    _0x3c1b8a += _0xe502('0x3e', 'Imt)');
-                                    _0x3dfb47 = encode_version;
-                                    if (!(_0x1c9fc8[_0xe502('0x3f', 'ifuU')](typeof _0x3dfb47, _0x1c9fc8[_0xe502('0x40', 'X3l#')]) && _0x1c9fc8['uGQYK'](_0x3dfb47, _0x1c9fc8[_0xe502('0x41', 'HM@U')]))) {
-                                        _0x5768f3[_0x3c1b8a](_0x1c9fc8[_0xe502('0x42', '3[^V')]('删除', _0x1c9fc8[_0xe502('0x43', 'lQZJ')]));
-                                    }
-                                } else {
-                                    if (_0x246bab) {
-                                        var _0x20a881 = _0x246bab[_0xe502('0x44', 'cOLk')](_0x284369, arguments);
-                                        _0x246bab = null;
-                                        return _0x20a881;
-                                    }
-                                }
-                            } : function() {};
-                            _0x31cbdc = ![];
-                            return _0x589808;
-                        } else {
-                            _0x5768f3[_0x3c1b8a](_0x34fa7b[_0xe502('0x45', 'h$^p')]);
-                        }
-                    };
-                }();
-                continue;
-            case '2':
-                (function() {
-                    var _0x4cbf7f = {
-                        'yOxwf': _0x363bf7[_0xe502('0x46', 'u6I[')],
-                        'hqaRY': _0x363bf7[_0xe502('0x47', 'Ye&R')],
-                        'pMhDx': _0x363bf7[_0xe502('0x48', 'lQZJ')],
-                        'PsZAQ': function _0x5a0a80(_0xf4a3a7, _0x44bf10) {
-                            return _0xf4a3a7 + _0x44bf10;
-                        },
-                        'hsdWz': _0x363bf7[_0xe502('0x49', '(3)F')],
-                        'yoKPT': function _0x2601e6(_0x291bcb, _0x32fb1c) {
-                            return _0x363bf7[_0xe502('0x4a', 'Ypgz')](_0x291bcb, _0x32fb1c);
-                        },
-                        'QfJgo': _0xe502('0x4b', 'Priu'),
-                        'qQWjc': _0x363bf7[_0xe502('0x4c', '0nF%')],
-                        'murIz': function _0x337d55(_0x1d0fd5, _0x5a6d28, _0x6b8dea) {
-                            return _0x363bf7[_0xe502('0x4d', 'l)Bh')](_0x1d0fd5, _0x5a6d28, _0x6b8dea);
-                        },
-                        'iOJvx': function _0x42c72a(_0x46e70b, _0x19c174) {
-                            return _0x363bf7[_0xe502('0x4e', 'pCQZ')](_0x46e70b, _0x19c174);
-                        },
-                        'eqHLQ': 'Fjb',
-                        'VqLYn': function _0x3452e3(_0x24c682) {
-                            return _0x363bf7[_0xe502('0x4f', 'qiEn')](_0x24c682);
-                        }
-                    };
-                    _0x363bf7[_0xe502('0x50', 'DmtJ')](_0x234857, this, function() {
-                        var _0xabce66 = new RegExp(_0x4cbf7f[_0xe502('0x51', 'jXzj')]);
-                        var _0x42407e = new RegExp(_0xe502('0x52', 'SUwu'), 'i');
-                        var _0x44bc34 = _0x48c30a(_0x4cbf7f['hqaRY']);
-                        if (!_0xabce66['test'](_0x44bc34 + _0x4cbf7f[_0xe502('0x53', 'Ypgz')]) || !_0x42407e['test'](_0x4cbf7f[_0xe502('0x54', '@4kL')](_0x44bc34, _0x4cbf7f[_0xe502('0x55', 'DmtJ')]))) {
-                            if (_0x4cbf7f['yoKPT'](_0x4cbf7f['QfJgo'], _0x4cbf7f['qQWjc'])) {
-                                _0x4cbf7f['murIz'](_0x234857, this, function() {
-                                    var bMOuZA = {
-                                        'XGSzr': 'function *\( *\)',
-                                        'QgENA': '\+\+ *(?:_0x(?:[a-f0-9]){4,6}|(?:\b|\d)[a-z0-9]{1,4}(?:\b|\d))',
-                                        'tnETw': _0xe502('0x56', 'zLHw'),
-                                        'ewxyb': function _0x137cb2(_0x24ac46, _0x8ddf20) {
-                                            return _0x24ac46 + _0x8ddf20;
-                                        },
-                                        'bRFCy': function _0x16eabe(_0x3301b7) {
-                                            return _0x3301b7();
-                                        }
-                                    };
-                                    var _0x53e796 = new RegExp(bMOuZA[_0xe502('0x57', 'Tstn')]);
-                                    var _0x2d3d4a = new RegExp(bMOuZA['QgENA'], 'i');
-                                    var _0x331cde = _0x48c30a(_0xe502('0x58', '^C43'));
-                                    if (!_0x53e796['test'](_0x331cde + bMOuZA[_0xe502('0x59', '3[^V')]) || !_0x2d3d4a['test'](bMOuZA[_0xe502('0x5a', '&txs')](_0x331cde, _0xe502('0x5b', '^C43')))) {
-                                        _0x331cde('0');
-                                    } else {
-                                        bMOuZA['bRFCy'](_0x48c30a);
-                                    }
-                                })();
-                            } else {
-                                _0x44bc34('0');
-                            }
-                        } else {
-                            if (_0x4cbf7f['iOJvx'](_0xe502('0x5c', 'A]mH'), _0x4cbf7f[_0xe502('0x5d', 'ifuU')])) {
-                                _0x4cbf7f[_0xe502('0x5e', 's@IM')](_0x48c30a);
-                            } else {}
-                        }
-                    })();
-                }());
-                continue;
-            case '3':
-                _0x3c1b8a = 'al';
-                continue;
-            case '4':
-                var _0x2b375e = function() {
-                    var _0x441983 = !![];
-                    return function(_0x4f67e8, _0x4be3c7) {
-                        var _0x567d14 = _0x441983 ? function() {
-                            var _0x370e82 = {
-                                'lrVjc': function _0xca9203(_0x458489, _0x8eddfe) {
-                                    return _0x458489 !== _0x8eddfe;
-                                },
-                                'ysqKY': 'zhC'
-                            };
-                            if (_0x370e82[_0xe502('0x5f', 'H!]$')]('zhC', _0x370e82['ysqKY'])) {
-                                return debuggerProtection;
-                            } else {
-                                if (_0x4be3c7) {
-                                    var _0x41c4ae = _0x4be3c7['apply'](_0x4f67e8, arguments);
-                                    _0x4be3c7 = null;
-                                    return _0x41c4ae;
-                                }
-                            }
-                        } : function() {
-                            var _0x4cf0b8 = {
-                                'puYXY': 'IpY',
-                                'yxngs': function _0x168a5f(_0x37de8f) {
-                                    return _0x37de8f();
-                                }
-                            };
-                            if (_0x4cf0b8[_0xe502('0x60', 'Eb4t')] !== _0x4cf0b8['puYXY']) {
-                                _0x4cf0b8[_0xe502('0x61', 'ifuU')](_0x48c30a);
-                            } else {}
-                        };
-                        _0x441983 = ![];
-                        return _0x567d14;
-                    };
-                }();
-                continue;
-            case '5':
-                var _0x199e65 = _0x443936['ObHYF'](_0x2b375e, this, function() {
-                    var _0x3c6d94 = function() {
-                        var _0x30ee76 = {
-                            'pJaRi': function _0x5c431a(_0x356f3e, _0x12536c) {
-                                return _0x356f3e !== _0x12536c;
-                            },
-                            'fHjZz': 'Rkc'
-                        };
-                        if (_0x30ee76[_0xe502('0x62', '^0y3')](_0x30ee76[_0xe502('0x63', '(3)F')], _0x30ee76[_0xe502('0x64', 'dtIF')])) {
-                            var _0x5e6774 = firstCall ? function() {
-                                if (fn) {
-                                    var _0xe92b25 = fn[_0xe502('0x65', 'l)Bh')](context, arguments);
-                                    fn = null;
-                                    return _0xe92b25;
-                                }
-                            } : function() {};
-                            firstCall = ![];
-                            return _0x5e6774;
-                        } else {}
-                    };
-                    var _0x5e5e97 = _0x363bf7[_0xe502('0x66', 'avdR')](typeof window, _0x363bf7['mwjWW']) ? window : _0x363bf7['VdvGO'](typeof process, _0x363bf7[_0xe502('0x67', '^C43')]) && _0x363bf7[_0xe502('0x68', 'lQZJ')](typeof require, _0x363bf7[_0xe502('0x69', 'uhPc')]) && _0x363bf7['MxNIa'](typeof global, _0x363bf7[_0xe502('0x6a', 'ChYM')]) ? global : this;
-                    if (!_0x5e5e97['console']) {
-                        if (_0x363bf7[_0xe502('0x6b', 'A]mH')](_0x363bf7[_0xe502('0x6c', 'xFSI')], _0x363bf7[_0xe502('0x6c', 'xFSI')])) {
-                            var _0x276078 = function() {
-                                while (!![]) {}
-                            };
-                            return _0x276078();
-                        } else {
-                            _0x5e5e97[_0xe502('0x6d', 'Eb4t')] = function(_0x5b5b3c) {
-                                var _0x2920bf = {
-                                    'lcbnv': function _0x28514e(_0x5cb29e, _0x3b25a4) {
-                                        return _0x5cb29e === _0x3b25a4;
-                                    },
-                                    'dxYGl': _0xe502('0x6e', 'jXzj')
-                                };
-                                if (_0x2920bf['lcbnv'](_0xe502('0x6f', 'L%hQ'), _0x2920bf[_0xe502('0x70', 'qiEn')])) {
-                                    _0x5e5e97[_0xe502('0x71', 'zLHw')][_0xe502('0x72', 'DmtJ')] = _0x5b5b3c;
-                                    _0x5e5e97[_0xe502('0x73', 'Ypgz')][_0xe502('0x74', 'lQZJ')] = _0x5b5b3c;
-                                    _0x5e5e97[_0xe502('0x75', 'Tstn')]['debug'] = _0x5b5b3c;
-                                    _0x5e5e97[_0xe502('0x76', 'ChYM')][_0xe502('0x77', '@4kL')] = _0x5b5b3c;
-                                    _0x5e5e97[_0xe502('0x71', 'zLHw')]['error'] = _0x5b5b3c;
-                                    _0x5e5e97[_0xe502('0x78', 'bY1!')][_0xe502('0x79', '@4kL')] = _0x5b5b3c;
-                                    _0x5e5e97[_0xe502('0x7a', 'EVt0')]['trace'] = _0x5b5b3c;
-                                } else {
-                                    var _0x3c1b8a = {};
-                                    _0x3c1b8a[_0xe502('0x7b', 'dtIF')] = _0x5b5b3c;
-                                    _0x3c1b8a[_0xe502('0x7c', 'bY1!')] = _0x5b5b3c;
-                                    _0x3c1b8a[_0xe502('0x7d', 'uhPc')] = _0x5b5b3c;
-                                    _0x3c1b8a[_0xe502('0x7e', 'Priu')] = _0x5b5b3c;
-                                    _0x3c1b8a[_0xe502('0x7f', 'kF&C')] = _0x5b5b3c;
-                                    _0x3c1b8a[_0xe502('0x80', '(VnP')] = _0x5b5b3c;
-                                    _0x3c1b8a['trace'] = _0x5b5b3c;
-                                    return _0x3c1b8a;
-                                }
-                            }(_0x3c6d94);
-                        }
-                    } else {
-                        var _0x82ee4d = '3|0|6|1|2|5|4' ['split']('|'),
-                            _0x50ecca = 0x0;
-                        while (!![]) {
-                            switch (_0x82ee4d[_0x50ecca++]) {
-                                case '0':
-                                    _0x5e5e97[_0xe502('0x81', 'dtIF')][_0xe502('0x82', 'u6I[')] = _0x3c6d94;
-                                    continue;
-                                case '1':
-                                    _0x5e5e97[_0xe502('0x83', '^C43')][_0xe502('0x84', 'avdR')] = _0x3c6d94;
-                                    continue;
-                                case '2':
-                                    _0x5e5e97[_0xe502('0x85', 'jXzj')][_0xe502('0x86', 'cOLk')] = _0x3c6d94;
-                                    continue;
-                                case '3':
-                                    _0x5e5e97['console'][_0xe502('0x87', 'Ye&R')] = _0x3c6d94;
-                                    continue;
-                                case '4':
-                                    _0x5e5e97[_0xe502('0x88', 'Priu')][_0xe502('0x89', 'cCs&')] = _0x3c6d94;
-                                    continue;
-                                case '5':
-                                    _0x5e5e97[_0xe502('0x83', '^C43')]['exception'] = _0x3c6d94;
-                                    continue;
-                                case '6':
-                                    _0x5e5e97[_0xe502('0x8a', 'zANc')][_0xe502('0x8b', 'qiEn')] = _0x3c6d94;
-                                    continue;
-                            }
-                            break;
-                        }
-                    }
-                });
-                continue;
-            case '6':
-                try {
-                    if (_0x443936['kpVAe'] === _0x443936['kpVAe']) {
-                        _0x3c1b8a += _0x443936[_0xe502('0x8c', '(VnP')];
-                        _0x3dfb47 = encode_version;
-                        if (!(typeof _0x3dfb47 !== _0x443936[_0xe502('0x8d', 'l)Bh')] && _0x443936['DfyIh'](_0x3dfb47, _0x443936[_0xe502('0x8e', 'uhPc')]))) {
-                            _0x5768f3[_0x3c1b8a]('删除' + _0x443936[_0xe502('0x8f', '@4kL')]);
-                        }
-                    } else {
-                        that[_0xe502('0x90', 'WHF6')] = function(_0x38c48e) {
-                            var _0x47d5f4 = {
-                                'RrMbC': _0xe502('0x91', 'j*7c')
-                            };
-                            var _0x168f74 = _0x47d5f4['RrMbC'][_0xe502('0x92', '@4kL')]('|'),
-                                _0x5bcee1 = 0x0;
-                            while (!![]) {
-                                switch (_0x168f74[_0x5bcee1++]) {
-                                    case '0':
-                                        var _0x3e3a6f = {};
-                                        continue;
-                                    case '1':
-                                        _0x3e3a6f['debug'] = _0x38c48e;
-                                        continue;
-                                    case '2':
-                                        _0x3e3a6f[_0xe502('0x93', 'zLHw')] = _0x38c48e;
-                                        continue;
-                                    case '3':
-                                        _0x3e3a6f[_0xe502('0x94', '0!o9')] = _0x38c48e;
-                                        continue;
-                                    case '4':
-                                        _0x3e3a6f[_0xe502('0x95', '0!o9')] = _0x38c48e;
-                                        continue;
-                                    case '5':
-                                        return _0x3e3a6f;
-                                    case '6':
-                                        _0x3e3a6f[_0xe502('0x96', 'F^WV')] = _0x38c48e;
-                                        continue;
-                                    case '7':
-                                        _0x3e3a6f[_0xe502('0x97', 'kF&C')] = _0x38c48e;
-                                        continue;
-                                    case '8':
-                                        _0x3e3a6f[_0xe502('0x98', '^0y3')] = _0x38c48e;
-                                        continue;
-                                }
-                                break;
-                            }
-                        }(func);
-                    }
-                } catch (_0x1f59de) {
-                    if (_0x443936['zCTtB'](_0xe502('0x99', '(3)F'), _0x443936[_0xe502('0x9a', 'zANc')])) {
-                        var _0x4eb514 = _0x443936['Gmxfp'][_0xe502('0x92', '@4kL')]('|'),
-                            _0x44bad8 = 0x0;
-                        while (!![]) {
-                            switch (_0x4eb514[_0x44bad8++]) {
-                                case '0':
-                                    _0x5552eb['debug'] = func;
-                                    continue;
-                                case '1':
-                                    var _0x5552eb = {};
-                                    continue;
-                                case '2':
-                                    _0x5552eb['warn'] = func;
-                                    continue;
-                                case '3':
-                                    _0x5552eb[_0xe502('0x9b', 'Eb4t')] = func;
-                                    continue;
-                                case '4':
-                                    _0x5552eb[_0xe502('0x9c', 'cOLk')] = func;
-                                    continue;
-                                case '5':
-                                    return _0x5552eb;
-                                case '6':
-                                    _0x5552eb['error'] = func;
-                                    continue;
-                                case '7':
-                                    _0x5552eb[_0xe502('0x9d', 'Ypgz')] = func;
-                                    continue;
-                                case '8':
-                                    _0x5552eb['log'] = func;
-                                    continue;
-                            }
-                            break;
-                        }
-                    } else {
-                        _0x5768f3[_0x3c1b8a]('删除版本号，js会定期弹窗');
-                    }
-                }
-                continue;
-            case '7':
-                _0x443936['WkKkz'](_0x199e65);
-                continue;
+        this.node.data = require("./magic.json");
+      }
+      if (this.isJSBox) {
+        if (!$file.exists("drive://MagicJS")) {
+          $file.mkdir("drive://MagicJS");
         }
-        break;
+        if (!$file.exists("drive://MagicJS/magic.json")) {
+          $file.write({
+            data: $data({ string: "{}" }),
+            path: "drive://MagicJS/magic.json",
+          });
+        }
+      }
     }
-}(window));
 
-function _0x48c30a(_0x49aa1c) {
-    var _0x58c587 = {
-        'fKSUB': function _0x4eb2fa(_0x52cdc9, _0x315e3d) {
-            return _0x52cdc9 === _0x315e3d;
-        },
-        'sixnm': _0xe502('0x9e', 'H!]$'),
-        'IkPmG': _0xe502('0x9f', 'Imt)'),
-        'yMIxM': '\+\+ *(?:_0x(?:[a-f0-9]){4,6}|(?:\b|\d)[a-z0-9]{1,4}(?:\b|\d))',
-        'CLhMb': function _0xa1c873(_0x1add5f, _0x5e7eb7) {
-            return _0x1add5f(_0x5e7eb7);
-        },
-        'XRsSN': _0xe502('0xa0', 'uhPc'),
-        'rCwUd': function _0x30a780(_0x1bc03b, _0x40c46c) {
-            return _0x1bc03b + _0x40c46c;
-        },
-        'nOnmv': 'chain',
-        'bSpjQ': _0xe502('0xa1', '0nF%'),
-        'BTgHX': function _0x3e3221(_0x25267d, _0x44e3ed) {
-            return _0x25267d(_0x44e3ed);
+    get version() {
+      return "v2.1.4";
+    }
+
+    get isSurge() {
+      return typeof $httpClient !== "undefined" && !this.isLoon;
+    }
+
+    get isQuanX() {
+      return typeof $task !== "undefined";
+    }
+
+    get isLoon() {
+      return typeof $loon !== "undefined";
+    }
+
+    get isJSBox() {
+      return typeof $drive !== "undefined";
+    }
+
+    get isNode() {
+      return typeof module !== "undefined" && !this.isJSBox;
+    }
+
+    get isRequest() {
+      return (
+        typeof $request !== "undefined" && typeof $response === "undefined"
+      );
+    }
+
+    get isResponse() {
+      return typeof $response !== "undefined";
+    }
+
+    get request() {
+      return typeof $request !== "undefined" ? $request : undefined;
+    }
+
+    get response() {
+      if (typeof $response !== "undefined") {
+        if ($response.hasOwnProperty("status"))
+          $response["statusCode"] = $response["status"];
+        if ($response.hasOwnProperty("statusCode"))
+          $response["status"] = $response["statusCode"];
+        return $response;
+      } else {
+        return undefined;
+      }
+    }
+
+    get logLevels() {
+      return {
+        DEBUG: 4,
+        INFO: 3,
+        WARNING: 2,
+        ERROR: 1,
+        CRITICAL: 0,
+      };
+    }
+
+    getLogLevels(level) {
+      try {
+        if (this.isNumber(level)) {
+          return level;
+        } else {
+          let levelNum = this.logLevels[level];
+          if (typeof levelNum === "undefined") {
+            this.logError(
+              `获取MagicJS日志级别错误，已强制设置为DEBUG级别。传入日志级别：${level}。`
+            );
+            return this.logLevels.DEBUG;
+          } else {
+            return levelNum;
+          }
         }
-    };
+      } catch (err) {
+        this.logError(
+          `获取MagicJS日志级别错误，已强制设置为DEBUG级别。传入日志级别：${level}，异常信息：${err}。`
+        );
+        return this.logLevels.DEBUG;
+      }
+    }
 
-    function _0x110154(_0x2475d4) {
-        var _0xbc10a6 = {
-            'pMClx': 'wKz',
-            'KOFfi': function _0x3c27df(_0x2480b3, _0x2b9a1a) {
-                return _0x2480b3 === _0x2b9a1a;
-            },
-            'MLJwz': _0xe502('0xa2', 'u6I['),
-            'BJBSi': function _0x58f0fb(_0x44a7a0, _0x206258) {
-                return _0x44a7a0 !== _0x206258;
-            },
-            'GarhP': _0xe502('0xa3', '^0y3'),
-            'pHlPl': _0xe502('0xa4', '(D#U'),
-            'FnctA': function _0x23ac71(_0x3bb615) {
-                return _0x3bb615();
-            },
-            'EqUuK': function _0x399ffb(_0x32abdd, _0x1c0041) {
-                return _0x32abdd + _0x1c0041;
-            },
-            'ZCsSf': function _0x325f8d(_0x535e4c, _0x479ed6) {
-                return _0x535e4c / _0x479ed6;
-            },
-            'nVgiL': function _0x195b79(_0x1219eb, _0x45a4b6) {
-                return _0x1219eb % _0x45a4b6;
-            },
-            'nYpBd': function _0x125e24(_0x3cf858, _0x1504d4) {
-                return _0x3cf858 + _0x1504d4;
-            },
-            'DIqds': _0xe502('0xa5', '(3)F')
+    read(key, session = "") {
+      let val = "";
+      // 读取原始数据
+      if (this.isSurge || this.isLoon) {
+        val = $persistentStore.read(key);
+      } else if (this.isQuanX) {
+        val = $prefs.valueForKey(key);
+      } else if (this.isNode) {
+        val = this.node.data;
+      } else if (this.isJSBox) {
+        val = $file.read("drive://MagicJS/magic.json").string;
+      }
+      try {
+        // Node 和 JSBox数据处理
+        if (this.isNode) val = val[key];
+        if (this.isJSBox) val = JSON.parse(val)[key];
+        // 带Session的情况
+        if (!!session) {
+          if (typeof val === "string") val = JSON.parse(val);
+          val = !!val && typeof val === "object" ? val[session] : null;
+        }
+      } catch (err) {
+        this.logError(`raise exception: ${err}`);
+        val = !!session ? {} : null;
+        this.del(key);
+      }
+      if (typeof val === "undefined") val = null;
+      try {
+        if (!!val && typeof val === "string") val = JSON.parse(val);
+      } catch (err) {}
+      this.logDebug(
+        `read data [${key}]${
+          !!session ? `[${session}]` : ""
+        }(${typeof val})\n${JSON.stringify(val)}`
+      );
+      return val;
+    }
+
+    write(key, val, session = "") {
+      let data = !!session ? {} : "";
+      // 读取原先存储的JSON格式数据
+      if (!!session && (this.isSurge || this.isLoon)) {
+        data = $persistentStore.read(key);
+      } else if (!!session && this.isQuanX) {
+        data = $prefs.valueForKey(key);
+      } else if (this.isNode) {
+        data = this.node.data;
+      } else if (this.isJSBox) {
+        data = JSON.parse($file.read("drive://MagicJS/magic.json").string);
+      }
+      if (!!session) {
+        // 有Session，要求所有数据都是Object
+        try {
+          if (typeof data === "string") data = JSON.parse(data);
+          data = typeof data === "object" && !!data ? data : {};
+        } catch (err) {
+          this.logError(`raise exception: ${err}`);
+          this.del(key);
+          data = {};
+        }
+        if (this.isJSBox || this.isNode) {
+          // 构造数据
+          if (!data.hasOwnProperty(key) || typeof data[key] != "object") {
+            data[key] = {};
+          }
+          if (!data[key].hasOwnProperty(session)) {
+            data[key][session] = null;
+          }
+          // 写入或删除数据
+          if (typeof val === "undefined") {
+            delete data[key][session];
+          } else {
+            data[key][session] = val;
+          }
+        } else {
+          // 写入或删除数据
+          if (typeof val === "undefined") {
+            delete data[session];
+          } else {
+            data[session] = val;
+          }
+        }
+      }
+      // 没有Session时
+      else {
+        if (this.isNode || this.isJSBox) {
+          // 删除数据
+          if (typeof val === "undefined") {
+            delete data[key];
+          } else {
+            data[key] = val;
+          }
+        } else {
+          // 删除数据
+          if (typeof val === "undefined") {
+            data = null;
+          } else {
+            data = val;
+          }
+        }
+      }
+      // 数据回写
+      if (typeof data === "object") data = JSON.stringify(data);
+      if (this.isSurge || this.isLoon) {
+        $persistentStore.write(data, key);
+      } else if (this.isQuanX) {
+        $prefs.setValueForKey(data, key);
+      } else if (this.isNode) {
+        this.node.fs.writeFileSync("./magic.json", data);
+      } else if (this.isJSBox) {
+        $file.write({
+          data: $data({ string: data }),
+          path: "drive://MagicJS/magic.json",
+        });
+      }
+      this.logDebug(
+        `write data [${key}]${
+          !!session ? `[${session}]` : ""
+        }(${typeof val})\n${JSON.stringify(val)}`
+      );
+    }
+
+    del(key, session = "") {
+      this.logDebug(`delete key [${key}]${!!session ? `[${session}]` : ""}`);
+      this.write(key, undefined, session);
+    }
+
+    /**
+     * iOS系统通知
+     * @param {*} title 通知标题
+     * @param {*} subTitle 通知副标题
+     * @param {*} body 通知内容
+     * @param {*} options 通知选项，目前支持传入超链接或Object
+     * Surge不支持通知选项，Loon仅支持打开URL，QuantumultX支持打开URL和多媒体通知
+     * options "applestore://" 打开Apple Store
+     * options "https://www.apple.com.cn/" 打开Apple.com.cn
+     * options {'open-url': 'https://www.apple.com.cn/'} 打开Apple.com.cn
+     * options {'open-url': 'https://www.apple.com.cn/', 'media-url': 'https://raw.githubusercontent.com/Orz-3/mini/master/Apple.png'} 打开Apple.com.cn，显示一个苹果Logo
+     */
+    notify(title = this.scriptName, subTitle = "", body = "", options = "") {
+      let convertOptions = (_options) => {
+        let newOptions = "";
+        if (typeof _options === "string") {
+          if (this.isLoon) newOptions = _options;
+          else if (this.isQuanX) newOptions = { "open-url": _options };
+        } else if (typeof _options === "object") {
+          if (this.isLoon)
+            newOptions = !!_options["open-url"] ? _options["open-url"] : "";
+          else if (this.isQuanX)
+            newOptions =
+              !!_options["open-url"] || !!_options["media-url"] ? _options : {};
+        }
+        return newOptions;
+      };
+      options = convertOptions(options);
+      // 支持单个参数通知
+      if (arguments.length == 1) {
+        title = this.scriptName;
+        (subTitle = ""), (body = arguments[0]);
+      }
+      if (this.isSurge) {
+        $notification.post(title, subTitle, body);
+      } else if (this.isLoon) {
+        // 2020.08.11 Loon2.1.3(194)TF 如果不加这个log，在跑测试用例连续6次通知，会漏掉一些通知，已反馈给作者。
+        this.logInfo(
+          `title: ${title}, subTitle：${subTitle}, body：${body}, options：${options}`
+        );
+        if (!!options) $notification.post(title, subTitle, body, options);
+        else $notification.post(title, subTitle, body);
+      } else if (this.isQuanX) {
+        $notify(title, subTitle, body, options);
+      } else if (this.isNode) {
+        this.log(`${title} ${subTitle}\n${body}`);
+      } else if (this.isJSBox) {
+        let push = {
+          title: title,
+          body: !!subTitle ? `${subTitle}\n${body}` : body,
         };
-        if ('TtI' !== _0xbc10a6[_0xe502('0xa6', 'pCQZ')]) {
-            if (_0xbc10a6['KOFfi'](typeof _0x2475d4, _0xbc10a6[_0xe502('0xa7', 'u6I[')])) {
-                if (_0xbc10a6[_0xe502('0xa8', 'EVt0')](_0xbc10a6[_0xe502('0xa9', 'j*7c')], _0xbc10a6['pHlPl'])) {
-                    var _0x1f4027 = function() {
-                        var _0x4bd1de = {
-                            'NkXLe': function _0x23a8f1(_0x4ea8fc, _0x349c04) {
-                                return _0x4ea8fc !== _0x349c04;
-                            },
-                            'KjcdH': 'UKW',
-                            'Jomgd': _0xe502('0xaa', 'xFSI')
-                        };
-                        if (_0x4bd1de[_0xe502('0xab', 'jXzj')]('jqe', _0x4bd1de['KjcdH'])) {
-                            while (!![]) {
-                                if (_0xe502('0xaa', 'xFSI') === _0x4bd1de[_0xe502('0xac', 'l)Bh')]) {} else {
-                                    if (fn) {
-                                        var _0x113d91 = fn[_0xe502('0xad', '(3)F')](context, arguments);
-                                        fn = null;
-                                        return _0x113d91;
-                                    }
-                                }
-                            }
-                        } else {
-                            if (fn) {
-                                var _0x1b8944 = fn[_0xe502('0xae', 'Imt)')](context, arguments);
-                                fn = null;
-                                return _0x1b8944;
-                            }
-                        }
-                    };
-                    return _0xbc10a6[_0xe502('0xaf', 'zLHw')](_0x1f4027);
-                } else {}
-            } else {
-                if (_0xbc10a6[_0xe502('0xb0', '(3)F')](_0xbc10a6[_0xe502('0xb1', 'avdR')]('', _0xbc10a6[_0xe502('0xb2', 'A]mH')](_0x2475d4, _0x2475d4))[_0xe502('0xb3', 'cCs&')], 0x1) || _0xbc10a6[_0xe502('0xb4', 'h$^p')](_0x2475d4, 0x14) === 0x0) {
-                    debugger;
-                } else {
-                    debugger;
-                }
-            }
-            _0x110154(++_0x2475d4);
-        } else {
-            w[c](_0xbc10a6[_0xe502('0xb5', 'j*7c')]('删除', _0xbc10a6['DIqds']));
-        }
+        $push.schedule(push);
+      }
     }
-    try {
-        if (_0x49aa1c) {
-            if (_0x58c587['fKSUB'](_0x58c587['sixnm'], _0xe502('0xb6', '41mG'))) {
-                return _0x110154;
-            } else {
-                var _0x42e534 = new RegExp(_0x58c587[_0xe502('0xb7', 'u6I[')]);
-                var _0x9feaf5 = new RegExp(_0x58c587[_0xe502('0xb8', 'kF&C')], 'i');
-                var _0x1a21d4 = _0x58c587[_0xe502('0xb9', 'avdR')](_0x48c30a, _0x58c587[_0xe502('0xba', '3206')]);
-                if (!_0x42e534['test'](_0x58c587['rCwUd'](_0x1a21d4, _0x58c587[_0xe502('0xbb', '@4kL')])) || !_0x9feaf5[_0xe502('0xbc', 'H!]$')](_0x58c587[_0xe502('0xbd', 'avdR')](_0x1a21d4, _0x58c587['bSpjQ']))) {
-                    _0x1a21d4('0');
-                } else {
-                    _0x48c30a();
-                }
-            }
-        } else {
-            _0x58c587[_0xe502('0xbe', '&txs')](_0x110154, 0x0);
+
+    log(msg, level = "INFO") {
+      if (this.logLevel >= this.getLogLevels(level.toUpperCase()))
+        console.log(`[${level}] [${this.scriptName}]\n${msg}\n`);
+    }
+
+    logDebug(msg) {
+      this.log(msg, "DEBUG");
+    }
+
+    logInfo(msg) {
+      this.log(msg, "INFO");
+    }
+
+    logWarning(msg) {
+      this.log(msg, "WARNING");
+    }
+
+    logError(msg) {
+      this.log(msg, "ERROR");
+    }
+
+    get(options, callback) {
+      let _options =
+        typeof options === "object" ? Object.assign({}, options) : options;
+      this.logDebug(`http get: ${JSON.stringify(_options)}`);
+      if (this.isSurge || this.isLoon) {
+        $httpClient.get(_options, callback);
+      } else if (this.isQuanX) {
+        if (typeof _options === "string") _options = { url: _options };
+        _options["method"] = "GET";
+        $task.fetch(_options).then(
+          (resp) => {
+            resp["status"] = resp.statusCode;
+            callback(null, resp, resp.body);
+          },
+          (reason) => callback(reason.error, null, null)
+        );
+      } else if (this.isNode) {
+        return this.node.request.get(_options, callback);
+      } else if (this.isJSBox) {
+        _options = typeof _options === "string" ? { url: _options } : _options;
+        options["header"] = _options["headers"];
+        delete _options["headers"];
+        _options["handler"] = (resp) => {
+          let err = resp.error ? JSON.stringify(resp.error) : undefined;
+          let data =
+            typeof resp.data === "object"
+              ? JSON.stringify(resp.data)
+              : resp.data;
+          callback(err, resp.response, data);
+        };
+        $http.get(_options);
+      }
+    }
+
+    post(options, callback) {
+      let _options =
+        typeof options === "object" ? Object.assign({}, options) : options;
+      this.logDebug(`http post: ${JSON.stringify(_options)}`);
+      if (this.isSurge || this.isLoon) {
+        $httpClient.post(_options, callback);
+      } else if (this.isQuanX) {
+        if (typeof _options === "string") _options = { url: _options };
+        if (
+          _options.hasOwnProperty("body") &&
+          typeof _options["body"] !== "string"
+        )
+          _options["body"] = JSON.stringify(_options["body"]);
+        _options["method"] = "POST";
+        $task.fetch(_options).then(
+          (resp) => {
+            resp["status"] = resp.statusCode;
+            callback(null, resp, resp.body);
+          },
+          (reason) => {
+            callback(reason.error, null, null);
+          }
+        );
+      } else if (this.isNode) {
+        if (typeof _options.body === "object")
+          _options.body = JSON.stringify(_options.body);
+        return this.node.request.post(_options, callback);
+      } else if (this.isJSBox) {
+        _options = typeof _options === "string" ? { url: _options } : _options;
+        _options["header"] = _options["headers"];
+        delete _options["headers"];
+        _options["handler"] = (resp) => {
+          let err = resp.error ? JSON.stringify(resp.error) : undefined;
+          let data =
+            typeof resp.data === "object"
+              ? JSON.stringify(resp.data)
+              : resp.data;
+          callback(err, resp.response, data);
+        };
+        $http.post(_options);
+      }
+    }
+
+    done(value = {}) {
+      if (typeof $done !== "undefined") {
+        $done(value);
+      }
+    }
+
+    isToday(day) {
+      if (day == null) {
+        return false;
+      } else {
+        let today = new Date();
+        if (typeof day == "string") {
+          day = new Date(day);
         }
-    } catch (_0x3982ca) {}
-};
-encode_version = 'jsjiami.com.v5';
+        if (
+          today.getFullYear() == day.getFullYear() &&
+          today.getMonth() == day.getMonth() &&
+          today.getDay() == day.getDay()
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+
+    isNumber(val) {
+      return parseFloat(val).toString() === "NaN" ? false : true;
+    }
+
+    /**
+     * 对await执行中出现的异常进行捕获并返回，避免写过多的try catch语句
+     * @param {*} promise Promise 对象
+     * @param {*} defaultValue 出现异常时返回的默认值
+     * @returns 返回两个值，第一个值为异常，第二个值为执行结果
+     */
+    attempt(promise, defaultValue = null) {
+      return promise
+        .then((args) => {
+          return [null, args];
+        })
+        .catch((ex) => {
+          this.log("raise exception:" + ex);
+          return [ex, defaultValue];
+        });
+    }
+
+    /**
+     * 重试方法
+     * @param {*} fn 需要重试的函数
+     * @param {number} [retries=5] 重试次数
+     * @param {number} [interval=0] 每次重试间隔
+     * @param {function} [callback=null] 函数没有异常时的回调，会将函数执行结果result传入callback，根据result的值进行判断，如果需要再次重试，在callback中throw一个异常，适用于函数本身没有异常但仍需重试的情况。
+     * @returns 返回一个Promise对象
+     */
+    retry(fn, retries = 5, interval = 0, callback = null) {
+      return (...args) => {
+        return new Promise((resolve, reject) => {
+          function _retry(...args) {
+            Promise.resolve()
+              .then(() => fn.apply(this, args))
+              .then((result) => {
+                if (typeof callback === "function") {
+                  Promise.resolve()
+                    .then(() => callback(result))
+                    .then(() => {
+                      resolve(result);
+                    })
+                    .catch((ex) => {
+                      if (retries >= 1 && interval > 0) {
+                        setTimeout(() => _retry.apply(this, args), interval);
+                      } else if (retries >= 1) {
+                        _retry.apply(this, args);
+                      } else {
+                        reject(ex);
+                      }
+                      retries--;
+                    });
+                } else {
+                  resolve(result);
+                }
+              })
+              .catch((ex) => {
+                if (retries >= 1 && interval > 0) {
+                  setTimeout(() => _retry.apply(this, args), interval);
+                } else if (retries >= 1) {
+                  _retry.apply(this, args);
+                } else {
+                  reject(ex);
+                }
+                retries--;
+              });
+          }
+
+          _retry.apply(this, args);
+        });
+      };
+    }
+
+    formatTime(time, fmt = "yyyy-MM-dd hh:mm:ss") {
+      var o = {
+        "M+": time.getMonth() + 1,
+        "d+": time.getDate(),
+        "h+": time.getHours(),
+        "m+": time.getMinutes(),
+        "s+": time.getSeconds(),
+        "q+": Math.floor((time.getMonth() + 3) / 3),
+        S: time.getMilliseconds(),
+      };
+      if (/(y+)/.test(fmt))
+        fmt = fmt.replace(
+          RegExp.$1,
+          (time.getFullYear() + "").substr(4 - RegExp.$1.length)
+        );
+      for (let k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+          fmt = fmt.replace(
+            RegExp.$1,
+            RegExp.$1.length == 1
+              ? o[k]
+              : ("00" + o[k]).substr(("" + o[k]).length)
+          );
+      return fmt;
+    }
+
+    now() {
+      return this.formatTime(new Date(), "yyyy-MM-dd hh:mm:ss");
+    }
+
+    sleep(time) {
+      return new Promise((resolve) => setTimeout(resolve, time));
+    }
+  })(scriptName);
+}
+
+function ENV() {
+  const e = "function" == typeof require && "undefined" != typeof $jsbox;
+  return {
+    isQX: "undefined" != typeof $task,
+    isLoon: "undefined" != typeof $loon,
+    isSurge: "undefined" != typeof $httpClient && "undefined" == typeof $loon,
+    isBrowser: "undefined" != typeof document,
+    isNode: "function" == typeof require && !e,
+    isJSBox: e,
+    isRequest: "undefined" != typeof $request,
+    isScriptable: "undefined" != typeof importModule,
+  };
+}
+function HTTP(e = { baseURL: "" }) {
+  function t(t, a) {
+    a = "string" == typeof a ? { url: a } : a;
+    const h = e.baseURL;
+    h && !d.test(a.url || "") && (a.url = h ? h + a.url : a.url),
+      a.body &&
+        a.headers &&
+        !a.headers["Content-Type"] &&
+        (a.headers["Content-Type"] = "application/x-www-form-urlencoded"),
+      (a = { ...e, ...a });
+    const c = a.timeout,
+      l = {
+        onRequest: () => {},
+        onResponse: (e) => e,
+        onTimeout: () => {},
+        ...a.events,
+      };
+    let f, y;
+    if ((l.onRequest(t, a), s)) f = $task.fetch({ method: t, ...a });
+    else if (o || n)
+      f = new Promise((e, s) => {
+        $httpClient[t.toLowerCase()](a, (t, o, n) => {
+          t
+            ? s(t)
+            : e({
+                statusCode: o.status || o.statusCode,
+                headers: o.headers,
+                body: n,
+              });
+        });
+      });
+    else if (r) {
+      const e = require("got"),
+        s = require("iconv-lite");
+      f = new Promise((o, n) => {
+        e[t.toLowerCase()](a)
+          .then((e) =>
+            o({
+              statusCode: e.statusCode,
+              headers: e.headers,
+              body: s.decode(e.rawBody, "utf-8"),
+            })
+          )
+          .catch(n);
+      });
+    } else if (i) {
+      const e = new Request(a.url);
+      (e.method = t),
+        (e.headers = a.headers),
+        (e.body = a.body),
+        (f = new Promise((t, s) => {
+          e.loadString()
+            .then((s) => {
+              t({
+                statusCode: e.response.statusCode,
+                headers: e.response.headers,
+                body: s,
+              });
+            })
+            .catch((e) => s(e));
+        }));
+    } else
+      u &&
+        (f = new Promise((e, s) => {
+          fetch(a.url, { method: t, headers: a.headers, body: a.body })
+            .then((e) => e.json())
+            .then((t) =>
+              e({ statusCode: t.status, headers: t.headers, body: t.data })
+            )
+            .catch(s);
+        }));
+    const p = c
+      ? new Promise((e, s) => {
+          y = setTimeout(
+            () => (
+              l.onTimeout(), s(`${t} URL: ${a.url} exceeds the timeout ${c} ms`)
+            ),
+            c
+          );
+        })
+      : null;
+    return (
+      p ? Promise.race([p, f]).then((e) => (clearTimeout(y), e)) : f
+    ).then((e) => l.onResponse(e));
+  }
+  const {
+      isQX: s,
+      isLoon: o,
+      isSurge: n,
+      isScriptable: i,
+      isNode: r,
+      isBrowser: u,
+    } = ENV(),
+    a = ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS", "PATCH"],
+    d =
+      /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+    h = {};
+  return a.forEach((e) => (h[e.toLowerCase()] = (s) => t(e, s))), h;
+}
+function API(e = "untitled", t = !1) {
+  const {
+    isQX: s,
+    isLoon: o,
+    isSurge: n,
+    isNode: i,
+    isJSBox: r,
+    isScriptable: u,
+  } = ENV();
+  return new (class {
+    constructor(e, t) {
+      (this.name = e),
+        (this.debug = t),
+        (this.http = HTTP()),
+        (this.env = ENV()),
+        (this.node = (() => {
+          if (i) {
+            const e = require("fs");
+            return { fs: e };
+          }
+          return null;
+        })()),
+        this.initCache();
+      const s = (e, t) =>
+        new Promise(function (s) {
+          setTimeout(s.bind(null, t), e);
+        });
+      Promise.prototype.delay = function (e) {
+        return this.then(function (t) {
+          return s(e, t);
+        });
+      };
+    }
+    initCache() {
+      if (
+        (s && (this.cache = JSON.parse($prefs.valueForKey(this.name) || "{}")),
+        (o || n) &&
+          (this.cache = JSON.parse($persistentStore.read(this.name) || "{}")),
+        i)
+      ) {
+        let e = "root.json";
+        this.node.fs.existsSync(e) ||
+          this.node.fs.writeFileSync(
+            e,
+            JSON.stringify({}),
+            { flag: "wx" },
+            (e) => console.log(e)
+          ),
+          (this.root = {}),
+          (e = `${this.name}.json`),
+          this.node.fs.existsSync(e)
+            ? (this.cache = JSON.parse(
+                this.node.fs.readFileSync(`${this.name}.json`)
+              ))
+            : (this.node.fs.writeFileSync(
+                e,
+                JSON.stringify({}),
+                { flag: "wx" },
+                (e) => console.log(e)
+              ),
+              (this.cache = {}));
+      }
+    }
+    persistCache() {
+      const e = JSON.stringify(this.cache, null, 2);
+      s && $prefs.setValueForKey(e, this.name),
+        (o || n) && $persistentStore.write(e, this.name),
+        i &&
+          (this.node.fs.writeFileSync(
+            `${this.name}.json`,
+            e,
+            { flag: "w" },
+            (e) => console.log(e)
+          ),
+          this.node.fs.writeFileSync(
+            "root.json",
+            JSON.stringify(this.root, null, 2),
+            { flag: "w" },
+            (e) => console.log(e)
+          ));
+    }
+    write(e, t) {
+      if ((this.log(`SET ${t}`), -1 !== t.indexOf("#"))) {
+        if (((t = t.substr(1)), n || o)) return $persistentStore.write(e, t);
+        if (s) return $prefs.setValueForKey(e, t);
+        i && (this.root[t] = e);
+      } else this.cache[t] = e;
+      this.persistCache();
+    }
+    read(e) {
+      return (
+        this.log(`READ ${e}`),
+        -1 === e.indexOf("#")
+          ? this.cache[e]
+          : ((e = e.substr(1)),
+            n || o
+              ? $persistentStore.read(e)
+              : s
+              ? $prefs.valueForKey(e)
+              : i
+              ? this.root[e]
+              : void 0)
+      );
+    }
+    delete(e) {
+      if ((this.log(`DELETE ${e}`), -1 !== e.indexOf("#"))) {
+        if (((e = e.substr(1)), n || o)) return $persistentStore.write(null, e);
+        if (s) return $prefs.removeValueForKey(e);
+        i && delete this.root[e];
+      } else delete this.cache[e];
+      this.persistCache();
+    }
+    notify(e, t = "", a = "", d = {}) {
+      const h = d["open-url"],
+        c = d["media-url"];
+      if (
+        (s && $notify(e, t, a, d),
+        n &&
+          $notification.post(e, t, a + `${c ? "\n多媒体:" + c : ""}`, {
+            url: h,
+          }),
+        o)
+      ) {
+        let s = {};
+        h && (s.openUrl = h),
+          c && (s.mediaUrl = c),
+          "{}" === JSON.stringify(s)
+            ? $notification.post(e, t, a)
+            : $notification.post(e, t, a, s);
+      }
+      if (i || u) {
+        const s =
+          a + (h ? `\n点击跳转: ${h}` : "") + (c ? `\n多媒体: ${c}` : "");
+        if (r) {
+          const o = require("push");
+          o.schedule({ title: e, body: (t ? t + "\n" : "") + s });
+        } else console.log(`${e}\n${t}\n${s}\n\n`);
+      }
+    }
+    log(e) {
+      this.debug && console.log(`[${this.name}] LOG: ${this.stringify(e)}`);
+    }
+    info(e) {
+      console.log(`[${this.name}] INFO: ${this.stringify(e)}`);
+    }
+    error(e) {
+      console.log(`[${this.name}] ERROR: ${this.stringify(e)}`);
+    }
+    wait(e) {
+      return new Promise((t) => setTimeout(t, e));
+    }
+    done(e = {}) {
+      s || o || n
+        ? $done(e)
+        : i &&
+          !r &&
+          "undefined" != typeof $context &&
+          (($context.headers = e.headers),
+          ($context.statusCode = e.statusCode),
+          ($context.body = e.body));
+    }
+    stringify(e) {
+      if ("string" == typeof e || e instanceof String) return e;
+      try {
+        return JSON.stringify(e, null, 2);
+      } catch (e) {
+        return "[object Object]";
+      }
+    }
+  })(e, t);
+}

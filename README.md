@@ -6,7 +6,7 @@
 
 #### 本仓库用于记录QuantumultX的使用成长
 
-| 最近更新时间        | **2023年01月01日**                |
+| 最近更新时间        | **2023年01月03日**                |
 | :------------------ | :-------------------------------- |
 | **QuantumultX版本** | **1.2.0-777** 不兼容远古版本               |
 | **iOS系统版本**     | **15.7** 兼容其他版本                   |
@@ -72,7 +72,7 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **[懒人 · 规则](https://github.com/xiaomaoJT/QxScript/tree/main/lazy)** | 各版本懒人规则、懒人规则图解....                             |
 | **[节点 · 转换](https://github.com/xiaomaoJT/QxScript/tree/main/server)** | 机场推荐、节点转换图解、远程节点.....                        |
-| **[重写 · 脚本](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite)** | [XiaoMao脚本订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMao.json)、\去\广\告\模\块\.... |
+| **[重写 · 脚本](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite)** | [XiaoMao脚本订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json)、\去\广\告\模\块\.... |
 | **[分流 · 过滤](https://github.com/xiaomaoJT/QxScript/tree/main/filter)** | XiaoMao分流....                                              |
 | **[任务 · 收藏](https://github.com/xiaomaoJT/QxScript/tree/main/auto)** | 自动任务收藏、推荐库、自动任务脚本收藏....                   |
 
