@@ -14,7 +14,7 @@ hostname = gz.71dj.com
 
 
 [rewrite_local]
-^https:\/\/gz.71dj.com\/saas\/score\/api\/score\/user-score-level\/user\/info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/djy.js
+^https:\/\/gz.71dj.com\/saas\/score\/api\/score\/user-score-level\/user\/info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/djy.js
 
 *****************************/
 
