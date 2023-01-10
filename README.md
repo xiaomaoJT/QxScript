@@ -60,6 +60,8 @@
 
 📚 [QuantumultX使用教程及远程订阅精品库](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md)
 
+🧰 [QuantumultX图文教程 - 从入门到进阶](https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzI3MjE3NTc4OA==&scene=1&album_id=2740008142629273602&count=3#wechat_redirect)
+
 📖<span id='update'> [仓库资源更新日志](https://github.com/xiaomaoJT/QxScript/blob/main/UPDATELOG.md)</span>
 
 
