@@ -37,10 +37,10 @@
       {
         "id": "CaiYunApp",
         "name": "彩云天气Svip",
-        "keys": ["@XiaoMao.SvipYear","@XiaoMao.SvipMonth","@XiaoMao.SvipDay"],
+        "keys": ["@XiaoMao.CaiYunSvipYear","@XiaoMao.CaiYunSvipMonth","@XiaoMao.CaiYunSvipDay"],
         "settings": [
           {
-            "id": "@XiaoMao.SvipYear",
+            "id": "@XiaoMao.CaiYunSvipYear",
             "name": "Svip过期时间 - 年份",
             "val": null,
             "type": "textarea",
@@ -49,7 +49,7 @@
             "desc": "Svip过期时间-年份 如：2023"
           },
           {
-            "id": "@XiaoMao.SvipMonth",
+            "id": "@XiaoMao.CaiYunSvipMonth",
             "name": "Svip过期时间 - 月份",
             "val": null,
             "type": "textarea",
@@ -58,7 +58,7 @@
             "desc": "Svip过期时间-月份 如：10"
           },
           {
-            "id": "@XiaoMao.SvipDay",
+            "id": "@XiaoMao.CaiYunSvipDay",
             "name": "Svip过期时间 - 日期",
             "val": null,
             "type": "textarea",
@@ -71,6 +71,52 @@
         "repo": "https://github.com/xiaomaoJT/QxScript",
         "icons": ["https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1658318.png", "https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1658318.png"],
         "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoCaiYunWeather.js"
+      },{
+        "id": "BaiDuCloudApp",
+        "name": "百度云Svip",
+        "keys": ["@XiaoMao.BaiDuSvipYear","@XiaoMao.BaiDuSvipMonth","@XiaoMao.BaiDuSvipDay","@XiaoMao.BaiDuLevel"],
+        "settings": [
+          {
+            "id": "@XiaoMao.BaiDuSvipYear",
+            "name": "Svip过期时间 - 年份",
+            "val": null,
+            "type": "textarea",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": "Svip过期时间-年份 如：2023"
+          },
+          {
+            "id": "@XiaoMao.BaiDuSvipMonth",
+            "name": "Svip过期时间 - 月份",
+            "val": null,
+            "type": "textarea",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": "Svip过期时间-月份 如：10"
+          },
+          {
+            "id": "@XiaoMao.BaiDuSvipDay",
+            "name": "Svip过期时间 - 日期",
+            "val": null,
+            "type": "textarea",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": "Svip过期时间-日期 如：10"
+          },
+          {
+            "id": "@XiaoMao.BaiDuLevel",
+            "name": "会员等级",
+            "val": null,
+            "type": "textarea",
+            "autoGrow": true,
+            "rows": 1,
+            "desc": "会员等级 范围1～10"
+          }
+        ],
+        "author": "@XiaoMao",
+        "repo": "https://github.com/xiaomaoJT/QxScript",
+        "icons": ["https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/baidu.png", "https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/baidu.png"],
+        "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoBaiDuCloud.js"
       }
     ]
   }
