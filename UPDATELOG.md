@@ -68,8 +68,17 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***48*** 次
 >
-> ***最新更新时间 2023.01.10 12:25  新年快乐***
+> ***最新更新时间 2023.01.13 17:00  新年快乐***
 
+
++ ##### 20230113
+
+  * > 新增[XiaoMao_百度云自定义脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoBaiDuCloud.js)
+    >
+    > 更新xiaomao重写1和重写3。
+    >
+    > 更新xiaomaoBoxJs。
+    >
 
 + ##### 20230106
 
