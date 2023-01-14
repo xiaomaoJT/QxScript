@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20230109
+# 更新时间 20230114
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -2931,7 +2931,6 @@ HOST-SUFFIX,b.ads1.msn.com, reject
 HOST-SUFFIX,b.aowugame.com, reject
 HOST-SUFFIX,b.babylon.com, reject
 HOST-SUFFIX,b.baiy.net, reject
-HOST-SUFFIX,b.bdstatic.com, reject
 HOST-SUFFIX,b.bst.126.net, reject
 HOST-SUFFIX,b.clkservice.youdao.com, reject
 HOST-SUFFIX,b.code.tanwanyx.com, reject
