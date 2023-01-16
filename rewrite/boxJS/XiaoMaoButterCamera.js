@@ -404,18 +404,17 @@ function XiaoMaoFunction() {
 if ($response.body) {
   let requestUrl = $request.url;
   if (/^https:\/\/api4\.bybutter\.com\/v4\/users?/.test(requestUrl)) {
-    obj.hasOwnProperty("memberships")
-      ? obj.memberships.length == 0
-        ? obj.memberships.push({
-            usageType: "unlimited",
-            id: "1",
-            ownership: "temporary",
-            name: "普通会员",
-            endAt: XiaoMaoEndTime,
-            startAt: 1587654321,
-          })
-        : (obj.memberships[0].endAt = XiaoMaoEndTime)
-      : "";
+    let arrObj = [
+      {
+        usageType: "unlimited",
+        id: "1",
+        ownership: "temporary",
+        name: "普通会员",
+        endAt: XiaoMaoEndTime,
+        startAt: 1587654321,
+      },
+    ];
+    obj.hasOwnProperty("memberships") ? (obj.memberships = arrObj) : "";
     obj.hasOwnProperty("followingCount") ? (obj.followingCount = fi) : "";
     obj.hasOwnProperty("followersCount") ? (obj.followersCount = fs) : "";
     obj.hasOwnProperty("bio") ? (obj.bio = "微信公众号「小帽集团」") : "";
