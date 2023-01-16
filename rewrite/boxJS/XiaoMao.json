@@ -1,122 +1,209 @@
 {
-    "id": "XiaoMao.app.sub",
-    "name": "XiaoMao辅助脚本订阅",
-    "author": "@XiaoMao",
-    "icon": "https://avatars.githubusercontent.com/u/49260609",
-    "repo": "https://github.com/xiaomaoJT/QxScript",
-    "apps": [
-      {
-        "id": "spotifyApp",
-        "name": "spotify自动翻译",
-        "keys": ["@XiaoMao.AppID","@XiaoMao.securityKey"],
-        "settings": [
-          {
-            "id": "@XiaoMao.AppID",
-            "name": "AppID",
-            "val": null,
-            "type": "textarea",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "百度翻译API-AppID"
-          },
-          {
-            "id": "@XiaoMao.securityKey",
-            "name": "securityKey",
-            "val": null,
-            "type": "textarea",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "百度翻译API-securityKey"
-          }
-        ],
-        "author": "@XiaoMao",
-        "repo": "https://github.com/xiaomaoJT/QxScript",
-        "icons": ["https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Spotify.png", "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Spotify.png"],
-        "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoSpotify.js"
-      },
-      {
-        "id": "CaiYunApp",
-        "name": "彩云天气Svip",
-        "keys": ["@XiaoMao.CaiYunSvipYear","@XiaoMao.CaiYunSvipMonth","@XiaoMao.CaiYunSvipDay"],
-        "settings": [
-          {
-            "id": "@XiaoMao.CaiYunSvipYear",
-            "name": "Svip过期时间 - 年份",
-            "val": null,
-            "type": "textarea",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "Svip过期时间-年份 如：2023"
-          },
-          {
-            "id": "@XiaoMao.CaiYunSvipMonth",
-            "name": "Svip过期时间 - 月份",
-            "val": null,
-            "type": "textarea",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "Svip过期时间-月份 如：10"
-          },
-          {
-            "id": "@XiaoMao.CaiYunSvipDay",
-            "name": "Svip过期时间 - 日期",
-            "val": null,
-            "type": "textarea",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "Svip过期时间-日期 如：10"
-          }
-        ],
-        "author": "@XiaoMao",
-        "repo": "https://github.com/xiaomaoJT/QxScript",
-        "icons": ["https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1658318.png", "https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1658318.png"],
-        "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoCaiYunWeather.js"
-      },{
-        "id": "BaiDuCloudApp",
-        "name": "百度云Svip",
-        "keys": ["@XiaoMao.BaiDuSvipYear","@XiaoMao.BaiDuSvipMonth","@XiaoMao.BaiDuSvipDay","@XiaoMao.BaiDuLevel"],
-        "settings": [
-          {
-            "id": "@XiaoMao.BaiDuSvipYear",
-            "name": "Svip过期时间 - 年份",
-            "val": null,
-            "type": "textarea",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "Svip过期时间-年份 如：2023"
-          },
-          {
-            "id": "@XiaoMao.BaiDuSvipMonth",
-            "name": "Svip过期时间 - 月份",
-            "val": null,
-            "type": "textarea",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "Svip过期时间-月份 如：10"
-          },
-          {
-            "id": "@XiaoMao.BaiDuSvipDay",
-            "name": "Svip过期时间 - 日期",
-            "val": null,
-            "type": "textarea",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "Svip过期时间-日期 如：10"
-          },
-          {
-            "id": "@XiaoMao.BaiDuLevel",
-            "name": "会员等级",
-            "val": null,
-            "type": "textarea",
-            "autoGrow": true,
-            "rows": 1,
-            "desc": "会员等级 范围1～10"
-          }
-        ],
-        "author": "@XiaoMao",
-        "repo": "https://github.com/xiaomaoJT/QxScript",
-        "icons": ["https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/baidu.png", "https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/baidu.png"],
-        "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoBaiDuCloud.js"
-      }
-    ]
-  }
+  "id": "XiaoMao.app.sub",
+  "name": "XiaoMao辅助脚本订阅",
+  "author": "@XiaoMao",
+  "icon": "https://avatars.githubusercontent.com/u/49260609",
+  "repo": "https://github.com/xiaomaoJT/QxScript",
+  "apps": [
+    {
+      "id": "spotifyApp",
+      "name": "spotify自动翻译",
+      "keys": [
+        "@XiaoMao.AppID",
+        "@XiaoMao.securityKey"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.AppID",
+          "name": "AppID",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "百度翻译API-AppID"
+        },
+        {
+          "id": "@XiaoMao.securityKey",
+          "name": "securityKey",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "百度翻译API-securityKey"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/spotify.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/spotify.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoSpotify.js"
+    },
+    {
+      "id": "CaiYunApp",
+      "name": "彩云天气Svip",
+      "keys": [
+        "@XiaoMao.CaiYunSvipYear",
+        "@XiaoMao.CaiYunSvipMonth",
+        "@XiaoMao.CaiYunSvipDay"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.CaiYunSvipYear",
+          "name": "Svip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.CaiYunSvipMonth",
+          "name": "Svip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.CaiYunSvipDay",
+          "name": "Svip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-日期 如：10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/caiyun.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/caiyun.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoCaiYunWeather.js"
+    },
+    {
+      "id": "BaiDuCloudApp",
+      "name": "百度云Svip",
+      "keys": [
+        "@XiaoMao.BaiDuSvipYear",
+        "@XiaoMao.BaiDuSvipMonth",
+        "@XiaoMao.BaiDuSvipDay",
+        "@XiaoMao.BaiDuLevel"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.BaiDuSvipYear",
+          "name": "Svip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.BaiDuSvipMonth",
+          "name": "Svip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.BaiDuSvipDay",
+          "name": "Svip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.BaiDuLevel",
+          "name": "会员等级",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "会员等级 范围1～10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/baidu.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/baidu.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoBaiDuCloud.js"
+    },
+    {
+      "id": "ButterCameraApp",
+      "name": "黄油相机vip",
+      "keys": [
+        "@XiaoMao.ButterVipYear",
+        "@XiaoMao.ButterVipMonth",
+        "@XiaoMao.ButterVipDay",
+        "@XiaoMao.ButterFollowing",
+        "@XiaoMao.ButterFollowers"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.ButterVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.ButterVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.ButterVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.ButterFollowing",
+          "name": "关注数",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "关注的人数量 如：100000"
+        },
+        {
+          "id": "@XiaoMao.ButterFollowers",
+          "name": "粉丝数",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "粉丝数量 如：100000"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/butter.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/butter.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoButterCamera.js"
+    }
+  ]
+}

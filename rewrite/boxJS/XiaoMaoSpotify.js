@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-01-03
+ * @LastMod: 2023-01-16
  *
 s\p\o\t\i\f\y\自\动\歌\词\翻\译
 仅供学习参考，请于下载后24小时内删除
@@ -30,8 +30,7 @@ hostname = spclient.wg.spotify.com
 [rewrite_local]
 ^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSpotify.js
 
-
- */
+ ***************/
 
 var $XiaoMao = "";
 var appName = "";
@@ -5179,7 +5178,7 @@ function startFunction() {
           }));
   })();
 
-  const notifyName = "spotify歌词翻译2022.9.22";
+  const notifyName = "Spotify歌词翻译";
   const commonApi = new Env2(notifyName);
   const isQX = commonApi.isQuanX();
   const binaryBody = isQX
