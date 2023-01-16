@@ -68,8 +68,13 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***48*** 次
 >
-> ***最新更新时间 2023.01.16 10:22  新年快乐***
+> ***最新更新时间 2023.01.16 17:50  新年快乐***
 
+
++ ##### 20230116
+
+  * > 新增[XiaoMao_黄油相机自定义脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js)
+    >
 
 + ##### 20230114
 
