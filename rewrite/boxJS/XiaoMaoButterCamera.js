@@ -30,8 +30,9 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoB
 hostname = api4.bybutter.com
 
 [rewrite_local]
-https:\/\/api4\.bybutter\.com\/v4\/users\/me  url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js
-https:\/\/api4\.bybutter\.com\/v4\/template-square  url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js
+https:\/\/api4\.bybutter\.com\/v4\/users\/me url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js
+https:\/\/api4\.bybutter\.com\/v4\/template-square url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js
+
  ***************/
 
 function ENV() {
