@@ -10,6 +10,8 @@
 
 > 脚本使用说明请进入脚本文件查看，转载请注明出处。
 >
+> 本频道所有脚本仅供学习使用，请于下载后24小时内删除。请勿随意传播，请勿fork项目。良性循环才能维持长久，谨献给频道小伙伴，感谢支持。
+>
 > [XiaoMao BoxJS脚本订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json)
 
 
