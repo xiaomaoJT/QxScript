@@ -31,7 +31,7 @@ hostname = biz.caiyunapp.com
 [rewrite_local]
 https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCaiYunWeather.js
 
- */
+ ***************/
 
 var SCRIPT_NAME = "彩云天气";
 var USER_REGEX = /https?:\/\/biz\.caiyunapp\.com\/v2\/user/;
