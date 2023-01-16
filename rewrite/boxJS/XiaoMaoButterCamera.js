@@ -35,6 +35,7 @@ https:\/\/api4\.bybutter\.com\/v4\/template-square url script-response-body http
 https:\/\/api4\.bybutter\.com\/v4\/search url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js
 https:\/\/api4\.bybutter\.com\/v4\/shop url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js
 
+https:\/\/api4\.bybutter\.com\/v4\/trends url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js
 
  ***************/
 
@@ -422,9 +423,11 @@ if ($response.body) {
     /^https:\/\/api4\.bybutter\.com\/v4\/template-square?/.test(requestUrl)
   ) {
     obj.hasOwnProperty("templates") ? (obj.templates.data.length = 0) : "";
-  } else if (/^https:\/\/api4\.bybutter\.com\/v4\/search?/.test(requestUrl)) {
-    obj.hasOwnProperty("data") ? (obj.data.length = 0) : "";
-  } else if (/^https:\/\/api4\.bybutter\.com\/v4\/shop?/.test(requestUrl)) {
+  } else if (
+    /^https:\/\/api4\.bybutter\.com\/v4\/search?/.test(requestUrl) ||
+    /^https:\/\/api4\.bybutter\.com\/v4\/trends?/.test(requestUrl) ||
+    /^https:\/\/api4\.bybutter\.com\/v4\/shop?/.test(requestUrl)
+  ) {
     obj.hasOwnProperty("data") ? (obj.data.length = 0) : "";
   }
   $done({ body: JSON.stringify(obj) });
