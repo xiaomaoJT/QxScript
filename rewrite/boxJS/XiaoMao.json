@@ -204,6 +204,51 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/butter.png"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoButterCamera.js"
+    },
+    {
+      "id": "B612App",
+      "name": "B612vip",
+      "keys": [
+        "@XiaoMao.KaJiVipYear",
+        "@XiaoMao.KaJiVipMonth",
+        "@XiaoMao.KaJiVipDay"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.KaJiVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.KaJiVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.KaJiVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/b612.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/b612.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoKaJi.js"
     }
   ]
 }
