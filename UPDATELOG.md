@@ -68,11 +68,15 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***137*** 次
 >
-> ***最新更新时间 2023.01.17 10:40  新年快乐***
+> ***最新更新时间 2023.01.17 18:06  新年快乐***
 
 + ##### 20230117
 
   * > 新增[XiaoMao_B612相机自定义脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoKaJi.js)
+    >
+    > 新增[XiaoMao_wps自定义脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWps.js)
+    >
+    > 更新xiaomao重写1。
     >
 
 + ##### 20230116
