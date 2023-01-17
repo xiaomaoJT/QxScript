@@ -6,7 +6,19 @@
 
 ------------
 
+**🎟 小帽原创自定义脚本**
+
+> 脚本功能请见小帽频道或脚本内说明
+
+**[目录位置：boxJs](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite/boxJS)**
+
+
+
 #### 🎟 重写规则说明
+
+> 部分脚本功能请见脚本内说明
+
+**[目录位置：script](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite/script)**
 
 ##### 🎟 [QX_XiaoMao_rw1 去广告类脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/QX_XiaoMao_rw1.conf)
 
