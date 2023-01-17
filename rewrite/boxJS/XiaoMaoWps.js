@@ -26,10 +26,10 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoW
 ********************************
 
 [mitm]
-hostname = account.wps.cn,vip.wps.cn
+hostname = account.wps.*,vip.wps.cn
 
 [rewrite_local]
-https:\/\/account\.wps\.cn\/api\/users\/(.+)\/overview url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWps.js
+https:\/\/account\.wps\.(com|cn)\/api\/users\/(.+)\/overview url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWps.js
 https:\/\/vip\.wps\.cn\/userinfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWps.js
 
  ***************/
