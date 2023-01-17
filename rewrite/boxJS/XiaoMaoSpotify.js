@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-01-16
+ * @LastMod: 2023-01-17
  *
 s\p\o\t\i\f\y\自\动\歌\词\翻\译
 仅供学习参考，请于下载后24小时内删除
@@ -52,7 +52,7 @@ var options = {
 
 function XiaoMaoMao() {
   $XiaoMao = API("XiaoMao");
-  appName = `XiaoMao-Spotify-我爱歌词`;
+  appName = `XiaoMao-Spotify歌词翻译`;
   spotifyAppID = $XiaoMao.read("AppID");
   spotifySecurityKey = $XiaoMao.read("securityKey");
   console.log(appName + "开始执行！");

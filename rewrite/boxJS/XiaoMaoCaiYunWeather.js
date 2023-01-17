@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-01-13
+ * @LastMod: 2023-01-17
  *
  * 
 彩/云/天/气/S/v/i/p
@@ -211,20 +211,7 @@ function Main() {
   }
 }
 
-function getGoneDay(n = 0, yearFlag = true) {
-  let myDate = new Date();
-  myDate.setDate(myDate.getDate() - n);
-  let month = myDate.getMonth() + 1;
-  let day = myDate.getDate();
-  let result =
-    "" +
-    (yearFlag ? myDate.getFullYear() : "") +
-    "/" +
-    (month < 10 ? "0" + month : month) +
-    "/" +
-    (day < 10 ? "0" + day : day);
-  return result;
-}
+function getGoneDay(n=0,yearFlag=true){let myDate=new Date();myDate.setDate(myDate.getDate()-n);let month=myDate.getMonth()+1;let day=myDate.getDate();let result=""+(yearFlag?myDate.getFullYear():"")+"/"+(month<10?"0"+month:month)+"/"+(day<10?"0"+day:day);return result}
 
 function XiaoMaoFunction(){$XiaoMaoSvip=API("XiaoMao");if($XiaoMaoSvip.read("CaiYunSvipYear")&&$XiaoMaoSvip.read("CaiYunSvipMonth")&&$XiaoMaoSvip.read("CaiYunSvipDay")){SvipDate=new Date($XiaoMaoSvip.read("CaiYunSvipYear")+"/"+$XiaoMaoSvip.read("CaiYunSvipMonth")+"/"+$XiaoMaoSvip.read("CaiYunSvipDay")).getTime();if(!SvipDate){$XiaoMaoSvip.notify(appName,"","会员日期设置错误，请输入正确的日期范围!");XiaoMaoSvip=getGoneDay(-1)}else{XiaoMaoSvip=$XiaoMaoSvip.read("CaiYunSvipYear")+"/"+$XiaoMaoSvip.read("CaiYunSvipMonth")+"/"+$XiaoMaoSvip.read("CaiYunSvipDay")}}else{XiaoMaoSvip=getGoneDay(-1)}RESULT={is_vip:true,vip_type:"s",svip_expired_at:new Date(XiaoMaoSvip).getTime()/1000,};RESULT_WT={vip:{enable:true,svip_expired_at:new Date(XiaoMaoSvip).getTime()/1000,},}}
 
