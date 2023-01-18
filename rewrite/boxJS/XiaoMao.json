@@ -301,7 +301,8 @@
       "keys": [
         "@XiaoMao.ScanningAlmightyVipYear",
         "@XiaoMao.ScanningAlmightyVipMonth",
-        "@XiaoMao.ScanningAlmightyVipDay"
+        "@XiaoMao.ScanningAlmightyVipDay",
+        "@XiaoMao.ScanningAlmightySuper"
       ],
       "settings": [
         {
