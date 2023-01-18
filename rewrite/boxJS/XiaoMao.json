@@ -294,6 +294,51 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/wps.png"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoWps.js"
+    },
+    {
+      "id": "ScanningAlmightyApp",
+      "name": "ScanningAlmightyVip",
+      "keys": [
+        "@XiaoMao.ScanningAlmightyVipYear",
+        "@XiaoMao.ScanningAlmightyVipMonth",
+        "@XiaoMao.ScanningAlmightyVipDay"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.ScanningAlmightyVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.ScanningAlmightyVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.ScanningAlmightyVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/scan.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/scan.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/xiaomao/xiaomaoJS/BoxJs/XiaoMaoWps.js"
     }
   ]
 }
