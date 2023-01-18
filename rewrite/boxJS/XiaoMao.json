@@ -330,6 +330,15 @@
           "autoGrow": true,
           "rows": 1,
           "desc": "vip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.ScanningAlmightySuper",
+          "name": "是否开启至尊",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "0 为不开启；1 为开启"
         }
       ],
       "author": "@XiaoMao",
