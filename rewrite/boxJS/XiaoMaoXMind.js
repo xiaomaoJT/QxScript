@@ -4,8 +4,8 @@
  *
  * 
 
-\黄\油\相\机\v\i\p\关\注\粉\丝\自\定\义\ + \去\信\息\流 + \去\开\屏
-\部\分\模\版\解\锁\需\要\d\i\n\g\之\后\生\效\，\未\d\i\n\g\可\能\不\生\效
+\X\M\i\n\d \v\i\p \自\定\义
+\需\登\录\解\锁\，\失\效\请\重\新\登\录
 
 仅供学习参考，请于下载后24小时内删除
 
@@ -23,18 +23,15 @@
 【一二此步骤可省略，会员到期时间永远定格明天，失效请重开app】
 
 3、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
-https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXMind.js
 
 ********************************
 
 [mitm]
-hostname = api4.bybutter.com,tcbox.baidu.com,adx-cn.anythinktech.com,bgg.baidu.com
+hostname = www.xmind.net,www.xmind.cn
 
 [rewrite_local]
-https:\/\/api4\.bybutter\.com\/v4\/* url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bc.js
-https:\/\/api4\.bybutter\.com\/v4\/app\/placements\/\d\/advertisements url reject
-https:\/\/tcbox\.baidu\.com\/ztbox url reject
-https:\/\/adx-cn\.anythinktech\.com\/bid url reject
-https:\/\/bgg\.baidu\.com\/bgg\/produce url reject
+https:\/\/www\.xmind(\.net|\.cn)\/\_res\/devices url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xm.js
+https:\/\/www\.xmind(\.net|\.cn)\/\_res\/profile\/.+\/ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xm.js
+https:\/\/www\.xmind(\.net|\.cn)\/\_res\/token\/.+ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xm.js
  ***************/
-
