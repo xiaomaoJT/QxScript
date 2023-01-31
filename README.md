@@ -32,7 +32,7 @@
 | iPhone/iPad设备 | [通用版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
 | iPhone/iPad设备 | [自定义版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
 |  Mac M芯片设备  | [Mac版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao.conf) | [Mac配置](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/xiaomao/QX_Mac)   | [Mac配置图](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS/配置图解) |
-| 历史版本 | [3.0 旧版本](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS) |  |  |
+| 历史版本 | [3.0 旧版本](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/oldConfig) |  |  |
 
 
 
