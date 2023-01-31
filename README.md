@@ -6,12 +6,12 @@
 
 #### 本仓库用于记录QuantumultX的使用成长
 
-| 最近更新时间        | **2023年01月30日**                |
+| 最近更新时间        | **2023年01月31日**                |
 | :------------------ | :-------------------------------- |
 | **QuantumultX版本** | **1.2.0-777** 不兼容远古版本               |
 | **iOS系统版本**     | **16.1.2** 兼容其他版本                   |
 | **适配设备**        | **iPhone / iPad / Mac M芯片设备** |
-| **懒人版本**        | **3.0**                           |
+| **懒人版本**        | **4.0**                           |
 
 > [相关软件下载地址](https://github.com/xiaomaoJT/QxScript/blob/main/RELATED.md)
 
@@ -27,11 +27,24 @@
 
 ##### 🎟 XiaoMao懒人规则 · 使用教程
 
-|      设备       |                           懒人规则                           |             版本3.0 · 特点             |                             教程                             |                             图解                             |
-| :-------------: | :----------------------------------------------------------: | :-------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| iPhone/iPad设备 | [通用版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao.conf) | **XiaoMao推荐** · 极端精简 · \自\带\节\点 | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
-| iPhone/iPad设备 | [自定义版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao.conf) | 高度自定义 ·  省流多策略 · 优秀配置聚合 · \自\带\节\点 | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
-|  Mac M芯片设备  | [Mac版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao.conf) |     精简 · 自定义多策略 · \自\带\节\点   | [Mac配置](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/xiaomao/QX_Mac) | [Mac配置图](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS/配置图解) |
+|      设备       |                           懒人规则                           |             教程             |                             图解                             |
+| :-------------: | :----------------------------------------------------------: | :-------------------------------: | :----------------------------------------------------------: |
+| iPhone/iPad设备 | [通用版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
+| iPhone/iPad设备 | [自定义版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
+|  Mac M芯片设备  | [Mac版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao.conf) | [Mac配置](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/xiaomao/QX_Mac)   | [Mac配置图](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS/配置图解) |
+| 历史版本 | [3.0 旧版本](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS) |  |  |
+
+
+
+##### 🎟 XiaoMao懒人规则 · 版本选择
+
+|   版本   | 特点                                                         |             关键字             | 推荐 |
+| :------: | ------------------------------------------------------------ | :----------------------------: | :--: |
+|  通用版  | 策略精简：剔除低效策略组、绑定默认策略<br />分流精简：剔除流媒体分流、剔除备选ad类分流<br />重写精简：剔除自定义及备选规则<br />\自\带\节\点 |       精简<br />默认策略       | *✅*  |
+| 自定义版 | 策略自定义：多种策略组类型、拦截防护自定义控制<br />分流自定义：多种分流规则、多种备选分流防护<br />重写自定义：多种聚合脚本、单独规则自定义<br />\自\带\节\点 | 自定义<br />多策略<br />多备选 |      |
+|  Mac版   | 策略聚合：常用策略默认选择、热门策略自定义选择<br />分流精简：同通用版<br />重写极简：仅保留boxjs及substore<br />\自\带\节\点 |         聚合<br />Mac          |      |
+
+
 
 ------------
 

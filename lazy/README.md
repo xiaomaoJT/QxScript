@@ -13,12 +13,27 @@
 > **📚 [QuantumultX使用教程及远程订阅精品库](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md)**
 
 ```text
-XiaoMao策略介绍：
-
-🏕 XiaoMao-Screen ：正则匹配节点组内香港、台湾、新加坡、日本、韩国、美国等六大区域节点，一定时间间隔内进行自动最有延迟测速并自动选择最有延迟节点。
-🚇 XiaoMao-Auto ：正则匹配节点组，一定时间间隔内进行自动最有延迟测速并自动选择最有延迟节点。
-
-🚇 xiaomao-Com ：正则匹配节点组及自定义节点名，一定时间间隔内进行自动最有延迟测速并自动选择最有延迟节点。（可自定需过滤的节点名进行省流）
-🛰 xiaomao-Pre ：正则匹配节点组，一定时间间隔内进行自动最有延迟测速并自动选择最有延迟节点。
+# 规则命名声明
+# S. - 静态策略组
+# U. - 自动延迟测速策略
+# A. - 健康策略
+# common - 自动延迟测速策略 - 普通节点
+# optimize - 自动延迟测速策略 - 优选节点
+# opt.地区 - 自动延迟测速策略 - 优选地区节点
+# screen - 自动延迟测速策略 - 热门地区节点
+# ordinary - 自动延迟测速策略 - 优选节点
+# ord.地区 - 自动延迟测速策略 - 优选地区节点
+# auto.node - 自动节点
+# escape.node - 兜底节点
+# netease.music - 网易云
+# XiaoMao.Node - 节点类型
+# XiaoMao.F - 分流类型
+# standby - 备用类型
+# XiaoMao.Rw / XiaoMao.R - 重写类型
+# (L) - 轻量
+# (H) - 重度
+# (ad.free) - 去广告
+# (Menber) - vip
+# XiaoMao.T - 自动任务
 ```
 
