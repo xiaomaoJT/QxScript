@@ -40,6 +40,10 @@
 
 > vip
 
+##### 🎟 [QX_XiaoMao_rw5 XiaoMao尊贵的会员](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/QX_XiaoMao_rw5.conf)
+
+> vip
+
 ------
 
 #### 🎟 重写脚本说明
