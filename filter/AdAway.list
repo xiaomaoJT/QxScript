@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20230114
+# 更新时间 20230201
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -288,7 +288,6 @@ host-keyword, editor.sm.cn, reject
 host-keyword, fc-video.cdn.bcebos.com, reject
 host-keyword, vs10.bj2ct.u3.ucweb.com, reject
 host, navigis.uc.cn, reject
-host, restapi.amap.com, reject
 host, order.sm.cn, reject
 host, ucdc-upaas.uc.cn, reject
 host, access.open.uc.cn, reject
