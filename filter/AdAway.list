@@ -6,10 +6,8 @@
 # XiaoMao机器人：https://t.me/Xiao_MaoMao_bot
 # XiaoMao仓库：https://github.com/xiaomaoJT/QxScript
 
-# > 苹果推送服务
-host-keyword, push.apple.com, direct
-# > 苹果时间同步
-host, time.apple.com, direct
+
+
 # > 苹果天气服务
 host-keyword, weather-edge.apple.com, direct
 host-keyword, weather-adge.apple.com, direct
