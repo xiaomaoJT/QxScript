@@ -48,6 +48,11 @@ host-keyword, anti-ad.net, direct
 # > 某些APP要清除缓存或者重新安装APP，拦截广告才会生效！  
 # > */  
 
+
+# > Outlook
+HOST,acdn.adnxs.com,REJECT
+HOST,mediation.adnxs.com,REJECT
+HOST,sin3-ib.adnxs.com,REJECT
 # > 高德地图
 host, amdc.m.taobao.com, reject
 # > 微博
