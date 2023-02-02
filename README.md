@@ -75,6 +75,10 @@
 
 🧰 [QuantumultX图文教程 - 从入门到进阶](https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzI3MjE3NTc4OA==&scene=1&album_id=2740008142629273602&count=3#wechat_redirect)
 
+🏖 [三分钟免费注册外区Apple ID](https://mp.weixin.qq.com/s/YzYsF9QyHZVJK9P7bsrURQ)
+
+🏝 [Apple礼品卡购买教程](https://mp.weixin.qq.com/s/Ehi23fjFpeUc2DocnQb4hw)
+
 📖<span id='update'> [仓库资源更新日志](https://github.com/xiaomaoJT/QxScript/blob/main/UPDATELOG.md)</span>
 
 
