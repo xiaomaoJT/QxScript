@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20230201
+# 更新时间 20230204
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -488,8 +488,6 @@ HOST-SUFFIX,cpro2.baidu.com, reject
 HOST-SUFFIX,cpu-admin.baidu.com, reject
 # > 百度贴吧屏蔽域名dns查询
 IP-CIDR,180.76.76.200/32,REJECT
-# > 百度贴吧屏蔽ws(副作用:消息通知功能失效,需手动进入查看),强制帖子接口走http
-HOST,im.tieba.baidu.com,REJECT
 ## /*  
 HOST-SUFFIX,10086.cn.baidu.cdn.yiwk.com, reject
 HOST-SUFFIX,360baidus.com, reject
