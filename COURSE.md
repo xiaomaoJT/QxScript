@@ -15,6 +15,7 @@
 | [分流配置](#filter)  |                      [ 图标库](#iconku)                      |
 | [重写配置](#rewrite) |                                                              |
 |  [自动任务](#auto)   | 🧰 [QuantumultX图文教程 - 从入门到进阶](https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzI3MjE3NTc4OA==&scene=1&album_id=2740008142629273602&count=3#wechat_redirect) |
+| [本地脚本](#script)  |                                                              |
 
 
 
@@ -198,6 +199,44 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao.
 5⃣️ 右上角增加
 6⃣️ 输入自动任务文件地址即可，确认
 7⃣️ 选择需要的自动任务添加即可
+```
+
+
+
+##### 🎟 <span id='script'> 本地脚本使用方法</span>
+
+> 本地脚本，即把脚本文件放在本地（手机文件夹内）直接调用，无需拉取远程资源
+>
+> 本地脚本分两种路径，1⃣️ iCloud本地 2⃣️ 我的iPhone本地
+
+```text
+1⃣️ iCloud本地
+当 QX设置 > 其他设置 > 资源 > iCloud云盘 按钮打开时，即开启了iCloud模式，资源将默认访问iCloud端。
+或通过 QX设置 > 其他设置 底部版本号，云朵标志即为开启。
+
+本地脚本资源存放位置：文件 > iCloud > QuantumultX > Scripts 
+引用方式：直接输入脚本名称即可引用，如 xxx.js ......
+
+2⃣️ iPhone本地
+未开启iCloud 或通过 QX设置 > 其他设置 底部版本号，花边圆圈标志即为关闭。
+
+本地脚本资源存放位置：文件 > 我的iPhone > QuantumultX > Scripts 
+引用方式：直接输入脚本名称即可引用，如 xxx.js ......
+
+3⃣️ 小知识
+当QX安装成功后，将自动在本地创建QuantumultX文件夹，其中包含3个子文件夹，分别是
+Scripts：用于存放规则文件
+Profiles：用于存放配置文件
+Images：用于存放图片文件
+
+同时，在开启后iCloud后，将提升QX共享校验等级（3个），未开启iCloud则为（8个），自用无限制，超出账号内QX将永久失效。
+
+via开发者：
+1、不开 iCloud 只能验证到第 8 台设备。
+2、开启 iCloud ，有 3 个 iCloud 辅助验证名额，使用 iCloud 验证并无设备数量限制。极端点，自用设备 1000 台也不会受影响。
+3、无法靠登出自己当前的 iCloud 再登入别人已验证的 iCloud 来辅助验证，以当前设备第一次（或还原系统后第一次）启用的 iCloud 为准。
+注：可以美区 App Store 其他区域的 iCloud，以首次使用 Quantumult X 并开启 iCloud 功能的 iCloud 为准。
+
 ```
 
 
