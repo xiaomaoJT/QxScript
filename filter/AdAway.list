@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20230204
+# 更新时间 20230215
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -11,6 +11,9 @@
 # > 苹果天气服务
 host-keyword, weather-edge.apple.com, direct
 host-keyword, weather-adge.apple.com, direct
+host-keyword, weather-data.apple.com, direct
+host-keyword, weather-map.apple.com, direct
+host-keyword, weather-analytics-events.apple.com, direct
 # > 苹果内购服务
 host-keyword, buy.itunes.apple.com, direct
 # > 苹果icloud
