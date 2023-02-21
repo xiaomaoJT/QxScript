@@ -68,7 +68,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***115*** 次
 >
-> ***最新更新时间 2023.02.20 18:10 ***
+> ***最新更新时间 2023.02.21 10:45 ***
 
 
 
