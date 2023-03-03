@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20230215
+# 更新时间 20230303
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -52,6 +52,9 @@ host-keyword, anti-ad.net, direct
 # > */  
 
 
+# > 京东和搜狗收集信息
+host-suffix, jdqd.jd.com, reject
+host-suffix, shouji.sougou.com, reject
 # > Outlook
 HOST,acdn.adnxs.com,REJECT
 HOST,mediation.adnxs.com,REJECT
