@@ -21,10 +21,14 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNewBing.js
 
+2、QX > 右下角风车 > 分流 > 规则资源 > 引用以下脚本 > 打开资源解析器
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNewBing.js
+
 ********************************
 
 [filter_local]
-host-wildcard, *bing.com, 🇺🇸 U.ord.us
+host, www.bing.com, 🇺🇸 U.ord.us
+host, cn.bing.com, 🇺🇸 U.ord.us
 
 [rewrite_local]
 ^https?:\/\/cn\.bing\.com url 302 https://bing.com
@@ -32,6 +36,6 @@ host-wildcard, *bing.com, 🇺🇸 U.ord.us
 
 
 [mitm]
-hostname = *bing.com
+hostname = www.bing.com,cn.bing.com
 
  ***************/
