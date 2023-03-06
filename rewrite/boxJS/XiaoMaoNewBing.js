@@ -29,7 +29,7 @@ host-wildcard, *bing.com, 🇺🇸 U.ord.us
 3、使用safari访问newBing网址即可 
 https://www.bing.com/new 
 
-4、请注意务必切换微软分流或新增newBing为为国内节点，否则将会导致网页崩溃
+4、请注意务必切换微软分流或新增newBing为非国内节点后访问newBing网址，否则将会导致网页崩溃
 
 
 ********************************
