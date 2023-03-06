@@ -4,7 +4,7 @@
  *
  * 
 
-/n/e/w/b/i/n/g/ /重/定/向/+/分/流/+/模/拟/浏/览/器/内/核/
+/n/e/w/b/i/n/g/ /重/定/向/+/分/流/+/模/拟/e/d/g/e/浏/览/器/内/核/
 
 模拟内核脚本 @野比
 
@@ -21,14 +21,15 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNewBing.js
 
-2、QX > 右下角风车 > 分流 > 规则资源 > 引用以下脚本 > 打开资源解析器
-https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNewBing.js
+
+2、【此操作描述基于XiaoMao配置4.1】
+将首页策略组 S.microsoft 切换为美国策略等他国节点
+
+或 QX > 右下角风车 > 分流 > 分流规则资源  > 新增以下分流
+host-wildcard, *bing.com, 🇺🇸 U.ord.us
+
 
 ********************************
-
-[filter_local]
-host, www.bing.com, 🇺🇸 U.ord.us
-host, cn.bing.com, 🇺🇸 U.ord.us
 
 [rewrite_local]
 ^https?:\/\/cn\.bing\.com url 302 https://bing.com
