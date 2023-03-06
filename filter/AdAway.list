@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20230303
+# 更新时间 20230306
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -52,6 +52,15 @@ host-keyword, anti-ad.net, direct
 # > */  
 
 
+# > WiFi万能钥匙Pro 
+host-suffix, open.e.kuaishou.com, reject
+host-wildcard, *.wifi188.com, reject
+ip-cidr, 106.75.60.77/24, reject
+host-keyword, 51y5, reject
+ip-cidr, 106.75.26.22/24, reject
+host-keyword, lsttnews, reject
+# > 阿里系应用弹窗版本过低
+host, bixi.alicdn.com, reject
 # > 京东和搜狗收集信息
 host-suffix, jdqd.jd.com, reject
 host-suffix, shouji.sougou.com, reject
