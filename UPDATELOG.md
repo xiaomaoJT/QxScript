@@ -66,15 +66,16 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字或本页的更新时间为准。
 >
-> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***131*** 次
+> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***132*** 次
 >
-> ***最新更新时间 2023.03.06 10:50 ***
+> ***最新更新时间 2023.03.06 10:55 ***
 
 
 + ##### 20230306
 
   * > 新增 [new bing脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNewBing.js)。
     >
+    > 点击[一键导入](https://quantumult.app/x/open-app/add-resource?remote-resource=%7B%0A%20%20%20%20%22rewrite_remote%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%22https%3A%2F%2Fraw.githubusercontent.com%2FxiaomaoJT%2FQxScript%2Fmain%2Frewrite%2FboxJS%2FXiaoMaoNewBing.js%2C%20tag%3DXiaoMao.R(New.Bing.AI)%2C%20update-interval%3D172800%2C%20opt-parser%3Dtrue%2C%20enabled%3Dtrue%22%0A%20%20%20%20%5D%0A%7D)
 
 + ##### 20230301
 
