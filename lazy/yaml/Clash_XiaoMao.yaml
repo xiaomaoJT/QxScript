@@ -1,0 +1,2298 @@
+# Clash 配置模板XiaoMao版【作者】XiaoMao
+# 最近更新时间 20230309
+# XiaoMao_Clash @1.0
+
+
+# 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
+# 微信公众号 【小帽集团】
+# XiaoMao · Tg频道频道：https://t.me/xiaomaoJT
+# XiaoMao · GitHub仓库：https://github.com/xiaomaoJT/QxScript
+
+# ❕❕❕❕XiaoMao提示❕❕❕❕
+# 配置内注释项及软件内默认未开启的规则均为有效附加能力，请务必清楚了解其所造成的隐私及安全风险后按需启用
+
+# 建议在更新IP数据库选项中填写下面链接
+# https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-only-cn-private.mmdb
+
+
+# ⚠️⚠️⚠️请注意⚠️⚠️⚠️
+# 本配置核心节点来源于 🎟XiaoMao-Forever ，不定期更新。
+# 第一次使用时需要特殊环境以拉取远程规则。
+
+# Clash 模板配置见以下链接
+# https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/yaml/Clash_XiaoMao_template.yaml
+
+
+
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: info
+external-controller: "127.0.0.1:9090"
+dns:
+  enable: true
+  listen: "127.0.0.1:53"
+  ipv6: false
+  default-nameserver: [223.5.5.5, 119.29.29.29]
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.1/8
+  fake-ip-filter:
+    [
+      +.lan,
+      +.cn,
+      +.10010.com,
+      +.chinaunicom.com,
+      "*.alipay.com",
+      "*.alipayobjects.com",
+      connect.rom.miui.com,
+      localhost.ptlogin2.qq.com,
+      "+.stun.*.*",
+      "+.stun.*.*.*",
+      "+.stun.*.*.*.*",
+      "+.stun.*.*.*.*.*",
+      "*.n.n.srv.nintendo.net",
+      +.stun.playstation.net,
+      "*.msftncsi.com",
+      "*.msftconnecttest.com",
+      ntp.ntsc.ac.cn,
+    ]
+  nameserver: ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"]
+  fallback: ["tls://8.8.4.4", "https://dns.twnic.tw/dns-query"]
+  fallback-filter:
+    { geoip: true, geoip-code: CN, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+proxies:
+  - {
+      "name": "🇦🇶€001•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "162.159.128.7",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "82d5ea73-8002-4319-cd3c-29d1560bd290",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/dsadsa1dsadsa33434",
+          "headers": { "Host": "xjp4h.mayaa.ml" },
+        },
+      "servername": "xjp4h.mayaa.ml",
+    }
+
+  - {
+      "name": "🇦🇶€002•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "162.159.137.21",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/AUIKN8AU", "headers": { "Host": "oplg1.cfcdn2.xyz" } },
+      "servername": "oplg1.cfcdn2.xyz",
+    }
+
+  - {
+      "name": "🇦🇶€003•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "198.41.212.12",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/AUIKN8AU", "headers": { "Host": "oplg1.cfcdn2.xyz" } },
+      "servername": "oplg1.cfcdn2.xyz",
+    }
+  - {
+      "name": "🇦🇶€004•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "ovh-3.555530.xyz",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "000fe881-b655-4212-b804-b00f9970d5aa",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/happy", "headers": { "Host": "ovh-3.555530.xyz" } },
+    }
+  - {
+      "name": "🇦🇶€005•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "162.159.152.100",
+      "port": "2082",
+      "cipher": "auto",
+      "uuid": "8acf0ceb-510a-4f05-8175-f77c464d90ae",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/aries", "headers": { "Host": "kz.cloudflare.quest" } },
+    }
+  - {
+      "name": "🇦🇶€006•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "104.17.76.195",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "11288503-4f79-4659-a033-bf538ab14499",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/wafa/", "headers": { "Host": "lg.iwafa.tk" } },
+    }
+  - {
+      "name": "🇦🇶€007•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "141.101.115.155",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "5f64fa65-7b14-49c5-954d-aa15c6bfcacd",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/dongtaiwang.com",
+          "headers": { "Host": "clash6.ssr-free.xyz" },
+        },
+      "servername": "clash6.ssr-free.xyz",
+    }
+  - {
+      "name": "🇦🇶€008•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "104.17.75.195",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "11288503-4f79-4659-a033-bf538ab14499",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/wafa/", "headers": { "Host": "lg.iwafa.tk" } },
+    }
+  - {
+      "name": "🇦🇶€009•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "162.159.128.100",
+      "port": "2082",
+      "cipher": "auto",
+      "uuid": "8acf0ceb-510a-4f05-8175-f77c464d90ae",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/aries", "headers": { "Host": "kz.cloudflare.quest" } },
+    }
+  - {
+      "name": "🇦🇶€010•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "162.159.128.100",
+      "port": "2082",
+      "cipher": "auto",
+      "uuid": "80837af3-1ed8-4686-fa8a-6bf9214d5351",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/aries", "headers": { "Host": "UK.CLOUDFLARE.QUEST" } },
+    }
+  - {
+      "name": "🇦🇺€001•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "au.yangon.club",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "76f6ed54-7f61-4407-f49d-dd33d07ebd8f",
+      "alterId": "0",
+      "tls": true,
+    }
+  - {
+      "name": "🇦🇺€002•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "45.32.190.114",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "2ab56f70-39e3-4422-bb2e-dbfe59cb01f8",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/", "headers": {} },
+    }
+  - {
+      "name": "🇧🇿€001•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "203.30.189.189",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "40d496a6-ceeb-4096-baeb-4cc52b205621",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/ECTCJ0DF", "headers": { "Host": "lg1.trump2023.us" } },
+      "servername": "lg1.trump2023.us",
+    }
+  - {
+      "name": "🇧🇿€002•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "203.30.190.190",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "40d496a6-ceeb-4096-baeb-4cc52b205621",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/ECTCJ0DF", "headers": { "Host": "lg1.trump2023.us" } },
+      "servername": "lg1.trump2023.us",
+    }
+  - {
+      "name": "🇧🇿€003•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "203.30.188.189",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "56a2188b-2ab7-402c-b9b8-34847fdf0958",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/5QNROSRV", "headers": { "Host": "oplg1.zhujicn2.com" } },
+      "servername": "oplg1.zhujicn2.com",
+    }
+  - {
+      "name": "🇨🇦€001•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "23.227.38.39",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "4612618c-24cd-4379-9924-cfdf3d61fa5a",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/IYKLD53M", "headers": { "Host": "opfr1.v2rayfree1.xyz" } },
+      "servername": "opfr1.v2rayfree1.xyz",
+    }
+  - {
+      "name": "🇨🇦€002•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "23.227.38.100",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "7b1b2fa3-e361-48cc-b73d-2c9636c76f4b",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/UMW36262", "headers": { "Host": "v2ray1.zhujicn2.org" } },
+      "servername": "v2ray1.zhujicn2.org",
+    }
+  - {
+      "name": "🇨🇦€003•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "23.227.38.38",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "40d496a6-ceeb-4096-baeb-4cc52b205621",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/ECTCJ0DF", "headers": { "Host": "lg1.trump2023.us" } },
+      "servername": "lg1.trump2023.us",
+    }
+  - {
+      "name": "🇨🇦€004•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "23.227.38.11",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "9379fea0-006d-4fd3-8e35-d45a5af72aa2",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/UMW36262", "headers": { "Host": "frgt1.ssr-free2.xyz" } },
+      "servername": "frgt1.ssr-free2.xyz",
+    }
+  - {
+      "name": "🇨🇦€005•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "shopify.com",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "9f7566ff-ef75-4b10-88fc-ec31c6eda5a4",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/sbga", "headers": { "Host": "vc-ca1.misakano.ml" } },
+      "servername": "vc-ca1.misakano.ml",
+    }
+  - {
+      "name": "🇨🇳€001•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2413",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€002•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2412",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€003•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2414",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€007•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "104.29.64.37",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/AUIKN8AU", "headers": { "Host": "oplg1.cfcdn2.xyz" } },
+      "servername": "oplg1.cfcdn2.xyz",
+    }
+  - {
+      "name": "🇨🇳€008•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "104.29.64.3",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/AUIKN8AU", "headers": { "Host": "oplg1.cfcdn2.xyz" } },
+      "servername": "oplg1.cfcdn2.xyz",
+    }
+  - {
+      "name": "🇨🇳€009•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2411",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€015•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "104.29.64.5",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/AUIKN8AU", "headers": { "Host": "oplg1.cfcdn2.xyz" } },
+      "servername": "oplg1.cfcdn2.xyz",
+    }
+  - {
+      "name": "🇨🇳€016•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2415",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€018•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2419",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€019•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "104.29.64.36",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/AUIKN8AU", "headers": { "Host": "oplg1.cfcdn2.xyz" } },
+      "servername": "oplg1.cfcdn2.xyz",
+    }
+  - {
+      "name": "🇨🇳€020•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2418",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€021•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2417",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€022•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "104.29.64.14",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/AUIKN8AU", "headers": { "Host": "oplg1.cfcdn2.xyz" } },
+      "servername": "oplg1.cfcdn2.xyz",
+    }
+  - {
+      "name": "🇨🇳€023•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2416",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€025•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7717",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€026•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7718",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€028•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3714",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€030•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6716",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€031•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "5711",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€032•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "5714",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€034•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6718",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€037•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "5713",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€038•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6711",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€039•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6714",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€041•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3712",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€042•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6713",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€044•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "5715",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€045•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3715",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€046•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6717",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€047•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6710",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€049•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7711",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€050•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3713",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€051•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3711",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€052•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "5712",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€053•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7710",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€055•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6719",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€056•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6715",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€057•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3716",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€058•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "6712",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€060•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3718",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€061•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7713",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€062•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7715",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€063•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7714",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€066•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7716",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€067•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "5710",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€068•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3717",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€069•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7712",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€071•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3719",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€072•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "3710",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€073•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "zx01.endhigh.xyz",
+      "port": "2410",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "name": "🇨🇳€074•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "cm01.newcome.xyz",
+      "port": "7719",
+      "cipher": "rc4-md5",
+      "password": "2vzho5",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "http", "host": "646bc62235.microsoft.com" },
+    }
+  - {
+      "type": "ssr",
+      "server": "aiatw3.conectinnode.info",
+      "port": "1203",
+      "protocol": "auth_aes128_md5",
+      "cipher": "chacha20-ietf",
+      "obfs": "plain",
+      "password": "mtbv8n",
+      "name": "🇨🇳€083•🎟XiaoMao-Forever",
+      "protocol-param": "99610:Ss5tcJuseWa",
+      "obfs-param": "28f8799610.wns.windows.com",
+    }
+  - {
+      "name": "🇨🇳€130•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "124.222.189.225",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "a8c9ad5b-1f58-4234-b5fe-a895bee9a047",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/", "headers": {} },
+    }
+  - {
+      "name": "🇫🇷€002•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "a4a09ce.j1.glados-config.net",
+      "port": "2377",
+      "cipher": "chacha20-ietf-poly1305",
+      "password": "t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "tls", "host": "a4a09ce.dl.nintendo.net:36403" },
+    }
+  - {
+      "name": "🇫🇷€003•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "a4a09ce.j3.glados-config.net",
+      "port": "2377",
+      "cipher": "chacha20-ietf-poly1305",
+      "password": "t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "tls", "host": "a4a09ce.dl.nintendo.net:36403" },
+    }
+  - {
+      "name": "🇫🇷€004•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "a4a09ce.j2.glados-config.net",
+      "port": "2377",
+      "cipher": "chacha20-ietf-poly1305",
+      "password": "t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "tls", "host": "a4a09ce.dl.nintendo.net:36403" },
+    }
+  - {
+      "name": "🇭🇰€001•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "a4a09ce.h1.glados-config.net",
+      "port": "2377",
+      "cipher": "chacha20-ietf-poly1305",
+      "password": "t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "tls", "host": "a4a09ce.dl.nintendo.net:36403" },
+    }
+  - {
+      "name": "🇭🇰€059•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "jk.tlz.icu",
+      "port": "9989",
+      "cipher": "auto",
+      "uuid": "7328bdf4-b3cf-48c4-d1d2-6ed4ac96f032",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts": { "path": "/", "headers": {} },
+    }
+  - {
+      "name": "🇭🇰€061•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "hk80.af49c4e4c2ef.sanfen001.pics",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "9d4f9d66-407c-4c1b-b594-41e20a776ce3",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/zh-cn/", "headers": { "Host": "www.baidu.com" } },
+    }
+  - {
+      "type": "ssr",
+      "server": "sql.accessconnect.cc",
+      "port": "999",
+      "protocol": "auth_aes128_md5",
+      "cipher": "aes-256-cfb",
+      "obfs": "tls1.2_ticket_auth",
+      "password": "di15PV",
+      "name": "🇭🇰€065•🎟XiaoMao-Forever",
+      "protocol-param": "140256:6EZw4O",
+      "obfs-param": "84166140256.www.gov.hk",
+    }
+  - {
+      "name": "🇭🇰€066•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "hk80.af49c4e4c2ef.sanfen001.pics",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "3b21ac2f-41be-4f9a-872d-1169250351f0",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/zh-cn/", "headers": {} },
+    }
+  - {
+      "name": "🇭🇰€077•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "0kxedm1x8q8lksmj01.xingbayun.buzz",
+      "port": "1001",
+      "cipher": "auto",
+      "uuid": "5eb28488-7c95-4f39-b711-e5cc96ec1756",
+      "alterId": "0",
+      "tls": false,
+    }
+  - {
+      "name": "🇯🇵€002•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.104.122.21",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "927094d3-d678-4763-8591-e240d0bcae87",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts": { "path": "/chat", "headers": {} },
+    }
+  - {
+      "name": "🇯🇵€003•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "45.76.49.237",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "2ab56f70-39e3-4422-bb2e-dbfe59cb01f8",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/", "headers": { "Host": "45.76.49.237" } },
+    }
+  - {
+      "name": "🇯🇵€004•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "138.2.39.67",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "ab335c88-d14a-4e67-b52c-54ed8be80c48",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/", "headers": { "Host": "138.2.39.67" } },
+    }
+  - {
+      "name": "🇯🇵€005•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "140.83.87.4",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "04852071-6116-41ed-8455-2b04543f3c8a",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/6546", "headers": { "Host": "140.83.87.4" } },
+    }
+  - {
+      "name": "🇯🇵€006•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "138.2.35.81",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "a0733fc9-457e-498d-c363-9ec774a74946",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/jun", "headers": { "Host": "138.2.35.81" } },
+    }
+  - {
+      "name": "🇯🇵€007•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "140.83.86.129",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "8700cfbd-71dc-42b0-84f2-53cd7fe5645a",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/", "headers": {} },
+    }
+  - {
+      "name": "🇯🇵€015•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "jp80.af49c4e4c2ef.sanfen001.pics",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "3b21ac2f-41be-4f9a-872d-1169250351f0",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/zh-cn", "headers": {} },
+    }
+  - {
+      "name": "🇯🇵€016•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "54.255.227.184",
+      "port": "443",
+      "cipher": "aes-256-cfb",
+      "password": "amazonskr05",
+    }
+  - {
+      "name": "🇯🇵€017•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "doinb.ml",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "c2f89bc3-e151-411c-a2ea-7f3ef63a5408",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts": { "path": "/ikidvws", "headers": { "Host": "jp.lzgsm.tk" } },
+      "servername": "jp.lzgsm.tk",
+    }
+  - {
+      "name": "🇰🇷€005•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "00000000000000000000000000000000000000000000000000000000000007a.node-for-bigairport.win",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "78065c14-fc80-40b5-a46c-0e34efdf82fa",
+      "alterId": "0",
+      "tls": false,
+    }
+  - {
+      "name": "🇱🇻•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "45.142.213.51",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "b64efcc6-5392-429e-8da5-5fe9617deba2",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/sshocean", "headers": {} },
+    }
+  - {
+      "type": "ssr",
+      "server": "213.183.59.211",
+      "port": "9064",
+      "protocol": "origin",
+      "cipher": "aes-256-cfb",
+      "obfs": "plain",
+      "password": "cp8pRSUAyLhTfVWH",
+      "name": "🇳🇱€002•🎟XiaoMao-Forever",
+    }
+  - {
+      "name": "🇷🇴€002•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "146.70.157.5",
+      "port": "8880",
+      "cipher": "auto",
+      "uuid": "7f579426-5a20-4cf6-cc54-943568ccf148",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/", "headers": {} },
+    }
+  - {
+      "name": "🇸🇬€003•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "a4a09ce.s2.glados-config.net",
+      "port": "2377",
+      "cipher": "chacha20-ietf-poly1305",
+      "password": "t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "tls", "host": "a4a09ce.dl.nintendo.net:36403" },
+    }
+  - {
+      "name": "🇸🇬€004•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "vsg1.0bad.com",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "927094d3-d678-4763-8591-e240d0bcae87",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts": { "path": "/chat", "headers": { "Host": "vsg1.0bad.com" } },
+      "servername": "vsg1.0bad.com",
+    }
+  - {
+      "name": "🇸🇬€005•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "a4a09ce.s1.glados-config.net",
+      "port": "2377",
+      "cipher": "chacha20-ietf-poly1305",
+      "password": "t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "tls", "host": "a4a09ce.dl.nintendo.net:36403" },
+    }
+  - {
+      "name": "🇸🇬€006•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "13.215.49.89",
+      "port": "443",
+      "cipher": "aes-256-cfb",
+      "password": "amazonskr05",
+    }
+  - {
+      "name": "🇸🇬€007•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "52.77.219.236",
+      "port": "443",
+      "cipher": "aes-256-cfb",
+      "password": "amazonskr05",
+    }
+  - {
+      "name": "🇸🇬€012•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "13.124.9.229",
+      "port": "443",
+      "cipher": "aes-256-cfb",
+      "password": "amazonskr05",
+    }
+  - {
+      "name": "🇸🇬€013•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "project.mytargoocloud.live",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "59219c67-ba37-4260-8535-6b1754b24c5d",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/?ed=2048", "headers": { "Host": "sgm2.targoocloud.live" } },
+      "servername": "sgm2.targoocloud.live",
+    }
+  - {
+      "name": "🇸🇬€018•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "139.162.43.101",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "8441c430-0b7d-4253-8896-c0b5954e77d1",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/images", "headers": {} },
+    }
+  - {
+      "name": "🇸🇬€022•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "139.162.43.101",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "8441c430-0b7d-4253-8896-c0b5954e77d1",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/images",
+          "headers": { "Host": "shoutingtoutiao3.10010.com" },
+        },
+    }
+  - {
+      "type": "ssr",
+      "server": "sg1.vfun.icu",
+      "port": "443",
+      "protocol": "auth_aes128_sha1",
+      "cipher": "aes-256-cfb",
+      "obfs": "plain",
+      "password": "vyunme",
+      "name": "🇸🇬€023•🎟XiaoMao-Forever",
+      "protocol-param": "16952:9bik8I",
+    }
+  - {
+      "name": "🇸🇬€024•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "165.232.168.48",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "69aad581-5c7d-4c78-bcb7-c1e0fd32ae8a",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/5gsieutoc.com", "headers": {} },
+    }
+  - {
+      "name": "🇸🇬€026•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "27.124.2.38",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
+      "alterId": "64",
+      "tls": true,
+      "network": "ws",
+      "ws-opts": { "path": "/path/031730091420", "headers": {} },
+    }
+  - {
+      "name": "🇺🇸€001•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.67.199.34",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "56a2188b-2ab7-402c-b9b8-34847fdf0958",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/5QNROSRV", "headers": { "Host": "oplg1.zhujicn2.com" } },
+      "servername": "oplg1.zhujicn2.com",
+    }
+  - {
+      "name": "🇺🇸€002•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "163.197.211.159",
+      "port": "8080",
+      "cipher": "auto",
+      "uuid": "9878964a-3bb3-4e43-efe9-b3777fcc67d0",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/hkaa0", "headers": {} },
+    }
+  - {
+      "name": "🇺🇸€003•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.67.199.34",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "8763e625-929a-43da-b7bf-7e7bc2e57615",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts": { "path": "/shared", "headers": { "Host": "lv.awsbest.com" } },
+      "servername": "lv.awsbest.com",
+    }
+  - {
+      "name": "🇺🇸€004•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "141.193.213.20",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "20e92881-5fb4-4b05-bc77-57929476dc69",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/shirker",
+          "headers": { "Host": "opc-jp.sharecentre.online" },
+        },
+      "servername": "opc-jp.sharecentre.online",
+    }
+  - {
+      "name": "🇺🇸€005•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.67.205.70",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "20e92881-5fb4-4b05-bc77-57929476dc69",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/shirker",
+          "headers": { "Host": "sg-gcore.sharecentre.online" },
+        },
+      "servername": "sg-gcore.sharecentre.online",
+    }
+  - {
+      "name": "🇺🇸€007•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "a4a09ce.u2.glados-config.net",
+      "port": "2377",
+      "cipher": "chacha20-ietf-poly1305",
+      "password": "t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "tls", "host": "a4a09ce.dl.nintendo.net:36403" },
+    }
+  - {
+      "name": "🇺🇸€008•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "a4a09ce.u1.glados-config.net",
+      "port": "2377",
+      "cipher": "chacha20-ietf-poly1305",
+      "password": "t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "tls", "host": "a4a09ce.dl.nintendo.net:36403" },
+    }
+  - {
+      "name": "🇺🇸€009•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "a4a09ce.u3.glados-config.net",
+      "port": "2377",
+      "cipher": "chacha20-ietf-poly1305",
+      "password": "t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv",
+      "plugin": "obfs",
+      "plugin-opts": { "mode": "tls", "host": "a4a09ce.dl.nintendo.net:36403" },
+    }
+  - {
+      "name": "🇺🇸€011•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.67.199.34",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "20e92881-5fb4-4b05-bc77-57929476dc69",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/shirker", "headers": { "Host": "lu.sharecentre.online" } },
+      "servername": "lu.sharecentre.online",
+    }
+  - {
+      "name": "🇺🇸€012•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "141.193.213.10",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "20e92881-5fb4-4b05-bc77-57929476dc69",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/shirker",
+          "headers": { "Host": "sg-gcore.sharecentre.online" },
+        },
+      "servername": "sg-gcore.sharecentre.online",
+    }
+  - {
+      "name": "🇺🇸€013•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.67.199.34",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "6fea1649-425b-4092-bf53-29792152c925",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/sshkit/fdfadsfa/63848bfe228fd/",
+          "headers": { "Host": "us-lb.sshkit.org" },
+        },
+      "servername": "us-lb.sshkit.org",
+    }
+  - {
+      "name": "🇺🇸€014•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.67.199.34",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "6fea1649-425b-4092-bf53-29792152c925",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/sshkit/fdfadsfa/63848bfe228fd/",
+          "headers": { "Host": "us-lb.sshkit.org" },
+        },
+    }
+  - {
+      "name": "🇺🇸€015•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "cloudflare.quest",
+      "port": "2086",
+      "cipher": "auto",
+      "uuid": "833de9d2-98c5-4ac5-9d30-e3a7ad929d10",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/aries", "headers": { "Host": "buyvm.cloudflare.quest" } },
+    }
+  - {
+      "name": "🇺🇸€016•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "174.137.48.94",
+      "port": "6337",
+      "cipher": "auto",
+      "uuid": "1398b8fe-9a6e-4a3e-8abc-fea50a6c19fe",
+      "alterId": "0",
+      "tls": false,
+    }
+  - {
+      "name": "🇺🇸€017•🎟XiaoMao-Forever",
+      "type": "ss",
+      "server": "35.165.81.130",
+      "port": "443",
+      "cipher": "aes-256-cfb",
+      "password": "amazonskr05",
+    }
+  - {
+      "name": "🇺🇸€018•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.64.155.90",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "34ff6bca-3f4e-4d30-d6d2-dfc8efb0cf9e",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/", "headers": { "Host": "212us.zikkcc.ga" } },
+    }
+  - {
+      "name": "🇺🇸€019•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.67.132.15",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "18e5f40f-bda6-4c15-9334-e87cda6047af",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/ray", "headers": { "Host": "ming2.kiwireich.com" } },
+      "servername": "ming2.kiwireich.com",
+    }
+  - {
+      "name": "🇺🇸€020•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "108.162.195.199",
+      "port": "2082",
+      "cipher": "auto",
+      "uuid": "082122a2-8479-4089-82f0-f32ba5fc5426",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/bb", "headers": { "Host": "hao.huaqian.icu" } },
+    }
+  - {
+      "name": "🇺🇸€021•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "news.microsoft.com",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "56a2188b-2ab7-402c-b9b8-34847fdf0958",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/5QNROSRV", "headers": { "Host": "oplg1.zhujicn2.com" } },
+      "servername": "oplg1.zhujicn2.com",
+    }
+  - {
+      "name": "🇺🇸€022•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "cdn.xia.me",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "68fe8d27-cbc8-4e72-90b7-70d3bb69dfd3",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts": { "path": "/api", "headers": { "Host": "us12.cachexy.ga" } },
+      "servername": "us12.cachexy.ga",
+    }
+  - {
+      "name": "🇺🇸€023•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "hax.smely.eu.org",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "a6dfb50f-75bb-48e0-b56a-1edeb62b5a49",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/hax02", "headers": {} },
+    }
+  - {
+      "name": "🇺🇸€024•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "usdo.tzccifq.ga",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "58eb724d-5a95-4b9c-851e-2cb3b408e85f",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts": { "path": "/", "headers": {} },
+    }
+  - {
+      "name": "🇺🇸€025•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.67.72.219",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "90ea24f6-4b7f-4b4e-a9c1-de7d77b67e45",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/m1", "headers": { "Host": "de-2.heima-bot.tech" } },
+      "servername": "de-2.heima-bot.tech",
+    }
+  - {
+      "name": "🇺🇸€026•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "v2ray.online",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "00BBF5B8-173E-6818-9927-5AD1AA073C7D",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/speedtest", "headers": { "Host": "Kansas.v2ray.online" } },
+      "servername": "Kansas.v2ray.online",
+    }
+  - {
+      "name": "🇺🇸€027•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "Kansas.v2ray.online",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "00BBF5B8-173E-6818-9927-5AD1AA073C7D",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/speedtest", "headers": { "Host": "Kansas.v2ray.online" } },
+      "servername": "Kansas.v2ray.online",
+    }
+  - {
+      "name": "🇺🇸€028•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "us1.oceis.net",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "e9ff4d30-b9e9-11ed-b039-205c6d5f5d78",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts": { "path": "/vmws", "headers": {} },
+    }
+  - {
+      "name": "🇺🇸€029•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "172.67.137.72",
+      "port": "443",
+      "cipher": "auto",
+      "uuid": "db39ef95-4245-418a-84c0-14c202f29bc6",
+      "alterId": "0",
+      "tls": true,
+      "network": "ws",
+      "ws-opts":
+        { "path": "/videnset", "headers": { "Host": "khvwycch.cymlr.xyz" } },
+      "servername": "khvwycch.cymlr.xyz",
+    }
+  - {
+      "name": "🇻🇳€005•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "103.57.131.48",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "69aad581-5c7d-4c78-bcb7-c1e0fd32ae8a",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/5gsieutoc.com",
+          "headers": { "Host": "dl.ops.kgvn.garenanow.com" },
+        },
+    }
+  - {
+      "name": "🇻🇳€006•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "103.130.212.85",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "69aad581-5c7d-4c78-bcb7-c1e0fd32ae8a",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/5gsieutoc.com",
+          "headers": { "Host": "dl.ops.kgvn.garenanow.com" },
+        },
+    }
+  - {
+      "name": "🇻🇳€007•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "103.74.103.200",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "69aad581-5c7d-4c78-bcb7-c1e0fd32ae8a",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/5gsieutoc.com",
+          "headers": { "Host": "dl.ops.kgvn.garenanow.com" },
+        },
+    }
+  - {
+      "name": "🇻🇳€008•🎟XiaoMao-Forever",
+      "type": "vmess",
+      "server": "103.180.133.225",
+      "port": "80",
+      "cipher": "auto",
+      "uuid": "69aad581-5c7d-4c78-bcb7-c1e0fd32ae8a",
+      "alterId": "0",
+      "tls": false,
+      "network": "ws",
+      "ws-opts":
+        {
+          "path": "/5gsieutoc.com",
+          "headers": { "Host": "dl.ops.kgvn.garenanow.com" },
+        },
+    }
+
+proxy-groups:
+  - {
+      name: S.综合策略,
+      type: select,
+      proxies:
+        [
+          DIRECT,
+          U.全部节点,
+          U.香港节点,
+          U.台湾节点,
+          U.日本节点,
+          U.美国节点,
+          U.新加坡节点,
+          S.手动选择,
+          REJECT,
+        ],
+    }
+  - {
+      name: S.Git服务,
+      type: select,
+      proxies:
+        [
+          U.香港节点,
+          U.台湾节点,
+          DIRECT,
+          S.综合策略,
+          U.全部节点,
+          U.日本节点,
+          U.美国节点,
+          U.新加坡节点,
+          S.手动选择,
+          REJECT,
+        ],
+    }
+  - {
+      name: S.谷歌服务,
+      type: select,
+      proxies:
+        [
+          U.香港节点,
+          S.综合策略,
+          U.全部节点,
+          U.台湾节点,
+          U.日本节点,
+          U.美国节点,
+          U.新加坡节点,
+          S.手动选择,
+          DIRECT,
+          REJECT,
+        ],
+    }
+  - {
+      name: S.微软服务,
+      type: select,
+      proxies:
+        [
+          DIRECT,
+          S.综合策略,
+          U.全部节点,
+          U.香港节点,
+          U.台湾节点,
+          U.日本节点,
+          U.美国节点,
+          U.新加坡节点,
+          S.手动选择,
+          REJECT,
+        ],
+    }
+  - {
+      name: S.苹果服务,
+      type: select,
+      proxies:
+        [
+          DIRECT,
+          S.综合策略,
+          U.全部节点,
+          U.香港节点,
+          U.台湾节点,
+          U.日本节点,
+          U.美国节点,
+          U.新加坡节点,
+          S.手动选择,
+          REJECT,
+        ],
+    }
+  - {
+      name: S.手动选择,
+      type: select,
+      proxies:
+        [
+          DIRECT,
+          "🇦🇶€001•🎟XiaoMao-Forever",
+          "🇦🇶€002•🎟XiaoMao-Forever",
+          "🇦🇶€003•🎟XiaoMao-Forever",
+          "🇦🇶€004•🎟XiaoMao-Forever",
+          "🇦🇶€005•🎟XiaoMao-Forever",
+          "🇦🇶€006•🎟XiaoMao-Forever",
+          "🇦🇶€007•🎟XiaoMao-Forever",
+          "🇦🇶€008•🎟XiaoMao-Forever",
+          "🇦🇶€009•🎟XiaoMao-Forever",
+          "🇦🇶€010•🎟XiaoMao-Forever",
+          "🇦🇺€001•🎟XiaoMao-Forever",
+          "🇦🇺€002•🎟XiaoMao-Forever",
+          "🇧🇿€001•🎟XiaoMao-Forever",
+          "🇧🇿€002•🎟XiaoMao-Forever",
+          "🇧🇿€003•🎟XiaoMao-Forever",
+          "🇨🇦€001•🎟XiaoMao-Forever",
+          "🇨🇦€002•🎟XiaoMao-Forever",
+          "🇨🇦€003•🎟XiaoMao-Forever",
+          "🇨🇦€004•🎟XiaoMao-Forever",
+          "🇨🇦€005•🎟XiaoMao-Forever",
+          "🇨🇳€001•🎟XiaoMao-Forever",
+          "🇨🇳€002•🎟XiaoMao-Forever",
+          "🇨🇳€003•🎟XiaoMao-Forever",
+          "🇨🇳€007•🎟XiaoMao-Forever",
+          "🇨🇳€008•🎟XiaoMao-Forever",
+          "🇨🇳€009•🎟XiaoMao-Forever",
+          "🇨🇳€015•🎟XiaoMao-Forever",
+          "🇨🇳€016•🎟XiaoMao-Forever",
+          "🇨🇳€018•🎟XiaoMao-Forever",
+          "🇨🇳€019•🎟XiaoMao-Forever",
+          "🇨🇳€020•🎟XiaoMao-Forever",
+          "🇨🇳€021•🎟XiaoMao-Forever",
+          "🇨🇳€022•🎟XiaoMao-Forever",
+          "🇨🇳€023•🎟XiaoMao-Forever",
+          "🇨🇳€025•🎟XiaoMao-Forever",
+          "🇨🇳€026•🎟XiaoMao-Forever",
+          "🇨🇳€028•🎟XiaoMao-Forever",
+          "🇨🇳€030•🎟XiaoMao-Forever",
+          "🇨🇳€031•🎟XiaoMao-Forever",
+          "🇨🇳€032•🎟XiaoMao-Forever",
+          "🇨🇳€034•🎟XiaoMao-Forever",
+          "🇨🇳€037•🎟XiaoMao-Forever",
+          "🇨🇳€038•🎟XiaoMao-Forever",
+          "🇨🇳€039•🎟XiaoMao-Forever",
+          "🇨🇳€041•🎟XiaoMao-Forever",
+          "🇨🇳€042•🎟XiaoMao-Forever",
+          "🇨🇳€044•🎟XiaoMao-Forever",
+          "🇨🇳€045•🎟XiaoMao-Forever",
+          "🇨🇳€046•🎟XiaoMao-Forever",
+          "🇨🇳€047•🎟XiaoMao-Forever",
+          "🇨🇳€049•🎟XiaoMao-Forever",
+          "🇨🇳€050•🎟XiaoMao-Forever",
+          "🇨🇳€051•🎟XiaoMao-Forever",
+          "🇨🇳€052•🎟XiaoMao-Forever",
+          "🇨🇳€053•🎟XiaoMao-Forever",
+          "🇨🇳€055•🎟XiaoMao-Forever",
+          "🇨🇳€056•🎟XiaoMao-Forever",
+          "🇨🇳€057•🎟XiaoMao-Forever",
+          "🇨🇳€058•🎟XiaoMao-Forever",
+          "🇨🇳€060•🎟XiaoMao-Forever",
+          "🇨🇳€061•🎟XiaoMao-Forever",
+          "🇨🇳€062•🎟XiaoMao-Forever",
+          "🇨🇳€063•🎟XiaoMao-Forever",
+          "🇨🇳€066•🎟XiaoMao-Forever",
+          "🇨🇳€067•🎟XiaoMao-Forever",
+          "🇨🇳€068•🎟XiaoMao-Forever",
+          "🇨🇳€069•🎟XiaoMao-Forever",
+          "🇨🇳€071•🎟XiaoMao-Forever",
+          "🇨🇳€072•🎟XiaoMao-Forever",
+          "🇨🇳€073•🎟XiaoMao-Forever",
+          "🇨🇳€074•🎟XiaoMao-Forever",
+          "🇨🇳€083•🎟XiaoMao-Forever",
+          "🇨🇳€130•🎟XiaoMao-Forever",
+          "🇫🇷€002•🎟XiaoMao-Forever",
+          "🇫🇷€003•🎟XiaoMao-Forever",
+          "🇫🇷€004•🎟XiaoMao-Forever",
+          "🇭🇰€001•🎟XiaoMao-Forever",
+          "🇭🇰€059•🎟XiaoMao-Forever",
+          "🇭🇰€061•🎟XiaoMao-Forever",
+          "🇭🇰€065•🎟XiaoMao-Forever",
+          "🇭🇰€066•🎟XiaoMao-Forever",
+          "🇭🇰€077•🎟XiaoMao-Forever",
+          "🇯🇵€002•🎟XiaoMao-Forever",
+          "🇯🇵€003•🎟XiaoMao-Forever",
+          "🇯🇵€004•🎟XiaoMao-Forever",
+          "🇯🇵€005•🎟XiaoMao-Forever",
+          "🇯🇵€006•🎟XiaoMao-Forever",
+          "🇯🇵€007•🎟XiaoMao-Forever",
+          "🇯🇵€015•🎟XiaoMao-Forever",
+          "🇯🇵€016•🎟XiaoMao-Forever",
+          "🇯🇵€017•🎟XiaoMao-Forever",
+          "🇰🇷€005•🎟XiaoMao-Forever",
+          "🇱🇻•🎟XiaoMao-Forever",
+          "🇳🇱€002•🎟XiaoMao-Forever",
+          "🇷🇴€002•🎟XiaoMao-Forever",
+          "🇸🇬€003•🎟XiaoMao-Forever",
+          "🇸🇬€004•🎟XiaoMao-Forever",
+          "🇸🇬€005•🎟XiaoMao-Forever",
+          "🇸🇬€006•🎟XiaoMao-Forever",
+          "🇸🇬€007•🎟XiaoMao-Forever",
+          "🇸🇬€012•🎟XiaoMao-Forever",
+          "🇸🇬€013•🎟XiaoMao-Forever",
+          "🇸🇬€018•🎟XiaoMao-Forever",
+          "🇸🇬€022•🎟XiaoMao-Forever",
+          "🇸🇬€023•🎟XiaoMao-Forever",
+          "🇸🇬€024•🎟XiaoMao-Forever",
+          "🇸🇬€026•🎟XiaoMao-Forever",
+          "🇺🇸€001•🎟XiaoMao-Forever",
+          "🇺🇸€002•🎟XiaoMao-Forever",
+          "🇺🇸€003•🎟XiaoMao-Forever",
+          "🇺🇸€004•🎟XiaoMao-Forever",
+          "🇺🇸€005•🎟XiaoMao-Forever",
+          "🇺🇸€007•🎟XiaoMao-Forever",
+          "🇺🇸€008•🎟XiaoMao-Forever",
+          "🇺🇸€009•🎟XiaoMao-Forever",
+          "🇺🇸€011•🎟XiaoMao-Forever",
+          "🇺🇸€012•🎟XiaoMao-Forever",
+          "🇺🇸€013•🎟XiaoMao-Forever",
+          "🇺🇸€014•🎟XiaoMao-Forever",
+          "🇺🇸€015•🎟XiaoMao-Forever",
+          "🇺🇸€016•🎟XiaoMao-Forever",
+          "🇺🇸€017•🎟XiaoMao-Forever",
+          "🇺🇸€018•🎟XiaoMao-Forever",
+          "🇺🇸€019•🎟XiaoMao-Forever",
+          "🇺🇸€020•🎟XiaoMao-Forever",
+          "🇺🇸€021•🎟XiaoMao-Forever",
+          "🇺🇸€022•🎟XiaoMao-Forever",
+          "🇺🇸€023•🎟XiaoMao-Forever",
+          "🇺🇸€024•🎟XiaoMao-Forever",
+          "🇺🇸€025•🎟XiaoMao-Forever",
+          "🇺🇸€026•🎟XiaoMao-Forever",
+          "🇺🇸€027•🎟XiaoMao-Forever",
+          "🇺🇸€028•🎟XiaoMao-Forever",
+          "🇺🇸€029•🎟XiaoMao-Forever",
+          "🇻🇳€005•🎟XiaoMao-Forever",
+          "🇻🇳€006•🎟XiaoMao-Forever",
+          "🇻🇳€007•🎟XiaoMao-Forever",
+          "🇻🇳€008•🎟XiaoMao-Forever",
+          REJECT,
+        ],
+    }
+  - {
+      name: U.全部节点,
+      type: url-test,
+      proxies:
+        [
+          "🇦🇶€001•🎟XiaoMao-Forever",
+          "🇦🇶€002•🎟XiaoMao-Forever",
+          "🇦🇶€003•🎟XiaoMao-Forever",
+          "🇦🇶€004•🎟XiaoMao-Forever",
+          "🇦🇶€005•🎟XiaoMao-Forever",
+          "🇦🇶€006•🎟XiaoMao-Forever",
+          "🇦🇶€007•🎟XiaoMao-Forever",
+          "🇦🇶€008•🎟XiaoMao-Forever",
+          "🇦🇶€009•🎟XiaoMao-Forever",
+          "🇦🇶€010•🎟XiaoMao-Forever",
+          "🇦🇺€001•🎟XiaoMao-Forever",
+          "🇦🇺€002•🎟XiaoMao-Forever",
+          "🇧🇿€001•🎟XiaoMao-Forever",
+          "🇧🇿€002•🎟XiaoMao-Forever",
+          "🇧🇿€003•🎟XiaoMao-Forever",
+          "🇨🇦€001•🎟XiaoMao-Forever",
+          "🇨🇦€002•🎟XiaoMao-Forever",
+          "🇨🇦€003•🎟XiaoMao-Forever",
+          "🇨🇦€004•🎟XiaoMao-Forever",
+          "🇨🇦€005•🎟XiaoMao-Forever",
+          "🇨🇳€001•🎟XiaoMao-Forever",
+          "🇨🇳€002•🎟XiaoMao-Forever",
+          "🇨🇳€003•🎟XiaoMao-Forever",
+          "🇨🇳€007•🎟XiaoMao-Forever",
+          "🇨🇳€008•🎟XiaoMao-Forever",
+          "🇨🇳€009•🎟XiaoMao-Forever",
+          "🇨🇳€015•🎟XiaoMao-Forever",
+          "🇨🇳€016•🎟XiaoMao-Forever",
+          "🇨🇳€018•🎟XiaoMao-Forever",
+          "🇨🇳€019•🎟XiaoMao-Forever",
+          "🇨🇳€020•🎟XiaoMao-Forever",
+          "🇨🇳€021•🎟XiaoMao-Forever",
+          "🇨🇳€022•🎟XiaoMao-Forever",
+          "🇨🇳€023•🎟XiaoMao-Forever",
+          "🇨🇳€025•🎟XiaoMao-Forever",
+          "🇨🇳€026•🎟XiaoMao-Forever",
+          "🇨🇳€028•🎟XiaoMao-Forever",
+          "🇨🇳€030•🎟XiaoMao-Forever",
+          "🇨🇳€031•🎟XiaoMao-Forever",
+          "🇨🇳€032•🎟XiaoMao-Forever",
+          "🇨🇳€034•🎟XiaoMao-Forever",
+          "🇨🇳€037•🎟XiaoMao-Forever",
+          "🇨🇳€038•🎟XiaoMao-Forever",
+          "🇨🇳€039•🎟XiaoMao-Forever",
+          "🇨🇳€041•🎟XiaoMao-Forever",
+          "🇨🇳€042•🎟XiaoMao-Forever",
+          "🇨🇳€044•🎟XiaoMao-Forever",
+          "🇨🇳€045•🎟XiaoMao-Forever",
+          "🇨🇳€046•🎟XiaoMao-Forever",
+          "🇨🇳€047•🎟XiaoMao-Forever",
+          "🇨🇳€049•🎟XiaoMao-Forever",
+          "🇨🇳€050•🎟XiaoMao-Forever",
+          "🇨🇳€051•🎟XiaoMao-Forever",
+          "🇨🇳€052•🎟XiaoMao-Forever",
+          "🇨🇳€053•🎟XiaoMao-Forever",
+          "🇨🇳€055•🎟XiaoMao-Forever",
+          "🇨🇳€056•🎟XiaoMao-Forever",
+          "🇨🇳€057•🎟XiaoMao-Forever",
+          "🇨🇳€058•🎟XiaoMao-Forever",
+          "🇨🇳€060•🎟XiaoMao-Forever",
+          "🇨🇳€061•🎟XiaoMao-Forever",
+          "🇨🇳€062•🎟XiaoMao-Forever",
+          "🇨🇳€063•🎟XiaoMao-Forever",
+          "🇨🇳€066•🎟XiaoMao-Forever",
+          "🇨🇳€067•🎟XiaoMao-Forever",
+          "🇨🇳€068•🎟XiaoMao-Forever",
+          "🇨🇳€069•🎟XiaoMao-Forever",
+          "🇨🇳€071•🎟XiaoMao-Forever",
+          "🇨🇳€072•🎟XiaoMao-Forever",
+          "🇨🇳€073•🎟XiaoMao-Forever",
+          "🇨🇳€074•🎟XiaoMao-Forever",
+          "🇨🇳€083•🎟XiaoMao-Forever",
+          "🇨🇳€130•🎟XiaoMao-Forever",
+          "🇫🇷€002•🎟XiaoMao-Forever",
+          "🇫🇷€003•🎟XiaoMao-Forever",
+          "🇫🇷€004•🎟XiaoMao-Forever",
+          "🇭🇰€001•🎟XiaoMao-Forever",
+          "🇭🇰€059•🎟XiaoMao-Forever",
+          "🇭🇰€061•🎟XiaoMao-Forever",
+          "🇭🇰€065•🎟XiaoMao-Forever",
+          "🇭🇰€066•🎟XiaoMao-Forever",
+          "🇭🇰€077•🎟XiaoMao-Forever",
+          "🇯🇵€002•🎟XiaoMao-Forever",
+          "🇯🇵€003•🎟XiaoMao-Forever",
+          "🇯🇵€004•🎟XiaoMao-Forever",
+          "🇯🇵€005•🎟XiaoMao-Forever",
+          "🇯🇵€006•🎟XiaoMao-Forever",
+          "🇯🇵€007•🎟XiaoMao-Forever",
+          "🇯🇵€015•🎟XiaoMao-Forever",
+          "🇯🇵€016•🎟XiaoMao-Forever",
+          "🇯🇵€017•🎟XiaoMao-Forever",
+          "🇰🇷€005•🎟XiaoMao-Forever",
+          "🇱🇻•🎟XiaoMao-Forever",
+          "🇳🇱€002•🎟XiaoMao-Forever",
+          "🇷🇴€002•🎟XiaoMao-Forever",
+          "🇸🇬€003•🎟XiaoMao-Forever",
+          "🇸🇬€004•🎟XiaoMao-Forever",
+          "🇸🇬€005•🎟XiaoMao-Forever",
+          "🇸🇬€006•🎟XiaoMao-Forever",
+          "🇸🇬€007•🎟XiaoMao-Forever",
+          "🇸🇬€012•🎟XiaoMao-Forever",
+          "🇸🇬€013•🎟XiaoMao-Forever",
+          "🇸🇬€018•🎟XiaoMao-Forever",
+          "🇸🇬€022•🎟XiaoMao-Forever",
+          "🇸🇬€023•🎟XiaoMao-Forever",
+          "🇸🇬€024•🎟XiaoMao-Forever",
+          "🇸🇬€026•🎟XiaoMao-Forever",
+          "🇺🇸€001•🎟XiaoMao-Forever",
+          "🇺🇸€002•🎟XiaoMao-Forever",
+          "🇺🇸€003•🎟XiaoMao-Forever",
+          "🇺🇸€004•🎟XiaoMao-Forever",
+          "🇺🇸€005•🎟XiaoMao-Forever",
+          "🇺🇸€007•🎟XiaoMao-Forever",
+          "🇺🇸€008•🎟XiaoMao-Forever",
+          "🇺🇸€009•🎟XiaoMao-Forever",
+          "🇺🇸€011•🎟XiaoMao-Forever",
+          "🇺🇸€012•🎟XiaoMao-Forever",
+          "🇺🇸€013•🎟XiaoMao-Forever",
+          "🇺🇸€014•🎟XiaoMao-Forever",
+          "🇺🇸€015•🎟XiaoMao-Forever",
+          "🇺🇸€016•🎟XiaoMao-Forever",
+          "🇺🇸€017•🎟XiaoMao-Forever",
+          "🇺🇸€018•🎟XiaoMao-Forever",
+          "🇺🇸€019•🎟XiaoMao-Forever",
+          "🇺🇸€020•🎟XiaoMao-Forever",
+          "🇺🇸€021•🎟XiaoMao-Forever",
+          "🇺🇸€022•🎟XiaoMao-Forever",
+          "🇺🇸€023•🎟XiaoMao-Forever",
+          "🇺🇸€024•🎟XiaoMao-Forever",
+          "🇺🇸€025•🎟XiaoMao-Forever",
+          "🇺🇸€026•🎟XiaoMao-Forever",
+          "🇺🇸€027•🎟XiaoMao-Forever",
+          "🇺🇸€028•🎟XiaoMao-Forever",
+          "🇺🇸€029•🎟XiaoMao-Forever",
+          "🇻🇳€005•🎟XiaoMao-Forever",
+          "🇻🇳€006•🎟XiaoMao-Forever",
+          "🇻🇳€007•🎟XiaoMao-Forever",
+          "🇻🇳€008•🎟XiaoMao-Forever",
+        ],
+      url: "http://captive.apple.com/",
+      interval: 216000,
+    }
+  - {
+      name: U.香港节点,
+      type: url-test,
+      proxies:
+        [
+          "🇻🇳€005•🎟XiaoMao-Forever",
+          "🇻🇳€006•🎟XiaoMao-Forever",
+          "🇻🇳€007•🎟XiaoMao-Forever",
+          "🇻🇳€008•🎟XiaoMao-Forever",
+        ],
+      url: "http://captive.apple.com/",
+      interval: 216000,
+    }
+  - {
+      name: U.台湾节点,
+      type: url-test,
+      proxies:
+        [
+          "🇨🇳€001•🎟XiaoMao-Forever",
+          "🇨🇳€002•🎟XiaoMao-Forever",
+          "🇨🇳€003•🎟XiaoMao-Forever",
+          "🇨🇳€007•🎟XiaoMao-Forever",
+          "🇨🇳€008•🎟XiaoMao-Forever",
+          "🇨🇳€009•🎟XiaoMao-Forever",
+          "🇨🇳€015•🎟XiaoMao-Forever",
+          "🇨🇳€016•🎟XiaoMao-Forever",
+          "🇨🇳€018•🎟XiaoMao-Forever",
+          "🇨🇳€019•🎟XiaoMao-Forever",
+          "🇨🇳€020•🎟XiaoMao-Forever",
+          "🇨🇳€021•🎟XiaoMao-Forever",
+          "🇨🇳€022•🎟XiaoMao-Forever",
+          "🇨🇳€023•🎟XiaoMao-Forever",
+          "🇨🇳€025•🎟XiaoMao-Forever",
+          "🇨🇳€026•🎟XiaoMao-Forever",
+          "🇨🇳€028•🎟XiaoMao-Forever",
+          "🇨🇳€030•🎟XiaoMao-Forever",
+          "🇨🇳€031•🎟XiaoMao-Forever",
+          "🇨🇳€032•🎟XiaoMao-Forever",
+          "🇨🇳€034•🎟XiaoMao-Forever",
+          "🇨🇳€037•🎟XiaoMao-Forever",
+          "🇨🇳€038•🎟XiaoMao-Forever",
+          "🇨🇳€039•🎟XiaoMao-Forever",
+          "🇨🇳€041•🎟XiaoMao-Forever",
+          "🇨🇳€042•🎟XiaoMao-Forever",
+          "🇨🇳€044•🎟XiaoMao-Forever",
+          "🇨🇳€045•🎟XiaoMao-Forever",
+          "🇨🇳€046•🎟XiaoMao-Forever",
+          "🇨🇳€047•🎟XiaoMao-Forever",
+          "🇨🇳€049•🎟XiaoMao-Forever",
+          "🇨🇳€050•🎟XiaoMao-Forever",
+          "🇨🇳€051•🎟XiaoMao-Forever",
+          "🇨🇳€052•🎟XiaoMao-Forever",
+          "🇨🇳€053•🎟XiaoMao-Forever",
+          "🇨🇳€055•🎟XiaoMao-Forever",
+          "🇨🇳€056•🎟XiaoMao-Forever",
+          "🇨🇳€057•🎟XiaoMao-Forever",
+          "🇨🇳€058•🎟XiaoMao-Forever",
+          "🇨🇳€060•🎟XiaoMao-Forever",
+          "🇨🇳€061•🎟XiaoMao-Forever",
+          "🇨🇳€062•🎟XiaoMao-Forever",
+          "🇨🇳€063•🎟XiaoMao-Forever",
+          "🇨🇳€066•🎟XiaoMao-Forever",
+          "🇨🇳€067•🎟XiaoMao-Forever",
+          "🇨🇳€068•🎟XiaoMao-Forever",
+          "🇨🇳€069•🎟XiaoMao-Forever",
+          "🇨🇳€071•🎟XiaoMao-Forever",
+          "🇨🇳€072•🎟XiaoMao-Forever",
+          "🇨🇳€073•🎟XiaoMao-Forever",
+          "🇨🇳€074•🎟XiaoMao-Forever",
+          "🇨🇳€083•🎟XiaoMao-Forever",
+          "🇨🇳€130•🎟XiaoMao-Forever",
+        ],
+      url: "http://captive.apple.com/",
+      interval: 216000,
+    }
+  - {
+      name: U.日本节点,
+      type: url-test,
+      proxies:
+        [
+          "🇯🇵€002•🎟XiaoMao-Forever",
+          "🇯🇵€003•🎟XiaoMao-Forever",
+          "🇯🇵€004•🎟XiaoMao-Forever",
+          "🇯🇵€005•🎟XiaoMao-Forever",
+          "🇯🇵€006•🎟XiaoMao-Forever",
+          "🇯🇵€007•🎟XiaoMao-Forever",
+          "🇯🇵€015•🎟XiaoMao-Forever",
+          "🇯🇵€016•🎟XiaoMao-Forever",
+          "🇯🇵€017•🎟XiaoMao-Forever",
+        ],
+      url: "http://captive.apple.com/",
+      interval: 216000,
+    }
+  - {
+      name: U.美国节点,
+      type: url-test,
+      proxies:
+        [
+          "🇺🇸€001•🎟XiaoMao-Forever",
+          "🇺🇸€002•🎟XiaoMao-Forever",
+          "🇺🇸€003•🎟XiaoMao-Forever",
+          "🇺🇸€004•🎟XiaoMao-Forever",
+          "🇺🇸€005•🎟XiaoMao-Forever",
+          "🇺🇸€007•🎟XiaoMao-Forever",
+          "🇺🇸€008•🎟XiaoMao-Forever",
+          "🇺🇸€009•🎟XiaoMao-Forever",
+          "🇺🇸€011•🎟XiaoMao-Forever",
+          "🇺🇸€012•🎟XiaoMao-Forever",
+          "🇺🇸€013•🎟XiaoMao-Forever",
+          "🇺🇸€014•🎟XiaoMao-Forever",
+          "🇺🇸€015•🎟XiaoMao-Forever",
+          "🇺🇸€016•🎟XiaoMao-Forever",
+          "🇺🇸€017•🎟XiaoMao-Forever",
+          "🇺🇸€018•🎟XiaoMao-Forever",
+          "🇺🇸€019•🎟XiaoMao-Forever",
+          "🇺🇸€020•🎟XiaoMao-Forever",
+          "🇺🇸€021•🎟XiaoMao-Forever",
+          "🇺🇸€022•🎟XiaoMao-Forever",
+          "🇺🇸€023•🎟XiaoMao-Forever",
+          "🇺🇸€024•🎟XiaoMao-Forever",
+          "🇺🇸€025•🎟XiaoMao-Forever",
+          "🇺🇸€026•🎟XiaoMao-Forever",
+          "🇺🇸€027•🎟XiaoMao-Forever",
+          "🇺🇸€028•🎟XiaoMao-Forever",
+          "🇺🇸€029•🎟XiaoMao-Forever",
+        ],
+      url: "http://captive.apple.com/",
+      interval: 216000,
+    }
+  - {
+      name: U.新加坡节点,
+      type: url-test,
+      proxies:
+        [
+          "🇸🇬€003•🎟XiaoMao-Forever",
+          "🇸🇬€004•🎟XiaoMao-Forever",
+          "🇸🇬€005•🎟XiaoMao-Forever",
+          "🇸🇬€006•🎟XiaoMao-Forever",
+          "🇸🇬€007•🎟XiaoMao-Forever",
+          "🇸🇬€012•🎟XiaoMao-Forever",
+          "🇸🇬€013•🎟XiaoMao-Forever",
+          "🇸🇬€018•🎟XiaoMao-Forever",
+          "🇸🇬€022•🎟XiaoMao-Forever",
+          "🇸🇬€023•🎟XiaoMao-Forever",
+          "🇸🇬€024•🎟XiaoMao-Forever",
+          "🇸🇬€026•🎟XiaoMao-Forever",
+        ],
+      url: "http://captive.apple.com/",
+      interval: 216000,
+    }
+
+rule-providers:
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml"
+    path: ./ruleset/Microsoft.yaml
+    interval: 216000
+  Global:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml"
+    path: ./ruleset/Global_Classical.yaml
+    interval: 216000
+  Streaming:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml"
+    path: ./ruleset/GlobalMedia_Classical.yaml
+    interval: 216000
+  AdvertisingLite:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml"
+    path: ./ruleset/AdvertisingLite_Classical.yaml
+    interval: 216000
+  GitHub:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml"
+    path: ./ruleset/GitHub.yaml
+    interval: 216000
+  Google:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
+    path: ./ruleset/Google.yaml
+    interval: 216000
+  Direct:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml"
+    path: ./ruleset/Direct.yaml
+    interval: 216000
+  Hijacking:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking.yaml"
+    path: ./ruleset/Hijacking.yaml
+    interval: 216000
+  Privacy_Classical:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy_Classical.yaml"
+    path: ./ruleset/Privacy_Classical.yaml
+    interval: 216000
+  Apple_Classical:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml"
+    path: ./ruleset/Apple_Classical.yaml
+    interval: 216000
+
+rules:
+  - "RULE-SET,Direct,DIRECT"
+  - "RULE-SET,AdvertisingLite,REJECT"
+  - "RULE-SET,Hijacking,REJECT"
+  - "RULE-SET,Privacy_Classical,REJECT"
+  - "RULE-SET,Apple_Classical,S.苹果服务"
+  - "RULE-SET,GitHub,S.Git服务"
+  - "RULE-SET,Microsoft,S.微软服务"
+  - "RULE-SET,Google,S.谷歌服务"
+  - "RULE-SET,Global,S.综合策略"
+  - "RULE-SET,Streaming,S.综合策略"
+  - "GEOIP,CN,DIRECT"
+  - "MATCH,S.综合策略"
