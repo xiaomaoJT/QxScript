@@ -72,7 +72,7 @@
 >
 > 建议在 状态栏Clash图标 > 配置 > 实验性功能 > 更新ip数据库 中填写以下链接
 >
-> *# https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/yaml/Clash_XiaoMao_template.yaml*
+> *# https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-only-cn-private.mmdb*
 
 
 
