@@ -177,67 +177,67 @@ proxy-groups:
           REJECT,
         ],
     }
-  # 静态策略 - 手动选择 - 需手动配置补充
+  # 静态策略 - 手动选择 - 需手动配置补充 ⚠️ proxies参数不能为空
   # 此处在proxies补充所需的节点名称，如 "🇦🇶€001•🎟XiaoMao-Forever"，即节点组中的name属性值
   # 建议补充所有节点或常用节点
   - { name: S.手动选择, type: select, proxies: [DIRECT, REJECT] }
-  # 自动策略 - 全部节点 - 需手动配置补充
+  # 自动策略 - 全部节点 - 需手动配置补充 ⚠️ proxies参数不能为空
   # 此处在proxies补充所需的节点名称，如 "🇦🇶€001•🎟XiaoMao-Forever"，即节点组中的name属性值
   # 建议补充所有节点
   - {
       name: U.全部节点,
       type: url-test,
-      proxies: [],
+      proxies: ["🇦🇶€001•🎟XiaoMao-Forever"],
       url: "http://captive.apple.com/",
       interval: 216000,
     }
-  # 自动策略 - 香港节点 - 需手动配置补充
+  # 自动策略 - 香港节点 - 需手动配置补充 ⚠️ proxies参数不能为空
   # 此处在proxies补充所需的节点名称，如 "🇦🇶€001•🎟XiaoMao-Forever"，即节点组中的name属性值
   # 建议补充所有香港节点
   - {
       name: U.香港节点,
       type: url-test,
-      proxies: [],
+      proxies: ["🇦🇶€001•🎟XiaoMao-Forever"],
       url: "http://captive.apple.com/",
       interval: 216000,
     }
-  # 自动策略 - 台湾节点 - 需手动配置补充
+  # 自动策略 - 台湾节点 - 需手动配置补充 ⚠️ proxies参数不能为空
   # 此处在proxies补充所需的节点名称，如 "🇦🇶€001•🎟XiaoMao-Forever"，即节点组中的name属性值
   # 建议补充所有台湾节点
   - {
       name: U.台湾节点,
       type: url-test,
-      proxies: [],
+      proxies: ["🇦🇶€001•🎟XiaoMao-Forever"],
       url: "http://captive.apple.com/",
       interval: 216000,
     }
-  # 自动策略 - 日本节点 - 需手动配置补充
+  # 自动策略 - 日本节点 - 需手动配置补充 ⚠️ proxies参数不能为空
   # 此处在proxies补充所需的节点名称，如 "🇦🇶€001•🎟XiaoMao-Forever"，即节点组中的name属性值
   # 建议补充所有日本节点
   - {
       name: U.日本节点,
       type: url-test,
-      proxies: [],
+      proxies: ["🇦🇶€001•🎟XiaoMao-Forever"],
       url: "http://captive.apple.com/",
       interval: 216000,
     }
-  # 自动策略 - 美国节点 - 需手动配置补充
+  # 自动策略 - 美国节点 - 需手动配置补充 ⚠️ proxies参数不能为空
   # 此处在proxies补充所需的节点名称，如 "🇦🇶€001•🎟XiaoMao-Forever"，即节点组中的name属性值
   # 建议补充所有美国节点
   - {
       name: U.美国节点,
       type: url-test,
-      proxies: [],
+      proxies: ["🇦🇶€001•🎟XiaoMao-Forever"],
       url: "http://captive.apple.com/",
       interval: 216000,
     }
-  # 自动策略 - 日本节点 - 需手动配置补充
+  # 自动策略 - 日本节点 - 需手动配置补充 ⚠️ proxies参数不能为空
   # 此处在proxies补充所需的节点名称，如 "🇦🇶€001•🎟XiaoMao-Forever"，即节点组中的name属性值
   # 建议补充所有日本节点
   - {
       name: U.新加坡节点,
       type: url-test,
-      proxies: [],
+      proxies: ["🇦🇶€001•🎟XiaoMao-Forever"],
       url: "http://captive.apple.com/",
       interval: 216000,
     }
