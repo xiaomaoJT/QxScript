@@ -70,7 +70,7 @@
 >
 > 
 >
-> 建议在 状态栏Clash图标 > 配置 > 实验性功能 > 更细ip数据库 中填写以下链接
+> 建议在 状态栏Clash图标 > 配置 > 实验性功能 > 更新ip数据库 中填写以下链接
 >
 > *# https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/yaml/Clash_XiaoMao_template.yaml*
 
@@ -144,16 +144,21 @@
 
 
 
-
+# 代理端口
 mixed-port: 7890
+# 是否允许局域网代理
 allow-lan: true
 bind-address: "*"
+# 运行模式
 mode: rule
+# 日志类型
 log-level: info
+# 外部控制
 external-controller: "127.0.0.1:9090"
 dns:
   enable: true
   listen: "127.0.0.1:53"
+  # ipv6连接
   ipv6: false
   default-nameserver: [223.5.5.5, 119.29.29.29]
   enhanced-mode: fake-ip
