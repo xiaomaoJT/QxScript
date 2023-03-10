@@ -34,7 +34,7 @@
 |  Mac M芯片设备  | [Mac版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao.conf) | [Mac配置](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS) | [Mac配置图](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS/配置图解) |
 | QX配置历史版本 | [3.0 旧版本](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/oldConfig) |  |  |
 |  |  | | |
-| **Clash配置** | 适用android | 适用android | 适用macOS |
+| **Clash配置** | 兼容Windows | 兼容Android | 兼容MacOS |
 | 版本 @1.0 | [懒人版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/yaml/Clash_XiaoMao.yaml) | [配置模板](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/yaml/Clash_XiaoMao_template.yaml) | [教程](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/yaml) |
 
 
