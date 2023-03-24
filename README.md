@@ -11,7 +11,7 @@
 | **QuantumultX版本** | **1.2.0-777** 不兼容远古版本               |
 | **iOS系统版本**     | **16.1.2** 兼容其他版本                   |
 | **适配设备**        | **iPhone / iPad / Mac M芯片设备** |
-| **懒人版本**        | **4.1**                           |
+| **懒人版本**        | **4.2** **中英文双版**                |
 
 > [相关软件下载地址](https://github.com/xiaomaoJT/QxScript/blob/main/RELATED.md)
 
@@ -29,9 +29,9 @@
 
 |      设备       |                           懒人规则                           |             教程             |                             图解                             |
 | :-------------: | :----------------------------------------------------------: | :-------------------------------: | :----------------------------------------------------------: |
-| iPhone/iPad设备 | [通用版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
-| iPhone/iPad设备 | [自定义版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
-|  Mac M芯片设备  | [Mac版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao.conf) | [Mac配置](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS) | [Mac配置图](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS/配置图解) |
+| iPhone/iPad设备 | [通用版·英文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao.conf)<br />[通用版·中文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao_CN.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
+| iPhone/iPad设备 | [自定义版·英文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao.conf)<br />[自定义版·中文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao_CN.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
+|  Mac M芯片设备  | [Mac版·英文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao.conf)<br />[Mac版·中文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao_CN.conf) | [Mac配置](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS) | [Mac配置图](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS/配置图解) |
 | QX配置历史版本 | [3.0 旧版本](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/oldConfig) |  |  |
 |  |  | | |
 | **Clash配置** | 兼容Win/Android/iOS/macOS | [Clash仓库](https://github.com/xiaomaoJT/clash) | [Clash在线配置](https://static-mp-4c1955c1-4e3f-4ed7-9f2b-ea2165e28195.next.bspapp.com/xiaomao-clash/index.html#/) |
