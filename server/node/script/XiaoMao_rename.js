@@ -318,8 +318,10 @@ function operator(proxies, targetPlatform) {
       "🇧🇳": ["文莱", "BRN", "Negara Brunei Darussalam"],
       "🌏": ["亚洲", "Asia"],
     };
-    let nameTem = proxy.name.substring(0, 4);
-    proxy.name = proxy.name + LEmoji[nameTem][0];
+
+    let nameTem = proxy.name.replace(/\s+/g, "").substring(0, 4);
+    proxy.name =
+      proxy.name + (LEmoji[nameTem] ? "·" + LEmoji[nameTem][0] : "·未知");
     return proxy;
   });
 }
