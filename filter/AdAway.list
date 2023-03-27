@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20230319
+# 更新时间 20230327
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -404,9 +404,6 @@ HOST,ad.51wnl-cq.com, reject
 HOST,adextra.51wnl-cq.com, reject
 HOST,log.51wnl-cq.com, reject
 HOST,r.51wnl-cq.com, reject
-
-# > 屏蔽苹果系统更新 已经拿出去单独配置
-# https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/filter/apple.conf
 
 # > 优酷
 HOST-SUFFIX,atm.youku.com, reject
