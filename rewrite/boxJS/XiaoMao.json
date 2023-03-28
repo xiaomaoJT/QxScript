@@ -285,6 +285,15 @@
           "autoGrow": true,
           "rows": 1,
           "desc": "vip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.WpsCloudSpace",
+          "name": "云空间总量",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "云空间总量 GB"
         }
       ],
       "author": "@XiaoMao",
