@@ -256,7 +256,8 @@
       "keys": [
         "@XiaoMao.WpsVipYear",
         "@XiaoMao.WpsVipMonth",
-        "@XiaoMao.WpsVipDay"
+        "@XiaoMao.WpsVipDay",
+        "@XiaoMao.WpsCloudSpace"
       ],
       "settings": [
         {
@@ -288,7 +289,7 @@
         },
         {
           "id": "@XiaoMao.WpsCloudSpace",
-          "name": "云空间总量",
+          "name": "云空间总量 - 大小",
           "val": null,
           "type": "textarea",
           "autoGrow": true,
