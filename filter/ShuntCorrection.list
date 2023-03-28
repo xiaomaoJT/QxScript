@@ -1,5 +1,5 @@
 # >  /*  修正某些错误的分流
-# 更新时间 20230319
+# 更新时间 20230328
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -22,3 +22,5 @@ host-suffix, yximgs.com, direct
 host-suffix, ksapisrv.com, direct
 # > qq邮箱修正
 host-suffix, iwx.mail.qq.com, reject
+# > wps简历
+host-suffix, dl.op.wpscdn.cn, direct
