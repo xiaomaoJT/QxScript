@@ -1,9 +1,9 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-01-18
+ * @LastMod: 2023-03-28
  *
  * 
-\w\p\s\v\i\p \稻\壳\会\员 \超\级\会\员 \w\p\s\会\员
+\w\p\s\v\i\p \稻\壳\会\员 \超\级\会\员 \w\p\s\会\员 \云\空\间\容\量\自\定\义\
 
 仅供学习参考，请于下载后24小时内删除
 
@@ -26,11 +26,15 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoW
 ********************************
 
 [mitm]
-hostname = account.wps.*,vip.wps.cn
+hostname = account.wps.*,vip.wps.cn,vas.wps.cn,s4.vip.wpscdn.cn,s6.vip.wpscdn.cn,drive.wps.cn,wenk.ios.wpscdn.cn
 
 [rewrite_local]
 https:\/\/account\.wps\.(com|cn)\/api\/users\/(.+)\/overview url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
 https:\/\/vip\.wps\.cn\/userinfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
 https:\/\/account\.wps\.cn\/api\/v3\/mine\/vips url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
-
+https:\/\/vas\.wps\.cn\/query\/api\/v1\/list_purchase_info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
+https:\/\/s4\.vip\.wpscdn\.cn\/vipapi\/banner\/v1\/config url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
+https:\/\/s6\.vip\.wpscdn\.cn\/vipapi\/banner\/v1\/config url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
+https:\/\/drive\.wps\.cn\/api\/v3\/spaces url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
+https:\/\/wenk\.ios\.wpscdn\.cn\/config\/purchase_config.json url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
  ***************/
