@@ -1,10 +1,13 @@
 # >  /*  修正某些错误的分流
-# 更新时间 20230328
+# 如遇误杀/网络错误等问题，请于群聊内反馈补充
+# 更新时间 20230329
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
 # XiaoMao机器人：https://t.me/Xiao_MaoMao_bot
 # XiaoMao仓库：https://github.com/xiaomaoJT/QxScript
+
+
 
 
 # > 苹果推送服务
@@ -21,6 +24,42 @@ host-suffix, kuaishou.com, direct
 host-suffix, yximgs.com, direct
 host-suffix, ksapisrv.com, direct
 # > qq邮箱修正
-host-suffix, iwx.mail.qq.com, reject
+host-suffix, iwx.mail.qq.com, direct
 # > wps简历
 host-suffix, dl.op.wpscdn.cn, direct
+# > 同程修正
+host-suffix, 17u.cn, direct
+host-suffix, 40017.cn, direct
+
+
+# > 苹果天气服务
+host-keyword, weather-edge.apple.com, direct
+host-keyword, weather-adge.apple.com, direct
+host-keyword, weather-data.apple.com, direct
+host-keyword, weather-map.apple.com, direct
+host-keyword, weather-analytics-events.apple.com, direct
+# > 苹果内购服务
+host-keyword, buy.itunes.apple.com, direct
+# > 苹果icloud
+host-keyword, icloud.com, direct
+# > 苹果输入法相关服务
+host-keyword, api.smoot.apple.com, direct
+host-keyword, api.smoot.apple.cn, direct
+# > 苹果iMessage服务
+host, init.ess.apple.com, direct
+# > 苹果其他服务
+host-keyword, ssl.apple.com, direct
+host-keyword, humb.apple.com, direct
+host, smp-device-content.apple.com, direct
+host-keyword, api-adservices.apple.com, direct
+host-keyword, ls.apple.com, direct
+host-keyword, gsa.apple.com, direct
+host-keyword, ess.apple.com, direct
+# > QQ空间
+host-keyword, ctc.qzs.qzone.qq.com, direct
+# > 路由器后台
+ip-cidr, 192.168.0.1/24, direct
+# > 天翼网关
+ip-cidr, 192.168.1.1/24, direct
+# > 其他分流修正
+host-keyword, anti-ad.net, direct
