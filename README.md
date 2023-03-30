@@ -8,7 +8,7 @@
 
 | 最近更新时间        | **2023年03月30日**                |
 | :------------------ | :-------------------------------- |
-| **QuantumultX版本** | **1.3.0-781** 不兼容远古版本               |
+| **QuantumultX版本** | **1.3.0-781** 新参数不兼容远古版本            |
 | **iOS系统版本**     | **16.1.2** 兼容其他版本                   |
 | **适配设备**        | **iPhone / iPad / Mac M芯片设备** |
 | **懒人版本**        | **4.2** **中英文双版**                |
@@ -35,7 +35,7 @@
 | QX配置历史版本 | [3.0 旧版本](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/oldConfig) |  |  |
 |  |  | | |
 | **Clash配置** | 兼容Win/Android/iOS/macOS | [Clash仓库](https://github.com/xiaomaoJT/clash) | [Clash在线配置](https://static-mp-4c1955c1-4e3f-4ed7-9f2b-ea2165e28195.next.bspapp.com/xiaomao-clash/index.html#/) |
-| 版本 @1.0 | [懒人版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/yaml/Clash_XiaoMao.yaml) | [配置模板](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/yaml/Clash_XiaoMao_template.yaml) | [教程](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/yaml) |
+| 版本 @1.6 | [懒人版·科学网](https://raw.githubusercontent.com/xiaomaoJT/clash/main/yaml/Clash_XiaoMao.yaml) | [懒人版·国内网](https://raw.githubusercontenhttps://raw.githubusercontent.com/xiaomaoJT/clash/main/yaml/Clash_Cdn_XiaoMao.yaml) | [XMC教程](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/yaml) |
 
 
 
@@ -46,6 +46,7 @@
 |  通用版  | 策略精简：剔除低效策略组、绑定默认策略<br />分流精简：剔除流媒体分流、剔除备选ad类分流<br />重写精简：剔除自定义及备选规则<br />\自\带\节\点 |       精简<br />默认策略       | *✅*  |
 | 自定义版 | 策略自定义：多种策略组类型、拦截防护自定义控制<br />分流自定义：多种分流规则、多种备选分流防护<br />重写自定义：多种聚合脚本、单独规则自定义<br />\自\带\节\点 | 自定义<br />多策略<br />多备选 |      |
 |  Mac版   | 策略聚合：常用策略默认选择、热门策略自定义选择<br />分流精简：同通用版<br />重写极简：仅保留boxjs及substore<br />\自\带\节\点 |         聚合<br />Mac          |      |
+| Clash版  | 兼容Win/Android/iOS/macOS<br />更适用于PC端<br />更多详情请见[clash仓库](https://github.com/xiaomaoJT/clash)<br />\自\带\节\点 |               PC               |  ✅   |
 
 
 
