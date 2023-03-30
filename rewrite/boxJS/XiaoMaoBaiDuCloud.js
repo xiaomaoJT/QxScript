@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-01-18
+ * @LastMod: 2023-03-30
  *
  * 
 \百\度\云\盘\s\v\i\p + \去\推\广 
@@ -26,23 +26,28 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoB
 ********************************
 
 [mitm]
-hostname = pan.baidu.com
+hostname = pan.baidu.com,sf3-fe-tos.pglstatp-toutiao.com
 
 [rewrite_local]
 https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
 https:\/\/pan\.baidu\.com\/act\/v2\/membergrow\/my url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
-https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
-https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/proxy\/guide url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
 https:\/\/pan\.baidu\.com\/story\/diff url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
-https:\/\/pan\.baidu\.com\/api\/version\/getlatestversion url reject
-https:\/\/pan\.baidu\.com\/api\/getconfig url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
 https:\/\/pan\.baidu\.com\/dosp\/opconf\/list url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
 https:\/\/pan\.baidu\.com\/api\/user\/getinfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
 https:\/\/pan\.baidu\.com\/act\/api\/activityentry url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
-https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
-https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/proxy\/guide url reject
-https:\/\/pan\.baidu\.com\/imbox\/msg\/pull url reject
-https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/xpan\/smartprogram url reject
-https:\/\/staticsns\.cdn\.bcebos\.com\/amis\/.+\.(jpg|png|jpeg|gif)$ url reject
+https:\/\/pan\.baidu\.com\/api\/singkil\/bindquery url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
+https:\/\/staticsns\.cdn\.bcebos\.com\/amis\/.+\.(jpg|png|jpeg|gif)$ url reject-200
+https:\/\/pan\.baidu\.com\/imbox\/msg\/pull url reject-200
+https:\/\/pan\.baidu\.com\/api\/version\/getlatestversion url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/product url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/level url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/activity url reject-200
+https:\/\/pan\.baidu\.com\/act\/api\/conf url reject-200
+https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list url reject-200
+https:\/\/pan\.baidu\.com\/api\/getconfig url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/proxy\/guide url reject-200
+https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/xpan\/smartprogram url reject-200
+https:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern\/renderer url reject-200
  ***************/
 
