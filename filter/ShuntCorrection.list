@@ -34,7 +34,6 @@ host-suffix, 40017.cn, direct
 host,short-video.kakamobi.cn,direct
 
 
-
 # > 苹果天气服务
 host-keyword, weather-edge.apple.com, direct
 host-keyword, weather-adge.apple.com, direct
