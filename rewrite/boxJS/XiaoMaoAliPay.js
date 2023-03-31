@@ -21,16 +21,16 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoA
 
 ✅⚠️2、清除通知栏所有通知，关闭Wi-Fi网络并启用移动网络
 
-✅ 3、使用Safari访问网址 https://render.alipay.com
+✅ 3、使用Safari访问网址 https://ds.alipay.com
 
 ✅ 4、仅供学习娱乐
 
 ********************************
 
 [mitm]
-hostname = ds.alipay.com,render.alipay.com,mobile.alipay.com
+hostname = ds.alipay.com,render.alipay.com,mobile.alipay.com,mdap.alipay.com,loggw.alipay.com
 
 [rewrite_local]
-https:\/\/ds|mobile|render\.alipay\.com url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/ali.js
+https:\/\/ds|mobile|render|mdap|loggw\.alipay\.com url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/ali.js
 
  ***************/
