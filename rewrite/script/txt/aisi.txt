@@ -1,0 +1,6 @@
+var obj = JSON.parse($response.body);
+//obj.app.length =2
+obj.spappli = []
+obj.ad =[]
+obj.adli =[]
+$done({body: JSON.stringify(obj)}); 
