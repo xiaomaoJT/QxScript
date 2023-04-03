@@ -13,6 +13,23 @@
 # > */  
 
 
+
+#蜘蛛纸牌
+host, inappcheck.itunes.apple.com, reject
+host-suffix, ios.bugly.qq.com, reject
+host-suffix, net.rayjump.com, reject
+host-suffix, adservice.sigmob.cn, reject
+host-suffix, toblog.ctobsnssdk.com, reject
+host-suffix, dc.sigmob.cn, reject
+host-suffix, pgdt.ugdtimg.com, reject
+host-suffix, p2-pro.a.yximgs.com, reject
+host-suffix, p1-lm.adukwai.com, reject
+host-suffix, pglstatp-toutiao.com, reject
+host-suffix, ali-ad.a.yximgs.com, reject
+HOST, mi.gdt.qq.com, reject
+HOST, open.e.kuaishou.com, reject
+HOST-SUFFIX, pangolin-sdk-toutiao.com, reject
+HOST-SUFFIX, pangolin-sdk-toutiao-b.com, reject
 #TubeMax 
 host-suffix, adjust.com, reject
 host-suffix, applvn.com, reject
