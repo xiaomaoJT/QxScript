@@ -1,0 +1,35 @@
+let obj = JSON.parse($response.body);
+let requestUrl = $request.url;
+
+if (
+  /^https:\/\/api5-normal-lq\.dcarapi\.com\/motor\/stream_entrance\/get_feed?/.test(
+    requestUrl
+  )
+) {
+  if (obj.hasOwnProperty("data")) {
+    let arr = JSON.parse(JSON.stringify(obj.data));
+    arr.forEach((el, index) => {
+      // 拦截信息流广告
+      if (el.info.hasOwnProperty("label") && el.info.label == "广告") {
+        arr.splice(index, 1);
+      }
+      // 拦截信息流视频节目
+      else if (
+        el.info.hasOwnProperty("title_prefix") &&
+        el.info.title_prefix == "节目"
+      ) {
+        arr.splice(index, 1);
+      }
+    });
+
+    obj.data = arr;
+  }
+} else if (
+  /^https:\/\/api5-normal-lq\.dcarapi\.com\/motor\/searchpage\/launcher\/main\/v1?/.test(
+    requestUrl
+  )
+) {
+  obj.data.hasOwnProperty("more_remind") ? (obj.data.more_remind = {}) : "";
+}
+
+$done({ body: JSON.stringify(obj) });
