@@ -360,7 +360,6 @@
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWps.js"
     },
-
     {
       "id": "XMindApp",
       "name": "XMindvip",
@@ -406,7 +405,6 @@
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXMind.js"
     },
-
     {
       "id": "HotListApp",
       "name": "HotListvip",
@@ -451,6 +449,61 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/hot.png"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTodayHotList.js"
+    },
+    {
+      "id": "ALiCloudApp",
+      "name": "ALiCloudvip",
+      "keys": [
+        "@XiaoMao.ALiCloudVipYear",
+        "@XiaoMao.ALiCloudVipMonth",
+        "@XiaoMao.ALiCloudVipDay",
+        "@XiaoMao.ALiCloudSpace"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.ALiCloudVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudSpace",
+          "name": "空间总量 - 大小",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "空间总量 GB"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/alic.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/alic.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js"
     }
   ]
 }
