@@ -457,7 +457,8 @@
         "@XiaoMao.ALiCloudVipYear",
         "@XiaoMao.ALiCloudVipMonth",
         "@XiaoMao.ALiCloudVipDay",
-        "@XiaoMao.ALiCloudSpace"
+        "@XiaoMao.ALiCloudSpace",
+        "@XiaoMao.ALiCloudIcon"
       ],
       "settings": [
         {
@@ -494,7 +495,16 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "空间总量 GB"
+          "desc": "空间总量 TB"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudIcon",
+          "name": "图标排版 - 合并横排按钮",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为开启,0为关闭"
         }
       ],
       "author": "@XiaoMao",
