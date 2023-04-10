@@ -95,7 +95,7 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **[懒人 · 规则](https://github.com/xiaomaoJT/QxScript/tree/main/lazy)** | 各版本懒人规则、懒人规则图解....                             |
 | **[节点 · 转换](https://github.com/xiaomaoJT/QxScript/tree/main/server)** | 机场推荐、节点转换图解、远程节点.....                        |
-| **[重写 · 脚本](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite)** | [XiaoMao脚本订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json)、\去\广\告\模\块\.... |
+| **[重写 · 脚本](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite)** | [XiaoMao脚本订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json)、[XiaoMao脚本集合](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite/boxJS)、\去\广\告\模\块\.... |
 | **[分流 · 过滤](https://github.com/xiaomaoJT/QxScript/tree/main/filter)** | XiaoMao分流....                                              |
 | **[任务 · 收藏](https://github.com/xiaomaoJT/QxScript/tree/main/auto)** | 自动任务收藏、推荐库、自动任务脚本收藏....                   |
 
