@@ -44,3 +44,9 @@
 > [开通(通用翻译)API服务](http://api.fanyi.baidu.com/register)
 >
 > [获取APPID 和 密钥](http://api.fanyi.baidu.com/manage/developer)
+
+------
+
+🎟 **其他**
+
+> 使用方法见脚本内说明
