@@ -148,7 +148,8 @@
         "@XiaoMao.ButterVipMonth",
         "@XiaoMao.ButterVipDay",
         "@XiaoMao.ButterFollowing",
-        "@XiaoMao.ButterFollowers"
+        "@XiaoMao.ButterFollowers",
+        "@XiaoMao.ButterpModel"
       ],
       "settings": [
         {
@@ -195,6 +196,15 @@
           "autoGrow": true,
           "rows": 1,
           "desc": "粉丝数量 如：100000"
+        },
+        {
+          "id": "@XiaoMao.ButterpModel",
+          "name": "全部模版资源解锁",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "解锁将失去部分能力 具体见脚本介绍 1:解锁 0:默认关闭"
         }
       ],
       "author": "@XiaoMao",
