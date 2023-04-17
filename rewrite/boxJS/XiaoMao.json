@@ -149,7 +149,7 @@
         "@XiaoMao.ButterVipDay",
         "@XiaoMao.ButterFollowing",
         "@XiaoMao.ButterFollowers",
-        "@XiaoMao.ButterpModel"
+        "@XiaoMao.ButterModel"
       ],
       "settings": [
         {
@@ -198,7 +198,7 @@
           "desc": "粉丝数量 如：100000"
         },
         {
-          "id": "@XiaoMao.ButterpModel",
+          "id": "@XiaoMao.ButterModel",
           "name": "全部模版资源解锁",
           "val": null,
           "type": "textarea",

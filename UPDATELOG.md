@@ -75,7 +75,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 + ##### 20230417
 
-  * > 优化XiaoMaoButterCamera脚本
+  * > 优化[XiaoMaoButterCamera脚本 - 全模板解锁](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js)
     >
 
 + ##### 20230415
