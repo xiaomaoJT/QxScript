@@ -45,6 +45,8 @@ payload:
   # > 飞猪
   - DOMAIN-SUFFIX,apoll.m.taobao.com,direct
   - DOMAIN-SUFFIX,acs.m.taobao.com,direct
+  # > 今日热榜
+  - DOMAIN-SUFFIX, tophub.app, direct
 
   # > 苹果天气服务
   - DOMAIN-KEYWORD, weather-edge.apple.com, direct
