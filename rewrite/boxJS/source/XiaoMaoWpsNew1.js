@@ -1,0 +1,13 @@
+var body = $response.body;
+var obj = JSON.parse(body);
+obj.data.member_to_member_old = 3;
+obj.data.apple_subscribe = 3;
+obj.data.benefit_upgrade = 3;
+obj.data.member_to_member = 3;
+obj.data.pro_contract = 3;
+obj.data.pro_plus_contract = 3;
+obj.data.allow_pass_upgrade = 3;
+obj.data.is_first = 3;
+obj.data.privilege_to_member = 3;
+body = JSON.stringify(obj);
+$done({ body });

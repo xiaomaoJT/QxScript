@@ -1,10 +1,10 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-03-28
+ * @LastMod: 2023-04-18
  *
  * 
 \w\p\s\v\i\p \稻\壳\会\员 \超\级\会\员 \w\p\s\会\员 \云\空\间\容\量\自\定\义\
-
+\新\会\员\体\系\解\锁\
 仅供学习参考，请于下载后24小时内删除
 
 ********************************
@@ -37,4 +37,8 @@ https:\/\/s4\.vip\.wpscdn\.cn\/vipapi\/banner\/v1\/config url script-response-bo
 https:\/\/s6\.vip\.wpscdn\.cn\/vipapi\/banner\/v1\/config url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
 https:\/\/drive\.wps\.cn\/api\/v3\/spaces url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
 https:\/\/wenk\.ios\.wpscdn\.cn\/config\/purchase_config.json url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wps.js
+
+
+https:\/\/vip\.wps\.cn\/vip-payment\/v1\/upgrade\/check url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/XiaoMaoWpsNew1.js
+https:\/\/vip\.wps\.cn\/vip-payment\/v1\/upgrade\/convert\/config url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/XiaoMaoWpsNew2.js
  ***************/
