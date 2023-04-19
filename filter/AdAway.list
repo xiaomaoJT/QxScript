@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20230412
+# 更新时间 20230419
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -24,6 +24,7 @@ host-suffix, mi.gdt.qq.com, reject
 host-suffix, p9-be-pack-sign.pglstatp-toutiao.com, reject
 host-suffix, p6-be-pack-sign.pglstatp-toutiao.com, reject
 host-suffix, p3-be-pack-sign.pglstatp-toutiao.com, reject
+host-suffix, api-access.pangolin-sdk-toutiao-b.com, reject
 #蜘蛛纸牌
 host, inappcheck.itunes.apple.com, reject
 host-suffix, ios.bugly.qq.com, reject
