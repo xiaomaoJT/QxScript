@@ -6,7 +6,7 @@
 
 #### 本仓库用于记录QuantumultX的使用成长
 
-| 最近更新时间        | **2023年04月19日**                |
+| 最近更新时间        | **2023年04月20日**                |
 | :------------------ | :-------------------------------- |
 | **QuantumultX版本** | **1.3.0-781** 新参数不兼容远古版本            |
 | **iOS系统版本**     | **16.1.2** 兼容其他版本                   |
@@ -32,7 +32,7 @@
 | iPhone/iPad设备 | [通用版·英文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao.conf)<br />[通用版·中文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao_CN.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
 | iPhone/iPad设备 | [自定义版·英文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao.conf)<br />[自定义版·中文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao_CN.conf) | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
 |  Mac M芯片设备  | [Mac版·英文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao.conf)<br />[Mac版·中文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao_CN.conf) | [Mac配置](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS) | [Mac配置图](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS/配置图解) |
-| QX配置历史版本 | [3.0 旧版本](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/oldConfig) |  |  |
+| QX配置历史版本 | [XiaoMao配置历史版本](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/oldConfig) |  |  |
 |  |  | | |
 | **Clash配置** | 兼容Win/Android/iOS/macOS | [Clash仓库](https://github.com/xiaomaoJT/clash) | [Clash在线配置](https://static-mp-4c1955c1-4e3f-4ed7-9f2b-ea2165e28195.next.bspapp.com/xiaomao-clash/index.html#/) |
 | 版本 @1.6 | [懒人版·科学网](https://raw.githubusercontent.com/xiaomaoJT/clash/main/yaml/Clash_XiaoMao.yaml) | [懒人版·国内网](https://raw.githubusercontenhttps://raw.githubusercontent.com/xiaomaoJT/clash/main/yaml/Clash_Cdn_XiaoMao.yaml) | [XMC教程](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/yaml) |
