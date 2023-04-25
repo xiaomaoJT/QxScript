@@ -1,46 +1,115 @@
-var title = '节点IP信息查询'
+/**************************
+ *  * @Author: XiaoMao
+ * @LastMod: 2023-04-25
+ *
+ * 
+节点位置信息查询
 
-$task.fetch({
-    url: 'http://ip.343.re/info',
-    timeout: 4000,
+仅供学习参考，请于下载后24小时内删除
+
+********************************
+# 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
+# 微信公众号 【小帽集团】
+# XiaoMao · Tg频道频道：https://t.me/xiaomaoJT
+# XiaoMao · GitHub仓库：https://github.com/xiaomaoJT/QxScript
+
+
+使用方法：
+1、于配置文件 【task_local】 添加以下代码
+event-interaction https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/txt/ipinfo.txt, tag=节点位置查询, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/3icon.png, enabled=true
+
+********************************/
+
+
+
+var title = "XiaoMao节点位置信息查询";
+$task
+  .fetch({
+    url: "https://apis.jxcxin.cn/api/bjip",
+    timeout: 3000,
     opts: {
-        policy: $environment.params
+      policy: $environment.params,
+    },
+  })
+  .then(
+    (response) => {
+      console.log("获取ip成功:" + response.body);
+      getIpInfo(response.body);
+    },
+    (reason) => {
+      $done({
+        title: title,
+        htmlMessage: errMsg("🛑 查询超时"),
+      });
     }
-}).then(response => {
-    $done({
-        'title': title,
-        'htmlMessage': response ? format(JSON.parse(response.body)) : ''
-    });
-}, reason => {
-    $done({
-        'title': title,
-        'htmlMessage': errMsg('🛑 查询超时')
-    });
-})
+  );
 
+function getIpInfo(val) {
+  const url = `https://www.dynu.com/zh-CN/NetworkTools/LocationByIP`;
+  const method = `POST`;
+  const body = {
+    SubmitButton: "继续",
+    Popup: false,
+    Host: val,
+    SubmitButton: "继续",
+    "X-Requested-With": "XMLHttpRequest",
+  };
+
+  const myRequest = {
+    url: url,
+    method: method,
+    body: JSON.stringify(body),
+    timeout: 8000,
+    opts: {
+      policy: $environment.params,
+    },
+  };
+
+  $task.fetch(myRequest).then(
+    (response) => {
+      let string = JSON.stringify(response);
+      let start = string.indexOf("<pre>");
+      let end = string.indexOf("</pre>");
+      let stringDeal = string
+        .substring(start + 5, end)
+        .replace(/<\/?.+?>/g, "")
+        .replace(/ /g, "");
+      let stringArr = stringDeal.split("\\r\\n");
+
+      $done({
+        title: title,
+        htmlMessage: ipFormat(stringArr),
+      });
+
+      $done();
+    },
+    (reason) => {
+      $done({
+        title: title,
+        htmlMessage: errMsg("🛑 查询超时"),
+      });
+    }
+  );
+}
 function errMsg(reason) {
-    return `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: bold;"></br></br>` + reason + `</p>`
+  return (
+    `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: bold;"></br></br>` +
+    reason +
+    `</p>`
+  );
 }
 
-function format(info) {
-    if (info['status'] !== 'T') {
-        return errMsg('🛑 查询失败')
-    }
-    field = {
-        'ip': 'IP',
-        'as': 'AS',
-        'city': 'City',
-        'region': 'Region',
-        'country': 'Country',
-        'timezone': 'Timezone',
-        'loc': 'Location',
-        'isp': 'ISP',
-        'scope': 'Scope',
-        'detail': 'Detail'
-    }
-    var html = ''
-    for (index in field) {
-        html += '</br></br><b><font>' + field[index] + '</font> : </b><font>' + info[index] + '</font>'
-    }
-    return `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` + html + `</p>`
+function ipFormat(arr) {
+  var html = "";
+  if (arr.length) {
+    arr.forEach((el) => {
+      html += "</br><b><font>" + el + "</font>";
+    });
+  }
+
+  return (
+    `<p style="text-align: left; font-family: -apple-system; font-size: medium; font-weight: thin">` +
+    html +
+    `</p>`
+  );
 }
