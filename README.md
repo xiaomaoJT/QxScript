@@ -77,7 +77,7 @@
 
 📚 [QuantumultX使用教程及远程订阅精品库](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md)
 
-🧰 [QuantumultX图文教程 - 从入门到进阶](https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzI3MjE3NTc4OA==&scene=1&album_id=2740008142629273602&count=3#wechat_redirect)
+🧰 [XiaoMao教程合集](http://mp.weixin.qq.com/mp/homepage?__biz=MzI3MjE3NTc4OA==&hid=1&sn=69f77280608382e9ab1e6afac8c2a881&scene=18#wechat_redirect)
 
 🏖 [三分钟免费注册外区Apple ID](https://mp.weixin.qq.com/s/YzYsF9QyHZVJK9P7bsrURQ)
 
