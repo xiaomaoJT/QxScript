@@ -12,6 +12,9 @@
         "@XiaoMao.AppID",
         "@XiaoMao.securityKey"
       ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSpotify.js\">脚本注释</a></h4>"
+      ],
       "settings": [
         {
           "id": "@XiaoMao.AppID",
@@ -47,6 +50,9 @@
         "@XiaoMao.CaiYunSvipYear",
         "@XiaoMao.CaiYunSvipMonth",
         "@XiaoMao.CaiYunSvipDay"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCaiYunWeather.js\">脚本注释</a></h4>"
       ],
       "settings": [
         {
@@ -93,6 +99,9 @@
         "@XiaoMao.BaiDuSvipMonth",
         "@XiaoMao.BaiDuSvipDay",
         "@XiaoMao.BaiDuLevel"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoBaiDuCloud.js\">脚本注释</a></h4>"
       ],
       "settings": [
         {
@@ -150,6 +159,9 @@
         "@XiaoMao.ButterFollowing",
         "@XiaoMao.ButterFollowers",
         "@XiaoMao.ButterModel"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js\">脚本注释</a></h4>"
       ],
       "settings": [
         {
@@ -223,6 +235,9 @@
         "@XiaoMao.KaJiVipMonth",
         "@XiaoMao.KaJiVipDay"
       ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoKaJi.js\">脚本注释</a></h4>"
+      ],
       "settings": [
         {
           "id": "@XiaoMao.KaJiVipYear",
@@ -268,6 +283,9 @@
         "@XiaoMao.WpsVipMonth",
         "@XiaoMao.WpsVipDay",
         "@XiaoMao.WpsCloudSpace"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWps.js\">脚本注释</a></h4>"
       ],
       "settings": [
         {
@@ -324,6 +342,9 @@
         "@XiaoMao.ScanningAlmightyVipDay",
         "@XiaoMao.ScanningAlmightySuper"
       ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoScanningAlmighty.js\">脚本注释</a></h4>"
+      ],
       "settings": [
         {
           "id": "@XiaoMao.ScanningAlmightyVipYear",
@@ -368,7 +389,7 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/scan.png",
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/scan.png"
       ],
-      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWps.js"
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoScanningAlmighty.js"
     },
     {
       "id": "XMindApp",
@@ -377,6 +398,9 @@
         "@XiaoMao.XMindVipYear",
         "@XiaoMao.XMindVipMonth",
         "@XiaoMao.XMindVipDay"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXMind.js\">脚本注释</a></h4>"
       ],
       "settings": [
         {
@@ -422,6 +446,9 @@
         "@XiaoMao.HotListVipYear",
         "@XiaoMao.HotListVipMonth",
         "@XiaoMao.HotListVipDay"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTodayHotList.js\">脚本注释</a></h4>"
       ],
       "settings": [
         {
@@ -469,6 +496,9 @@
         "@XiaoMao.ALiCloudVipDay",
         "@XiaoMao.ALiCloudSpace",
         "@XiaoMao.ALiCloudIcon"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js\">脚本注释</a></h4>"
       ],
       "settings": [
         {
