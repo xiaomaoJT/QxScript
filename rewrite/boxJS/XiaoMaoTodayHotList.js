@@ -1,11 +1,11 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-04-05
+ * @LastMod: 2023-04-28
  *
  * 
 
 
-\今\日\热\搜\v\i\p\自\定\义\
+\今\日\热\搜\v\i\p\自\定\义\+\广\告\移\除\+\新\增\订\阅\摘\要\展\示\
 
 官方会员兑换码：0B4KM
 
@@ -33,5 +33,6 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoT
 hostname = api2.tophub.app
 
 [rewrite_local]
-https:\/\/api2\.tophub\.app\/account\/sync url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/hb.js
+https:\/\/api2\.tophub\.app\/account\/sync url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/th.js
+https:\/\/api2\.tophub\.app\/my\/items url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/th.js
  ***************/
