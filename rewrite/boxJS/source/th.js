@@ -367,9 +367,12 @@ if ($response.body) {
             let description = (el.description + ">")
               .replace(/<\/?.+?>/g, "")
               .replace(/>/g, "")
-              .replace(/</g, "");
+              .replace(/</g, "")
+              .replace(/[\r\n]/g, "")
+              .replace(/\ +/g, "");
             el.title =
-              el.title + (description == "" ? "" : "\n" + "📌" + description);
+              el.title +
+              (description == "" ? "" : "\n" + "📌" + description + "...");
             newArr.push(el);
           }
         });
