@@ -66,9 +66,9 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字或本页的更新时间为准。
 >
-> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***230*** 次
+> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***231*** 次
 >
-> ***最新更新时间 2023.05.06 09:10***
+> ***最新更新时间 2023.05.06 16:30***
 
 
 
@@ -76,6 +76,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
   * > XiaoMaoTodayHotList脚本优化，新增自定义标签摘要展示
     >
+    > ios端懒人新增事件交互
 
 + ##### 20230505
 
