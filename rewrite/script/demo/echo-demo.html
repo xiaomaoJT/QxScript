@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>「小帽集团」微信公众号</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+      #app {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <el-button type="text" @click="open">点击打开</el-button>
+
+      <el-dialog
+        title="这是一个echo-response的demo示例"
+        :visible.sync="dialogVisible"
+        width="80%"
+      >
+        <span><b>[rewrite_local]</b></span>
+        <hr />
+        <span>
+          https:\/\/xiao\.mao\.com url echo-response text/html echo-response
+          echo-demo.html
+        </span>
+        <br />
+        <br />
+        <span><b>[mitm]</b></span>
+        <hr />
+        <span>hostname= xiao.mao.com</span>
+        <br />
+        <br />
+        <span><b>XiaoMao提示</b></span>
+        <hr />
+        <span>脚本文件需放于 QuantumultX - Data 文件夹下，若无可自行创建</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogVisible = false">
+            确 定
+          </el-button>
+        </span>
+      </el-dialog>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          dialogVisible: false,
+        };
+      },
+      mounted() {},
+      methods: {
+        open() {
+          this.dialogVisible = true;
+        },
+      },
+    });
+  </script>
+</html>
