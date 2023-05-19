@@ -10,6 +10,6 @@ if (/^https?:\/\/wapp\.baidu\.com\/p\/[0-9]{3,}\?query/.test(requestUrl)) {
   console.log("XiaoMao数据反显-贴吧源地址：" + url);
 }
 
-etTimeout(() => {
+setTimeout(() => {
   $done({});
 }, 1000);
