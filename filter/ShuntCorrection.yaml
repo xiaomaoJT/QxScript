@@ -1,6 +1,6 @@
 # >  /*  修正某些错误的分流 clash版本
 # 如遇误杀/网络错误等问题，请于群聊内反馈补充
-# 更新时间 20230402
+# 更新时间 20230524
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -47,6 +47,9 @@ payload:
   - DOMAIN-SUFFIX,acs.m.taobao.com,direct
   # > 今日热榜
   - DOMAIN-SUFFIX, tophub.app, direct
+  # > 携程
+  - DOMAIN-KEYWORD,  aw-s.tripcdn.com, direct
+  - DOMAIN-KEYWORD,  trip.com, direct
 
   # > 苹果天气服务
   - DOMAIN-KEYWORD, weather-edge.apple.com, direct
