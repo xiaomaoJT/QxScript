@@ -45,16 +45,16 @@ if (
 ) {
   //去文章详情内广告、搜索推荐、相关文章
   if (obj.data.hasOwnProperty("content_attitude")) {
-    obj.data.content_attitude = {};
+    delete obj.data.content_attitude;
   }
   if (obj.data.hasOwnProperty("motor_material_car_info")) {
-    obj.data.motor_material_car_info = {};
+    delete obj.data.motor_material_car_info;
   }
   if (obj.data.hasOwnProperty("ordered_info")) {
-    obj.data.ordered_info = {};
+    delete obj.data.ordered_info;
   }
   if (obj.data.hasOwnProperty("share_info")) {
-    obj.data.share_info = {};
+    delete obj.data.share_info;
   }
 }
 
