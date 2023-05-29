@@ -68,8 +68,14 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***255*** 次
 >
-> ***最新更新时间 2023.05.28 21:31***
+> ***最新更新时间 2023.05.29 09:20***
 
+
+
++ ##### 20230529
+
+  * > 优化[酷安脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js)，去除头条值得买广告，针对个人数据爆表，他人数据不做修改
+    >
 
 + ##### 20230525
 
