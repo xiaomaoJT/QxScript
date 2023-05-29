@@ -6,23 +6,31 @@ if (
     requestUrl
   )
 ) {
+  //去首页信息流
   if (obj.hasOwnProperty("data")) {
-    let arr = JSON.parse(JSON.stringify(obj.data));
-    arr.forEach((el, index) => {
-      // 拦截信息流广告
-      if (el.info.hasOwnProperty("label") && el.info.label == "广告") {
-        arr.splice(index, 1);
-      }
-      // 拦截信息流视频节目
-      else if (
-        el.info.hasOwnProperty("title_prefix") &&
-        el.info.title_prefix == "节目"
-      ) {
-        arr.splice(index, 1);
-      }
-    });
+    if (obj.data.length) {
+      var i = obj.data.length;
+      while (i--) {
+        // 拦截信息流广告
+        if (
+          obj.data[i].info.hasOwnProperty("label") &&
+          obj.data[i].info.label == "广告"
+        ) {
+          obj.data.splice(i, 1);
+        }
 
-    obj.data = arr;
+        // 拦截信息流视频节目
+        if (
+          obj.data[i].info.hasOwnProperty("title_prefix") &&
+          obj.data[i].info.title_prefix == "节目"
+        ) {
+          obj.data.splice(i, 1);
+        }
+        if (obj.data[i].info.hasOwnProperty("video_detail_info")) {
+          obj.data.splice(i, 1);
+        }
+      }
+    }
   }
 } else if (
   /^https:\/\/api5-normal-lq\.dcarapi\.com\/motor\/searchpage\/launcher\/main\/v1?/.test(
@@ -30,6 +38,24 @@ if (
   )
 ) {
   obj.data.hasOwnProperty("more_remind") ? (obj.data.more_remind = {}) : "";
+} else if (
+  /^https:\/\/api5-normal-lq\.dcarapi\.com\/motor\/information\/api\/full?/.test(
+    requestUrl
+  )
+) {
+  //去文章详情内广告、搜索推荐、相关文章
+  if (obj.data.hasOwnProperty("content_attitude")) {
+    obj.data.content_attitude = {};
+  }
+  if (obj.data.hasOwnProperty("motor_material_car_info")) {
+    obj.data.motor_material_car_info = {};
+  }
+  if (obj.data.hasOwnProperty("ordered_info")) {
+    obj.data.ordered_info = {};
+  }
+  if (obj.data.hasOwnProperty("share_info")) {
+    obj.data.share_info = {};
+  }
 }
 
 $done({ body: JSON.stringify(obj) });
