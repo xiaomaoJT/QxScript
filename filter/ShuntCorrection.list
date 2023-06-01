@@ -1,6 +1,6 @@
 # >  /*  修正某些错误的分流
 # 如遇误杀/网络错误等问题，请于群聊内反馈补充
-# 更新时间 20230524
+# 更新时间 20230601
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -40,6 +40,9 @@ host-suffix, tophub.app, direct
 # > 携程
 host-keyword, aw-s.tripcdn.com, direct
 host-keyword, trip.com, direct
+# > 中国移动登陆
+host, www.cmpassport.com, direct
+host, verify.cmpassport.com, direct
 
 # > 苹果天气服务
 host-keyword, weather-edge.apple.com, direct
