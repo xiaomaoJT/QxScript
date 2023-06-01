@@ -32,4 +32,5 @@ https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig url script-response-body ht
 https:\/\/api\.coolapk\.com\/v6\/user\/(profile|space) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cool.js
 https:\/\/api\.coolapk\.com\/v6\/feed\/(replyList|replyDetail) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cool.js
 https:\/\/api\.coolapk\.com\/v6\/main\/indexV8 url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cool.js
+https:\/\/api\.coolapk\.com\/v6\/page\/dataList url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cool.js
  ***************/
