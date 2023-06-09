@@ -1,6 +1,6 @@
 # >  /*  修正某些错误的分流 clash版本
 # 如遇误杀/网络错误等问题，请于群聊内反馈补充
-# 更新时间 20230601
+# 更新时间 20230609
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -53,6 +53,11 @@ payload:
   # > 中国移动登陆
   - DOMAIN, www.cmpassport.com, direct
   - DOMAIN, verify.cmpassport.com, direct
+
+  # > 米家
+  - DOMAIN, app.chat.xiaomi.net, direct
+  # > 搜狗
+  - DOMAIN,  get.sogou.com, direct
 
   # > 苹果天气服务
   - DOMAIN-KEYWORD, weather-edge.apple.com, direct
