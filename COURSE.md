@@ -334,4 +334,22 @@ QX首页 > 长按任意机场组/策略组 > 选择图标 > 右上角➕
 |  1⃣️3⃣️  | [姿势1](https://github.com/LovedGM/Quantumult-X-TuBiao/raw/main/zishi.json) |
 |  1⃣️4⃣️  | [姿势2](https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/zishi-cs.json) |
 |  1⃣️5⃣️  |      [hellcell](https://github.com/zc-nju-med/hellcell)      |
+|  1⃣️6⃣️  | [哆啦A梦](https://raw.githubusercontent.com/Toperlock/Quantumult/main/D-icons.json) |
+|  1⃣️7⃣️  | [植物大战僵尸](https://raw.githubusercontent.com/shoujiqiyuan/PVSZforQuanX/master/PVSZ.json) |
+|  1⃣️8⃣️  | [数码宝贝](https://raw.githubusercontent.com/shoujiqiyuan/DigimonforQuanX/master/Digimon.json) |
+|  1⃣️9⃣️  | [EMBY](https://raw.githubusercontent.com/code170202/emby-icon/main/package.json) |
+|  2⃣️0⃣️  | [color](https://raw.githubusercontent.com/Onlookers-Group/Texonin-LAB-Public/main/Quantumult(X)/Icon/color/color.json) |
+|  2⃣️1⃣️  | [tubiao](https://raw.githubusercontent.com/Softlyx/Fileball/main/YUAN/tubiao.json) |
+|  2⃣️2⃣️  | [theraw](https://raw.githubusercontent.com/Twoandz9/Emby-icons/main/TheRaw.json) |
+|  2⃣️3⃣️  | [ligeicon](https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/ligeicon.json) |
+|  2⃣️4⃣️  | [vvv](https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/a6da7ef83e55a098bc7e9b793a670bbdfde5e36e/yyy.json) |
+|  2⃣️5⃣️  | [maomi](https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/d9790e7036861013a4c8fd51990888b1674b9ee1/maomi.json) |
+|  2⃣️6⃣️  | [zishi-cs](https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/zishi-cs.json) |
+|  2⃣️7⃣️  | [icons](https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/zishi-cs.json) |
+|  2⃣️8⃣️  | [icon-gallery](https://raw.githubusercontent.com/erdongchanyo/icon/main/edc-country-icon-gallery.json) |
+|  2⃣️9⃣️  | [edc-country](https://raw.githubusercontent.com/erdongchanyo/icon/main/edc-filter-icon-gallery.json) |
+|  3⃣️0⃣️  | [semporia](https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Semporia.json) |
+|  3⃣️1⃣️  | [edc-airport](https://raw.githubusercontent.com/erdongchanyo/icon/main/edc-airport-icon-gallery.json) |
+|  3⃣️2⃣️  | [icons-all](https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json) |
+|  3⃣️3⃣️  | [dongzuo](https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/dongzuo.json) |
 
