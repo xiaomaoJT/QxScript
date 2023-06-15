@@ -1,10 +1,10 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-04-18
+ * @LastMod: 2023-06-15
  *
  * 
 
-\阿\里\云\盘\s\v\i\p\+\部\分\优\化\+\去\广\告\+\彩\蛋\+\自\定\义\
+\阿\里\云\盘\s\v\i\p\+\部\分\优\化\+\去\广\告\+\彩\蛋\+\自\定\义\+\解\锁\所\有\图\标\
 
 仅供学习参考，请于下载后24小时内删除
 
@@ -37,5 +37,5 @@ https:\/\/member\.aliyundrive\.com\/v1\/users\/tools url script-response-body ht
 https:\/\/api\.aliyundrive\.com\/business\/v1\/users\/me\/vip\/info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 https:\/\/api\.aliyundrive\.com\/apps\/v1\/users\/home\/widgets url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 https://api.aliyundrive.com/apps/v1/users/home/news url reject-200
+https:\/\/api\.aliyundrive\.com\/adrive\/v1\/app\/logos url  script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
  ***************/
-
