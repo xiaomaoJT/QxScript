@@ -66,7 +66,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字或本页的更新时间为准。
 >
-> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***281*** 次
+> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***282*** 次
 >
 > ***最新更新时间 2023.06.15 17:05***
 
@@ -77,7 +77,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
   * > 更新[图标库](http://s.nfangbian.com/3jy)
     >
-    > 更新[阿里云盘脚本，解锁所有图标](hhttps://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js)
+    > 更新[阿里云盘脚本，解锁所有图标](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js)
     >
 
 
