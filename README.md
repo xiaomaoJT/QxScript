@@ -6,7 +6,7 @@
 
 #### 本仓库用于记录QuantumultX的使用成长
 
-| 最近更新时间        | **2023年06月14日**                |
+| 最近更新时间        | **2023年06月15日**                |
 | :------------------ | :-------------------------------- |
 | **QuantumultX版本** | **1.3.0-781** 新参数不兼容远古版本            |
 | **iOS系统版本**     | **16.1.2** 兼容其他版本                   |
@@ -97,7 +97,7 @@
 | **[节点 · 转换](https://github.com/xiaomaoJT/QxScript/tree/main/server)** | 机场推荐、节点转换图解、远程节点.....                        |
 | **[重写 · 脚本](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite)** | [XiaoMao脚本订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json)、[XiaoMao脚本集合](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite/boxJS)、\去\广\告\模\块\.... |
 | **[分流 · 过滤](https://github.com/xiaomaoJT/QxScript/tree/main/filter)** | XiaoMao分流....                                              |
-| **[任务 · 收藏](https://github.com/xiaomaoJT/QxScript/tree/main/auto)** | 自动任务收藏、推荐库、自动任务脚本收藏....                   |
+| **[任务 · 收藏](https://github.com/xiaomaoJT/QxScript/tree/main/auto)** | 自动任务收藏、推荐库、[图标库](http://s.nfangbian.com/3jy)、自动任务脚本收藏....                   |
 
 
 
