@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-06-15
+ * @LastMod: 2023-06-16
  *
  * 
 
@@ -37,5 +37,7 @@ https:\/\/member\.aliyundrive\.com\/v1\/users\/tools url script-response-body ht
 https:\/\/api\.aliyundrive\.com\/business\/v1\/users\/me\/vip\/info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 https:\/\/api\.aliyundrive\.com\/apps\/v1\/users\/home\/widgets url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 https://api.aliyundrive.com/apps/v1/users/home/news url reject-200
-https:\/\/api\.aliyundrive\.com\/adrive\/v1\/app\/logos url  script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.aliyundrive\.com\/adrive\/v1\/app\/logos url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.aliyundrive\.com\/adrive\/v2\/user\/get url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.aliyundrive\.com\/business\/v1.0\/users\/feature\/list url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
  ***************/
