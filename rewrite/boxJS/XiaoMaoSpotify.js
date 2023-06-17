@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-01-17
+ * @LastMod: 2023-06-17
  *
 s\p\o\t\i\f\y\自\动\歌\词\翻\译
 仅供学习参考，请于下载后24小时内删除
@@ -28,6 +28,6 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoS
 hostname = spclient.wg.spotify.com
 
 [rewrite_local]
-^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/sp.js
+^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/sp_translate.js
 
  ***************/
