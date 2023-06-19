@@ -76,6 +76,8 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
   * > 新增[主机名去重代码](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/demo/hostname_removed.js)
     >
+    > 新增[每日60s新闻](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNews.js)
+    >
 
 + ##### 20230617
 
