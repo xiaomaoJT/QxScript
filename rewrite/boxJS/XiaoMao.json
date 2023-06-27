@@ -554,6 +554,54 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/alic.png"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js"
+    },
+    {
+      "id": "YouJiaInfo",
+      "name": "YouJiaAreaInfo",
+      "keys": [
+        "@XiaoMao.YouJiaProvince",
+        "@XiaoMao.YouJiaCity",
+        "@XiaoMao.YouJiaArea"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYouJia.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.YouJiaProvince",
+          "name": "省级行政区（拼音）",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "【必填】输入省级简称拼音 如广东：guangdong"
+        },
+        {
+          "id": "@XiaoMao.YouJiaCity",
+          "name": "市级行政区（拼音）",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "【非必填】输入市级简称拼音 如深圳：shenzhen"
+        },
+        {
+          "id": "@XiaoMao.YouJiaArea",
+          "name": "区级行政区（拼音）",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "【非必填】输入区级简称拼音 如南山：nanshan"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/oil.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/oil.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYouJia.js"
     }
   ]
 }
