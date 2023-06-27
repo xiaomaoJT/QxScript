@@ -45,7 +45,7 @@
     },
     {
       "id": "CaiYunApp",
-      "name": "彩云天气Svip",
+      "name": "彩云天气 SVIP",
       "keys": [
         "@XiaoMao.CaiYunSvipYear",
         "@XiaoMao.CaiYunSvipMonth",
@@ -93,7 +93,7 @@
     },
     {
       "id": "BaiDuCloudApp",
-      "name": "百度云Svip",
+      "name": "百度云 SVIP",
       "keys": [
         "@XiaoMao.BaiDuSvipYear",
         "@XiaoMao.BaiDuSvipMonth",
@@ -151,7 +151,7 @@
     },
     {
       "id": "ButterCameraApp",
-      "name": "黄油相机vip",
+      "name": "黄油相机 VIP",
       "keys": [
         "@XiaoMao.ButterVipYear",
         "@XiaoMao.ButterVipMonth",
@@ -229,7 +229,7 @@
     },
     {
       "id": "B612App",
-      "name": "B612vip",
+      "name": "B612相机 VIP",
       "keys": [
         "@XiaoMao.KaJiVipYear",
         "@XiaoMao.KaJiVipMonth",
@@ -277,7 +277,7 @@
     },
     {
       "id": "WpsApp",
-      "name": "WpsVip",
+      "name": "WPS VIP",
       "keys": [
         "@XiaoMao.WpsVipYear",
         "@XiaoMao.WpsVipMonth",
@@ -335,7 +335,7 @@
     },
     {
       "id": "ScanningAlmightyApp",
-      "name": "ScanningAlmightyVip",
+      "name": "全能扫描王VIP",
       "keys": [
         "@XiaoMao.ScanningAlmightyVipYear",
         "@XiaoMao.ScanningAlmightyVipMonth",
@@ -393,7 +393,7 @@
     },
     {
       "id": "XMindApp",
-      "name": "XMindvip",
+      "name": "XMind VIP",
       "keys": [
         "@XiaoMao.XMindVipYear",
         "@XiaoMao.XMindVipMonth",
@@ -441,7 +441,7 @@
     },
     {
       "id": "HotListApp",
-      "name": "HotListvip",
+      "name": "今日热榜VIP",
       "keys": [
         "@XiaoMao.HotListVipYear",
         "@XiaoMao.HotListVipMonth",
@@ -489,7 +489,7 @@
     },
     {
       "id": "ALiCloudApp",
-      "name": "ALiCloudvip",
+      "name": "阿里云SVIP",
       "keys": [
         "@XiaoMao.ALiCloudVipYear",
         "@XiaoMao.ALiCloudVipMonth",
@@ -557,14 +557,14 @@
     },
     {
       "id": "YouJiaInfo",
-      "name": "YouJiaAreaInfo",
+      "name": "每日油价",
       "keys": [
         "@XiaoMao.YouJiaProvince",
         "@XiaoMao.YouJiaCity",
         "@XiaoMao.YouJiaArea"
       ],
       "descs_html": [
-        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYouJia.js\">脚本注释</a></h4>"
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYouJia.js\">脚本注释</a></h4><br/><br/><h5 align=\"center\">油价地区信息不可跨行政区填写</h5>"
       ],
       "settings": [
         {
