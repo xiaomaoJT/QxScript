@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-04-10
+ * @LastMod: 2023-06-28
  *
  * 
 
@@ -19,7 +19,7 @@
 
 ⚠️ 配置文件 [task_local] 标签添加
 
-* * 0-4 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoPic.js, tag=💢靓图自动推送, img-url=https://raw.githubusercontent.com/shoujiqiyuan/PokemonGOforQuanX/master/IconSet/Z029.png, enabled=true
+0 0 0/4 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoPic.js, tag=💢靓图自动推送, img-url=https://raw.githubusercontent.com/shoujiqiyuan/PokemonGOforQuanX/master/IconSet/Z029.png, enabled=true
 
 单独脚本地址：
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoPic.js

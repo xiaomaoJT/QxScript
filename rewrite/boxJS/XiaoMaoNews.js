@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-06-19
+ * @LastMod: 2023-06-28
  *
  * 
 
@@ -21,7 +21,7 @@
 
 ⚠️ 配置文件 [task_local] 标签添加
 
-* * 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNews.js, tag=📰XiaoMao_每日新闻60s, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1689251.png, enabled=true
+0 0 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNews.js, tag=📰XiaoMao_每日新闻60s, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1689251.png, enabled=true
 
 单独脚本地址：
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNews.js

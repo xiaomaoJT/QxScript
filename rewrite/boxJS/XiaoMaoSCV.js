@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-06-14
+ * @LastMod: 2023-06-28
  *
  * 
 
@@ -20,7 +20,7 @@
 
 ⚠️ 配置文件 [task_local] 标签添加 或 于自动任务栏(三横杠按钮)，右上角加号，以文本方式添加以下代码即可
 
-* * 0,1,2,20,21,22,23 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSCV.js, tag=🚗XiaoMao学习车, img-url=https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/zishi-cs/zs3.png, enabled=true
+0 0 0,1,2,20,21,22,23 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSCV.js, tag=🚗XiaoMao学习车, img-url=https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/zishi-cs/zs3.png, enabled=true
 
 
 运行无反应解决方案（需代理环境下运行）：

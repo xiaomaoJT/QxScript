@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-06-27
+ * @LastMod: 2023-06-28
  *
  * 
 
@@ -30,7 +30,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.
 
 3、⚠️ 配置文件 [task_local] 标签添加
 
-* * 8 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/yj.js, tag=⛽️XiaoMao_每日油价, img-url=https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/oil.png, enabled=true
+0 0 8 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/yj.js, tag=⛽️XiaoMao_每日油价, img-url=https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/oil.png, enabled=true
 
 
 
