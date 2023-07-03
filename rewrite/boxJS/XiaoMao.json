@@ -607,7 +607,8 @@
       "id": "HotList",
       "name": "实时热榜",
       "keys": [
-        "@XiaoMao.HotList"
+        "@XiaoMao.HotList",
+        "@XiaoMao.HotUrl"
       ],
       "descs_html": [
         "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHot.js\">脚本注释</a></h4><br/><h5 align=\"left\">支持的热榜有：虎扑热榜（hp）、知乎热榜（zh）、36氪热榜（36）、百度热榜（bd）、B站热榜（bz）、贴吧热榜（tb）、微博热榜（wb）、抖音热榜（gy）、豆瓣热榜（db）、微信热榜（wx）、少数派热榜（ss）、IT资讯热榜（it）、IT资讯新榜（itn）、历史上的今天（ls）、微信美食榜（ms）、微信搞笑榜（gx）、微信财经榜（cj）、微信科技榜（kj）、微信八卦榜（bg）、微信星座榜（xz）、微信旅游榜（ly）</h5>"
@@ -621,6 +622,15 @@
           "autoGrow": true,
           "rows": 1,
           "desc": "【填入热榜缩写】如 虎扑热榜+微博热榜+百度热榜：hp+wb+bd"
+        },
+        {
+          "id": "@XiaoMao.HotUrl",
+          "name": "热榜原始地址显示",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为显示,0为隐藏"
         }
       ],
       "author": "@XiaoMao",
