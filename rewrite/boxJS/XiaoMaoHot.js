@@ -31,7 +31,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.
 
 3、⚠️ 配置文件 [task_local] 标签添加
 
-0 0 8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/hot.js, tag=🔥XiaoMao_实时热榜, img-url=https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/list.png, enabled=true
+0 0 8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/hot.js, tag=🔥XiaoMao_实时热榜, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/1icon.png, enabled=true
 
 
 
