@@ -68,7 +68,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***313*** 次
 >
-> ***最新更新时间 2023.07.04 09:00***
+> ***最新更新时间 2023.07.04 15:35***
 
 
 
@@ -78,10 +78,20 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
     >
     > 懒人更新，新增新脚本
     >
+    > 新增脚本[星座运势](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHoroscope.js)
+    >
+    > 新增脚本[职场人日历](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoDaGong.js)
+    >
+    > 新增脚本[摸鱼人日历](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMoYu.js)
+    >
+    > 新增脚本[每日新闻60s_图片版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNewsPic.js)
+    >
+    > 新增脚本[豆瓣电影](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMovie.js)
+    >
 
 + ##### 20230703
 
-  * > 新增[实时热榜](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHot.js)
+  * > 新增脚本[实时热榜](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHot.js)
     >
 
 + ##### 20230701
