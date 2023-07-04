@@ -283,7 +283,6 @@ function API(e = "untitled", t = !1) {
 
 var $XiaoMaoInfo = "";
 var appName = `🔥XiaoMao_实时热榜`;
-var XiaoMaoProvince = "";
 var XiaoMaoHotList = [];
 var typeList = [
   { name: "\u864e\u6251\u70ed\u699c", type: "hp", params: "huPu" },
