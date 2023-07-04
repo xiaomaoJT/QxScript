@@ -23,7 +23,7 @@
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json
 
 
-2、通过boxjs设置需要查询的热榜信息
+2、通过boxjs设置需要查询的信息
 🚧 支持的星座有：♈️白羊座（baiyang）、♉️金牛座（jinniu）、♊️双子座（shuangzi）、♋️巨蟹座（juxie）、♌️狮子座（shizi）、♍️处女座（chunv）、♎️天秤座（tiancheng）、♏️天蝎座（tianxie）、♐️射手座（sheshou）、♑️摩羯座（mojie）、♒️水瓶座（shuiping）、♓️双鱼座（shuangyu）
 
 🚧 支持的范围有：今日运势（D）、明日运势（T）、本周运势（W）、本月运势（M）、本年运势（Y）
