@@ -495,7 +495,8 @@
         "@XiaoMao.ALiCloudVipMonth",
         "@XiaoMao.ALiCloudVipDay",
         "@XiaoMao.ALiCloudSpace",
-        "@XiaoMao.ALiCloudIcon"
+        "@XiaoMao.ALiCloudIcon",
+        "@XiaoMao.ALiCloudLink"
       ],
       "descs_html": [
         "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js\">脚本注释</a></h4>"
@@ -545,6 +546,15 @@
           "autoGrow": true,
           "rows": 1,
           "desc": "1为开启,0为关闭"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudLink",
+          "name": "m3u8临时链接提取",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为开启,0为关闭，默认关闭"
         }
       ],
       "author": "@XiaoMao",
