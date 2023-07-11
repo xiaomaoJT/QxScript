@@ -167,7 +167,7 @@ function getLastDay() {
 }
 
 function getReward(day) {
-  if (getGoneDay(0) != getLastDay()) {
+  if (getGoneDay(0) == getLastDay()) {
     $notify(
       "🚨XiaoMao_阿里云盘",
       "",
