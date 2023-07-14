@@ -72,6 +72,11 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 
 
++ ##### 20230714
+
+  * > 新增[微博脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWeiBo.js)
+    >
+
 + ##### 20230707
 
   * > 优化阿里脚本
