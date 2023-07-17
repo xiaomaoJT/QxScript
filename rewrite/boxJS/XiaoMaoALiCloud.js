@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-07-09
+ * @LastMod: 2023-07-17
  *
  * 
 
@@ -46,4 +46,5 @@ https:\/\/api\.aliyundrive\.com\/adrive\/v2\/user\/get url script-response-body 
 https:\/\/api\.aliyundrive\.com\/business\/v1.0\/users\/feature\/list url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 https:\/\/api\.aliyundrive\.com\/business\/v1.0\/users\/feature\/trial url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 https:\/\/api\.aliyundrive\.com\/v2\/file\/get_video_preview_play_info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.aliyundrive\.com\/adrive\/v2\/batch url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
  ***************/
