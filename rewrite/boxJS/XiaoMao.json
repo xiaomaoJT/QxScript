@@ -49,7 +49,8 @@
       "keys": [
         "@XiaoMao.CaiYunSvipYear",
         "@XiaoMao.CaiYunSvipMonth",
-        "@XiaoMao.CaiYunSvipDay"
+        "@XiaoMao.CaiYunSvipDay",
+        "@XiaoMao.CaiYunToken"
       ],
       "descs_html": [
         "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCaiYunWeather.js\">脚本注释</a></h4>"
@@ -81,6 +82,15 @@
           "autoGrow": true,
           "rows": 1,
           "desc": "Svip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.CaiYunToken",
+          "name": "会员有效Token",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 2,
+          "desc": "填入会员Token"
         }
       ],
       "author": "@XiaoMao",
