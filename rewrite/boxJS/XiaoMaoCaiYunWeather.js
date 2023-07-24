@@ -34,6 +34,6 @@ https?:\/\/biz\.(caiyunapp|cyapi)\.(com|cn)\/(membership_rights|v2\/user) url sc
 https:\/\/cdn-w\.caiyunapp\.com\/p\/app\/activity url reject
 https:\/\/biz\.cyapi\.cn\/p\/v1\/entries url reject-dict
 https:\/\/ad\.cyapi\.cn\/* url reject
-https:\/\/wrapper\.cyapi\.cn\/v1 url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw_h.js
+https:\/\/wrapper\.cyapi\.cn\/v1 url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw_h.js
 
  ***************/
