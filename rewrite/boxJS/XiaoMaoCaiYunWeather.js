@@ -1,9 +1,10 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-02-24
+ * @LastMod: 2023-07-24
  *
  * 
 彩/云/天/气/S/v/i/p /+/ /彩/云/天/气/p/r/o/ /s/v/i/p/ /+/ /去/广/告
+|会\员\t\o\k\e\n\改\写\
 仅供学习参考，请于下载后24小时内删除
 
 ********************************
@@ -18,7 +19,7 @@
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json
 
 2、通过boxjs设置天气svip到期时间
-【一二此步骤可省略，会员到期时间永远定格明天，失效请重开app】
+【一二此步骤可省略，会员到期时间永远定格10天后，失效请重开app】
 
 3、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCaiYunWeather.js
@@ -26,12 +27,13 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoC
 ********************************
 
 [mitm]
-hostname = biz.caiyunapp.com,biz.cyapi.cn,cdn-w.caiyunapp.com,ad.cyapi.cn
+hostname = biz.caiyunapp.com,biz.cyapi.cn,cdn-w.caiyunapp.com,ad.cyapi.cn,wrapper.cyapi.cn
 
 [rewrite_local]
-https?:\/\/biz\.(caiyunapp|cyapi)\.(com|cn)\/(membership_rights|v2\/user) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw.js
+https?:\/\/biz\.(caiyunapp|cyapi)\.(com|cn)\/(membership_rights|v2\/user) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw_b.js
 https:\/\/cdn-w\.caiyunapp\.com\/p\/app\/activity url reject
 https:\/\/biz\.cyapi\.cn\/p\/v1\/entries url reject-dict
 https:\/\/ad\.cyapi\.cn\/* url reject
+https:\/\/wrapper\.cyapi\.cn\/v1 url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw_h.js
 
  ***************/
