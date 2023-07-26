@@ -22,7 +22,7 @@
 
 1、⚠️ 配置文件 [task_local] 标签添加
 
-0 0 9 * * ? * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTyhoon.js, tag=🌀XiaoMao_台风监测, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Blackhole.png, enabled=true
+0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTyhoon.js, tag=🌀XiaoMao_台风监测, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Blackhole.png, enabled=true
 
 
 
