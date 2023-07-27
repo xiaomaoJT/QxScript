@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-07-26
+ * @LastMod: 2023-07-27
  *
  * 
 
@@ -75,7 +75,7 @@ setTimeout(() => {
             "(" +
             el.enname +
             ")" +
-            "\n" +
+            "\n\n" +
             "💨 当前风速：" +
             el.speed +
             "米/秒" +
@@ -98,7 +98,7 @@ setTimeout(() => {
             "🌊 中心风力：" +
             el.power +
             "级" +
-            "\n" +
+            "\n\n" +
             (tfDetails && index == objLength - 1 ? tfDetails : "") +
             "\n\n";
 
@@ -134,36 +134,49 @@ function getDetail(tfid) {
           radius12 = "";
         if (tf_D.radius7) {
           let a = tf_D.radius7;
-          let firstIndex = a.indexOf("|");
-          let lastIndex = a.lastIndexOf("|");
-          let startNum = a.substring(0, firstIndex);
-          let endNum = a.substring(lastIndex + 1, a.length);
-          radius7 = "🕖 七级半径：" + endNum + "~" + startNum + "公里" + "\n";
+          let b = a.split("|");
+          let startNum = Math.min(...b);
+          let endNum = Math.max(...b);
+          if (startNum == startNum) {
+            radius7 = "🕖 七级半径：" + startNum + "公里" + "\n";
+          } else {
+            radius7 = "🕖 七级半径：" + endNum + "~" + startNum + "公里" + "\n";
+          }
         }
         if (tf_D.radius10) {
           let a = tf_D.radius10;
-          let firstIndex = a.indexOf("|");
-          let lastIndex = a.lastIndexOf("|");
-          let startNum = a.substring(0, firstIndex);
-          let endNum = a.substring(lastIndex + 1, a.length);
-          radius10 = "🕙 十级半径：" + endNum + "~" + startNum + "公里" + "\n";
+          let b = a.split("|");
+          let startNum = Math.min(...b);
+          let endNum = Math.max(...b);
+          if (startNum == startNum) {
+            radius10 = "🕙 十级半径：" + startNum + "公里" + "\n";
+          } else {
+            radius10 =
+              "🕙 十级半径：" + endNum + "~" + startNum + "公里" + "\n";
+          }
         }
         if (tf_D.radius12) {
           let a = tf_D.radius12;
-          let firstIndex = a.indexOf("|");
-          let lastIndex = a.lastIndexOf("|");
-          let startNum = a.substring(0, firstIndex);
-          let endNum = a.substring(lastIndex + 1, a.length);
-          radius12 =
-            "🕛 十二级半径：" + endNum + "~" + startNum + "公里" + "\n";
+          let b = a.split("|");
+          let startNum = Math.min(...b);
+          let endNum = Math.max(...b);
+          if (startNum == startNum) {
+            radius12 = "🕛 十二级半径：" + startNum + "公里" + "\n";
+          } else {
+            radius12 =
+              "🕛 十二级半径：" + endNum + "~" + startNum + "公里" + "\n";
+          }
         }
 
         tfDetails =
           radius7 +
           radius10 +
           radius12 +
-          (tf_D.ckposition ? "🗼 参考位置：" + tf_D.ckposition + "\n" : "") +
-          (tf_D.jl ? "🎢 未来趋势：" + tf_D.jl + "\n" : "");
+          "\n" +
+          (tf_D.ckposition
+            ? "🗼 参考位置：" + tf_D.ckposition.replace(/\s+/g, "") + "\n"
+            : "") +
+          (tf_D.jl ? "🎢 未来趋势：" + tf_D.jl.replace(/\s+/g, "") + "\n" : "");
       }
     })
     .catch((err) => {});
@@ -172,9 +185,9 @@ function getDetail(tfid) {
 function getError(params = "") {
   $notify("🌀XiaoMao_台风监测", "", "🚧" + params + "获取失败，请稍后再试❗️", {
     "open-url":
-      "https://i.pixiv.re/img-original/img/2022/02/20/12/41/49/96386959_p0.png",
+      "https://i.pixiv.re/img-original/img/2021/01/01/21/42/56/86736781_p0.jpg",
     "media-url":
-      "https://i.pixiv.re/img-original/img/2022/02/20/12/41/49/96386959_p0.png",
+      "https://i.pixiv.re/img-original/img/2021/01/01/21/42/56/86736781_p0.jpg",
   });
 }
 setTimeout(() => {
