@@ -75,7 +75,7 @@ setTimeout(() => {
             "(" +
             el.enname +
             ")" +
-            "\n\n" +
+            "\n" +
             "💨 当前风速：" +
             el.speed +
             "米/秒" +
@@ -108,7 +108,11 @@ setTimeout(() => {
             tfInfo;
         });
 
-        $notify("🌀XiaoMao_台风监测", "", returnText);
+        $notify(
+          "🌀XiaoMao_台风监测",
+          "监测到" + objLength + "条台风数据",
+          returnText
+        );
       } else {
         getError("_error_2");
       }
@@ -137,10 +141,10 @@ function getDetail(tfid) {
           let b = a.split("|");
           let startNum = Math.min(...b);
           let endNum = Math.max(...b);
-          if (startNum == startNum) {
+          if (startNum == endNum) {
             radius7 = "🕖 七级半径：" + startNum + "公里" + "\n";
           } else {
-            radius7 = "🕖 七级半径：" + endNum + "~" + startNum + "公里" + "\n";
+            radius7 = "🕖 七级半径：" + startNum + "~" + endNum + "公里" + "\n";
           }
         }
         if (tf_D.radius10) {
@@ -148,11 +152,11 @@ function getDetail(tfid) {
           let b = a.split("|");
           let startNum = Math.min(...b);
           let endNum = Math.max(...b);
-          if (startNum == startNum) {
+          if (startNum == endNum) {
             radius10 = "🕙 十级半径：" + startNum + "公里" + "\n";
           } else {
             radius10 =
-              "🕙 十级半径：" + endNum + "~" + startNum + "公里" + "\n";
+              "🕙 十级半径：" + startNum + "~" + endNum + "公里" + "\n";
           }
         }
         if (tf_D.radius12) {
@@ -160,11 +164,11 @@ function getDetail(tfid) {
           let b = a.split("|");
           let startNum = Math.min(...b);
           let endNum = Math.max(...b);
-          if (startNum == startNum) {
+          if (startNum == endNum) {
             radius12 = "🕛 十二级半径：" + startNum + "公里" + "\n";
           } else {
             radius12 =
-              "🕛 十二级半径：" + endNum + "~" + startNum + "公里" + "\n";
+              "🕛 十二级半径：" + startNum + "~" + endNum + "公里" + "\n";
           }
         }
 
