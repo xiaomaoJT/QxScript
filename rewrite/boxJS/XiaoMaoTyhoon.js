@@ -6,6 +6,7 @@
 
 
 \实\时\台\风\信\息\播\报\
+\支\持\多\台\风\监\测\
 
 
 
@@ -33,6 +34,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoT
 
 let tfDetails,
   tfInfo = "";
+let tfDetailsList = [];
 let url2 = encodeURI(
   "https://typhoon.slt.zj.gov.cn/Api/TyphoonList/" + new Date().getFullYear()
 );
@@ -43,7 +45,13 @@ $task
   .fetch(option3)
   .then((response) => {
     let obj = JSON.parse(response.body);
-    getDetail(obj.at(-1).tfid);
+    if (obj.length) {
+      obj.forEach((el) => {
+        if (el.isactive == "1") {
+          getDetail(el.tfid);
+        }
+      });
+    }
   })
   .catch((error) => {
     getError("_error_1");
@@ -99,7 +107,7 @@ setTimeout(() => {
             el.power +
             "级" +
             "\n\n" +
-            (tfDetails && index == objLength - 1 ? tfDetails : "") +
+            tfDetailsList[index] +
             "\n\n";
 
           returnText =
@@ -108,6 +116,9 @@ setTimeout(() => {
             tfInfo;
         });
 
+        console.log(
+          "🌀XiaoMao_台风监测" + " 成功监测到" + objLength + "条台风数据。"
+        );
         $notify(
           "🌀XiaoMao_台风监测",
           "监测到" + objLength + "条台风数据",
@@ -188,6 +199,8 @@ function getDetail(tfid) {
             ? "🗼 参考位置：" + tf_D.ckposition.replace(/\s+/g, "") + "\n"
             : "") +
           (tf_D.jl ? "🎢 未来趋势：" + tf_D.jl.replace(/\s+/g, "") + "\n" : "");
+
+        tfDetailsList.unshift(tfDetails || "");
       }
     })
     .catch((err) => {});
