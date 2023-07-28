@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-07-27
+ * @LastMod: 2023-07-28
  *
  * 
 
@@ -104,7 +104,7 @@ setTimeout(() => {
 
           returnText =
             returnText +
-            (objLength < 2 ? "" : "第[" + (index + 1) + "条] ") +
+            (objLength < 2 ? "" : "第[" + (index + 1) + "]条") +
             tfInfo;
         });
 
@@ -141,10 +141,13 @@ function getDetail(tfid) {
           let b = a.split("|");
           let startNum = Math.min(...b);
           let endNum = Math.max(...b);
-          if (startNum == endNum) {
-            radius7 = "🕖 七级半径：" + startNum + "公里" + "\n";
-          } else {
-            radius7 = "🕖 七级半径：" + startNum + "~" + endNum + "公里" + "\n";
+          if (a != "") {
+            if (startNum == endNum) {
+              radius7 = "🕖 七级半径：" + startNum + "公里" + "\n";
+            } else {
+              radius7 =
+                "🕖 七级半径：" + startNum + "~" + endNum + "公里" + "\n";
+            }
           }
         }
         if (tf_D.radius10) {
@@ -152,11 +155,13 @@ function getDetail(tfid) {
           let b = a.split("|");
           let startNum = Math.min(...b);
           let endNum = Math.max(...b);
-          if (startNum == endNum) {
-            radius10 = "🕙 十级半径：" + startNum + "公里" + "\n";
-          } else {
-            radius10 =
-              "🕙 十级半径：" + startNum + "~" + endNum + "公里" + "\n";
+          if (a != "") {
+            if (startNum == endNum) {
+              radius10 = "🕙 十级半径：" + startNum + "公里" + "\n";
+            } else {
+              radius10 =
+                "🕙 十级半径：" + startNum + "~" + endNum + "公里" + "\n";
+            }
           }
         }
         if (tf_D.radius12) {
@@ -164,11 +169,13 @@ function getDetail(tfid) {
           let b = a.split("|");
           let startNum = Math.min(...b);
           let endNum = Math.max(...b);
-          if (startNum == endNum) {
-            radius12 = "🕛 十二级半径：" + startNum + "公里" + "\n";
-          } else {
-            radius12 =
-              "🕛 十二级半径：" + startNum + "~" + endNum + "公里" + "\n";
+          if (a != "") {
+            if (startNum == endNum) {
+              radius12 = "🕛 十二级半径：" + startNum + "公里" + "\n";
+            } else {
+              radius12 =
+                "🕛 十二级半径：" + startNum + "~" + endNum + "公里" + "\n";
+            }
           }
         }
 
