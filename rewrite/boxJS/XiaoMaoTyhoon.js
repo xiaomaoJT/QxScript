@@ -104,7 +104,7 @@ setTimeout(() => {
 
           returnText =
             returnText +
-            (objLength < 2 ? "" : "第[" + (index + 1) + "]条") +
+            (objLength < 2 ? "" : "[第" + (index + 1) + "条]") +
             tfInfo;
         });
 
@@ -138,10 +138,10 @@ function getDetail(tfid) {
           radius12 = "";
         if (tf_D.radius7) {
           let a = tf_D.radius7;
-          let b = a.split("|");
-          let startNum = Math.min(...b);
-          let endNum = Math.max(...b);
           if (a != "") {
+            let b = a.split("|");
+            let startNum = Math.min(...b);
+            let endNum = Math.max(...b);
             if (startNum == endNum) {
               radius7 = "🕖 七级半径：" + startNum + "公里" + "\n";
             } else {
@@ -152,10 +152,10 @@ function getDetail(tfid) {
         }
         if (tf_D.radius10) {
           let a = tf_D.radius10;
-          let b = a.split("|");
-          let startNum = Math.min(...b);
-          let endNum = Math.max(...b);
           if (a != "") {
+            let b = a.split("|");
+            let startNum = Math.min(...b);
+            let endNum = Math.max(...b);
             if (startNum == endNum) {
               radius10 = "🕙 十级半径：" + startNum + "公里" + "\n";
             } else {
@@ -166,10 +166,10 @@ function getDetail(tfid) {
         }
         if (tf_D.radius12) {
           let a = tf_D.radius12;
-          let b = a.split("|");
-          let startNum = Math.min(...b);
-          let endNum = Math.max(...b);
           if (a != "") {
+            let b = a.split("|");
+            let startNum = Math.min(...b);
+            let endNum = Math.max(...b);
             if (startNum == endNum) {
               radius12 = "🕛 十二级半径：" + startNum + "公里" + "\n";
             } else {
@@ -180,9 +180,9 @@ function getDetail(tfid) {
         }
 
         tfDetails =
-          radius7 +
-          radius10 +
-          radius12 +
+          (radius7 || "") +
+          (radius10 || "") +
+          (radius12 || "") +
           "\n" +
           (tf_D.ckposition
             ? "🗼 参考位置：" + tf_D.ckposition.replace(/\s+/g, "") + "\n"
