@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-08-02
+ * @LastMod: 2023-08-04
  *
  * 
 
@@ -21,7 +21,7 @@
 1、使用BoxJS增加以下脚本订阅。https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json
 
 2、通过boxjs设置svip到期时间及等级
-【一二此步骤可省略，会员到期时间永远定格明天，失效请重开app】
+【一二此步骤可省略，会员到期时间永远定格永久7天后，失效请重开app】
 【支持更改云容量显示，默认不更改】
 【支持更改图标布局】
 【支持获取视频m3u8临时下载链接，默认关闭】
@@ -51,6 +51,7 @@ https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.0\/users\/feature\/trial 
 https:\/\/api\.(aliyundrive|alipan)\.com\/v2\/file\/get_video_preview_play_info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 https:\/\/api\.(aliyundrive|alipan)\.com\/adrive\/v2\/batch url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/member\.aliyundrive\.com\/v2\/activity\/sign_in_list url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 https:\/\/api\.alipan\.com\/business\/v1.0\/users\/coupon\/detail url reject-200
 https:\/\/member\.alipan\.com\/v1\/users\/onboard_list url reject-200
 https:\/\/member\.alipan\.com\/v1\/users\/me url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
