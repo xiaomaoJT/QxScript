@@ -262,15 +262,16 @@ QX首页 > 右下角小风车左边上三条横杠图标 > 右上角第一个三
 脚本库可能需要搭配Boxjs使用，具体详见对应脚本使用说明。
 ```
 
-| 序号 |                         自动任务订阅                         |
-| :--: | :----------------------------------------------------------: |
-|  1⃣️   | [UI脚本合集](https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/UI-Action.json) |
-|  2⃣️   | [cron task](https://dove.589669.xyz/task2qxgallery?img=1&sub=https://raw.githubusercontent.com/ChuheGit/1/main/Surge/Module/Task.sgmodule) |
-|  3⃣️   | [blackmatrix7](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/gallery.json) |
-|  4⃣️   | [gather](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/%E8%87%AA%E5%8A%A8%E4%BB%BB%E5%8A%A1/gather_task.json) |
-|  5⃣️   | [JD_task](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/%E8%87%AA%E5%8A%A8%E4%BB%BB%E5%8A%A1/JD_task.json) |
-|  6⃣️   | [QuantumultX_Task](https://raw.githubusercontent.com/w37fhy/QuantumultX/master/QuantumultX_Task.json) |
-|  7⃣️   | [faker](https://cdn.jsdelivr.net/gh/shufflewzc/faker@main/qx.json) |
+| 序号  |                         自动任务订阅                         |
+| :---: | :----------------------------------------------------------: |
+|   1⃣️   | [UI脚本合集](https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/UI-Action.json) |
+|   2⃣️   | [cron task](https://dove.589669.xyz/task2qxgallery?img=1&sub=https://raw.githubusercontent.com/ChuheGit/1/main/Surge/Module/Task.sgmodule) |
+|   3⃣️   | [blackmatrix7](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/gallery.json) |
+|   4⃣️   | [gather](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/%E8%87%AA%E5%8A%A8%E4%BB%BB%E5%8A%A1/gather_task.json) |
+|   5⃣️   | [JD_task](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/%E8%87%AA%E5%8A%A8%E4%BB%BB%E5%8A%A1/JD_task.json) |
+|   6⃣️   | [QuantumultX_Task](https://raw.githubusercontent.com/w37fhy/QuantumultX/master/QuantumultX_Task.json) |
+|   7⃣️   | [faker](https://cdn.jsdelivr.net/gh/shufflewzc/faker@main/qx.json) |
+| **8⃣️** | **[XiaoMao脚本订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAutoTask.json)** |
 
 
 
@@ -288,21 +289,22 @@ Safari浏览器 打开网址 http://boxjs.com > 底部菜单 订阅 > 选择右�
 此库不可单独使用，需搭配自动脚本库。
 ```
 
-| 序号 |                          BoxJs订阅                           |
-| :--: | :----------------------------------------------------------: |
-|  1⃣️   |             [ooxx](https://ooxx.be/js/box.json)              |
-|  2⃣️   | [NobyDa](https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json) |
-|  3⃣️   | [Peng-YM](https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/box.js.json) |
-|  4⃣️   | [chavyleung](https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.json) |
-|  5⃣️   | [chouchoui](https://raw.githubusercontent.com/chouchoui/QuanX/master/vei.boxjs.json) |
-|  6⃣️   | [evilbutcher](https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/evilbutcher.boxjs.json) |
-|  7⃣️   | [lowking](https://raw.githubusercontent.com/lowking/Scripts/master/lowking.boxjs.json) |
-|  8⃣️   | [songyangzz](https://raw.githubusercontent.com/songyangzz/QuantumultX/master/syzzzf.box.json) |
-|  9⃣️   | [toulanboy](https://raw.githubusercontent.com/toulanboy/scripts/master/toulanboy.boxjs.json) |
-|  🔟   | [zZPiglet](https://raw.githubusercontent.com/zZPiglet/Task/master/zZPiglet.boxjs.json) |
-|  1⃣️1⃣️  | [id77](https://raw.githubusercontent.com/id77/QuantumultX/master/box.json) |
-|  1⃣️2⃣️  | [dompling](https://raw.githubusercontent.com/dompling/Script/master/dompling.boxjs.json) |
-|  1⃣️3⃣️  | [iRingo](https://github.com/VirgilClyne/iRingo/blob/main/box/iRingo.boxjs.json?raw=true) |
+|  序号  |                          BoxJs订阅                           |
+| :----: | :----------------------------------------------------------: |
+|   1⃣️    |             [ooxx](https://ooxx.be/js/box.json)              |
+|   2⃣️    | [NobyDa](https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json) |
+|   3⃣️    | [Peng-YM](https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/box.js.json) |
+|   4⃣️    | [chavyleung](https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.json) |
+|   5⃣️    | [chouchoui](https://raw.githubusercontent.com/chouchoui/QuanX/master/vei.boxjs.json) |
+|   6⃣️    | [evilbutcher](https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/evilbutcher.boxjs.json) |
+|   7⃣️    | [lowking](https://raw.githubusercontent.com/lowking/Scripts/master/lowking.boxjs.json) |
+|   8⃣️    | [songyangzz](https://raw.githubusercontent.com/songyangzz/QuantumultX/master/syzzzf.box.json) |
+|   9⃣️    | [toulanboy](https://raw.githubusercontent.com/toulanboy/scripts/master/toulanboy.boxjs.json) |
+|   🔟    | [zZPiglet](https://raw.githubusercontent.com/zZPiglet/Task/master/zZPiglet.boxjs.json) |
+|   1⃣️1⃣️   | [id77](https://raw.githubusercontent.com/id77/QuantumultX/master/box.json) |
+|   1⃣️2⃣️   | [dompling](https://raw.githubusercontent.com/dompling/Script/master/dompling.boxjs.json) |
+|   1⃣️3⃣️   | [iRingo](https://github.com/VirgilClyne/iRingo/blob/main/box/iRingo.boxjs.json?raw=true) |
+| **1⃣️4⃣️** | **[XiaoMaoBoxJS订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json)** |
 
 
 
@@ -352,4 +354,6 @@ QX首页 > 长按任意机场组/策略组 > 选择图标 > 右上角➕
 |  3⃣️1⃣️  | [edc-airport](https://raw.githubusercontent.com/erdongchanyo/icon/main/edc-airport-icon-gallery.json) |
 |  3⃣️2⃣️  | [icons-all](https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json) |
 |  3⃣️3⃣️  | [dongzuo](https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/dongzuo.json) |
+|  3⃣️4⃣️  | [火影忍者](https://raw.githubusercontent.com/Toperlock/Quantumult/main/Naruto-icons.json) |
+|  3⃣️5⃣️  | [进击的巨人](https://raw.githubusercontent.com/Toperlock/Quantumult/main/AOT-icons.json) |
 
