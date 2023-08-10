@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-08-04
+ * @LastMod: 2023-08-10
  *
  * 
 
@@ -25,6 +25,7 @@
 【支持更改云容量显示，默认不更改】
 【支持更改图标布局】
 【支持获取视频m3u8临时下载链接，默认关闭】
+【视频在线播放清晰度解锁，默认开启】
 
 3、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js
