@@ -626,14 +626,21 @@ const XX_TOKEN = $.getdata(_key);
   }
 })()
   .catch((e) => {
+    $.msg(
+      $.name,
+      "遇到错误🙅",
+      "执行失败！Token已失效，请重新获取！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js"
+    );
     $.log(
-      "",
+      e,
       `❌失败! 原因: ${e}!教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js`,
       ""
     );
+    $.done();
   })
   .finally(() => {
     setTimeout(() => {
+      $.msg($.name, "", "执行完毕！每次仅可完整执行一次喔～");
       $.done();
     }, 395000);
   });
@@ -674,20 +681,38 @@ function getAward(t) {
           );
         } else if (result.sta == -500) {
           $.logErr(
-            "",
+            "执行失败！Token已失效，请重新获取！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js",
+            ""
+          );
+          $.msg(
+            $.name,
+            "遇到错误🙅",
             "执行失败！Token已失效，请重新获取！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js"
           );
+          $.done();
         } else {
           $.logErr(
-            "",
-            "执行失败！每日仅可执行20次，且Token有效期较短，请检查先决条件！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js"
+            "执行失败！每日仅可执行20次，且Token有效期较短，请检查先决条件！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js",
+            ""
           );
+          $.msg(
+            $.name,
+            "遇到错误🙅",
+            "执行失败！Token已失效，请重新获取！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js"
+          );
+          $.done();
         }
       } catch (e) {
         $.logErr(
           e,
           "执行失败！每日仅可执行20次，且Token有效期为较短，请检查先决条件！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js"
         );
+        $.msg(
+          $.name,
+          "遇到错误🙅",
+          "执行失败！Token已失效，请重新获取！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js"
+        );
+        $.done();
       } finally {
         resolve();
       }
