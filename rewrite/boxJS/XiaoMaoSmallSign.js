@@ -24,7 +24,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoS
 3、点击个人中心，自动获取Token，请注意QX通知弹窗
 
 4、配置文件 [task_local] 标签添加
-0 0 10 * * ? hhttps://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js, tag=📰XiaoMao_小小签到_自动获取金币, img-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/KittyLink.png, enabled=false
+0 0 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/ss.js, tag=📰XiaoMao_小小签到_自动获取金币, img-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/KittyLink.png, enabled=false
 
 5、先决条件：token时效较短，请确保token有效，失效请重新获取；
 
@@ -35,6 +35,6 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoS
 hostname = api-xcx-qunsou.weiyoubot.cn
 
 [rewrite_local]
-https:\/\/api-xcx-qunsou\.weiyoubot\.cn\/xcx\/checkin\/v3\/vip url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api-xcx-qunsou\.weiyoubot\.cn\/xcx\/checkin\/v3\/vip url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/ss.js
 
 ********************************/
