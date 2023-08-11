@@ -617,7 +617,7 @@ const XX_TOKEN = $.getdata(_key);
     }
     return;
   }
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 30; i++) {
     (function (t, data) {
       setTimeout(async function () {
         await getAward(t + 1);
@@ -635,7 +635,7 @@ const XX_TOKEN = $.getdata(_key);
   .finally(() => {
     setTimeout(() => {
       $.done();
-    }, 265000);
+    }, 395000);
   });
 
 function getAward(t) {
