@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-08-14
+ * @LastMod: 2023-08-15
  *
  * 
 
@@ -56,4 +56,5 @@ https:\/\/member\.aliyundrive\.com\/v2\/activity\/sign_in_list url script-respon
 https:\/\/api\.alipan\.com\/business\/v1.0\/users\/coupon\/detail url reject-200
 https:\/\/member\.alipan\.com\/v1\/users\/onboard_list url reject-200
 https:\/\/member\.alipan\.com\/v1\/users\/me url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.alipan\.com\/adrive\/v1\/timeline\/user\/get url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
  ***************/
