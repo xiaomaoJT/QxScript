@@ -1,11 +1,14 @@
 # >  /*  xiaomao个人使用的分流规则
-# 更新时间 20230402
+# 更新时间 20230815
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
 # XiaoMao机器人：https://t.me/Xiao_MaoMao_bot
 # XiaoMao仓库：https://github.com/xiaomaoJT/QxScript
 
+
+# picsew请求
+host, firebaseinstallations.googleapis.com, reject
 
 # 铁友火车票
 host, download2.ctrip.com, reject
