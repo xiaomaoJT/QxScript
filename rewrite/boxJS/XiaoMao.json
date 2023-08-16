@@ -507,7 +507,10 @@
         "@XiaoMao.ALiCloudSpace",
         "@XiaoMao.ALiCloudIcon",
         "@XiaoMao.ALiCloudLink",
-        "@XiaoMao.ALiCloudDistinct"
+        "@XiaoMao.ALiCloudDistinct",
+        "@XiaoMao.ALiCloudNo",
+        "@XiaoMao.ALiCloudText1",
+        "@XiaoMao.ALiCloudText2"
       ],
       "descs_html": [
         "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js\">脚本注释</a></h4>"
@@ -575,6 +578,33 @@
           "autoGrow": true,
           "rows": 1,
           "desc": "1为开启,0为关闭，默认开启"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudNo",
+          "name": "注册排名",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入数字，默认第1名。"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudText1",
+          "name": "昵称底下 - 描述文字",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "默认字样为 第一体验官"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudText2",
+          "name": "超级会员右边 - 按钮文字",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "默认字样为 第一股东"
         }
       ],
       "author": "@XiaoMao",
