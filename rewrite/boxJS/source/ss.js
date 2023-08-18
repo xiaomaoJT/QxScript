@@ -674,7 +674,7 @@ function getAward(t) {
               "次" +
               "任务成功，" +
               "剩余" +
-              (20 - t) +
+              (30 - t) +
               "次任务" +
               "，当前金币为" +
               result.data.credit
@@ -692,7 +692,7 @@ function getAward(t) {
           $.done();
         } else {
           $.logErr(
-            "执行失败！每日仅可执行20次，且Token有效期较短，请检查先决条件！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js",
+            "执行失败！每日仅可执行30次，且Token有效期较短，请检查先决条件！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js",
             ""
           );
           $.msg(
@@ -705,7 +705,7 @@ function getAward(t) {
       } catch (e) {
         $.logErr(
           e,
-          "执行失败！每日仅可执行20次，且Token有效期为较短，请检查先决条件！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js"
+          "执行失败！每日仅可执行30次，且Token有效期为较短，请检查先决条件！教程请见脚本注释：https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js"
         );
         $.msg(
           $.name,
