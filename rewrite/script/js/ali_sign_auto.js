@@ -104,7 +104,7 @@ function refreshToken() {
   return new Promise((resolve, _reject) => {
     const t = "获取token";
     let url = {
-      url: "https://auth.aliyundrive.com/v2/account/token",
+      url: "https://auth.alipan.com/v2/account/token",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
@@ -176,7 +176,7 @@ function getReward(day) {
     return new Promise((resolve, _reject) => {
       const t = "领取奖励";
       let url = {
-        url: "https://member.aliyundrive.com/v1/activity/sign_in_reward?_rx-s=mobile",
+        url: "https://member.alipan.com/v1/activity/sign_in_reward?_rx-s=mobile",
         headers: {
           "Content-Type": "application/json",
           Authorization: aliYunPanToken,
@@ -222,7 +222,7 @@ function doJoinTeam(joinTeamId) {
   return new Promise(async (resolve, _reject) => {
     const t = "加入队伍";
     let url = {
-      url: "https://member.aliyundrive.com/v1/activity/sign_in_team_pk?_rx-s=mobile",
+      url: "https://member.alipan.com/v1/activity/sign_in_team_pk?_rx-s=mobile",
       headers: {
         "Content-Type": "application/json",
         Authorization: aliYunPanToken,
@@ -269,7 +269,7 @@ function joinTeam(layer = 0) {
     // }
     const t = "加入PK";
     let url = {
-      url: "https://member.aliyundrive.com/v1/activity/sign_in_team?_rx-s=mobile",
+      url: "https://member.alipan.com/v1/activity/sign_in_team?_rx-s=mobile",
       headers: {
         "Content-Type": "application/json",
         Authorization: aliYunPanToken,
@@ -329,7 +329,7 @@ function signIn() {
     }
     const t = "签到";
     let url = {
-      url: "https://member.aliyundrive.com/v1/activity/sign_in_list",
+      url: "https://member.alipan.com/v1/activity/sign_in_list",
       headers: {
         "Content-Type": "application/json",
         Authorization: aliYunPanToken,
