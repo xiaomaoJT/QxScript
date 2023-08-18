@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-07-28
+ * @LastMod: 2023-08-18
  *
  * 
 
@@ -54,7 +54,7 @@ $task
     }
   })
   .catch((error) => {
-    getError("_error_1");
+    getError("_error_1"+ "获取失败，请稍后再试❗️");
   });
 
 setTimeout(() => {
@@ -125,11 +125,11 @@ setTimeout(() => {
           returnText
         );
       } else {
-        getError("_error_2");
+        getError("_err_2"+ "获取失败或当前无台风❗️");
       }
     })
     .catch((err) => {
-      getError("_error_1");
+      getError("_err_3"+ "获取失败，请稍后再试❗️");
     });
 }, 5000);
 
@@ -207,7 +207,7 @@ function getDetail(tfid) {
 }
 
 function getError(params = "") {
-  $notify("🌀XiaoMao_台风监测", "", "🚧" + params + "获取失败，请稍后再试❗️", {
+  $notify("🌀XiaoMao_台风监测", "", "🚧" + params, {
     "open-url":
       "https://i.pixiv.re/img-original/img/2021/01/01/21/42/56/86736781_p0.jpg",
     "media-url":
