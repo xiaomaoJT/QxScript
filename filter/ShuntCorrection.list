@@ -1,6 +1,6 @@
 # >  /*  修正某些错误的分流
 # 如遇误杀/网络错误等问题，请于群聊内反馈补充
-# 更新时间 20230609
+# 更新时间 20230906
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -80,3 +80,33 @@ ip-cidr, 192.168.0.1/24, direct
 ip-cidr, 192.168.1.1/24, direct
 # > 其他分流修正
 host-keyword, anti-ad.net, direct
+
+# > 大师兄影视
+host,sdk.alibaba.com.ailbaba.me, direct
+host,img.ffzypic.com, direct
+host,img.liangzipic.com, direct
+host,img.bfzypic.com, direct
+host,img.kuaikanzy.net, direct
+host,vip.imgffzy.com, direct
+host,vip.ffzyread.com, direct
+host,cdn.jsdelivr.net, direct
+host,image.maimn.com, direct
+host-keyword,bfzycdn.com, direct
+host-keyword,vip.kuaikan-cdn, direct
+host-keyword,vip.ffzy-play, direct
+host-keyword,vip.ffzy-online, direct
+
+# > 爱影视
+host,static.jssp.tv, direct
+host,lain.bgm.tv, direct
+host,tiao.cjkypo.com, direct
+host,ok.zuidapic.com, direct
+host,ts.thefilehosting.com, direct
+host,deo.shopeemobile.com, direct
+host,m3u8.255tv.tk, direct
+host,m3u8.mstopq.com, direct
+host,ain.bgm.tv, direct
+host-keyword,vip.lz-cdn, direct
+host-keyword,ax1x.com, direct
+host-keyword,o.lencr.org, direct
+host-keyword,ttcdn-tos.kkimg.cc, direct

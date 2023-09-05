@@ -1,0 +1,44 @@
+# >  /*  xiaomao个人使用的分流规则 Surge版本
+# 更新时间 20230906
+# 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
+# 微信公众号 【小帽集团】
+# XiaoMao频道频道：https://t.me/xiaomaoJT
+# XiaoMao机器人：https://t.me/Xiao_MaoMao_bot
+# XiaoMao仓库：https://github.com/xiaomaoJT/QxScript
+
+
+# DOMAIN-SUFFIX：域名后缀匹配
+# DOMAIN：域名匹配
+# DOMAIN-KEYWORD：域名关键字匹配
+# IP-CIDR：IP 段匹配
+# SRC-IP-CIDR：源 IP 段匹配
+# GEOIP：GEOIP 数据库（国家代码）匹配
+# DST-PORT：目标端口匹配
+# SRC-PORT：源端口匹配
+# PROCESS-NAME：源进程名匹配
+# RULE-SET：Rule Provider 规则匹配
+# MATCH：全匹配
+
+# picsew请求
+DOMAIN, firebaseinstallations.googleapis.com, reject
+
+# 铁友火车票
+DOMAIN, download2.ctrip.com, reject
+DOMAIN, market.suanya.com, reject
+DOMAIN, sec-m.ctrip.com, reject
+# 去除几乎所有图片，慎用
+# DOMAIN,images3.c-ctrip.com, reject
+
+# 萤石云视频
+DOMAIN, fastgw.ys7.com, reject
+# 可能有误杀的分流
+DOMAIN, mfs.ys7.com, reject
+DOMAIN, img.ys7.com, reject
+
+# WiFi万能钥匙Pro 
+DOMAIN-SUFFIX, open.e.kuaishou.com, reject
+DOMAIN-KEYWORD, *.wifi188.com, reject
+IP-CIDR, 106.75.60.77/24, reject
+DOMAIN-KEYWORD, 51y5, reject
+IP-CIDR, 106.75.26.22/24, reject
+DOMAIN-KEYWORD, lsttnews, reject

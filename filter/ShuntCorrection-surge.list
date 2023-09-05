@@ -1,0 +1,121 @@
+# >  /*  修正某些错误的分流 Surge版本
+# 如遇误杀/网络错误等问题，请于群聊内反馈补充
+# 更新时间 20230906
+# 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
+# 微信公众号 【小帽集团】
+# XiaoMao频道频道：https://t.me/xiaomaoJT
+# XiaoMao机器人：https://t.me/Xiao_MaoMao_bot
+# XiaoMao仓库：https://github.com/xiaomaoJT/QxScript
+
+# DOMAIN-SUFFIX：域名后缀匹配
+# DOMAIN：域名匹配
+# DOMAIN-KEYWORD：域名关键字匹配
+# IP-CIDR：IP 段匹配
+# SRC-IP-CIDR：源 IP 段匹配
+# GEOIP：GEOIP 数据库（国家代码）匹配
+# DST-PORT：目标端口匹配
+# SRC-PORT：源端口匹配
+# PROCESS-NAME：源进程名匹配
+# RULE-SET：Rule Provider 规则匹配
+# MATCH：全匹配
+
+# > 苹果推送服务
+DOMAIN-KEYWORD, push.apple.com, direct
+# > 苹果时间同步
+DOMAIN, time.apple.com, direct
+# > 百度K线
+DOMAIN, sp0.baidu.com, direct
+# > 微博修正
+DOMAIN, sdkapp.uve.weibo.com, direct
+# > 快手修正
+DOMAIN-SUFFIX, e.kuaishou.com, direct
+DOMAIN-SUFFIX, kuaishou.com, direct
+DOMAIN-SUFFIX, yximgs.com, direct
+DOMAIN-SUFFIX, ksapisrv.com, direct
+# > qq邮箱修正
+DOMAIN-SUFFIX, iwx.mail.qq.com, direct
+# > wps简历
+DOMAIN-SUFFIX, dl.op.wpscdn.cn, direct
+# > 同程修正
+DOMAIN-SUFFIX, 17u.cn, direct
+DOMAIN-SUFFIX, 40017.cn, direct
+# > 驾考宝典
+DOMAIN,short-video.kakamobi.cn,direct
+# > 飞猪
+DOMAIN-SUFFIX,apoll.m.taobao.com,direct
+DOMAIN-SUFFIX,acs.m.taobao.com,direct
+# > 今日热榜
+DOMAIN-SUFFIX, tophub.app, direct
+# > 携程
+DOMAIN-KEYWORD,  aw-s.tripcdn.com, direct
+DOMAIN-KEYWORD,  trip.com, direct
+# > 中国移动登陆
+DOMAIN, www.cmpassport.com, direct
+DOMAIN, verify.cmpassport.com, direct
+
+# > 米家
+DOMAIN, app.chat.xiaomi.net, direct
+# > 搜狗
+DOMAIN,  get.sogou.com, direct
+
+# > 苹果天气服务
+DOMAIN-KEYWORD, weather-edge.apple.com, direct
+DOMAIN-KEYWORD, weather-adge.apple.com, direct
+DOMAIN-KEYWORD, weather-data.apple.com, direct
+DOMAIN-KEYWORD, weather-map.apple.com, direct
+DOMAIN-KEYWORD, weather-analytics-events.apple.com, direct
+# > 苹果内购服务
+DOMAIN-KEYWORD, buy.itunes.apple.com, direct
+# > 苹果icloud
+DOMAIN-KEYWORD, icloud.com, direct
+# > 苹果输入法相关服务
+DOMAIN-KEYWORD, api.smoot.apple.com, direct
+DOMAIN-KEYWORD, api.smoot.apple.cn, direct
+# > 苹果iMessage服务
+DOMAIN, init.ess.apple.com, direct
+# > 苹果其他服务
+DOMAIN-KEYWORD, ssl.apple.com, direct
+DOMAIN-KEYWORD, humb.apple.com, direct
+DOMAIN, smp-device-content.apple.com, direct
+DOMAIN-KEYWORD, api-adservices.apple.com, direct
+DOMAIN-KEYWORD, ls.apple.com, direct
+DOMAIN-KEYWORD, gsa.apple.com, direct
+DOMAIN-KEYWORD, ess.apple.com, direct
+# > QQ空间
+DOMAIN-KEYWORD, ctc.qzs.qzone.qq.com, direct
+# > 路由器后台
+IP-CIDR, 192.168.0.1/24, direct
+# > 天翼网关
+IP-CIDR, 192.168.1.1/24, direct
+# > 其他分流修正
+DOMAIN-KEYWORD, anti-ad.net, direct
+
+# > 大师兄影视
+DOMAIN,sdk.alibaba.com.ailbaba.me, direct
+DOMAIN,img.ffzypic.com, direct
+DOMAIN,img.liangzipic.com, direct
+DOMAIN,img.bfzypic.com, direct
+DOMAIN,img.kuaikanzy.net, direct
+DOMAIN,vip.imgffzy.com, direct
+DOMAIN,vip.ffzyread.com, direct
+DOMAIN,cdn.jsdelivr.net, direct
+DOMAIN,image.maimn.com, direct
+DOMAIN-KEYWORD,bfzycdn.com, direct
+DOMAIN-KEYWORD,vip.kuaikan-cdn, direct
+DOMAIN-KEYWORD,vip.ffzy-play, direct
+DOMAIN-KEYWORD,vip.ffzy-online, direct
+
+# > 爱影视
+DOMAIN,static.jssp.tv, direct
+DOMAIN,lain.bgm.tv, direct
+DOMAIN,tiao.cjkypo.com, direct
+DOMAIN,ok.zuidapic.com, direct
+DOMAIN,ts.thefilehosting.com, direct
+DOMAIN,deo.shopeemobile.com, direct
+DOMAIN,m3u8.255tv.tk, direct
+DOMAIN,m3u8.mstopq.com, direct
+DOMAIN,ain.bgm.tv, direct
+DOMAIN-KEYWORD,vip.lz-cdn, direct
+DOMAIN-KEYWORD,ax1x.com, direct
+DOMAIN-KEYWORD,o.lencr.org, direct
+DOMAIN-KEYWORD,ttcdn-tos.kkimg.cc, direct
