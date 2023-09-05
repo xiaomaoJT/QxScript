@@ -1,6 +1,6 @@
 # >  /*  修正某些错误的分流 clash版本
 # 如遇误杀/网络错误等问题，请于群聊内反馈补充
-# 更新时间 20230609
+# 更新时间 20230906
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -90,3 +90,33 @@ payload:
   - IP-CIDR, 192.168.1.1/24, direct
   # > 其他分流修正
   - DOMAIN-KEYWORD, anti-ad.net, direct
+
+  # > 大师兄影视
+  - DOMAIN,sdk.alibaba.com.ailbaba.me, direct
+  - DOMAIN,img.ffzypic.com, direct
+  - DOMAIN,img.liangzipic.com, direct
+  - DOMAIN,img.bfzypic.com, direct
+  - DOMAIN,img.kuaikanzy.net, direct
+  - DOMAIN,vip.imgffzy.com, direct
+  - DOMAIN,vip.ffzyread.com, direct
+  - DOMAIN,cdn.jsdelivr.net, direct
+  - DOMAIN,image.maimn.com, direct
+  - DOMAIN-KEYWORD,bfzycdn.com, direct
+  - DOMAIN-KEYWORD,vip.kuaikan-cdn, direct
+  - DOMAIN-KEYWORD,vip.ffzy-play, direct
+  - DOMAIN-KEYWORD,vip.ffzy-online, direct
+
+  # > 爱影视
+  - DOMAIN,static.jssp.tv, direct
+  - DOMAIN,lain.bgm.tv, direct
+  - DOMAIN,tiao.cjkypo.com, direct
+  - DOMAIN,ok.zuidapic.com, direct
+  - DOMAIN,ts.thefilehosting.com, direct
+  - DOMAIN,deo.shopeemobile.com, direct
+  - DOMAIN,m3u8.255tv.tk, direct
+  - DOMAIN,m3u8.mstopq.com, direct
+  - DOMAIN,ain.bgm.tv, direct
+  - DOMAIN-KEYWORD,vip.lz-cdn, direct
+  - DOMAIN-KEYWORD,ax1x.com, direct
+  - DOMAIN-KEYWORD,o.lencr.org, direct
+  - DOMAIN-KEYWORD,ttcdn-tos.kkimg.cc, direct
