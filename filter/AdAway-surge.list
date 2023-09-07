@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站 Surge版本
-# 更新时间 20230724
+# 更新时间 20230907
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -235,6 +235,7 @@ DOMAIN-SUFFIX,bazinga.mse.sogou.com, reject
 DOMAIN-SUFFIX,bite.theta.sogoucdn.com, reject
 DOMAIN-SUFFIX,brand.sogou.com, reject
 DOMAIN-SUFFIX,bsiet.husky.sogou.com, reject
+DOMAIN-SUFFIX, business-cdn.shouji.sogou.com, reject
 ## QQ音乐广告
 DOMAIN,tmeadcomm.y.qq.com, reject
 DOMAIN,ad.tencentmusic.com, reject

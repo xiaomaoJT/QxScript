@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20230724
+# 更新时间 20230907
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -225,6 +225,7 @@ HOST-SUFFIX,bazinga.mse.sogou.com, reject
 HOST-SUFFIX,bite.theta.sogoucdn.com, reject
 HOST-SUFFIX,brand.sogou.com, reject
 HOST-SUFFIX,bsiet.husky.sogou.com, reject
+host-keyword, business-cdn.shouji.sogou.com, reject
 ## QQ音乐广告
 HOST,tmeadcomm.y.qq.com, reject
 HOST,ad.tencentmusic.com, reject
