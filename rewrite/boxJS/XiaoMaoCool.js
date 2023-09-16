@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-08-10
+ * @LastMod: 2023-09-17
  *
  * 
 
@@ -17,7 +17,7 @@
 
 
 使用方法：
-1、、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
+1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js
 
 ********************************

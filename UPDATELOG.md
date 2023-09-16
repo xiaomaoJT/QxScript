@@ -66,15 +66,22 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字或本页的更新时间为准。
 >
-> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***391*** 次
+> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***392*** 次
 >
-> ***最新更新时间 2023.09.15 17:20***
+> ***最新更新时间 2023.09.17 00:15***
 
 
+
++ ##### 20230917
+
+  * > 新增[dt脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoDuiTang.js)
+    >
+    > 更新cool脚本
+    >
 
 + ##### 20230915
 
-  * > 新增[公考雷达脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoGKLD.js)
+  * > 新增[gkld脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoGKLD.js)
     >
 
 + ##### 20230914
@@ -143,7 +150,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
     >
     > 优化微博脚本，适配轻享版，解锁图标
     >
-    > 新增[小小签到脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js)
+    > 新增[xxqd脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSmallSign.js)
     >
 
 + ##### 20230810
@@ -212,7 +219,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 + ##### 20230714
 
-  * > 新增[微博脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWeiBo.js)
+  * > 新增[wb脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWeiBo.js)
     >
 
 + ##### 20230707
@@ -223,7 +230,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 + ##### 20230704
 
-  * > 优化[实时热榜](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHot.js)
+  * > 优化[ssrb](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHot.js)
     >
     > 懒人更新，新增新脚本
     >
