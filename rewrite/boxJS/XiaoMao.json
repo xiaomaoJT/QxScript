@@ -498,6 +498,54 @@
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTodayHotList.js"
     },
     {
+      "id": "DuiTangSvipApp",
+      "name": "堆糖SVIP",
+      "keys": [
+        "@XiaoMao.DuiTangSvipYear",
+        "@XiaoMao.DuiTangSvipMonth",
+        "@XiaoMao.DuiTangSvipDay"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoDuiTang.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.DuiTangSvipYear",
+          "name": "svip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "svip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.DuiTangSvipMonth",
+          "name": "svip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "svip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.DuiTangSvipDay",
+          "name": "svip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "svip过期时间-日期 如：10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/duitang.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/duitang.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoDuiTang.js"
+    },
+    {
       "id": "ALiCloudApp",
       "name": "阿里云SVIP",
       "keys": [
