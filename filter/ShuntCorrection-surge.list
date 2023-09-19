@@ -1,6 +1,6 @@
 # >  /*  修正某些错误的分流 Surge版本
 # 如遇误杀/网络错误等问题，请于群聊内反馈补充
-# 更新时间 20230906
+# 更新时间 20230919
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -119,3 +119,6 @@ DOMAIN-KEYWORD,vip.lz-cdn, direct
 DOMAIN-KEYWORD,ax1x.com, direct
 DOMAIN-KEYWORD,o.lencr.org, direct
 DOMAIN-KEYWORD,ttcdn-tos.kkimg.cc, direct
+
+# > 字节
+DOMAIN-KEYWORD, snssdk.com, direct
