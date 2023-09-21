@@ -23,8 +23,9 @@
 DOMAIN-KEYWORD, push.apple.com, direct
 # > 苹果时间同步
 DOMAIN, time.apple.com, direct
-# > 百度K线
+# > 百度
 DOMAIN, sp0.baidu.com, direct
+DOMAIN-SUFFIX, baidustatic.com, direct
 # > 微博修正
 DOMAIN, sdkapp.uve.weibo.com, direct
 # > 快手修正
@@ -66,6 +67,7 @@ DOMAIN-KEYWORD, weather-map.apple.com, direct
 DOMAIN-KEYWORD, weather-analytics-events.apple.com, direct
 # > 苹果内购服务
 DOMAIN-KEYWORD, buy.itunes.apple.com, direct
+DOMAIN, api.revenuecat.com, direct
 # > 苹果icloud
 DOMAIN-KEYWORD, icloud.com, direct
 # > 苹果输入法相关服务

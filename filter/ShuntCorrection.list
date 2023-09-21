@@ -14,8 +14,9 @@
 host-keyword, push.apple.com, direct
 # > 苹果时间同步
 host, time.apple.com, direct
-# > 百度K线
+# > 百度
 host, sp0.baidu.com, direct
+host-suffix, baidustatic.com, direct
 # > 微博修正
 host, sdkapp.uve.weibo.com, direct
 # > 快手修正
@@ -57,6 +58,7 @@ host-keyword, weather-map.apple.com, direct
 host-keyword, weather-analytics-events.apple.com, direct
 # > 苹果内购服务
 host-keyword, buy.itunes.apple.com, direct
+host, api.revenuecat.com, direct
 # > 苹果icloud
 host-keyword, icloud.com, direct
 # > 苹果输入法相关服务
