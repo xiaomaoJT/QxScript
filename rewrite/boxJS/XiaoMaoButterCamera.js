@@ -1,12 +1,13 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-04-18
+ * @LastMod: 2023-09-25
  *
  * 
 
 \黄\油\相\机\v\i\p\关\注\粉\丝\自\定\义\ + \去\信\息\流 + \去\开\屏
 \部\分\模\版\解\锁\需\要\d\i\n\g\之\后\生\效\，\未\d\i\n\g\可\能\不\生\效
 \全\模\板\解\锁\
+
 
 仅供学习参考，请于下载后24小时内删除
 
@@ -38,6 +39,10 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoB
 2⃣️ 开启后鉴别方式：一键P图功能图标为👑皇冠即为开启；⚡️闪电即为关闭。
 3⃣️ 每次开启需杀掉后台重新进入。
 
+⚠️新版本的一键P图功能已废，建议通过BoxJS开启 全模板解锁功能「设为1」，可解锁绝大部分内容。
+
+建议添加本地分流 host, vip.bybutter.com, reject
+
 
 ********************************
 
@@ -51,6 +56,8 @@ https:\/\/tcbox\.baidu\.com\/ztbox url reject
 https:\/\/adx-cn\.anythinktech\.com\/bid url reject
 https:\/\/bgg\.baidu\.com\/bgg\/produce url reject
 https:\/\/api4\.bybutter\.com\/v4\/shop\/banners\/recommendation url reject
+https:\/\/api4\.bybutter\.com\/v4\/shop\/orders\/apple\/receipts url reject
+
 
  ***************/
 
