@@ -1,0 +1,40 @@
+// 获取相应数据
+let obj = ($response && $response.body && JSON.parse($response.body)) || null;
+// 获取请求地址
+let requestUrl = $request.url;
+
+// 判断是否为匹配项
+if (/^https:\/\/api\.next\.bspapp\.com\/client?/.test(requestUrl)) {
+  // 去除滚动swiper
+  if (obj.hasOwnProperty("data") && obj.data.hasOwnProperty("bannerList")) {
+    obj.data.bannerList = [];
+  }
+  // 去除变身页无关信息
+  if (
+    obj.hasOwnProperty("data") &&
+    obj.data.hasOwnProperty("config") &&
+    obj.data.config.hasOwnProperty("templates")
+  ) {
+    obj.data.config.templates = [];
+  }
+
+  // 去除vip优惠
+  if (
+    obj.hasOwnProperty("data") &&
+    obj.data.hasOwnProperty("config") &&
+    obj.data.config.hasOwnProperty("vip_guide_img_url")
+  ) {
+    obj.data.config = {};
+  }
+
+  // 判断是否存在数据
+  if (
+    obj.hasOwnProperty("data") &&
+    obj.data.hasOwnProperty("data") &&
+    obj.data.data.length
+  ) {
+    obj.data.data[0].is_vip = true;
+  }
+}
+// 重写数据
+$done({ body: JSON.stringify(obj) });
