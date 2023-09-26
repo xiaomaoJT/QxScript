@@ -77,6 +77,8 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
     >
     > 新增[jpds脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAnatomist.js)
     >
+    > 新增[in脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoInstapaper.js)
+    >
 
 + ##### 20230925
 
