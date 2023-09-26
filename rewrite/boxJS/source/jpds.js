@@ -12,7 +12,7 @@ if (obj.hasOwnProperty("BuySvip")) {
   obj.BuySvip = true;
   obj.list = [
     {
-      cardNo: "61695735917960",
+      cardNo: "66666666666666",
       id: 2345677,
       endTime: "2222-02-22",
       comboCode: "ULTIMATE_ANATOMY_SVIP",
