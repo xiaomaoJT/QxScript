@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-01-30
+ * @LastMod: 2023-10-07
  *
  * 
 
@@ -25,13 +25,15 @@
 3、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXMind.js
 
+⚠️⚠️最新版本已失效，进入频道获取共享会员版本吧～
+
 ********************************
 
 [mitm]
-hostname = www.xmind.net,www.xmind.cn
+hostname = www.xmind.net,www.xmind.cn,www.xmind.app
 
 [rewrite_local]
-https:\/\/www\.xmind(\.net|\.cn)\/\_res\/devices url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xm.js
-https:\/\/www\.xmind(\.net|\.cn)\/\_res\/profile\/.+\/ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xm.js
-https:\/\/www\.xmind(\.net|\.cn)\/\_res\/token\/.+ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xm.js
+https:\/\/www\.xmind(\.net|\.cn|\.app)\/\_res\/devices url script-response-body xm.js
+https:\/\/www\.xmind(\.net|\.cn|\.app)\/\_res\/profile\/.+\/ url script-response-body xm.js
  ***************/
+
