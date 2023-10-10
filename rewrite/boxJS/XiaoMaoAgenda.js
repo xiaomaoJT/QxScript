@@ -21,6 +21,7 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAgenda.js
 
+2、首次解锁 > 打开软件，右滑出侧边栏，点击右上角「激活全部功能」，等待片刻 即可。
 
 
 [mitm]
