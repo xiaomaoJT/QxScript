@@ -1,0 +1,1 @@
+let obj=JSON.parse($response.body);let requestUrl=$request.url;if(/^https:\/\/api\.getdailyart\.com\/api\/check-logged?/.test(requestUrl)){obj.ads_free=true;obj.account_type="patron-annual";obj.subscription={status:"active",start_date:"2023-10-16T22:15:09.123Z",expire_date:"2022-02-22T02:02:02.123Z",}}$done({body:JSON.stringify(obj)});
