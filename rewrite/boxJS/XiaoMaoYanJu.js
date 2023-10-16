@@ -19,7 +19,7 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYanJu.js
 
-2、链接捕获依赖于网络，若图片存在缓存将无法捕获，可尝试清理缓存后再试～
+2、链接捕获依赖于网络，若图片存在缓存将无法捕获，可尝试清理缓存后再试，按需启用～
 
 
 ********************************
@@ -28,7 +28,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoY
 hostname = *.wscreativity.com
 
 [rewrite_local]
-http:\/\/.+.wscreativity\.com\/yanju\/.+\.(jpg|png) url script-request-header yanju.js
-https:\/\/yanju63resapi\.wscreativity\.com url script-response-body yanju.js
+http:\/\/.+.wscreativity\.com\/yanju\/.+\.(jpg|png) url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/yanju.js
+https:\/\/yanju63resapi\.wscreativity\.com url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/yanju.js
  ***************/
 
