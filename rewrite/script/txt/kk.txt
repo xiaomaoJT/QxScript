@@ -1,0 +1,65 @@
+// 获取相应数据
+let obj = JSON.parse($response.body);
+// 获取请求地址
+let requestUrl = $request.url;
+// 判断是否为匹配项
+if (/^https:\/\/pay\.kkmh\.com\/v1\/vip\/me?/.test(requestUrl)) {
+  let vip = {
+    vip_expired_at: 1729508448437,
+    nameplate_id: 0,
+    red_point: true,
+    temporary_vip: true,
+    vip_type: 12,
+    vip_info: ["2024.10.21到期"],
+    button_text: "VIP",
+    charge_limit_text: "",
+    charge_page_extra_text: "",
+    role: "author",
+    action_type: {
+      type: 33,
+      target_id: 6666666666,
+    },
+    u_intro:
+      "认证信息：XiaoMao尊享会员",
+    vip_status: 1,
+    activity_vip: true,
+    has_charge_record: true,
+    last_charge_vip_days: -1,
+    vip_group_type_name: "",
+    auto_keep: false,
+    remained_time: 32034625394,
+    mine_page_expire_info: "",
+    nameplate_image: "",
+    last_charge_source: "",
+    vip_expire_type: "",
+    vip_group_type: 10,
+    remained_days: 371,
+    vip_big_icon: "https://f2.kkmh.com/image/220114/m2nxrhwh4.png-w750",
+  };
+
+  let vip_level = {
+    last_level: {
+      level: 8,
+      level_icon: "https://f2.kkmh.com/image/220114/m2nxrhwh4.png-w750",
+      level_name: "V8",
+      grouth_score: 50800,
+    },
+    next_level: {
+      level: 8,
+      level_icon: "https://f2.kkmh.com/image/220114/m2nxrhwh4.png-w750",
+      level_name: "V8",
+      grouth_score: 50800,
+    },
+    current: {
+      up_tips: "50800",
+      grouth_score: 50800,
+      score_per_day: 66666,
+      down_tips: "+66666点/天",
+    },
+  };
+
+  obj.data.vip = vip;
+  obj.data.vip_level = vip_level;
+}
+// 重写数据
+$done({ body: JSON.stringify(obj) });
