@@ -60,6 +60,8 @@ if (/^https:\/\/pay\.kkmh\.com\/v1\/vip\/me?/.test(requestUrl)) {
 
   obj.data.vip = vip;
   obj.data.vip_level = vip_level;
+}else if(/^https:\/\/search\.kkmh\.com\/v2\/search\/show?/.test(requestUrl)){
+  obj.data.info = []
 }
 // 重写数据
 $done({ body: JSON.stringify(obj) });
