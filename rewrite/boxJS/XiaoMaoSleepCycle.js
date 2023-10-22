@@ -23,6 +23,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoS
 
 2、打开软件 > 过引导教程 > 登录账号 > 继续订阅 > 付款时取消并关闭程序 > 重新打开软件即可
 
+3、解锁成功理论上有消息弹窗，成功后即可关闭脚本。[🚨🚨🚨无效请关掉软件进程后，先打开脚本，再进软件进行解锁]
 
 
 [mitm]
