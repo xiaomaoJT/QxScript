@@ -1,6 +1,6 @@
 {
-    "name": "XiaoMao自动任务合集+推荐优质脚本",
-    "description": "XiaoMao·TG频道频道：https://t.me/xiaomaoJT",
+    "name": "XiaoMao自动任务合集",
+    "description": "XiaoMao·TG频道频道：https://t.me/xiaomaoJT 最新更新时间：20231023",
     "task": [
         "event-interaction https://raw.githubusercontent.com/getsomecat/Qx/main/Net_Speed.js, tag=节点网速查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png",
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=媒体解锁查询, img-url=checkmark.seal.system",
@@ -10,6 +10,11 @@
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/switch-check-google.js, tag=谷歌送中查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Puzzle.png",
         "event-interaction https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/txt/ipinfo.txt, tag=节点位置查询, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/3icon.png",
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/server-info-plus.js, tag=节点风险查询, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SaySS.png",
+        "0 0 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoGold.js, tag=💰XiaoMao_今日金价, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/VIP.png, enabled=true",
+        "0 0 21 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSportsLottery.js, tag=🎴XiaoMao_体彩查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cryptocurrency_3.png, enabled=true",
+        "0 0 21 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWelfareLottery.js, tag=🎟XiaoMao_福彩查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cryptocurrency_2.png, enabled=true",
+        "0 10  * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoRadiation.js, tag=☢️XiaoMao_全国辐射监测, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Dukou.png, enabled=true",
+        "0 0 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/ss.js, tag=🐣XiaoMao_小小签到_自动获取金币, img-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/KittyLink.png, enabled=true",
         "0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTyhoon.js, tag=🌀XiaoMao_台风监测, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Blackhole.png, enabled=true",
         "0 0/20 0,1,2,3,7,8,9,10,11,12,13,14,15,17,18,19,20,21,23 * * ?  https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYangMao.js, tag=🐑实时线报, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1689356.png",
         "0 0 12 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMovie.js, tag=🎬豆瓣电影, img-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Video.png",
