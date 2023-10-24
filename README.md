@@ -6,7 +6,7 @@
 
 #### 本仓库用于记录QuantumultX的使用成长
 
-| 最近更新时间        | **2023年10月23日**                |
+| 最近更新时间        | **2023年10月24日**                |
 | :------------------ | :-------------------------------- |
 | **QuantumultX版本** | **1.4.0-813** 新参数不兼容远古版本            |
 | **iOS系统版本**     | **16.1.2** 兼容其他版本                   |
@@ -29,8 +29,8 @@
 
 |      设备       |                           懒人规则                           |             教程             |                             图解                             |
 | :-------------: | :----------------------------------------------------------: | :-------------------------------: | :----------------------------------------------------------: |
-| iPhone/iPad设备 | [通用版·英文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao.conf)<br />**[通用版·中文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao_CN.conf)** | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
-| iPhone/iPad设备 | [自定义版·英文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao.conf)<br />**[自定义版·中文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao_CN.conf)** | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
+| iPhone/iPad设备 | **[通用版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/general/QX_XiaoMao_CN.conf)** | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
+| iPhone/iPad设备 | **[自定义版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/iOS/custom/QX_XiaoMao_CN.conf)** | [iOS配置](https://github.com/xiaomaoJT/QxScript/blob/main/COURSE.md) | [iOS配置图](https://github.com/xiaomaoJT/QxScript/blob/main/lazy/iOS/配置图解) |
 |  Mac M芯片设备  | [Mac版·英文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao.conf)<br />[Mac版·中文版](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/lazy/macOS/QX_XiaoMao_CN.conf) | [Mac配置](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS) | [Mac配置图](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/macOS/配置图解) |
 | QX配置历史版本 | [XiaoMao配置历史版本](https://github.com/xiaomaoJT/QxScript/tree/main/lazy/oldConfig) |  |  |
 |  | [*✅*XiaoMao_BoxJS订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json) | [*✅*XiaoMao_自动任务订阅](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAutoTask.json) | **[*✅*《XiaoMao教程合集》](http://mp.weixin.qq.com/mp/homepage?__biz=MzI3MjE3NTc4OA==&hid=1&sn=69f77280608382e9ab1e6afac8c2a881&scene=18#wechat_redirect)** |
