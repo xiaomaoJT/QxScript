@@ -297,7 +297,6 @@ let obj = JSON.parse(
     .replace(/NONE/g, "RESTRICTED")
     .replace(/\"isEnrolled\":\w+/g, '"isEnrolled":true')
     .replace(/\"isGifted\":\w+/g, '"isGifted":false')
-    .replace(/\"isCompleted\":\w+/g, '"isCompleted":false')
 );
 // 获取请求地址
 let requestUrl = $request.url;
@@ -314,7 +313,6 @@ if (/^https:\/\/api\.hello\.ef\.com\/graphql?/.test(requestUrl)) {
       isEnabled: true,
       isFamilyLeader: true,
     };
-
     obj.data.viewer.me.hasUsedRoleplay = true;
     obj.data.viewer.me.premium = premium;
   }
@@ -332,9 +330,7 @@ if (/^https:\/\/api\.hello\.ef\.com\/graphql?/.test(requestUrl)) {
     $notify(
       "XiaoMao_EF Hello 执行成功！",
       "",
-      "Nice!已解锁成功章节-" +
-        (XiaoMaoIndex - 1) +
-        " ，顺序解锁请通过BoxJS依次配置。"
+      "Nice!已解锁成功章节-" + XiaoMaoIndex + " ，顺序解锁请通过BoxJS依次配置。"
     );
   }
 }
