@@ -1,6 +1,6 @@
 # >  /*  修正某些错误的分流
 # 如遇误杀/网络错误等问题，请于群聊内反馈补充
-# 更新时间 20230922
+# 更新时间 20231026
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -121,3 +121,8 @@ host, api.iplay.163.com, direct
 host, rcs.cmpassport.com, direct
 host, ac.dun.163yun.com, direct
 
+# > xiaomi
+host, hm.baidu.com, direct
+host, static.fengkongcloud.com, direct
+host, a.stat.xiaomi.com, direct
+host, e.cn.miaozhen.com, direct
