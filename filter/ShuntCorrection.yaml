@@ -1,6 +1,6 @@
 # >  /*  修正某些错误的分流 clash版本
 # 如遇误杀/网络错误等问题，请于群聊内反馈补充
-# 更新时间 20230922
+# 更新时间 20231027
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -113,7 +113,7 @@ payload:
   - DOMAIN,lain.bgm.tv, direct
   - DOMAIN,tiao.cjkypo.com, direct
   - DOMAIN,ok.zuidapic.com, direct
-  - DOMAIN,ts.thefilehosting.com, direct
+  - DOMAIN,ts.thefileDOMAINing.com, direct
   - DOMAIN,deo.shopeemobile.com, direct
   - DOMAIN,m3u8.255tv.tk, direct
   - DOMAIN,m3u8.mstopq.com, direct
@@ -128,3 +128,10 @@ payload:
   - DOMAIN, api.iplay.163.com, direct
   - DOMAIN, rcs.cmpassport.com, direct
   - DOMAIN, ac.dun.163yun.com, direct
+  # > xiaomi
+  - DOMAIN, hm.baidu.com, direct
+  - DOMAIN, static.fengkongcloud.com, direct
+  - DOMAIN, a.stat.xiaomi.com, direct
+  - DOMAIN, e.cn.miaozhen.com, direct
+  # > alipay
+  - DOMAIN, amdc.alipay.com, direct
