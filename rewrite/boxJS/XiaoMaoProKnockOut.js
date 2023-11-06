@@ -5,7 +5,7 @@
  * 
 
 
-\P\r\o\K\n\o\c\k\O\u\t\长\期\会\员\订\阅\
+\P\r\o\K\n\o\c\k\O\u\t\永\久\会\员\订\阅\
 
 
 仅供学习参考，请于下载后24小时内删除
@@ -22,6 +22,8 @@
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoProKnockOut.js
 
 2、打开软件 > 自动解锁 / 不成功结束进程先开脚本再开软件，或重装
+
+3、脚本需常驻
 
 
 
