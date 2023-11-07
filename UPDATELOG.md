@@ -77,6 +77,8 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
   * > 新增[nb脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNotBoring.js)
     >
+    > 新增[mtime脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMyTime.js)
+    >
 
 + ##### 20231106
 
