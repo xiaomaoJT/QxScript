@@ -1,6 +1,6 @@
 {
     "name": "XiaoMao自动任务合集",
-    "description": "XiaoMao·TG频道频道：https://t.me/xiaomaoJT 最新更新时间：20231103",
+    "description": "XiaoMao·TG频道频道：https://t.me/xiaomaoJT 最新更新时间：20231109",
     "task": [
         "event-interaction https://raw.githubusercontent.com/getsomecat/Qx/main/Net_Speed.js, tag=节点网速查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png",
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=媒体解锁查询, img-url=checkmark.seal.system",
@@ -10,6 +10,7 @@
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/switch-check-google.js, tag=谷歌送中查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Puzzle.png",
         "event-interaction https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/txt/ipinfo.txt, tag=节点位置查询, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/3icon.png",
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/server-info-plus.js, tag=节点风险查询, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SaySS.png",
+        "0 0 11 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXiJiaYi.js, tag=🕹XiaoMao_喜加一, img-url=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/Doraemon/Doraemon-1092.png, enabled=true",
         "0 0 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoGrowToday.js, tag=🏝XiaoMao_每日一言, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1806616.png, enabled=true",
         "0 0 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoGold.js, tag=💰XiaoMao_今日金价, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/VIP.png, enabled=true",
         "0 0 21 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSportsLottery.js, tag=🎴XiaoMao_体彩查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cryptocurrency_3.png, enabled=true",
