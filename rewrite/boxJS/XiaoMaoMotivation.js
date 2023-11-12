@@ -23,10 +23,6 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoM
 
 2、打开软件 > 左上角按钮 > > 自动解锁个人会员 ，若未解锁成功，手动点击左下角「恢复购买」
 
-3、解锁成功理论上有消息弹窗，成功后即可关闭脚本。[🚨🚨🚨无效请关掉软件进程后，先打开脚本，再进软件进行解锁]
-
-4、⚠️⚠️⚠️解锁脚本不可共存，请逐一使用并关闭。
-
 
 [mitm]
 hostname = buy.itunes.apple.com
