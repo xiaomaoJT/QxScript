@@ -1,3 +1,10 @@
+// # 服务器 GEO 信息显示
+// #geo_location_checker=http://ip-api.com/json/, https://github.com/KOP-XIAO/QuantumultX/raw/master/Scripts/IP_API.js
+// #geo_location_checker=http://ip-api.com/json/?lang=zh-CN, https://raw.githubusercontent.com/crossutility/Quantumult-X/master/sample-location-with-script.js
+// http://ip-api.com/json/,%20https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/GeoLocationChecker/QuantumultX/IP-API.js
+
+// geo_location_checker=http://ip-api.com/json/,https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/XiaoMao_IP.js
+
 if ($response["statusCode"] != 0xc8) {
   $done(null);
 }
