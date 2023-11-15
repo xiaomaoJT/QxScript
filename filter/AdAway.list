@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20231025
+# 更新时间 20231115
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao频道频道：https://t.me/xiaomaoJT
@@ -13,6 +13,9 @@
 # > */  
 
 
+# x1hub
+HOST-SUFFIX, jads.co, REJECT
+HOST-SUFFIX, juicyads.com, REJECT
 # b站
 host,upos-sz-staticcos.bilivideo.com,reject
 #广州地铁乘车码 
