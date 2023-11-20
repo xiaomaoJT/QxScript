@@ -796,7 +796,8 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/star.png"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHoroscope.js"
-    },{
+    },
+    {
       "id": "EFHello",
       "name": "EFHello Pro",
       "keys": [
@@ -823,6 +824,74 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/efh.png"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoEFHello.js"
+    },
+    {
+      "id": "WorkProgress",
+      "name": "WorkProgress",
+      "keys": [
+        "@XiaoMao.startWorkTime",
+        "@XiaoMao.endWorkTime",
+        "@XiaoMao.restWorkTime",
+        "@XiaoMao.restMonthType",
+        "@XiaoMao.moneyTotal"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWorkProgress.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.startWorkTime",
+          "name": "上班时间",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入时间 如 09:00"
+        },
+        {
+          "id": "@XiaoMao.endWorkTime",
+          "name": "下班时间",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入时间 如 18:00"
+        },
+        {
+          "id": "@XiaoMao.restWorkTime",
+          "name": "午休时间",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入时长 如 2"
+        },
+        {
+          "id": "@XiaoMao.restMonthType",
+          "name": "月休类型",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入类型数字 如 3；（1-单休周六 2-单休周日 3-双休 4-不休）"
+        },
+        {
+          "id": "@XiaoMao.moneyTotal",
+          "name": "月收入金额",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入工资 如 3000"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/work.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/work.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWorkProgress.js"
     }
   ]
 }
