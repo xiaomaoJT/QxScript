@@ -336,8 +336,8 @@ function getTimeDifference(t1, t2, t3) {
   let dayTimeTotal = (Time2.getTime() - Time1.getTime()) / 60 / 60 / 1000;
   let dateTimeWork = dayTimeTotal - parseInt(t3);
   return {
-    dayTimeTotal: dayTimeTotal,
-    dateTimeWork: dateTimeWork,
+    dayTimeTotal: dayTimeTotal || 0,
+    dateTimeWork: dateTimeWork || 0,
   };
 }
 
@@ -445,7 +445,7 @@ function getWeekDate() {
 function getWorkTime() {
   let daysObj = {
     "📆今日日期": getDateString() + " " + getWeekDate(),
-    "📅现在时间": todayTimes,
+    "⏰现在时间": todayTimes,
     "💰今日已赚":
       (
         dayMoneys *
@@ -460,9 +460,12 @@ function getWorkTime() {
           dayTimeObj.dayTimeTotal) *
         100
       ).toFixed(2) + "%",
-    "‼️今日剩余": todayRemaining.dayTimeTotal.toFixed(2) + "小时",
+    "‼️今日剩余":
+      todayRemaining.dayTimeTotal > 1
+        ? todayRemaining.dayTimeTotal.toFixed(2) + "小时"
+        : (todayRemaining.dayTimeTotal * 60).toFixed(2) + "分钟",
 
-    "⌛️本月进度": ((todayDay / MonthTotal) * 100).toFixed(2) + "%",
+    "⏳本月进度": ((todayDay / MonthTotal) * 100).toFixed(2) + "%",
     "😵‍💫本月天数": MonthTotal + "天",
     "😇本月剩余": MonthTotal - todayDay + "天",
     "🏠假期天数": dayWeekObj.saturday.len + dayWeekObj.sunday.len + "天",
@@ -487,8 +490,8 @@ function getWorkTime() {
   let br = "\n";
   let text =
     (weekStatus
-      ? "今天休息，记得好好放松下哟～"
-      : "今天也是辛勤劳动的一天呐～") +
+      ? "🌹今天休息，记得好好放松下哟～"
+      : "🌾今天也是辛勤劳动的一天呐～") +
     "\n\n" +
     hr;
   arr.forEach((el) => {
