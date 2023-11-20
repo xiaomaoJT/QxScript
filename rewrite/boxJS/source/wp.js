@@ -336,8 +336,8 @@ function getTimeDifference(t1, t2, t3) {
   let dayTimeTotal = (Time2.getTime() - Time1.getTime()) / 60 / 60 / 1000;
   let dateTimeWork = dayTimeTotal - parseInt(t3);
   return {
-    dayTimeTotal: dayTimeTotal || 0,
-    dateTimeWork: dateTimeWork || 0,
+    dayTimeTotal: dayTimeTotal < 0 ? 0 : dayTimeTotal,
+    dateTimeWork: dateTimeWork < 0 ? 0 : dateTimeWork,
   };
 }
 
