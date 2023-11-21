@@ -320,6 +320,16 @@ let dayMoneys = getMoneyData(
   moneyTotal
 );
 
+// 年剩余
+let yearRemaining =
+  getTimeDifference(
+    todayTimes,
+    "23:59",
+    "0",
+    new Date(),
+    new Date(new Date().getFullYear() + "/12/31")
+  ).dayTimeTotal / 24;
+
 // 获取 YYYY/MM/DD 格式时间
 function getDateString(d = new Date()) {
   let year = d.getFullYear();
@@ -330,9 +340,9 @@ function getDateString(d = new Date()) {
 }
 
 // 获取 当天总工作时长与时间差
-function getTimeDifference(t1, t2, t3) {
-  let Time1 = new Date(getDateString() + " " + t1);
-  let Time2 = new Date(getDateString() + " " + t2);
+function getTimeDifference(t1, t2, t3, t4 = new Date(), t5 = new Date()) {
+  let Time1 = new Date(getDateString(t4) + " " + t1);
+  let Time2 = new Date(getDateString(t5) + " " + t2);
   let dayTimeTotal = (Time2.getTime() - Time1.getTime()) / 60 / 60 / 1000;
   let dateTimeWork = dayTimeTotal - parseInt(t3);
   return {
@@ -449,14 +459,20 @@ function getWorkTime() {
     "💰今日已赚":
       (
         dayMoneys *
-        ((dayTimeObj.dayTimeTotal - todayRemaining.dayTimeTotal) /
+        ((dayTimeObj.dayTimeTotal - todayRemaining.dayTimeTotal < 0
+          ? 0
+          : dayTimeObj.dayTimeTotal - todayRemaining.dayTimeTotal) /
           dayTimeObj.dayTimeTotal)
       ).toFixed(2) + "元",
     "💵本月已赚":
       (parseInt(moneyTotal) * (todayDay / MonthTotal)).toFixed(2) + "元",
+    "💳本年已赚":
+      (moneyTotal * 12 * ((365 - yearRemaining) / 365)).toFixed(2) + "元",
     "⌛️今日进度":
       (
-        ((dayTimeObj.dayTimeTotal - todayRemaining.dayTimeTotal) /
+        ((dayTimeObj.dayTimeTotal - todayRemaining.dayTimeTotal < 0
+          ? 0
+          : dayTimeObj.dayTimeTotal - todayRemaining.dayTimeTotal) /
           dayTimeObj.dayTimeTotal) *
         100
       ).toFixed(2) + "%",
@@ -470,6 +486,8 @@ function getWorkTime() {
     "😇本月剩余": MonthTotal - todayDay + "天",
     "🏠假期天数": dayWeekObj.saturday.len + dayWeekObj.sunday.len + "天",
     "😩假期余额": monthDayRemaining.weekRemaining + "天",
+    "⌛️本年进度": (((365 - yearRemaining) / 365) * 100).toFixed(2) + "%",
+    "🤔本年剩余": yearRemaining.toFixed(2) + "天",
   };
 
   let weekStatus = false;
