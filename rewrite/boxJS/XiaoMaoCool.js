@@ -1,12 +1,13 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-11-12
+ * @LastMod: 2023-11-22
  *
  * 
 
 \酷\安\数\据\爆\表\+\绿\标\认\证\+\去\动\态\好\物\+\去\除\头\条\值\得\买\+\去\广\告\+\去\除\开\屏\广\告\(重装生效)
 \动\态\详\情\及\评\论\区\查\看\链\接\ \原\始\链\接\提\取\
 \增\加\美\女\图\片\标\签\
+\优\化\话\题\标\签\排\序\
 
 仅供学习参考，请于下载后24小时内删除
 
@@ -35,4 +36,5 @@ https:\/\/api\.coolapk\.com\/v6\/feed\/(replyList|replyDetail) url script-respon
 https:\/\/api\.coolapk\.com\/v6\/main\/indexV8 url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cool.js
 https:\/\/api\.coolapk\.com\/v6\/page\/dataList url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cool.js
 https:\/\/api\.coolapk\.com\/v6\/main\/init url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cool.js
+https:\/\/api\.coolapk\.com\/v6\/topic\/newTagDetail url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cool.js
  ***************/
