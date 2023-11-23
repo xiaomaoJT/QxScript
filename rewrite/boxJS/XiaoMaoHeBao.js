@@ -28,9 +28,87 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoH
 
 
 
+const url = "https://m.jf.10086.cn/cmcc-hepay-shop/search/query";
+const method = "POST";
+const headers = {
+  Connection: "keep-alive",
+  "Accept-Encoding": "gzip, deflate, br",
+  "Content-Type": "application/json",
+  Origin: "https://m.jf.10086.cn",
+  "User-Agent":
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 15_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Html5Plus/1.0 Hebao/9.15.42/com.cmpay.CMPayClient /sa-sdk-ios/sensors-verify/uba.cmpay.com?production ",
+  Host: "m.jf.10086.cn",
+  Referer: "https://m.jf.10086.cn/",
+  "Accept-Language": "zh-CN,zh-Hans;q=0.9",
+  Accept: "*/*",
+};
+const body =
+  '{"sortColumn":"default","sortType":"desc","pageSize":20,"pageNum":1,"firstKeyword":"银联","integral":820,"userPhoneNo":"10000000000","province":"jx"}';
+const myRequest = { url: url, method: method, headers: headers, body: body };
+$task.fetch(myRequest).then(
+  (response) => {
+    let body = JSON.parse(response.body);
+    let returnText = "";
+    let searchLen = body.resultJson.searchList.length;
+    if (searchLen) {
+      returnText =
+        "✅银联红包商品查询成功！" + "\n\n" + "共" + searchLen + "款商品：";
 
+      let hotList =
+        "\n\n" +
+        "🔥热门商品清单：" +
+        "\n\n" +
+        " 5元红包：" +
+        (body.resultJson.searchList.some(
+          (e) => e.name.indexOf("银联红包5元") != -1
+        )
+          ? "✅"
+          : "🈚️") +
+        "\n" +
+        "10元红包：" +
+        (body.resultJson.searchList.some(
+          (e) => e.name.indexOf("银联红包10元") != -1
+        )
+          ? "✅"
+          : "🈚️") +
+        "\n" +
+        "20元红包：" +
+        (body.resultJson.searchList.some(
+          (e) => e.name.indexOf("银联红包20元") != -1
+        )
+          ? "✅"
+          : "🈚️") +
+        "\n" +
+        "30元红包：" +
+        (body.resultJson.searchList.some(
+          (e) => e.name.indexOf("银联红包30元") != -1
+        )
+          ? "✅"
+          : "🈚️") +
+        "\n" +
+        "50元红包：" +
+        (body.resultJson.searchList.some(
+          (e) => e.name.indexOf("银联红包50元") != -1
+        )
+          ? "✅"
+          : "🈚️") +
+        "\n\n" +
+        "快去和包商场兑换吧～";
 
-
-
-
-const url="https://m.jf.10086.cn/cmcc-hepay-shop/search/query";const method="POST";const headers={Connection:"keep-alive","Accept-Encoding":"gzip, deflate, br","Content-Type":"application/json",Origin:"https://m.jf.10086.cn","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 15_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Html5Plus/1.0 Hebao/9.15.42/com.cmpay.CMPayClient /sa-sdk-ios/sensors-verify/uba.cmpay.com?production ",Host:"m.jf.10086.cn",Referer:"https://m.jf.10086.cn/","Accept-Language":"zh-CN,zh-Hans;q=0.9",Accept:"*/*",};const body='{"sortColumn":"default","sortType":"desc","pageSize":20,"pageNum":1,"firstKeyword":"银联","integral":820,"userPhoneNo":"10000000000","province":"jx"}';const myRequest={url:url,method:method,headers:headers,body:body,};$task.fetch(myRequest).then((response)=>{let body=JSON.parse(response.body);let returnText="";let searchLen=body.resultJson.searchList.length;if(searchLen){returnText="✅ 银联红包商品查询成功！"+"\n\n"+"共"+searchLen+"款商品：";returnText=returnText+body.resultJson.searchList.map((e)=>e.name).toString()+"\n\n"+"快去和包商场兑换吧～"}else{returnText="❌查询失败，请稍后再试～"}$notify("🎁XiaoMao_和包银联红包查询","",returnText)},(reason)=>{$notify("🎁XiaoMao_和包银联红包查询","","❌查询失败，请稍后再试～")});setTimeout(()=>{$done()},3000);
+      returnText =
+        returnText +
+        body.resultJson.searchList.map((e) => e.name).toString() +
+        "\n\n" +
+        hotList;
+    } else {
+      returnText = "❌查询失败，请稍后再试～";
+    }
+    $notify("🎁XiaoMao_和包银联红包查询", "", returnText);
+  },
+  (reason) => {
+    $notify("🎁XiaoMao_和包银联红包查询", "", "❌查询失败，请稍后再试～");
+  }
+);
+setTimeout(() => {
+  $done();
+}, 3000);
