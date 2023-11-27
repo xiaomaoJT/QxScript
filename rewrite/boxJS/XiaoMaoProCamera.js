@@ -21,7 +21,7 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoProCamera.js
 
-2、打开软件 > 右下角角按钮 > 底部中间购物车按钮 > 自动解锁年度会员 ，若未解锁成功，手动点击右上角「恢复购买」
+2、打开软件 > 右下角角按钮 > 底部中间购物车按钮 > 自动解锁年度会员 ，若未解锁成功，手动点击「恢复购买」
 
 
 [mitm]
