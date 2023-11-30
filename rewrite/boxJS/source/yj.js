@@ -18,8 +18,8 @@ function Env(name) {
     if (isQX) return $prefs.setValueForKey(key, value);
   };
 
-  // 定义 notice 方法，用于发送通知
-  const notice = (title, subtitle, message, url) => {
+  // 定义 notify 方法，用于发送通知
+  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
     if (isQX) $notify(title, subtitle, message, { "open-url": url });
@@ -76,7 +76,7 @@ function Env(name) {
     name,
     read,
     write,
-    notice,
+    notify,
     get,
     post,
     put,
@@ -151,10 +151,9 @@ function XiaoMaoFunction() {
         "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36",
     },
   };
-  $task
-    .fetch(option)
-    .then((response) => {
-      let obj = response.body.replace(/\s*/g, "").toString();
+  $XiaoMaoInfo.get(option, (err, resp, response) => {
+    if (response) {
+      let obj = response.replace(/\s*/g, "").toString();
       let startIndex = obj.indexOf('<divclass="info">');
       let endIndex = obj.indexOf('<divid="contAd"');
       let subContent = obj.substring(startIndex, endIndex);
@@ -197,7 +196,7 @@ function XiaoMaoFunction() {
       );
       let changeInfo =
         changeInfoTem.substring(0, changeInfoTem.lastIndexOf("，")) || "";
-      let resultText = "🛟 " + areaTitle + "\n";
+      let resultText = "🛟 " + areaTitle + "\n\n";
       if (areaContentList.length) {
         areaContentList.forEach((el, index) => {
           resultText =
@@ -213,29 +212,24 @@ function XiaoMaoFunction() {
           (changeText ? "📈 本轮油价调整时间：" + changeText : "") +
           "\n\n" +
           (changeInfo ? "📣 本轮油价调整幅度：" + changeInfo : "");
-        $notify("⛽️XiaoMao_每日油价❗️", "", resultText);
+        $XiaoMaoInfo.notify("⛽️XiaoMao_每日油价❗️", "", resultText);
       } else {
-        $notify(
+        $XiaoMaoInfo.notify(
           "🚨XiaoMao_每日油价❗️",
           "",
           "🚧获取失败，请检查XiaoMaoBoxJS地区设置❗️",
-          {
-            "open-url":
-              "https://i.pixiv.re/img-original/img/2022/10/14/00/15/07/101911915_p1.jpg",
-            "media-url":
-              "https://i.pixiv.re/img-original/img/2022/10/14/00/15/07/101911915_p1.jpg",
-          }
+          "https://i.pixiv.re/img-original/img/2022/10/14/00/15/07/101911915_p1.jpg"
         );
       }
-    })
-    .catch((err) => {
-      $notify("🚨XiaoMao_每日油价❗️", "", "🚧获取失败，请稍后再试❗️", {
-        "open-url":
-          "https://i.pixiv.re/img-original/img/2022/10/14/00/15/07/101911915_p1.jpg",
-        "media-url":
-          "https://i.pixiv.re/img-original/img/2022/10/14/00/15/07/101911915_p1.jpg",
-      });
-    });
+    } else {
+      $XiaoMaoInfo.notify(
+        "🚨XiaoMao_每日油价❗️",
+        "",
+        "🚧获取失败，请稍后再试❗️",
+        "https://i.pixiv.re/img-original/img/2022/10/14/00/15/07/101911915_p1.jpg"
+      );
+    }
+  });
 }
 setTimeout(() => {
   $done({});

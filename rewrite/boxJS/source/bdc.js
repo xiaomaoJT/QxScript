@@ -18,8 +18,8 @@ function Env(name) {
     if (isQX) return $prefs.setValueForKey(key, value);
   };
 
-  // 定义 notice 方法，用于发送通知
-  const notice = (title, subtitle, message, url) => {
+  // 定义 notify 方法，用于发送通知
+  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
     if (isQX) $notify(title, subtitle, message, { "open-url": url });
@@ -76,7 +76,7 @@ function Env(name) {
     name,
     read,
     write,
-    notice,
+    notify,
     get,
     post,
     put,
@@ -114,6 +114,7 @@ let $XiaoMaoSvip = new Env("BaiDuCloud");
 let appName = `XiaoMao-百度云Svip`;
 let XiaoMaoSvip = "";
 let XiaoMaoEndTime = null;
+let SvipDate = null;
 let levelList = [
   0, 1000, 3000, 7000, 15000, 27000, 43000, 56000, 68000, 100000,
 ];
@@ -207,7 +208,7 @@ if ($response.body) {
           history_level: XiaoMaoLevel,
         }),
         (obj.center_skip_config.action_url = ""),
-        (obj.user_tag = `{"has_buy_record":1,"has_buy_vip_svip_record":1,"last_buy_record_creat_time":1641279341,"is_vip":1,"is_svip":1,"last_vip_type":1,"last_vip_svip_end_time":${XiaoMaoEndTime},"is_svip_sign":1,"notice_user_type":2,"notice_user_status":2,"is_first_act":0}`))
+        (obj.user_tag = `{"has_buy_record":1,"has_buy_vip_svip_record":1,"last_buy_record_creat_time":1641279341,"is_vip":1,"is_svip":1,"last_vip_type":1,"last_vip_svip_end_time":${XiaoMaoEndTime},"is_svip_sign":1,"notify_user_type":2,"notify_user_status":2,"is_first_act":0}`))
       : "";
     obj.hasOwnProperty("vip")
       ? ((obj.vip.emotional_tip_front = "你管我失去多少"),

@@ -18,8 +18,8 @@ function Env(name) {
     if (isQX) return $prefs.setValueForKey(key, value);
   };
 
-  // 定义 notice 方法，用于发送通知
-  const notice = (title, subtitle, message, url) => {
+  // 定义 notify 方法，用于发送通知
+  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
     if (isQX) $notify(title, subtitle, message, { "open-url": url });
@@ -76,7 +76,7 @@ function Env(name) {
     name,
     read,
     write,
-    notice,
+    notify,
     get,
     post,
     put,
@@ -193,7 +193,7 @@ function XiaoMaoFunction() {
                     (showUrl ? "\n" + "原文地址：" + item.mobilUrl : "") +
                     "\n\n";
                 });
-                $notify("🔥XiaoMao_实时热榜", "", resultText);
+                $XiaoMaoInfo.notify("🔥XiaoMao_实时热榜", "", resultText);
               } else {
                 getError(typeObj.name + "_error_2");
               }
@@ -213,12 +213,12 @@ function XiaoMaoFunction() {
   }
 }
 function getError(params) {
-  $notify("🔥XiaoMao_实时热榜", "", "🚧" + params + "获取失败，请稍后再试❗️", {
-    "open-url":
-      "https://i.pixiv.re/img-original/img/2022/01/08/17/30/22/95384359_p0.jpg",
-    "media-url":
-      "https://i.pixiv.re/img-original/img/2022/01/08/17/30/22/95384359_p0.jpg",
-  });
+  $XiaoMaoInfo.notify(
+    "🔥XiaoMao_实时热榜",
+    "",
+    "🚧" + params + "获取失败，请稍后再试❗️",
+    "https://i.pixiv.re/img-original/img/2022/01/08/17/30/22/95384359_p0.jpg"
+  );
 }
 setTimeout(() => {
   $done({});
