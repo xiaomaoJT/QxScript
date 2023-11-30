@@ -240,7 +240,7 @@
     {
       "id": "B612App",
       "name": "B612相机 VIP",
-      "keys": [],
+      "keys": ["KaJiVipYear","KaJiVipMonth","KaJiVipDay"],
       "descs_html": [
         "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoKaJi.js\">脚本注释</a></h4>"
       ],
