@@ -1,0 +1,893 @@
+{
+  "id": "XiaoMao.app.sub",
+  "name": "XiaoMao辅助脚本订阅",
+  "author": "@XiaoMao",
+  "icon": "https://avatars.githubusercontent.com/u/49260609",
+  "repo": "https://github.com/xiaomaoJT/QxScript",
+  "apps": [
+    {
+      "id": "spotifyApp",
+      "name": "spotify自动翻译",
+      "keys": [
+        "@XiaoMao.AppID",
+        "@XiaoMao.securityKey"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSpotify.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.AppID",
+          "name": "AppID",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "百度翻译API-AppID"
+        },
+        {
+          "id": "@XiaoMao.securityKey",
+          "name": "securityKey",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "百度翻译API-securityKey"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/spotify.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/spotify.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSpotify.js"
+    },
+    {
+      "id": "CaiYunApp",
+      "name": "彩云天气 SVIP",
+      "keys": [
+        "@XiaoMao.CaiYunSvipYear",
+        "@XiaoMao.CaiYunSvipMonth",
+        "@XiaoMao.CaiYunSvipDay",
+        "@XiaoMao.CaiYunToken"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCaiYunWeather.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.CaiYunSvipYear",
+          "name": "Svip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.CaiYunSvipMonth",
+          "name": "Svip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.CaiYunSvipDay",
+          "name": "Svip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.CaiYunToken",
+          "name": "会员有效Token",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 2,
+          "desc": "填入会员Token"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/caiyun.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/caiyun.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCaiYunWeather.js"
+    },
+    {
+      "id": "BaiDuCloudApp",
+      "name": "百度云 SVIP",
+      "keys": [
+        "@XiaoMao.BaiDuSvipYear",
+        "@XiaoMao.BaiDuSvipMonth",
+        "@XiaoMao.BaiDuSvipDay",
+        "@XiaoMao.BaiDuLevel"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoBaiDuCloud.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.BaiDuSvipYear",
+          "name": "Svip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.BaiDuSvipMonth",
+          "name": "Svip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.BaiDuSvipDay",
+          "name": "Svip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "Svip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.BaiDuLevel",
+          "name": "会员等级",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "会员等级 范围1～10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/baidu.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/baidu.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoBaiDuCloud.js"
+    },
+    {
+      "id": "ButterCameraApp",
+      "name": "黄油相机 VIP",
+      "keys": [
+        "@XiaoMao.ButterVipYear",
+        "@XiaoMao.ButterVipMonth",
+        "@XiaoMao.ButterVipDay",
+        "@XiaoMao.ButterFollowing",
+        "@XiaoMao.ButterFollowers",
+        "@XiaoMao.ButterModel"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.ButterVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.ButterVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.ButterVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.ButterFollowing",
+          "name": "关注数",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "关注的人数量 如：100000"
+        },
+        {
+          "id": "@XiaoMao.ButterFollowers",
+          "name": "粉丝数",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "粉丝数量 如：100000"
+        },
+        {
+          "id": "@XiaoMao.ButterModel",
+          "name": "全部模版资源解锁",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "解锁将失去部分能力 具体见脚本介绍 1:解锁 0:默认关闭"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/butter.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/butter.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoButterCamera.js"
+    },
+    {
+      "id": "B612App",
+      "name": "B612相机 VIP",
+      "keys": [],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoKaJi.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "KaJiVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "KaJiVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "KaJiVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/b612.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/b612.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoKaJi.js"
+    },
+    {
+      "id": "WpsApp",
+      "name": "WPS VIP",
+      "keys": [
+        "@XiaoMao.WpsVipYear",
+        "@XiaoMao.WpsVipMonth",
+        "@XiaoMao.WpsVipDay",
+        "@XiaoMao.WpsCloudSpace"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWps.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.WpsVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.WpsVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.WpsVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.WpsCloudSpace",
+          "name": "云空间总量 - 大小",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "云空间总量 GB"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/wps.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/wps.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWps.js"
+    },
+    {
+      "id": "ScanningAlmightyApp",
+      "name": "全能扫描王VIP",
+      "keys": [
+        "@XiaoMao.ScanningAlmightyVipYear",
+        "@XiaoMao.ScanningAlmightyVipMonth",
+        "@XiaoMao.ScanningAlmightyVipDay",
+        "@XiaoMao.ScanningAlmightySuper"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoScanningAlmighty.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.ScanningAlmightyVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.ScanningAlmightyVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.ScanningAlmightyVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.ScanningAlmightySuper",
+          "name": "是否开启至尊",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "0 为不开启；1 为开启"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/scan.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/scan.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoScanningAlmighty.js"
+    },
+    {
+      "id": "XMindApp",
+      "name": "XMind VIP",
+      "keys": [
+        "@XiaoMao.XMindVipYear",
+        "@XiaoMao.XMindVipMonth",
+        "@XiaoMao.XMindVipDay"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXMind.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.XMindVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.XMindVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.XMindVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/xmind.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/xmind.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXMind.js"
+    },
+    {
+      "id": "HotListApp",
+      "name": "今日热榜VIP",
+      "keys": [
+        "@XiaoMao.HotListVipYear",
+        "@XiaoMao.HotListVipMonth",
+        "@XiaoMao.HotListVipDay"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTodayHotList.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.HotListVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.HotListVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.HotListVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/hot.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/hot.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTodayHotList.js"
+    },
+    {
+      "id": "DuiTangSvipApp",
+      "name": "堆糖SVIP",
+      "keys": [
+        "@XiaoMao.DuiTangSvipYear",
+        "@XiaoMao.DuiTangSvipMonth",
+        "@XiaoMao.DuiTangSvipDay"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoDuiTang.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.DuiTangSvipYear",
+          "name": "svip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "svip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.DuiTangSvipMonth",
+          "name": "svip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "svip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.DuiTangSvipDay",
+          "name": "svip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "svip过期时间-日期 如：10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/duitang.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/duitang.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoDuiTang.js"
+    },
+    {
+      "id": "ALiCloudApp",
+      "name": "阿里云SVIP",
+      "keys": [
+        "@XiaoMao.ALiCloudVipYear",
+        "@XiaoMao.ALiCloudVipMonth",
+        "@XiaoMao.ALiCloudVipDay",
+        "@XiaoMao.ALiCloudSpace",
+        "@XiaoMao.ALiCloudIcon",
+        "@XiaoMao.ALiCloudLink",
+        "@XiaoMao.ALiCloudDistinct",
+        "@XiaoMao.ALiCloudNo",
+        "@XiaoMao.ALiCloudText1",
+        "@XiaoMao.ALiCloudText2"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.ALiCloudVipYear",
+          "name": "vip过期时间 - 年份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-年份 如：2023"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudVipMonth",
+          "name": "vip过期时间 - 月份",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-月份 如：10"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudVipDay",
+          "name": "vip过期时间 - 日期",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "vip过期时间-日期 如：10"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudSpace",
+          "name": "空间总量 - 大小",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "空间总量 TB"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudIcon",
+          "name": "图标排版 - 合并横排按钮",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为开启,0为关闭"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudLink",
+          "name": "m3u8临时链接提取",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为开启,0为关闭，默认关闭"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudDistinct",
+          "name": "视频在线播放清晰度解锁",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为开启,0为关闭，默认开启"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudNo",
+          "name": "注册排名",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入数字，默认第1名。"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudText1",
+          "name": "昵称底下 - 描述文字",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "默认字样为 第一体验官"
+        },
+        {
+          "id": "@XiaoMao.ALiCloudText2",
+          "name": "超级会员右边 - 按钮文字",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "默认字样为 第一股东"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/alic.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/alic.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js"
+    },
+    {
+      "id": "YouJiaInfo",
+      "name": "每日油价",
+      "keys": [
+        "@XiaoMao.YouJiaProvince",
+        "@XiaoMao.YouJiaCity",
+        "@XiaoMao.YouJiaArea"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYouJia.js\">脚本注释</a></h4><br/><br/><h5 align=\"center\">油价地区信息不可跨行政区填写</h5>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.YouJiaProvince",
+          "name": "省级行政区（拼音）",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "【必填】输入省级简称拼音 如广东：guangdong"
+        },
+        {
+          "id": "@XiaoMao.YouJiaCity",
+          "name": "市级行政区（拼音）",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "【非必填】输入市级简称拼音 如深圳：shenzhen"
+        },
+        {
+          "id": "@XiaoMao.YouJiaArea",
+          "name": "区级行政区（拼音）",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "【非必填】输入区级简称拼音 如南山：nanshan"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/oil.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/oil.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYouJia.js"
+    },
+    {
+      "id": "HotList",
+      "name": "实时热榜",
+      "keys": [
+        "@XiaoMao.HotList",
+        "@XiaoMao.HotUrl",
+        "@XiaoMao.HotLength"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHot.js\">脚本注释</a></h4><br/><h5 align=\"left\">支持的热榜有：虎扑热榜（hp）、知乎热榜（zh）、36氪热榜（36）、百度热榜（bd）、B站热榜（bz）、贴吧热榜（tb）、微博热榜（wb）、抖音热榜（gy）、豆瓣热榜（db）、微信热榜（wx）、少数派热榜（ss）、IT资讯热榜（it）、IT资讯新榜（itn）、历史上的今天（ls）、微信美食榜（ms）、微信搞笑榜（gx）、微信财经榜（cj）、微信科技榜（kj）、微信八卦榜（bg）、微信星座榜（xz）、微信旅游榜（ly）</h5>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.HotList",
+          "name": "热榜集合(多个以+号间隔)",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "【填入热榜缩写】如 虎扑热榜+微博热榜+百度热榜：hp+wb+bd"
+        },
+        {
+          "id": "@XiaoMao.HotUrl",
+          "name": "热榜原始地址显示",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为显示,0为隐藏"
+        },
+        {
+          "id": "@XiaoMao.HotLength",
+          "name": "热榜显示数量",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "默认全显示，显示10条请输入 10"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/list.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/list.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHot.js"
+    },
+    {
+      "id": "HoroscopeList",
+      "name": "星座运势",
+      "keys": [
+        "@XiaoMao.HoroscopeList",
+        "@XiaoMao.HoroscopeTime"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHoroscope.js\">脚本注释</a></h4><br/><h5 align=\"left\">支持的星座有：♈️白羊座（baiyang）、♉️金牛座（jinniu）、♊️双子座（shuangzi）、♋️巨蟹座（juxie）、♌️狮子座（shizi）、♍️处女座（chunv）、♎️天秤座（tiancheng）、♏️天蝎座（tianxie）、♐️射手座（sheshou）、♑️摩羯座（mojie）、♒️水瓶座（shuiping）、♓️双鱼座（shuangyu）</h5><br/><h5 align=\"left\">支持的范围有：今日运势（D）、明日运势（T）、本周运势（W）、本月运势（M）、本年运势（Y）</h5>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.HoroscopeList",
+          "name": "星座集合(多个以+号间隔)",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "【填入星座拼音】如 ♊️双子座+♎️天秤座：shuangzi+tiancheng"
+        },
+        {
+          "id": "@XiaoMao.HoroscopeTime",
+          "name": "星座查询范围(多个以+号间隔)",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "【填入首字母（大写）】如 今日运势+明日运势：D+T"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/star.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/star.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHoroscope.js"
+    },
+    {
+      "id": "EFHello",
+      "name": "EFHello Pro",
+      "keys": [
+        "@XiaoMao.EFHelloIndex"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoEFHello.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.EFHelloIndex",
+          "name": "课程解锁进度",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "按解锁输入数字 如解锁第一章节，输入 1"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/efh.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/efh.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoEFHello.js"
+    },
+    {
+      "id": "WorkProgress",
+      "name": "WorkProgress",
+      "keys": [
+        "@XiaoMao.startWorkTime",
+        "@XiaoMao.endWorkTime",
+        "@XiaoMao.restWorkTime",
+        "@XiaoMao.restMonthType",
+        "@XiaoMao.moneyTotal"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWorkProgress.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "@XiaoMao.startWorkTime",
+          "name": "上班时间",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入时间 如 09:00"
+        },
+        {
+          "id": "@XiaoMao.endWorkTime",
+          "name": "下班时间",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入时间 如 18:00"
+        },
+        {
+          "id": "@XiaoMao.restWorkTime",
+          "name": "午休时间",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入时长 如 2"
+        },
+        {
+          "id": "@XiaoMao.restMonthType",
+          "name": "月休类型",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入类型数字 如 3；（1-单休周六 2-单休周日 3-双休 4-不休）"
+        },
+        {
+          "id": "@XiaoMao.moneyTotal",
+          "name": "月收入金额",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "输入工资 如 3000"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/work.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/work.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWorkProgress.js"
+    }
+  ]
+}
