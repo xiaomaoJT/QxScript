@@ -107,11 +107,13 @@ let appName = `XiaoMao-KaJiVip`;
 let XiaoMaoSvip = "";
 let XiaoMaoEndTime = null;
 let XiaoMaoStartTime = null;
+let SvipDate = null;
+
 !(async () => {
   await XiaoMaoFunction();
 })()
   .catch((err) => {
-    $XiaoMaoSvip.error(err);
+    $XiaoMaoSvip.log(err);
     setTimeout(() => {
       $XiaoMaoSvip.done();
     }, 3000);
@@ -177,8 +179,7 @@ if ($response.body) {
     };
     obj.hasOwnProperty("result") ? (obj.result = returnPro) : "";
   }
-  let FinishBody = JSON.stringify(obj);
-  $done(FinishBody);
+  $done({ body: JSON.stringify(obj) });
 } else {
   $done({});
 }
