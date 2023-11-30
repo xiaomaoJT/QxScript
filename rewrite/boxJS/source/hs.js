@@ -18,8 +18,8 @@ function Env(name) {
     if (isQX) return $prefs.setValueForKey(key, value);
   };
 
-  // 定义 notice 方法，用于发送通知
-  const notice = (title, subtitle, message, url) => {
+  // 定义 notify 方法，用于发送通知
+  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
     if (isQX) $notify(title, subtitle, message, { "open-url": url });
@@ -76,7 +76,7 @@ function Env(name) {
     name,
     read,
     write,
-    notice,
+    notify,
     get,
     post,
     put,
@@ -341,7 +341,7 @@ function XiaoMaoFunction() {
                       (obj.data.fortunetext.openluck || "- ") +
                       "\n\n";
                   }
-                  $notify("🌌XiaoMao_星座运势", "", resultText);
+                  $XiaoMaoInfo.notify("🌌XiaoMao_星座运势", "", resultText);
                 }
               })
               .catch((err) => {
@@ -360,12 +360,12 @@ function XiaoMaoFunction() {
   }
 }
 function getError(params) {
-  $notify("🌌XiaoMao_星座运势", "", "🚧" + params + "获取失败，请稍后再试❗️", {
-    "open-url":
-      "https://i.pixiv.re/img-original/img/2022/04/21/04/04/09/97769134_p0.png",
-    "media-url":
-      "https://i.pixiv.re/img-original/img/2022/04/21/04/04/09/97769134_p0.png",
-  });
+  $XiaoMaoInfo.notify(
+    "🌌XiaoMao_星座运势",
+    "",
+    "🚧" + params + "获取失败，请稍后再试❗️",
+    "https://i.pixiv.re/img-original/img/2022/04/21/04/04/09/97769134_p0.png"
+  );
 }
 setTimeout(() => {
   $done({});

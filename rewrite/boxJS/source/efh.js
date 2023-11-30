@@ -18,8 +18,8 @@ function Env(name) {
     if (isQX) return $prefs.setValueForKey(key, value);
   };
 
-  // 定义 notice 方法，用于发送通知
-  const notice = (title, subtitle, message, url) => {
+  // 定义 notify 方法，用于发送通知
+  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
     if (isQX) $notify(title, subtitle, message, { "open-url": url });
@@ -76,7 +76,7 @@ function Env(name) {
     name,
     read,
     write,
-    notice,
+    notify,
     get,
     post,
     put,
@@ -134,7 +134,7 @@ if (/^https:\/\/api\.hello\.ef\.com\/graphql?/.test(requestUrl)) {
         el.progress.isCompleted = false;
       }
     });
-    $notify(
+    $XiaoMaoSvip.notify(
       "XiaoMao_EF Hello 执行成功！",
       "",
       "Nice!已解锁成功章节-" + XiaoMaoIndex + " ，顺序解锁请通过BoxJS依次配置。"

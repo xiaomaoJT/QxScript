@@ -18,8 +18,8 @@ function Env(name) {
     if (isQX) return $prefs.setValueForKey(key, value);
   };
 
-  // 定义 notice 方法，用于发送通知
-  const notice = (title, subtitle, message, url) => {
+  // 定义 notify 方法，用于发送通知
+  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
     if (isQX) $notify(title, subtitle, message, { "open-url": url });
@@ -76,7 +76,7 @@ function Env(name) {
     name,
     read,
     write,
-    notice,
+    notify,
     get,
     post,
     put,
@@ -107,6 +107,7 @@ var appName = `XiaoMao-WpsVip`;
 var XiaoMaoSvip = "";
 let XiaoMaoEndTime = null;
 let WpsCloudSpace = 0;
+let SvipDate = null;
 !(async () => {
   await XiaoMaoFunction();
 })()

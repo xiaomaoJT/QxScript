@@ -18,8 +18,8 @@ function Env(name) {
     if (isQX) return $prefs.setValueForKey(key, value);
   };
 
-  // 定义 notice 方法，用于发送通知
-  const notice = (title, subtitle, message, url) => {
+  // 定义 notify 方法，用于发送通知
+  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
     if (isQX) $notify(title, subtitle, message, { "open-url": url });
@@ -76,7 +76,7 @@ function Env(name) {
     name,
     read,
     write,
-    notice,
+    notify,
     get,
     post,
     put,
@@ -321,7 +321,8 @@ function getWorkTime() {
   arr.forEach((el) => {
     text = text + br + el + "：" + daysObj[el] + br + hr;
   });
-  $notify("🧑‍💻XiaoMao_打工人进度", "", text);
+  $XiaoMaoSvip.notify("🧑‍💻XiaoMao_打工人进度", "", text);
+  $.log(text);
 }
 
 getWorkTime();

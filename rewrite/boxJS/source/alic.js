@@ -18,8 +18,8 @@ function Env(name) {
     if (isQX) return $prefs.setValueForKey(key, value);
   };
 
-  // 定义 notice 方法，用于发送通知
-  const notice = (title, subtitle, message, url) => {
+  // 定义 notify 方法，用于发送通知
+  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
     if (isQX) $notify(title, subtitle, message, { "open-url": url });
@@ -76,7 +76,7 @@ function Env(name) {
     name,
     read,
     write,
-    notice,
+    notify,
     get,
     post,
     put,
@@ -110,6 +110,7 @@ let ALiCloudSpace = 0;
 let ALiCloudIcon = 0;
 let AliLink = 0;
 let ALiCloudDistinct = 1;
+let SvipDate = null;
 
 let ALiCloudNo = 1;
 let ALiCloudText1 = "第一体验官";
@@ -118,7 +119,7 @@ let ALiCloudText2 = "第一股东";
   await XiaoMaoFunction();
 })()
   .catch((err) => {
-    $XiaoMaoSvip.error(err);
+    $XiaoMaoSvip.log(err);
     setTimeout(() => {
       $XiaoMaoSvip.done();
     }, 3000);
@@ -418,7 +419,12 @@ if ($response.body) {
         "\n" +
         videoUrl;
       AliLink
-        ? $notify("🚨XiaoMao_阿里云盘", "m3u8地址获取成功❗️", resultText)
+        ? ($XiaoMaoSvip.notify(
+            "🚨XiaoMao_阿里云盘",
+            "m3u8地址获取成功❗️",
+            resultText
+          ),
+          $XiaoMaoSvip.log(resultText))
         : console.log(
             "视频m3u8地址获取已关闭，需开启请前往XiaoMaoBoxJs手动开启！请查看脚本注释https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiCloud.js"
           );
