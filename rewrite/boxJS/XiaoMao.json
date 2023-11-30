@@ -240,17 +240,13 @@
     {
       "id": "B612App",
       "name": "B612相机 VIP",
-      "keys": [
-        "@XiaoMao.KaJiVipYear",
-        "@XiaoMao.KaJiVipMonth",
-        "@XiaoMao.KaJiVipDay"
-      ],
+      "keys": [],
       "descs_html": [
         "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoKaJi.js\">脚本注释</a></h4>"
       ],
       "settings": [
         {
-          "id": "@XiaoMao.KaJiVipYear",
+          "id": "KaJiVipYear",
           "name": "vip过期时间 - 年份",
           "val": null,
           "type": "textarea",
@@ -259,7 +255,7 @@
           "desc": "vip过期时间-年份 如：2023"
         },
         {
-          "id": "@XiaoMao.KaJiVipMonth",
+          "id": "KaJiVipMonth",
           "name": "vip过期时间 - 月份",
           "val": null,
           "type": "textarea",
@@ -268,7 +264,7 @@
           "desc": "vip过期时间-月份 如：10"
         },
         {
-          "id": "@XiaoMao.KaJiVipDay",
+          "id": "KaJiVipDay",
           "name": "vip过期时间 - 日期",
           "val": null,
           "type": "textarea",
