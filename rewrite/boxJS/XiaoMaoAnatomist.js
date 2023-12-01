@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-09-26
+ * @LastMod: 2023-12-01
  *
  * 
 
@@ -22,9 +22,9 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoA
 ********************************
 
 [mitm]
-hostname = api.vesal.cn
+hostname = jiepou.vesal.cn
 
 [rewrite_local]
-http:\/\/api\.vesal\.cn:8000\/vesal-jiepao-prod url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/jpds.js
+https:\/\/jiepou\.vesal\.cn\/vesal-jiepao-prod url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/jpds.js
 
  ***************/
