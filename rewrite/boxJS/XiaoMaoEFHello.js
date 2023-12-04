@@ -13,7 +13,8 @@
 ********************************
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
-# XiaoMao · Tg频道频道：https://t.me/xiaomaoJT
+# XiaoMao · TG通知频道：https://t.me/xiaomaoJT
+# XiaoMao · Tg脚本频道：https://t.me/XiaoMaoScript
 # XiaoMao · GitHub仓库：https://github.com/xiaomaoJT/QxScript
 
 
