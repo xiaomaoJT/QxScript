@@ -66,14 +66,19 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字或本页的更新时间为准。
 >
-> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***503*** 次
+> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***504*** 次
 >
-> ***最新更新时间 2023.12.04 11:30***
+> ***最新更新时间 2023.12.08 09:20***
 
 
 
 
-+ ##### 20231127
+
++ ##### 20231208
+
+  * > 更新Cool脚本，新增boxJS配置、新增隐私模式
+
++ ##### 20231204
 
   * > 新增[nv脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNightVision.js)
     >

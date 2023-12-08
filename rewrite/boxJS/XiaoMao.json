@@ -823,7 +823,7 @@
     },
     {
       "id": "WorkProgress",
-      "name": "WorkProgress",
+      "name": "打工人进度",
       "keys": [
         "startWorkTime",
         "endWorkTime",
@@ -888,6 +888,44 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/work.png"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWorkProgress.js"
+    },
+    {
+      "id": "CoolApk",
+      "name": "酷安",
+      "keys": [
+        "dataBoom",
+        "privacyModel"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "dataBoom",
+          "name": "个人数据报表",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为开启,0为关闭"
+        },
+        {
+          "id": "privacyModel",
+          "name": "隐私模式",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为开启,0为关闭"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/cool.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/cool.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js"
     }
   ]
 }
