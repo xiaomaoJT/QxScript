@@ -902,7 +902,7 @@
       "settings": [
         {
           "id": "dataBoom",
-          "name": "个人数据报表",
+          "name": "个人数据爆表",
           "val": null,
           "type": "textarea",
           "autoGrow": true,
