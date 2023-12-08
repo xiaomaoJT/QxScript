@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-11-22
+ * @LastMod: 2023-12-08
  *
  * 
 
@@ -8,6 +8,7 @@
 \动\态\详\情\及\评\论\区\查\看\链\接\ \原\始\链\接\提\取\
 \增\加\美\女\图\片\标\签\
 \优\化\话\题\标\签\排\序\
+\隐\私\模\式\
 
 仅供学习参考，请于下载后24小时内删除
 
@@ -20,7 +21,12 @@
 
 
 使用方法：
-1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
+1、使用BoxJS增加以下脚本订阅。https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json
+
+2、通过boxjs设置爆表显示及隐私模式
+【默认关闭】
+
+3、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js
 
 ********************************

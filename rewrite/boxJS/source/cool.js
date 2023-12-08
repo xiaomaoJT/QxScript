@@ -88,12 +88,19 @@ function Env(name) {
   };
 }
 const $ = new Env("XiaoMaoCool");
+let requestUrl = $request.url;
+let body = $response.body;
+let obj = JSON.parse(body);
 
-var requestUrl = $request.url;
-var body = $response.body;
-var obj = JSON.parse(body);
+let dataBoomStatus = 0;
+$.read("dataBoom") ? (dataBoomStatus = $.read("dataBoom")) : "";
+let privacyModelStatus = 0;
+$.read("privacyModel") ? (privacyModelStatus = $.read("privacyModel")) : "";
 try {
-  if (/^https:\/\/api\.coolapk\.com\/v6\/user\/profile/.test(requestUrl)) {
+  if (
+    /^https:\/\/api\.coolapk\.com\/v6\/user\/profile/.test(requestUrl) &&
+    dataBoomStatus != 0
+  ) {
     obj.data.next_level_percentage = "98.09";
     obj.data.experience = 4819162;
     obj.data.next_level_experience = 4913000;
@@ -128,7 +135,7 @@ try {
     /^https:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(requestUrl)
   ) {
     if (obj.data.length) {
-      var i = obj.data.length;
+      let i = obj.data.length;
       while (i--) {
         if (
           obj.data[i].hasOwnProperty("entityTemplate") &&
@@ -328,6 +335,22 @@ try {
   } else if (
     /^https:\/\/api\.coolapk\.com\/v6\/topic\/newTagDetail/.test(requestUrl)
   ) {
+    function replaceStar(val, head = 1, last = 1) {
+      if (!val) {
+        return val;
+      }
+      if (val.length <= 2) {
+        last = 0;
+      }
+      let str = "*";
+      let len = val.length - head - last;
+      str = str.repeat(len);
+      let re = new RegExp("(.{" + head + "}).*(.{" + last + "})", "");
+      return val.replace(re, "$1" + str + "$2");
+    }
+    privacyModelStatus != 0
+      ? (obj.data.title = replaceStar(obj.data.title))
+      : "";
     obj.data.hasOwnProperty("recommendRows")
       ? (obj.data.recommendRows = [])
       : "";
