@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-12-08
+ * @LastMod: 2023-12-12
  *
  * 
 
@@ -24,7 +24,7 @@
 1、使用BoxJS增加以下脚本订阅。https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.json
 
 2、通过boxjs设置爆表显示及隐私模式
-【默认关闭】
+【隐私模式默认关闭】
 
 3、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js

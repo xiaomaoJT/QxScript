@@ -92,7 +92,7 @@ let requestUrl = $request.url;
 let body = $response.body;
 let obj = JSON.parse(body);
 
-let dataBoomStatus = 0;
+let dataBoomStatus = 1;
 $.read("dataBoom") ? (dataBoomStatus = $.read("dataBoom")) : "";
 let privacyModelStatus = 0;
 $.read("privacyModel") ? (privacyModelStatus = $.read("privacyModel")) : "";
