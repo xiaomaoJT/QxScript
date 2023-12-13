@@ -24,6 +24,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoI
 
 2、打开软件 > 自动解锁 ，若未解锁成功，手动点击左上角皇冠「已购买」
 
+3、⚠️⚠️⚠️同类型解锁脚本不可共存。
 
 [mitm]
 hostname = buy.itunes.apple.com
