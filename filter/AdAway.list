@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20231115
+# 更新时间 20231218
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao · TG通知频道：https://t.me/xiaomaoJT
@@ -9393,7 +9393,6 @@ HOST-SUFFIX,app-measurement.com, reject
 HOST-SUFFIX,mob.com, reject
 HOST-SUFFIX,api.joybj.com, reject
 HOST-SUFFIX,api.whizzone.com, reject
-HOST-SUFFIX,mmstat.com, reject
 HOST-SUFFIX,4paradigm.com, reject
 HOST-SUFFIX,catch.gift, reject
 HOST-SUFFIX,pubnative.net, reject
