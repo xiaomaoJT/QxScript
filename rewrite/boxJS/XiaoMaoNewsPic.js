@@ -1,12 +1,11 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-07-04
+ * @LastMod: 2023-12-24
  *
  * 
 
 
 \每\日\新\闻\6\0\s\图\片\版\
-\接\口\数\据\来\自\韩\小\韩\A\P\I\接\口\由\X\i\a\o\M\a\o\进\行\二\次\加\工\
 
 仅供学习参考，请于下载后24小时内删除
 
@@ -22,7 +21,7 @@
 
 1、⚠️ 配置文件 [task_local] 标签添加
 
-0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNewsPic.js, tag=📰XiaoMao_每日新闻60s_图片版, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1689251.png, enabled=true
+0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNewsPic.js, tag=🌅XiaoMao_每日新闻60s_图片版, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1689251.png, enabled=true
 
 
 
@@ -30,34 +29,45 @@
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNewsPic.js
 
 ********************************/
-const $ = new Env("XiaoMaoNewsPic");
 
-let option = { url: encodeURI("https://api.vvhan.com/api/60s?type=json") };
+const $ = new Env("XiaoMaoNewsPic");
+let url = "https://v2.alapi.cn/api/zaobao?token=TWb2gf0hsu9xgzn8";
+let option = {
+  url: encodeURI(url),
+  method: "GET",
+  headers: {
+    "User-Agent":
+      "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36",
+  },
+};
+
 $.get(option, (err, resp, response) => {
   if (response) {
-    let obj = JSON.parse(response);
-    if (obj.success) {
-      $.notify(
-        "📰XiaoMao_每日新闻60s",
-        "🌟点击查看",
-        "🛟每天60s读懂世界新闻，每天六十秒看懂世界频道",
-        encodeURI(obj.imgUrl)
-      );
-      $.log(obj.dimgUrl);
-    } else {
-      getError("_error_2");
+    let responseJson = JSON.parse(response);
+    let returnText = "";
+    if (responseJson.data.image) {
+      returnText = "· " + responseJson.data.date + " · 每天60秒读懂世界 ·";
+      returnText = returnText + "\n" + "📝" + responseJson.data.weiyu;
+      returnText = returnText + "\n" + "🌇「XiaoMao」美好的一天，记得开心！";
     }
+
+    $.notify(
+      "🌅每日新闻60秒",
+      "🌟点击查看",
+      returnText,
+      responseJson.data.image
+    );
   } else {
-    getError("_error_1");
+    getError();
   }
 });
 
-function getError(params = "") {
+function getError() {
   $.notify(
-    "📰XiaoMao_每日新闻60s",
+    "🚨XiaoMao_每日新闻60s推送失败❗️",
     "",
-    "🚧" + params + "获取失败，请稍后再试❗️",
-    "https://i.pixiv.re/img-original/img/2022/09/19/08/00/04/101330591_p0.png"
+    "🚧请稍后再试❗️",
+    "https://i.pixiv.re/img-original/img/2020/10/14/16/34/51/85008145_p0.jpg"
   );
 }
 setTimeout(() => {

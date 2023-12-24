@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-07-01
+ * @LastMod: 2023-12-24
  *
  * 
 
@@ -22,7 +22,7 @@
 
 ⚠️ 配置文件 [task_local] 标签添加
 
-0 0 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNews.js, tag=📰XiaoMao_每日新闻60s, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1689251.png, enabled=true
+0 0 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNews.js, tag=🌅XiaoMao_每日新闻60s, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1689251.png, enabled=true
 
 单独脚本地址：
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoNews.js
@@ -30,8 +30,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoN
 ********************************/
 
 const $ = new Env("XiaoMaoNews");
-
-let url = "https://www.5fm.cn/" + (488 + restDate("2023/06/18")) + ".html";
+let url = "https://v2.alapi.cn/api/zaobao?token=TWb2gf0hsu9xgzn8";
 let option = {
   url: encodeURI(url),
   method: "GET",
@@ -40,90 +39,26 @@ let option = {
       "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36",
   },
 };
-let option_standby = {
-  url: encodeURI("https://api.vvhan.com/api/60s?type=json"),
-  method: "GET",
-  headers: {
-    "User-Agent":
-      "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36",
-  },
-};
-function restDate(date) {
-  const target = +new Date(date);
-  const today = +new Date();
-  const A_DAY = 1000 * 60 * 60 * 24;
-  const diff = target - today;
-  const restDays = Math.floor(diff / A_DAY);
-  return Math.abs(restDays + 1);
-}
+
 $.get(option, (err, resp, response) => {
   if (response) {
-    let obj = response.replace(/\s*/g, "").toString();
-    let resultText = "🛟 每天60s读懂世界新闻，每天六十秒看懂世界频道" + "\n\n";
-    let img =
-      "https://www.5fm.cn/60s/" +
-      new Date().getDay() +
-      "/" +
-      parseInt(Math.random() * 9) +
-      ".jpg";
-    if (obj.indexOf("未找到页面")) {
-      $.get(option_standby, (err, resp, res_sta) => {
-        if (res_sta) {
-          let res_sta_return = JSON.parse(res_sta);
-          if (res_sta_return.success) {
-            let list = res_sta_return.data;
-            if (list.length) {
-              list.forEach((el, index) => {
-                resultText =
-                  resultText +
-                  (index == list.length - 1 ? "📙" : "🔖 ") +
-                  el +
-                  "\n\n";
-              });
-              $.notify("📰XiaoMao_每日新闻60s❗️", "", resultText, img);
-              $.log(resultText);
-              return;
-            }
-          } else {
-            getError();
-            return;
-          }
-        } else {
-          getError();
-          return;
-        }
+    let responseJson = JSON.parse(response);
+    let returnText = "";
+    if (
+      responseJson.data &&
+      responseJson.data.news &&
+      responseJson.data.news.length
+    ) {
+      returnText =
+        "· " + responseJson.data.date + " · 每天60秒读懂世界 ·" + "\n\n";
+      responseJson.data.news.forEach((el) => {
+        returnText = returnText + "🏷" + el + "\n\n";
       });
-    } else {
-      let result = obj.split("<pdata-pid=");
-      let result_finally = result.slice(
-        4,
-        result.findIndex((el) => el.indexOf("微语") != -1) + 1
-      );
-      let list = [];
-      result_finally.forEach((el) => {
-        let start = el.indexOf(">");
-        let end = el.indexOf("<");
-        list.push(el.substring(start + 1, end));
-      });
-      if (result.length) {
-        list.forEach((el, index) => {
-          resultText =
-            resultText +
-            (index == list.length - 1 ? "📙" : "🔖 ") +
-            el +
-            "\n\n";
-        });
-        $.notify("📰XiaoMao_每日新闻60s❗️", "", resultText, img);
-        $.log(resultText);
-      } else {
-        $.notify(
-          "🚨XiaoMao_每日新闻60s数据抓取失败❗️",
-          "",
-          "🚧建议设定于每日早9点或10点后运行此脚本❗️",
-          "https://i.pixiv.re/img-original/img/2020/10/14/16/34/51/85008145_p0.jpg"
-        );
-      }
+      returnText = returnText + "📝" + responseJson.data.weiyu;
+      returnText = returnText + "\n\n" + "🌇「XiaoMao」美好的一天，记得开心！";
     }
+
+    $.notify("🌅每日新闻60秒", "🌟点击查看", returnText);
   } else {
     getError();
   }
