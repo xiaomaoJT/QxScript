@@ -34,7 +34,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoX
 hostname = www.xmind.net,www.xmind.cn,www.xmind.app
 
 [rewrite_local]
-https:\/\/www\.xmind(\.net|\.cn|\.app)\/\_res\/devices url script-response-body xm.js
-https:\/\/www\.xmind(\.net|\.cn|\.app)\/\_res\/profile\/.+\/ url script-response-body xm.js
+https:\/\/www\.xmind(\.net|\.cn|\.app)\/\_res\/devices url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xm.js
+https:\/\/www\.xmind(\.net|\.cn|\.app)\/\_res\/profile\/.+\/ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xm.js
  ***************/
 

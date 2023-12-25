@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-12-24
+ * @LastMod: 2023-12-25
  *
  * 
 
@@ -58,7 +58,13 @@ $.get(option, (err, resp, response) => {
       returnText = returnText + "\n\n" + "🌇「XiaoMao」美好的一天，记得开心！";
     }
 
-    $.notify("🌅每日新闻60秒", "🌟点击查看", returnText);
+    $.notify(
+      "🌅每日新闻60秒",
+      "🌟点击查看",
+      returnText,
+      "",
+      responseJson.data.head_image
+    );
   } else {
     getError();
   }
@@ -97,10 +103,17 @@ function Env(name) {
   };
 
   // 定义 notify 方法，用于发送通知
-  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
+  const notify = (
+    title = "XiaoMao",
+    subtitle = "",
+    message = "",
+    url = "",
+    url2 = url
+  ) => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
-    if (isQX) $notify(title, subtitle, message, { "open-url": url });
+    if (isQX)
+      $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
   };
 
   // 定义 get 方法，用于发送 GET 请求

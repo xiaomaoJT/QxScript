@@ -1,65 +1,48 @@
-/**************************
- *  * @Author: XiaoMao
- * @LastMod: 2023-07-04
- *
- * 
+let obj = JSON.parse($response.body);
+let $ = new Env("XiaoYu");
+obj.subscriber = {
+  non_subscriptions: {
+    lifetime: [
+      {
+        id: "5aaaaaaaa5",
+        is_sandbox: false,
+        purchase_date: "2023-12-24T04:44:44Z",
+        original_purchase_date: "2023-12-24T04:44:44Z",
+        store: "app_store",
+        store_transaction_id: "280000000000000",
+      },
+    ],
+  },
+  first_seen: "2023-12-24T04:44:30Z",
+  original_application_version: "161",
+  other_purchases: {
+    lifetime: {
+      purchase_date: "2023-12-24T04:44:44Z",
+    },
+  },
+  management_url: null,
+  subscriptions: {},
+  entitlements: {
+    pro: {
+      grace_period_expires_date: null,
+      purchase_date: "2023-12-24T04:44:44Z",
+      product_identifier: "lifetime",
+      expires_date: null,
+    },
+  },
+  original_purchase_date: "2023-12-24T04:44:14Z",
+  original_app_user_id: "$RCAnonymousID:0400000000000000000000000000000",
+  last_seen: "2023-12-24T04:44:30Z",
+};
 
+$.notify(
+  "XiaoMao_" + "XiaoYu" + " 执行成功！",
+  "",
+  "Nice!已解锁成功，可关掉此脚本。",
+  "https://i.pixiv.re/img-original/img/2022/12/19/00/06/12/103718184_p0.png"
+);
 
-\职\场\人\日\历\
-\接\口\数\据\来\自\韩\小\韩\A\P\I\接\口\由\X\i\a\o\M\a\o\进\行\二\次\加\工\
-
-仅供学习参考，请于下载后24小时内删除
-
-********************************
-# 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
-# 微信公众号 【小帽集团】
-# XiaoMao · TG通知频道：https://t.me/xiaomaoJT
-# XiaoMao · Tg脚本频道：https://t.me/XiaoMaoScript
-# XiaoMao · GitHub仓库：https://github.com/xiaomaoJT/QxScript
-
-
-使用方法：
-
-1、⚠️ 配置文件 [task_local] 标签添加
-
-0 0 10 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoDaGong.js, tag=💼XiaoMao_职场人日历_图片版, img-url=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/Doraemon/Doraemon-1037.png, enabled=true
-
-
-
-单独脚本地址：
-https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoDaGong.js
-
-********************************/
-
-const $ = new Env("XiaoMaoDaGong");
-
-let option = { url: encodeURI("https://api.vvhan.com/api/zhichang?type=json") };
-$.get(option, (err, resp, response) => {
-  if (response) {
-    let obj = JSON.parse(response);
-    $.notify(
-      "💼XiaoMao_职场人日历",
-      "🌟点击查看",
-      "🛟打工人打工魂,打工成为人上人",
-      encodeURI(obj.url)
-    );
-    $.log(obj.url)
-  } else {
-    getError("_error_2");
-  }
-});
-
-function getError(params = "") {
-  $.notify(
-    "💼XiaoMao_职场人日历",
-    "",
-    "🚧" + params + "获取失败，请稍后再试❗️",
-    "https://i.pixiv.re/img-original/img/2023/04/25/22/11/12/107520054_p0.jpg"
-  );
-}
-setTimeout(() => {
-  $done({});
-}, 2000);
+$done({ body: JSON.stringify(obj) });
 
 function Env(name) {
   // 判断当前环境是否为 Loon
@@ -85,7 +68,8 @@ function Env(name) {
   const notify = (title = "XiaoMao", subtitle = "", message = "", url = "",url2 = url) => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
-    if (isQX) $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
+    if (isQX)
+      $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
   };
 
   // 定义 get 方法，用于发送 GET 请求

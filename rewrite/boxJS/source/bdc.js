@@ -19,10 +19,10 @@ function Env(name) {
   };
 
   // 定义 notify 方法，用于发送通知
-  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "") => {
+  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "",url2 = url) => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
-    if (isQX) $notify(title, subtitle, message, { "open-url": url });
+    if (isQX) $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
   };
 
   // 定义 get 方法，用于发送 GET 请求
@@ -207,7 +207,7 @@ if ($response.body) {
           current_value: XiaoMaoValue,
           history_level: XiaoMaoLevel,
         }),
-        (obj.center_skip_config.action_url = ""),
+        (obj.center_skip_config.action_url = "",url2 = url),
         (obj.user_tag = `{"has_buy_record":1,"has_buy_vip_svip_record":1,"last_buy_record_creat_time":1641279341,"is_vip":1,"is_svip":1,"last_vip_type":1,"last_vip_svip_end_time":${XiaoMaoEndTime},"is_svip_sign":1,"notify_user_type":2,"notify_user_status":2,"is_first_act":0}`))
       : "";
     obj.hasOwnProperty("vip")
