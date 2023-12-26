@@ -1,11 +1,11 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-12-25
+ * @LastMod: 2023-12-26
  *
  * 
 
 
-\小\鱼\短\信\ \p\r\o\
+\M\u\s\i\c\M\a\t\e\ \永\久\P\r\e\m\i\u\m\会\员\
 
 
 仅供学习参考，请于下载后24小时内删除
@@ -20,9 +20,9 @@
 
 使用方法：
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
-https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXiaoYu.js
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMusicMate.js
 
-2、打开软件 > 成为Pro会员 > 点击「恢复会员」
+2、打开软件 > 右下角设置 > 成为Premium会员 > 点击「恢复购买」
 
 3、解锁成功理论上有消息弹窗，成功后即可关闭脚本。[🚨🚨🚨无效请关掉软件进程后，先打开脚本，再进软件进行解锁]
 
@@ -33,7 +33,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoX
 hostname = api.revenuecat.com
 
 [rewrite_local]
-https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xy.js
-https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xy.js
+https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/mm.js
+https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/mm.js
 
 ********************************/
