@@ -18,7 +18,7 @@
 
 ⚠️ 配置文件 [task_local] 标签添加 或 于自动任务栏(三横杠按钮)，右上角加号，以文本方式添加以下代码即可
 
-0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYuLu.js, tag=📜XiaoMao每日语录, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/%23.png, enabled=true
+0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYuLu.js, tag=📜XiaoMao_每日语录, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/%23.png, enabled=true
 
 
 单独脚本地址：
