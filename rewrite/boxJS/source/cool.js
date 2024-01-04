@@ -170,7 +170,7 @@ try {
             ? (obj.data[i].extra_type = "")
             : "";
           obj.data[i].hasOwnProperty("extra_url")
-            ? (obj.data[i].extra_url = "",url2 = url)
+            ? (obj.data[i].extra_url = "")
             : "";
           obj.data[i].hasOwnProperty("extra_info")
             ? (obj.data[i].extra_info = "")
@@ -204,7 +204,7 @@ try {
         el.hasOwnProperty("extra_pic") ? (el.extra_pic = "") : "";
         el.hasOwnProperty("extra_key") ? (el.extra_key = "") : "";
         el.hasOwnProperty("extra_type") ? (el.extra_type = "") : "";
-        el.hasOwnProperty("extra_url") ? (el.extra_url = "",url2 = url) : "";
+        el.hasOwnProperty("extra_url") ? (el.extra_url = "") : "";
         el.hasOwnProperty("extra_info") ? (el.extra_info = "") : "";
         el.hasOwnProperty("extra_entities") ? (el.extra_entities = []) : "";
         el.hasOwnProperty("extra_fromApi") ? (el.extra_fromApi = "") : "";
@@ -256,7 +256,7 @@ try {
     obj.data.hasOwnProperty("extra_pic") ? (obj.data.extra_pic = "") : "";
     obj.data.hasOwnProperty("extra_key") ? (obj.data.extra_key = "") : "";
     obj.data.hasOwnProperty("extra_type") ? (obj.data.extra_type = "") : "";
-    obj.data.hasOwnProperty("extra_url") ? (obj.data.extra_url = "",url2 = url) : "";
+    obj.data.hasOwnProperty("extra_url") ? (obj.data.extra_url = "") : "";
     obj.data.hasOwnProperty("extra_info") ? (obj.data.extra_info = "") : "";
     obj.data.hasOwnProperty("extra_fromApi")
       ? (obj.data.extra_fromApi = "")
