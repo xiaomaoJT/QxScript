@@ -19,10 +19,17 @@ function Env(name) {
   };
 
   // 定义 notify 方法，用于发送通知
-  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "",url2 = url) => {
+  const notify = (
+    title = "XiaoMao",
+    subtitle = "",
+    message = "",
+    url = "",
+    url2 = url
+  ) => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
-    if (isQX) $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
+    if (isQX)
+      $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
   };
 
   // 定义 get 方法，用于发送 GET 请求
@@ -286,7 +293,8 @@ if ($response.body) {
             el.name != "好运瓶" &&
             el.name != "达人中心" &&
             el.name != "帮助与反馈" &&
-            el.name != "特惠流量包"
+            el.name != "特惠流量包" &&
+            el.name != "开放应用"
           ) {
             el.profitDesc = null;
             el.version = null;
@@ -349,12 +357,12 @@ if ($response.body) {
       obj.features.forEach((el) => {
         el.trialStatus = "allowTrial";
         el.intercept = false;
-        el.name = "大佬尊享";
+        el.name = "SVIP";
         if (el.hasOwnProperty("features") && el.features.length) {
           el.features.forEach((kid) => {
             kid.trialStatus = "allowTrial";
             kid.intercept = false;
-            kid.name = "大佬尊享";
+            kid.name = "SVIP";
           });
         }
       });
@@ -499,6 +507,23 @@ if ($response.body) {
     )
   ) {
     obj.follower_count = parseInt(Math.random() * 9999999);
+  } else if (
+    /^https:\/\/api\.alipan\.com\/apps\/v1\/users\/home\/recent?/.test(
+      requestUrl
+    )
+  ) {
+    if (obj.items && obj.items.length) {
+      let itemsTem = [];
+      obj.items.forEach((el) => {
+        if (
+          !itemsTem.filter((i) => i.fileFolderDisplay == el.fileFolderDisplay)
+            .length
+        ) {
+          itemsTem.push(el);
+        }
+      });
+      obj.items = itemsTem;
+    }
   }
   $done({ body: JSON.stringify(obj) });
 } else {
