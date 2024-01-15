@@ -916,7 +916,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "1为开启,0为关闭"
+          "desc": "1为开启,0为关闭；已知启用后将影响话题关注、图文发布话题标签功能"
         }
       ],
       "author": "@XiaoMao",

@@ -335,7 +335,7 @@ try {
   } else if (
     /^https:\/\/api\.coolapk\.com\/v6\/topic\/newTagDetail/.test(requestUrl)
   ) {
-    function replaceStar(val, head = 1, last = 1) {
+    function replaceStar(val, head = 1, last = 0) {
       if (!val) {
         return val;
       }
