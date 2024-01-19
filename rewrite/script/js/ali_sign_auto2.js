@@ -362,8 +362,8 @@ class UserInfo {
       };
       //post方法
       let { result, message } = await this.Request(options);
+      $.openUrl = null;
       if (!message) {
-        $.openUrl = null;
         let rewardsList = result.rewards.filter(
           (e) => e.status != "finished" && e.position < 3
         );
