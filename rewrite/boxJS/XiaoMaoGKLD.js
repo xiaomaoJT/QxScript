@@ -26,19 +26,9 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoG
 hostname = errlog.umeng.com, api.gongkaoleida.com
 
 [rewrite_local]
-https:\/\/api\.gongkaoleida\.com\/api\/v.+\/exam\/jobSearchList url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
-https:\/\/api\.gongkaoleida\.com\/api\/v.+\/exam\/getExamList url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
+https:\/\/api\.gongkaoleida\.com\/api url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
 https:\/\/errlog\.umeng\.com\/api\/crashsdk\/logcollect url reject
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/my\/index url reject
-https:\/\/api\.gongkaoleida\.com\/api\/v.+\/sets\/getFilterResult url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/sets\/getAllTips url reject
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/ad\/info url reject
-https:\/\/api\.gongkaoleida\.com\/api\/v.+\/my\/vipCardInfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
-https:\/\/api\.gongkaoleida\.com\/api\/v.+\/user\/getInfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
-https:\/\/api\.gongkaoleida\.com\/api\/v.+\/exam\/jobDetail url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
-https:\/\/api\.gongkaoleida\.com\/api\/v.+\/subscribe\/jobHot url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
  ***************/
-
-
-
-
