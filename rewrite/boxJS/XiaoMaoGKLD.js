@@ -35,10 +35,8 @@ https:\/\/api\.gongkaoleida\.com\/api\/v.+\/sets\/getAllTips url reject
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/ad\/info url reject
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/my\/vipCardInfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/user\/getInfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
-https:\/\/member\.aliyundrive\.com\/v1\/config\/customCapsule url reject-dict
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/exam\/jobDetail url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/subscribe\/jobHot url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
-
  ***************/
 
 
