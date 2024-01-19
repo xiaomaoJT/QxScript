@@ -4,12 +4,12 @@
  * \阿\里\云\盘\自\动\签\到\
  * 
  * 签到奖励领取机制：考虑到部分会员权益想按需领取，平日到月底第三天均不会自动领取奖励
+ * 增加奖励激活留存通知
  * 月底倒数第三天自动领取全部奖励
  * 月底最后三天 自动每天领取奖励
  * 
-- 基于@Sliverkiss、@zqzess、@lowking修改，修复领取备份奖励
-- 重构代码，优化通知样式，支持多账号
-- 感谢@chavyleung提供的Env，以及@zqzess、@lowking两位大佬的脚本作为参考
+- 基于@Sliverkiss、@zqzess、@lowking修改
+- 感谢@chavyleung提供的Env，以及@Sliverkiss、@zqzess、@lowking两位大佬的脚本作为参考
  * 
  * 
 QuantumultX配置如下：
@@ -89,8 +89,8 @@ var directiveSignInCount = "";
 async function main() {
   console.log("\n================== 任务 ==================\n");
   for (let user of userList) {
-    console.log(`🔷账号${user.index} >> Start work`);
-    console.log(`随机延迟${user.getRandomTime()}ms`);
+    // console.log(`🔷账号${user.index} >> Start work`);
+    // console.log(`随机延迟${user.getRandomTime()}ms`);
     //刷新token
     let accessKey = await user.getAuthorizationKey();
     directiveAccessKey = accessKey;
@@ -99,6 +99,10 @@ async function main() {
       let { signInCount, xumt } = await user.signCheckin(accessKey);
       directiveXumt = xumt;
       directiveSignInCount = signInCount;
+      for (let user of userList) {
+        await user.getSignInfo(directiveAccessKey, directiveXumt);
+      }
+
       //奖励
       await getAllReward();
     } else {
@@ -112,30 +116,28 @@ async function getAllReward() {
   let lastDay = getLastDay();
   let nowDay = getGoneDay();
   if (nowDay == lastDay) {
-    $.notifyMsg.push("🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟");
-    $.notifyMsg.push("还有三天就月底了，开始自动领取签到奖励～");
-    $.notifyMsg.push("🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟");
+    $.notifyMsg.push("\n🎟还有三天就月底了，开始自动领取签到奖励～\n");
     for (let index = 0; index < getCountDays(); index++) {
       for (let user of userList) {
-        await user.getMainReword(
-          directiveAccessKey,
-          (index + 1).toString(),
-          directiveXumt
-        );
-        await user.getReword(
-          directiveAccessKey,
-          (index + 1).toString(),
-          directiveXumt
-        );
+        setTimeout(async () => {
+          await user.getMainReword(
+            directiveAccessKey,
+            (index + 1).toString(),
+            directiveXumt
+          );
+          await user.getReword(
+            directiveAccessKey,
+            (index + 1).toString(),
+            directiveXumt
+          );
+        }, 300 + parseInt(Math.random() * 10 * index));
       }
     }
   } else if (
     parseInt(nowDay.substr(nowDay.lastIndexOf("/") + 1, 2)) >
     parseInt(lastDay.substr(lastDay.lastIndexOf("/") + 1, 2))
   ) {
-    $.notifyMsg.push("🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟");
-    $.notifyMsg.push("距离月底少于3天了，开始自动领取签到奖励～");
-    $.notifyMsg.push("🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟");
+    $.notifyMsg.push("\n🎟距离月底少于3天了，开始自动领取签到奖励～\n");
     for (let user of userList) {
       await user.getMainReword(
         directiveAccessKey,
@@ -152,10 +154,8 @@ async function getAllReward() {
     parseInt(nowDay.substr(nowDay.lastIndexOf("/") + 1, 2)) <
     parseInt(lastDay.substr(lastDay.lastIndexOf("/") + 1, 2))
   ) {
-    $.notifyMsg.push("🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟");
-    $.notifyMsg.push("时间还早呢，签到奖励按需自行领取吧～");
-    $.notifyMsg.push("未领取将在月底最后三天全部自动领取～");
-    $.notifyMsg.push("🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟🎟");
+    $.notifyMsg.push("\n🎟时间还早呢，签到奖励按需自行领取吧～");
+    $.notifyMsg.push("🎟未领取将在月底最后三天全部自动领取～\n");
   }
 }
 
@@ -213,7 +213,7 @@ class UserInfo {
       this.ADrivreInfo.refresh_token = refresh_token;
       //刷新token
       if ($.setjson(this.ADrivreInfo, ckName)) {
-        $.log("刷新阿里网盘refresh_token成功 🎉");
+        // $.log("刷新阿里网盘refresh_token成功 🎉");
       } else {
         DoubleLog("刷新阿里网盘refresh_token失败‼️", "", "");
         this.ckStatus = false;
@@ -263,8 +263,8 @@ class UserInfo {
       let { subtitle, rewards } = signInRes;
       //打印
       if (rewards.length > 0) {
-        $.log(`签到天数:${signInCount}=> ${subtitle}`);
-        DoubleLog(`用户名: ${$.nick_name} => 第${signInCount}天`);
+        // $.log(`签到天数:${signInCount}=> ${subtitle}`);
+        DoubleLog(`用户: ${$.nick_name} > 第${signInCount}天`);
         DoubleLog(`签到奖励: ${rewards[0].name}`);
         DoubleLog(`备份奖励: ${rewards[1].name}`);
       }
@@ -337,6 +337,49 @@ class UserInfo {
           ? `🎉第${signInCount}天备份奖励: ${result.description}领取成功!`
           : `❌第${signInCount}天备份奖励: ${message}`
       );
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  // 验证奖励是否被激活
+  async getSignInfo(authorization, xumt) {
+    try {
+      const options = {
+        url: `https://member.alipan.com/v2/activity/sign_in_info`,
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json, text/plain, */*",
+          Authorization: authorization,
+          "x-canary": this.ADrivreInfo.headers["x-canary"],
+          "x-umt": xumt,
+          origin: "https://pages.aliyundrive.com",
+          "x-ua": xumt,
+          "user-agent": this.ADrivreInfo.headers["user-agent"],
+          referer: "https://pages.aliyundrive.com/",
+        },
+        body: JSON.stringify({}),
+      };
+      //post方法
+      let { result, message } = await this.Request(options);
+      if (!message) {
+        $.openUrl = null;
+        let rewardsList = result.rewards.filter(
+          (e) => e.status != "finished" && e.position < 3
+        );
+        if (rewardsList.length) {
+          rewardsList.map((e) => {
+            return DoubleLog(
+              "\n🚨🚨奖励：" + e.name + " " + "激活失败，点击通知打开云盘查看！"
+            );
+          });
+          $.openUrl = result.action;
+        } else {
+          DoubleLog("\n🌹🌹今天的奖励已全部激活成功！");
+        }
+      } else {
+        DoubleLog("\n🚨🚨奖励完成情况获取失败！");
+      }
     } catch (e) {
       throw e;
     }
@@ -432,7 +475,11 @@ async function SendMsg(message) {
     if ($.isNode()) {
       await notify.sendNotify($.name, message);
     } else {
-      $.msg($.name, $.signMsg, message, { "media-url": $.avatar });
+      let obj = $.openUrl
+        ? { "media-url": $.avatar, "open-url": $.openUrl }
+        : { "media-url": $.avatar };
+
+      $.msg($.name, $.signMsg, message, obj);
     }
   } else {
     console.log(message);
