@@ -2,16 +2,18 @@
  * 
  * XiaoMao
  * \阿\里\云\盘\自\动\签\到\
+ * 脚本发布地址：https://t.me/XiaoMaoScript/129
  * 
  * 签到奖励领取机制：考虑到部分会员权益想按需领取，平日到月底第三天均不会自动领取奖励
  * 增加奖励激活留存通知
  * 月底倒数第三天自动领取全部奖励
  * 月底最后三天 自动每天领取奖励
  * 
-- 基于@Sliverkiss、@zqzess、@lowking修改
-- 感谢@chavyleung提供的Env，以及@Sliverkiss、@zqzess、@lowking两位大佬的脚本作为参考
+ * 基于@Sliverkiss修改
+ * 感谢@chavyleung提供的Env，以及@Sliverkiss、@zqzess、@lowking三位大佬的脚本用来抄袭
  * 
- * 
+
+
 QuantumultX配置如下：
 
 自动任务
@@ -24,6 +26,8 @@ QuantumultX配置如下：
 
 [MITM]
 hostname = auth.alipan.com,auth.aliyundrive.com
+
+
 */
 
 // env.js 全局
@@ -99,12 +103,11 @@ async function main() {
       let { signInCount, xumt } = await user.signCheckin(accessKey);
       directiveXumt = xumt;
       directiveSignInCount = signInCount;
-      for (let user of userList) {
-        await user.getSignInfo(directiveAccessKey, directiveXumt);
-      }
 
+      //查询奖励状态信息
+      await user.getSignInfo(directiveAccessKey, directiveXumt);
       //奖励
-      await getAllReward();
+      await getAllReward(user);
     } else {
       //将ck过期消息存入消息数组
       $.notifyMsg.push(`❌账号${user.index} >> Check ck error!`);
@@ -112,44 +115,42 @@ async function main() {
   }
 }
 
-async function getAllReward() {
+//获取奖励
+async function getAllReward(user) {
   let lastDay = getLastDay();
   let nowDay = getGoneDay();
   if (nowDay == lastDay) {
     $.notifyMsg.push("\n🎟还有三天就月底了，开始自动领取签到奖励～\n");
     for (let index = 0; index < getCountDays(); index++) {
-      for (let user of userList) {
-        setTimeout(async () => {
-          await user.getMainReword(
-            directiveAccessKey,
-            (index + 1).toString(),
-            directiveXumt
-          );
-          await user.getReword(
-            directiveAccessKey,
-            (index + 1).toString(),
-            directiveXumt
-          );
-        }, 300 + parseInt(Math.random() * 10 * index));
-      }
+      setTimeout(async () => {
+        await user.getMainReword(
+          directiveAccessKey,
+          (index + 1).toString(),
+          directiveXumt
+        );
+        await user.getReword(
+          directiveAccessKey,
+          (index + 1).toString(),
+          directiveXumt
+        );
+      }, 300 + parseInt(Math.random() * 10 * index));
     }
   } else if (
     parseInt(nowDay.substr(nowDay.lastIndexOf("/") + 1, 2)) >
     parseInt(lastDay.substr(lastDay.lastIndexOf("/") + 1, 2))
   ) {
     $.notifyMsg.push("\n🎟距离月底少于3天了，开始自动领取签到奖励～\n");
-    for (let user of userList) {
-      await user.getMainReword(
-        directiveAccessKey,
-        directiveSignInCount,
-        directiveXumt
-      );
-      await user.getReword(
-        directiveAccessKey,
-        directiveSignInCount,
-        directiveXumt
-      );
-    }
+
+    await user.getMainReword(
+      directiveAccessKey,
+      directiveSignInCount,
+      directiveXumt
+    );
+    await user.getReword(
+      directiveAccessKey,
+      directiveSignInCount,
+      directiveXumt
+    );
   } else if (
     parseInt(nowDay.substr(nowDay.lastIndexOf("/") + 1, 2)) <
     parseInt(lastDay.substr(lastDay.lastIndexOf("/") + 1, 2))
