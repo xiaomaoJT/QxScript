@@ -68,9 +68,14 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***545*** 次
 >
-> ***最新更新时间 2024.01.25 09:55***
+> ***最新更新时间 2024.01.25 16:38***
 
 
+
++ ##### 20240125
+
+  * > 新增[bf脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoBudgetFlow.js)
+    >
 
 + ##### 20240119
 
