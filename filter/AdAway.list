@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20231218
+# 更新时间 20240125
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao · TG通知频道：https://t.me/xiaomaoJT
@@ -14,6 +14,8 @@
 # > */  
 
 
+# 虎牙直播
+HOST-SUFFIX, v1d.szbdyd.com, REJECT
 # x1hub
 HOST-SUFFIX, jads.co, REJECT
 HOST-SUFFIX, juicyads.com, REJECT

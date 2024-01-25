@@ -7,3 +7,6 @@ payload:
   - DOMAIN-SUFFIX, vimeocdn.com
   - DOMAIN-SUFFIX, hcaptcha.com
   - DOMAIN-SUFFIX, akamaized.com
+  - DOMAIN-SUFFIX, identrust.com
+  - DOMAIN-SUFFIX, oaistatic.com
+  - DOMAIN-SUFFIX, oaiusercontent.com
