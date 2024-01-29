@@ -242,8 +242,14 @@ if ($response.body) {
         (obj.personal_rights_info.spu_id = "svip"),
         (obj.personal_rights_info.name = "超级会员"))
       : "";
-    obj.hasOwnProperty("personal_space_info") && ALiCloudSpace != 0
-      ? (obj.personal_space_info.total_size = ALiCloudSpace)
+  } else if (
+    /^https:\/\/api\.alipan\.com\/adrive\/v1\/user\/getUserCapacityInfo?/.test(
+      requestUrl
+    )
+  ) {
+    obj.drive_capacity_details.hasOwnProperty("drive_total_size") &&
+    ALiCloudSpace != 0
+      ? (obj.drive_capacity_details.drive_total_size = ALiCloudSpace)
       : "";
   } else if (
     /^https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.0\/users\/vip\/info?/.test(
