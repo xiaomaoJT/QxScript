@@ -71,7 +71,7 @@ function getGoneDay(n = 0, yearFlag = true) {
 function getLastDay() {
   let nowDate = new Date();
   nowDate.setMonth(nowDate.getMonth() + 1);
-  nowDate.setDate(-3);
+  nowDate.setDate(-2);
   let lastMonthDay = nowDate.toLocaleDateString();
   return lastMonthDay;
 }
@@ -121,26 +121,31 @@ async function getAllReward(user) {
   let nowDay = getGoneDay();
   if (nowDay == lastDay) {
     $.notifyMsg.push("\n🎟还有三天就月底了，开始自动领取签到奖励～\n");
+    async function timeMagic(index) {
+      return new Promise((reslove) => {
+        setTimeout(async () => {
+          await user.getMainReword(
+            directiveAccessKey,
+            (index + 1).toString(),
+            directiveXumt
+          );
+          await user.getReword(
+            directiveAccessKey,
+            (index + 1).toString(),
+            directiveXumt
+          );
+          reslove();
+        }, 300 + parseInt(Math.random() * 10 * index));
+      });
+    }
     for (let index = 0; index < getCountDays(); index++) {
-      setTimeout(async () => {
-        await user.getMainReword(
-          directiveAccessKey,
-          (index + 1).toString(),
-          directiveXumt
-        );
-        await user.getReword(
-          directiveAccessKey,
-          (index + 1).toString(),
-          directiveXumt
-        );
-      }, 300 + parseInt(Math.random() * 10 * index));
+      await timeMagic(index);
     }
   } else if (
     parseInt(nowDay.substr(nowDay.lastIndexOf("/") + 1, 2)) >
     parseInt(lastDay.substr(lastDay.lastIndexOf("/") + 1, 2))
   ) {
     $.notifyMsg.push("\n🎟距离月底少于3天了，开始自动领取签到奖励～\n");
-
     await user.getMainReword(
       directiveAccessKey,
       directiveSignInCount,
@@ -294,7 +299,7 @@ class UserInfo {
           referer: "https://pages.aliyundrive.com/",
         },
         body: JSON.stringify({
-          signInDay: signInCount,
+          signInDay: parseInt(signInCount),
         }),
       };
       //post方法
@@ -309,7 +314,6 @@ class UserInfo {
       throw e;
     }
   }
-
   //领取备份奖励
   async getReword(authorization, signInCount, xumt) {
     try {
@@ -327,7 +331,7 @@ class UserInfo {
           referer: "https://pages.aliyundrive.com/",
         },
         body: JSON.stringify({
-          signInDay: signInCount,
+          signInDay: parseInt(signInCount),
         }),
       };
       //post方法
@@ -366,7 +370,10 @@ class UserInfo {
       $.openUrl = null;
       if (!message) {
         let rewardsList = result.rewards.filter(
-          (e) => e.status != "finished" && e.position < 3
+          (e) =>
+            e.status != "finished" &&
+            e.status != "verification" &&
+            e.position < 3
         );
         if (rewardsList.length) {
           rewardsList.map((e) => {
