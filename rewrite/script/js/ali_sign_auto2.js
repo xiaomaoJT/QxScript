@@ -138,7 +138,7 @@ async function getAllReward(user) {
         }, 300 + parseInt(Math.random() * 10 * index));
       });
     }
-    for (let index = 0; index < getCountDays(); index++) {
+    for (let index = 0; index < getCountDays() - 2; index++) {
       await timeMagic(index);
     }
   } else if (
