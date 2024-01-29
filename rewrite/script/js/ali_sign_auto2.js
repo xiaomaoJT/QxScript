@@ -120,7 +120,7 @@ async function getAllReward(user) {
   let lastDay = getLastDay();
   let nowDay = getGoneDay();
   if (nowDay == lastDay) {
-    $.notifyMsg.push("\n🎟还有三天就月底了，开始自动领取签到奖励～\n");
+    $.notifyMsg.push("\n🎟还有三天就月底了，已自动领取积攒签到奖励～\n");
     async function timeMagic(index) {
       return new Promise((reslove) => {
         setTimeout(async () => {
@@ -145,7 +145,7 @@ async function getAllReward(user) {
     parseInt(nowDay.substr(nowDay.lastIndexOf("/") + 1, 2)) >
     parseInt(lastDay.substr(lastDay.lastIndexOf("/") + 1, 2))
   ) {
-    $.notifyMsg.push("\n🎟距离月底少于3天了，开始自动领取签到奖励～\n");
+    $.notifyMsg.push("\n🎟距离月底少于3天了，已自动领取今天签到奖励～\n");
     await user.getMainReword(
       directiveAccessKey,
       directiveSignInCount,
@@ -378,15 +378,15 @@ class UserInfo {
         if (rewardsList.length) {
           rewardsList.map((e) => {
             return DoubleLog(
-              "\n🚨🚨奖励：" + e.name + " " + "激活失败，点击通知打开云盘查看！"
+              "🚨🚨奖励：" + e.name + " " + "激活失败，点击通知打开云盘查看！"
             );
           });
           $.openUrl = result.action;
         } else {
-          DoubleLog("\n🌹🌹今天的奖励已全部激活成功！");
+          DoubleLog("🌹🌹今天的奖励已全部激活成功！");
         }
       } else {
-        DoubleLog("\n🚨🚨奖励完成情况获取失败！");
+        DoubleLog("🚨🚨奖励完成情况获取失败！");
       }
     } catch (e) {
       throw e;
