@@ -240,7 +240,11 @@
     {
       "id": "B612App",
       "name": "B612相机 VIP",
-      "keys": ["KaJiVipYear","KaJiVipMonth","KaJiVipDay"],
+      "keys": [
+        "KaJiVipYear",
+        "KaJiVipMonth",
+        "KaJiVipDay"
+      ],
       "descs_html": [
         "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoKaJi.js\">脚本注释</a></h4>"
       ],
@@ -894,7 +898,8 @@
       "name": "酷安",
       "keys": [
         "dataBoom",
-        "privacyModel"
+        "privacyModel",
+        "openRate"
       ],
       "descs_html": [
         "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js\">脚本注释</a></h4>"
@@ -916,7 +921,16 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "1为开启,0为关闭；已知启用后将影响话题关注、图文发布话题标签功能"
+          "desc": "1为开启,0为关闭；已知启用后将影响话题关注、图文发布话题标签、话题内搜索功能"
+        },
+        {
+          "id": "openRate",
+          "name": "话题评分",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "1为开启,0为关闭"
         }
       ],
       "author": "@XiaoMao",
