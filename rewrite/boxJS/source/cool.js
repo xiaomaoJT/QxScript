@@ -19,10 +19,17 @@ function Env(name) {
   };
 
   // 定义 notify 方法，用于发送通知
-  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "",url2 = url) => {
+  const notify = (
+    title = "XiaoMao",
+    subtitle = "",
+    message = "",
+    url = "",
+    url2 = url
+  ) => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
-    if (isQX) $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
+    if (isQX)
+      $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
   };
 
   // 定义 get 方法，用于发送 GET 请求
@@ -96,6 +103,8 @@ let dataBoomStatus = 1;
 $.read("dataBoom") ? (dataBoomStatus = $.read("dataBoom")) : "";
 let privacyModelStatus = 0;
 $.read("privacyModel") ? (privacyModelStatus = $.read("privacyModel")) : "";
+let openRateStatus = 0;
+$.read("openRate") ? (openRateStatus = $.read("openRate")) : "";
 try {
   if (
     /^https:\/\/api\.coolapk\.com\/v6\/user\/profile/.test(requestUrl) &&
@@ -192,13 +201,21 @@ try {
   ) {
     if (obj.data.length) {
       obj.data.forEach((el) => {
-        if (el.entityTemplate == "imageSquareScrollCard") {
+        if (
+          el.entityTemplate == "imageSquareScrollCard" &&
+          requestUrl.indexOf("COOLPIC") != -1
+        ) {
           el.entities.unshift({
             title: "#美女#",
             pic: "http://image.coolapk.com/feed_tag/2023/0305/11/25640219_3a17b9f9_7113_9655_566@1000x1000.jpeg",
             url: "/t/美女?type=8",
             entityType: "picCategory",
           });
+        }
+        if (requestUrl.indexOf("hotTagList") != -1) {
+          el.hasOwnProperty("open_rate")
+            ? (el.open_rate = parseInt(openRateStatus.toString()))
+            : "";
         }
         el.hasOwnProperty("extra_title") ? (el.extra_title = "") : "";
         el.hasOwnProperty("extra_pic") ? (el.extra_pic = "") : "";
