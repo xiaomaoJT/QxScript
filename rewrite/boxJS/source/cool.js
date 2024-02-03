@@ -213,7 +213,7 @@ try {
           });
         }
         if (
-          requestUrl.indexOf("hotTagList") != -1 &&
+          requestUrl.indexOf("topic") != -1 &&
           parseInt(openRateStatus.toString()) == 1
         ) {
           el.hasOwnProperty("open_rate") && el.open_rate == 1
