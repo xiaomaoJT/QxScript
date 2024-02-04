@@ -213,15 +213,14 @@ try {
           });
         }
         if (
-          requestUrl.indexOf("hotTagList") != -1 &&
+          requestUrl.indexOf("topic") != -1 &&
           parseInt(openRateStatus.toString()) == 1
         ) {
-          el.hasOwnProperty("open_rate") && el.open_rate == 1
-            ? ((el.open_rate = 0),
+          ((el.open_rate = 0),
               (el.allow_rate = 0),
               (el.star_average_score = "0.0"),
               (el.rating_average_score = "0.0"))
-            : "";
+            
         }
         el.hasOwnProperty("extra_title") ? (el.extra_title = "") : "";
         el.hasOwnProperty("extra_pic") ? (el.extra_pic = "") : "";
