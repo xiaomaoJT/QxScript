@@ -107,7 +107,7 @@ let openRateStatus = 0;
 $.read("openRate") ? (openRateStatus = $.read("openRate")) : "";
 try {
   if (
-    /^https:\/\/api\.coolapk\.com\/v6\/user\/profile/.test(requestUrl) &&
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/user\/profile/.test(requestUrl) &&
     dataBoomStatus != 0
   ) {
     obj.data.next_level_percentage = "98.09";
@@ -118,7 +118,7 @@ try {
     obj.data.level = 17;
     obj.data.be_like_num = 999999999;
   } else if (
-    /^https:\/\/api\.coolapk\.com\/v6\/user\/space/.test(requestUrl) &&
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/user\/space/.test(requestUrl) &&
     obj.data.hasOwnProperty("homeTabCardRows") &&
     obj.data.homeTabCardRows.length
   ) {
@@ -141,7 +141,7 @@ try {
       obj.data.verify_status = 1;
     }
   } else if (
-    /^https:\/\/api\.coolapk\.com\/v6\/main\/indexV8/.test(requestUrl)
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/main\/indexV8/.test(requestUrl)
   ) {
     if (obj.data.length) {
       let i = obj.data.length;
@@ -197,7 +197,7 @@ try {
       }
     }
   } else if (
-    /^https:\/\/api\.coolapk\.com\/v6\/page\/dataList/.test(requestUrl)
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/page\/dataList/.test(requestUrl)
   ) {
     if (obj.data.length) {
       obj.data.forEach((el) => {
@@ -235,12 +235,12 @@ try {
       });
     }
   } else if (
-    /^https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig/.test(requestUrl)
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/account\/loadConfig/.test(requestUrl)
   ) {
     if (obj.data.length) {
       obj.data[0].entities = [];
     }
-  } else if (/^https:\/\/api\.coolapk\.com\/v6\/main\/init/.test(requestUrl)) {
+  } else if (/^https:\/\/api[0-9]*\.coolapk\.com\/v6\/main\/init/.test(requestUrl)) {
     if (obj.data.length) {
       let list = [];
       obj.data.forEach((el) => {
@@ -267,7 +267,7 @@ try {
       obj.data = list;
     }
   } else if (
-    /^https:\/\/api\.coolapk\.com\/v6\/feed\/detail/.test(requestUrl)
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/feed\/detail/.test(requestUrl)
   ) {
     obj.data.hasOwnProperty("include_goods")
       ? (obj.data.include_goods = [])
@@ -356,7 +356,7 @@ try {
       }
     }
   } else if (
-    /^https:\/\/api\.coolapk\.com\/v6\/topic\/newTagDetail/.test(requestUrl)
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/topic\/newTagDetail/.test(requestUrl)
   ) {
     function replaceStar(val, head = 0, last = 1) {
       if (!val) {
@@ -390,14 +390,14 @@ try {
       obj.data.tabList = sortList(obj.data.tabList);
     }
   } else if (
-    /^https:\/\/api\.coolapk\.com\/v6\/feed\/(replyList|replyDetail)/.test(
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/feed\/(replyList|replyDetail)/.test(
       requestUrl
     )
   ) {
     let dealList = [];
     let getList = obj.data;
     if (
-      /^https:\/\/api\.coolapk\.com\/v6\/feed\/replyDetail/.test(requestUrl)
+      /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/feed\/replyDetail/.test(requestUrl)
     ) {
       dealReplayList(getList.message, dealList, getList.username);
     } else {
