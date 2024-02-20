@@ -1,6 +1,6 @@
 {
     "name": "XiaoMao自动任务合集",
-    "description": "XiaoMao·TG频道频道：https://t.me/xiaomaoJT 最新更新时间：20231227",
+    "description": "XiaoMao·TG频道频道：https://t.me/xiaomaoJT 最新更新时间：20240220",
     "task": [
         "event-interaction https://raw.githubusercontent.com/getsomecat/Qx/main/Net_Speed.js, tag=节点网速查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png",
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=媒体解锁查询, img-url=checkmark.seal.system",
@@ -10,6 +10,7 @@
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/switch-check-google.js, tag=谷歌送中查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Puzzle.png",
         "event-interaction https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/txt/ipinfo.txt, tag=节点位置查询, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/3icon.png",
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/server-info-plus.js, tag=节点风险查询, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SaySS.png",
+        "0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoGuangZhouMetro.js, tag=🚇XiaoMao_广州地铁实时信息查询, img-url=tram.fill.system, enabled=true",
         "0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoYuLu.js, tag=📜XiaoMao_每日语录, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/%23.png, enabled=true",
         "0 0 10,12,15,18 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wp.js, tag=🧑‍💻XiaoMao_上班进度, img-url=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/Doraemon/Doraemon-1064.png, enabled=true",
         "0 0 0/4 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoHeBao.js, tag=🎁XiaoMao_和包银联红包查询, img-url=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/Doraemon/Doraemon-1037.png, enabled=true",
