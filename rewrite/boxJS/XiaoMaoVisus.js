@@ -5,7 +5,7 @@
  * 
 
 
-Visus premium终身
+\V\i\s\u\s\ \p\r\e\m\i\u\m\终\身\
 
 
 仅供学习参考，请于下载后24小时内删除
@@ -22,7 +22,7 @@ Visus premium终身
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoVisus.js
 
-2、打开软件 > 自动解锁 或 左上角设置 > 底部高级版 > 回复购买
+2、打开软件 > 自动解锁 或 左上角设置 > 底部高级版 > 恢复购买
 
 3、解锁成功理论上有消息弹窗，成功后即可关闭脚本。[🚨🚨🚨无效请关掉软件进程后，先打开脚本，再进软件进行解锁]
 
