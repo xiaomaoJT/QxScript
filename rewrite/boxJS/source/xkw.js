@@ -15,8 +15,8 @@ if (/^https:\/\/c\.xkw\.com\/api\/v1\/student\/user\/info?/.test(requestUrl)) {
   obj.vipStatus.isVip = true;
   obj.endTime = "2222-02-02";
   obj.download = 1009;
-  obj.vipExpireDays.download = 1009;
   obj.vipExpireDays = 365;
+  obj.vipStatus.download = 1009;
   obj.vipStatus.endTime = "2222-02-02";
   obj.vipStatus.vipExpireDays = 365;
 } else if (
