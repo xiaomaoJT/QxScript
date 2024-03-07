@@ -8,6 +8,9 @@ var obj = JSON.parse(
     .replace(/\"isMonthly\":\w+/g, '"isMonthly":true')
     .replace(/\"isWxt\":\w+/g, '"isWxt":true')
     .replace(/\"isPlus\":\w+/g, '"isPlus":true')
+    .replace(/\"isPreviewed\":\w+/g, '"isPreviewed":true')
+    .replace(/\"isFullPreview\":\w+/g, '"isFullPreview":true')
+    .replace(/\"previewTimes\":\w+/g, '"previewTimes":10000')
 );
 let $ = new Env("XKW");
 
