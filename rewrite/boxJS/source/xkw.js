@@ -1,17 +1,35 @@
 let requestUrl = $request.url;
-var obj = JSON.parse(
-  $response.body
-    .replace(/\"isFree\":\w+/g, '"isFree":true')
-    .replace(/\"isNormal\":\w+/g, '"isNormal":true')
-    .replace(/\"isVip\":\w+/g, '"isVip":true')
-    .replace(/\"isLight\":\w+/g, '"isLight":true')
-    .replace(/\"isMonthly\":\w+/g, '"isMonthly":true')
-    .replace(/\"isWxt\":\w+/g, '"isWxt":true')
-    .replace(/\"isPlus\":\w+/g, '"isPlus":true')
-    .replace(/\"isPreviewed\":\w+/g, '"isPreviewed":true')
-    .replace(/\"isFullPreview\":\w+/g, '"isFullPreview":true')
-    .replace(/\"previewTimes\":\w+/g, '"previewTimes":10000')
-);
+let status = isJSON($response.body);
+if ($response.body == "false") {
+  $response.body = "true";
+}
+var obj = status
+  ? JSON.parse(
+      $response.body
+        .replace(/\"isFree\":\w+/g, '"isFree":true')
+        .replace(/\"isNormal\":\w+/g, '"isNormal":true')
+        .replace(/\"isVip\":\w+/g, '"isVip":true')
+        .replace(/\"isLight\":\w+/g, '"isLight":true')
+        .replace(/\"isMonthly\":\w+/g, '"isMonthly":true')
+        .replace(/\"isWxt\":\w+/g, '"isWxt":true')
+        .replace(/\"isPlus\":\w+/g, '"isPlus":true')
+        .replace(/\"isPreviewed\":\w+/g, '"isPreviewed":true')
+        .replace(/\"isFullPreview\":\w+/g, '"isFullPreview":true')
+        .replace(/\"previewTimes\":\w+/g, '"previewTimes":10000')
+        .replace(/\"hasOnlinePlay\":\w+/g, '"hasOnlinePlay":true')
+        .replace(/\"hasAttention\":\w+/g, '"hasAttention":true')
+        .replace(/\"resourcePackageFree\":\w+/g, '"resourcePackageFree":true')
+        .replace(/\"voucherFree\":\w+/g, '"voucherFree":true')
+        .replace(/\"wxtFree\":\w+/g, '"wxtFree":true')
+        .replace(/\"albumFree\":\w+/g, '"albumFree":true')
+        .replace(/\"documentFree\":\w+/g, '"documentFree":true')
+        .replace(/\"hasConsume\":\w+/g, '"hasConsume":true')
+        .replace(/\"savePrice\":\w+/g, '"savePrice":0')
+        .replace(/\"inTimePrice\":\w+/g, '"inTimePrice":0')
+        .replace(/\"normalInTimePrice\":\w+/g, '"normalInTimePrice":0')
+        .replace(/\"normalPrice\":\w+/g, '"normalPrice":0')
+    )
+  : $response.body;
 let $ = new Env("XKW");
 
 if (/^https:\/\/c\.xkw\.com\/api\/v1\/student\/user\/info?/.test(requestUrl)) {
@@ -46,7 +64,7 @@ if (/^https:\/\/c\.xkw\.com\/api\/v1\/student\/user\/info?/.test(requestUrl)) {
 ) {
   let textDetail = "";
   let numTotal = 0;
-  if (obj.result.length) {
+  if (obj.hasOwnProperty("result") && obj.result.length) {
     obj.result.forEach((el, index) => {
       numTotal = numTotal + el.images.length;
       textDetail =
@@ -121,7 +139,7 @@ if (/^https:\/\/c\.xkw\.com\/api\/v1\/student\/user\/info?/.test(requestUrl)) {
     isVip: true,
   };
 }
-$done({ body: JSON.stringify(obj) });
+$done({ body: status ? JSON.stringify(obj) : obj });
 
 function Env(name) {
   // 判断当前环境是否为 Loon
@@ -218,4 +236,13 @@ function Env(name) {
     log,
     done,
   };
+}
+
+function isJSON(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
 }
