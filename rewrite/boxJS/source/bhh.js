@@ -18,7 +18,7 @@ var obj = status
         .replace(/\"quick_scale_state\":\w+/g, '"quick_scale_state":true')
         .replace(/\"level\":\w+/g, '"level":10')
         .replace(/\"badge_count\":\w+/g, '"badge_count":15')
-        .replace(/\"rankings\":\w+/g, '"rankings":1')
+        .replace(/\"rankings\":\w+/g, '"rankings":100')
     )
   : $response.body;
 if (
