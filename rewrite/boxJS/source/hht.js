@@ -17,11 +17,10 @@ https:\/\/api\.cloud\.alilo\.com\.cn\/api\/v4\/user-activation\/check-sowing url
 
 
 
-刷广告激励
+\刷\广\告\激\励\
 ——————————————————————————————
 [task_local]
-0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/hht.js, tag=火火兔刷激励, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/%23.png, enabled=false
-
+0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/hht.js, tag=🐰XiaoMao_火火兔刷激励, img-url=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/Doraemon/Doraemon-1099.png, enabled=false
 
 
  * 
