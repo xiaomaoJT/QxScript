@@ -21,6 +21,9 @@ https:\/\/api\.cloud\.alilo\.com\.cn\/api\/v4\/user-activation\/check-sowing url
 ——————————————————————————————
 [task_local]
 0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/hht.js, tag=火火兔刷激励, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/%23.png, enabled=false
+
+
+
  * 
  * 
  * 
@@ -49,9 +52,7 @@ if ($request) {
       hht_id +
       "\n" +
       "AlbumId：" +
-      hht_album_id +
-      "\n" +
-      $.read("hht_token"),
+      hht_album_id,
     ""
   );
   $done({});
