@@ -96,9 +96,16 @@ if ($request) {
     $task.fetch(myRequest).then(
       (response) => {
         let obj = JSON.parse(response.body);
-        console.log(
-          `请求 ${attempt}: ${obj.info} \n 解锁所需分数：${obj.data.albumUnlockedPrice} \n 当前拥有分数：${obj.data.userUnlockedPrice}`
-        );
+        if(obj.info == '可解锁'){
+          console.log(
+            `请求 ${attempt}: ${obj.info} \n`
+          );
+        }else{
+          console.log(
+            `请求 ${attempt}: ${obj.info} \n 解锁所需分数：${obj.data.albumUnlockedPrice} \n 当前拥有分数：${obj.data.userUnlockedPrice}`
+          );
+        }
+        
         if (obj.data.userUnlockedPrice < obj.data.albumUnlockedPrice) {
           // 继续发送下一次请求
           sendRequest(attempt + 1);
