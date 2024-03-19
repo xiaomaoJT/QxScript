@@ -57,8 +57,6 @@ if ($request) {
   );
   $done({});
 } else {
-  // 设置激励最大次数
-  const allowedAttempts = 40;
   // 文章id albumid
   const myAlbumId = $.read("hht_album_id");
   // 用户id userId
@@ -89,7 +87,7 @@ if ($request) {
   }
   // 发送请求的函数
   function sendRequest(attempt) {
-    console.log(`Sending request ${attempt}...`);
+    console.log(`发起第${attempt}次请求...`);
     const myRequest = {
       url: url,
       method: method,
@@ -98,24 +96,21 @@ if ($request) {
     };
     $task.fetch(myRequest).then(
       (response) => {
-        console.log(`Response ${attempt}: ${JSON.parse(response.body).info}`);
-        if (attempt < allowedAttempts) {
+        let obj = JSON.parse(response.body);
+        console.log(
+          `请求 ${attempt}: ${obj.info} \n 解锁所需分数：${obj.data.albumUnlockedPrice} \n 当前拥有分数：${obj.data.userUnlockedPrice}`
+        );
+        if (obj.data.userUnlockedPrice < obj.data.albumUnlockedPrice) {
           // 继续发送下一次请求
           sendRequest(attempt + 1);
         } else {
-          console.log(`All ${allowedAttempts} requests sent.`);
+          console.log(`共发起 ${attempt} 次请求，已刷满！`);
           $done();
         }
       },
       (reason) => {
-        console.log(`Error ${attempt}: ${reason.error}`);
-        if (attempt < allowedAttempts) {
-          // 继续发送下一次请求
-          sendRequest(attempt + 1);
-        } else {
-          console.log(`All ${allowedAttempts} requests sent.`);
-          $done();
-        }
+        console.log(`第 ${attempt} 请求错误: ${reason.error}`);
+        $done();
       }
     );
   }
