@@ -34,7 +34,7 @@ let $ = new Env("HuoHuoTu");
 if ($request) {
   let requestUrl = $request;
   let hht_token = requestUrl.headers.token;
-  let hht_id = JSON.parse(requestUrl.body).userId;
+  let hht_id = JSON.parse(requestUrl.body).userId.toString();
   let hht_album_id = JSON.parse(requestUrl.body).albumId;
   $.write(hht_token, "hht_token");
   $.write(hht_id, "hht_id");
@@ -86,7 +86,7 @@ if ($request) {
   }
   // 发送请求的函数
   function sendRequest(attempt) {
-    console.log(`发起第${attempt}次请求...`);
+    // console.log(`发起第${attempt}次请求...`);
     const myRequest = {
       url: url,
       method: method,
