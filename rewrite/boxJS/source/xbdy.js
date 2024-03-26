@@ -28,7 +28,7 @@ if (/^https:\/\/cdn-h\.gongfudou\.com\/.+\.(jpg|png)?/.test(requestUrl)) {
     $.notify(
       "XiaoMao_小白学习打印！",
       "点击跳转",
-      "成功捕获到图片资源！",
+      "成功捕获到图片资源！" + "\n" + requestUrl,
       requestUrl
     );
   }
