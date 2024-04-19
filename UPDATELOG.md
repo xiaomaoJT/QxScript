@@ -73,6 +73,11 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 
 
++ ##### 20240419
+
+  * > 新增[ei脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoExifIPTC.js)
+    >
+
 + ##### 20240417
 
   * > 新增[gif脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoGIF.js)
