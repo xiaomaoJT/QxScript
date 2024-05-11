@@ -3,6 +3,7 @@ let requestUrl = $request.url;
 var obj = status
   ? JSON.parse(
       $response.body
+        .replace(/\s+/g, "")
         .replace(/\"is_member\":\w+/g, '"is_member":true')
         .replace(/\"is_vip\":\w+/g, '"is_vip":true')
         .replace(/\"is_gray\":\w+/g, '"is_gray":false')

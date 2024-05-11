@@ -6,6 +6,7 @@ if ($response.body == "false") {
 var obj = status
   ? JSON.parse(
       $response.body
+        .replace(/\s+/g, "")
         .replace(/\"isFree\":\w+/g, '"isFree":true')
         .replace(/\"isNormal\":\w+/g, '"isNormal":true')
         .replace(/\"isVip\":\w+/g, '"isVip":true')

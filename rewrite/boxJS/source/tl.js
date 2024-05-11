@@ -4,11 +4,10 @@ var obj = status
   ? JSON.parse(
       $response.body
         .replace(/\s+/g, "")
-        .replace(/\"status\":\w+/g, '"status":1')
-        .replace(/\"unlocked\":\w+/g, '"unlocked":1')
-        .replace(/\"price\":\w+/g, '"price":0')
-        .replace(/\"diamonds\":\w+/g, '"diamonds":99999')
-        .replace(/\"expiry_time\":\w+/g, '"expiry_time":7955085722000')
+        .replace(/\"userType\":\w+/g, '"userType":2')
+        .replace(/\"level\":\w+/g, '"level":10')
+        .replace(/\"downloadCount\":\w+/g, '"downloadCount":99999')
+        .replace(/\"point\":\w+/g, '"point":99999')
     )
   : $response.body;
 $done({ body: status ? JSON.stringify(obj) : obj });

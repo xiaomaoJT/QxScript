@@ -4,6 +4,7 @@ let $ = new Env("XiaoMaoXiaoBaiDaYin");
 var obj = status
   ? JSON.parse(
       $response.body
+        .replace(/\s+/g, "")
         .replace(/\"isLifetimeVipMember\":\w+/g, '"isLifetimeVipMember":true')
         .replace(/\"isLifetimeSvipMember\":\w+/g, '"isLifetimeSvipMember":true')
         .replace(/\"isZulinVipMember\":\w+/g, '"isZulinVipMember":true')
