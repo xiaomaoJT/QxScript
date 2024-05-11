@@ -3,6 +3,7 @@ let requestUrl = $request.url;
 var obj = status
   ? JSON.parse(
       $response.body
+        .replace(/\s+/g, "")
         .replace(/\"status\":\w+/g, '"status":1')
         .replace(/\"unlocked\":\w+/g, '"unlocked":1')
         .replace(/\"price\":\w+/g, '"price":0')

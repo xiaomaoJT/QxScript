@@ -3,6 +3,7 @@ let status = isJSON($response.body);
 var obj = status
   ? JSON.parse(
       $response.body
+        .replace(/\s+/g, "")
         .replace(/\"status\":\"\w+\"/g, '"status":"9"')
         .replace(/\"price\":\"\w+\"/g, '"price":"0"')
         .replace(/\"user_point\":\"\w+\"/g, '"user_point":"100000"')
