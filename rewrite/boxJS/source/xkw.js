@@ -5,8 +5,7 @@ if ($response.body == "false") {
 }
 var obj = status
   ? JSON.parse(
-      $response.body
-        .replace(/\s+/g, "")
+      removeExtraSpaces($response.body)
         .replace(/\"isFree\":\w+/g, '"isFree":true')
         .replace(/\"isNormal\":\w+/g, '"isNormal":true')
         .replace(/\"isVip\":\w+/g, '"isVip":true')
@@ -246,4 +245,14 @@ function isJSON(str) {
     return false;
   }
   return true;
+}
+
+function removeExtraSpaces(jsonString) {
+  var jsonObj = JSON.parse(jsonString);
+  return JSON.stringify(jsonObj, function (key, value) {
+    if (typeof value === "string") {
+      return value.trim();
+    }
+    return value;
+  });
 }

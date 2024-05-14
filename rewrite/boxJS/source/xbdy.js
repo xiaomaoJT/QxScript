@@ -3,8 +3,7 @@ let requestUrl = $request.url;
 let $ = new Env("XiaoMaoXiaoBaiDaYin");
 var obj = status
   ? JSON.parse(
-      $response.body
-        .replace(/\s+/g, "")
+      removeExtraSpaces($response.body)
         .replace(/\"isLifetimeVipMember\":\w+/g, '"isLifetimeVipMember":true')
         .replace(/\"isLifetimeSvipMember\":\w+/g, '"isLifetimeSvipMember":true')
         .replace(/\"isZulinVipMember\":\w+/g, '"isZulinVipMember":true')
@@ -141,4 +140,14 @@ function Env(name) {
     log,
     done,
   };
+}
+
+function removeExtraSpaces(jsonString) {
+  var jsonObj = JSON.parse(jsonString);
+  return JSON.stringify(jsonObj, function (key, value) {
+    if (typeof value === "string") {
+      return value.trim();
+    }
+    return value;
+  });
 }

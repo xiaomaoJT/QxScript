@@ -2,8 +2,7 @@ let requestUrl = $request.url;
 let status = isJSON($response.body);
 var obj = status
   ? JSON.parse(
-      $response.body
-        .replace(/\s+/g, "")
+      removeExtraSpaces($response.body)
         .replace(/\"status\":\"\w+\"/g, '"status":"9"')
         .replace(/\"price\":\"\w+\"/g, '"price":"0"')
         .replace(/\"user_point\":\"\w+\"/g, '"user_point":"100000"')
@@ -90,4 +89,14 @@ function isJSON(str) {
     return false;
   }
   return true;
+}
+
+function removeExtraSpaces(jsonString) {
+  var jsonObj = JSON.parse(jsonString);
+  return JSON.stringify(jsonObj, function (key, value) {
+    if (typeof value === "string") {
+      return value.trim();
+    }
+    return value;
+  });
 }
