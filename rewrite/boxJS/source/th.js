@@ -148,7 +148,7 @@ function XiaoMaoFunction() {
         "",
         "会员日期设置错误，请输入正确的日期范围!"
       );
-      XiaoMaoSvip = getGoneDay(-1);
+      XiaoMaoSvip = getGoneDay(-8);
     } else {
       XiaoMaoSvip =
         $XiaoMaoSvip.read("HotListVipYear") +
@@ -158,7 +158,7 @@ function XiaoMaoFunction() {
         $XiaoMaoSvip.read("HotListVipDay");
     }
   } else {
-    XiaoMaoSvip = getGoneDay(-1);
+    XiaoMaoSvip = getGoneDay(-8);
   }
   XiaoMaoEndTime = new Date(XiaoMaoSvip).getTime() / 1000;
 }
@@ -218,6 +218,29 @@ if ($response.body) {
         });
         obj.data.items = newArr;
       }
+    }
+  } else if (/^https:\/\/api2\.tophub\.app\/explore?/.test(requestUrl)) {
+    if (
+      obj.hasOwnProperty("data") &&
+      obj.data.hasOwnProperty("section_nodes") &&
+      obj.data.section_nodes.length
+    ) {
+      let node = [];
+      obj.data.section_nodes.map((item) => {
+        if (!item.title.includes("今日必抢") && !item.title.includes("购物")) {
+          let node_kid = [];
+          if (item.nodes.length) {
+            item.nodes.map((el) => {
+              if (!el.name.includes("商品")) {
+                node_kid.push(el);
+              }
+            });
+          }
+          item.nodes = node_kid;
+          node.push(item);
+        }
+      });
+      obj.data.section_nodes = node;
     }
   }
   $done({ body: JSON.stringify(obj) });

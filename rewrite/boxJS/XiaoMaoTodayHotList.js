@@ -1,11 +1,11 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-05-06
+ * @LastMod: 2024-05-28
  *
  * 
 
 
-\今\日\热\搜\v\i\p\自\定\义\+\广\告\移\除\+\新\增\订\阅\摘\要\展\示\+\新\增\追\踪\摘\要\展\示\+\新\增\自\定\义\模\块\摘\要\展\示\
+\今\日\热\榜\v\i\p\自\定\义\+\广\告\移\除\+\新\增\订\阅\摘\要\展\示\+\新\增\追\踪\摘\要\展\示\+\新\增\自\定\义\模\块\摘\要\展\示\
 
 官方会员兑换码：0B4KM
 
@@ -38,5 +38,6 @@ https:\/\/api2\.tophub\.app\/account\/sync url script-response-body https://raw.
 https:\/\/api2\.tophub\.app\/my\/items url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/th.js
 https:\/\/api2\.tophub\.app\/my\/alerts\/items url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/th.js
 https:\/\/api2\.tophub\.app\/my\/channels\/.+\/items url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/th.js
+https:\/\/api2\.tophub\.app\/explore url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/th.js
 https:\/\/api2\.tophub\.app\/remai\/recommend\/taobao url reject-dict
  ***************/
