@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-05-28
+ * @LastMod: 2024-05-29
  *
  * 
 
@@ -27,9 +27,12 @@
 单独脚本地址：
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoImprisonNovel.js
 
+
+
+刷不出来尝试域名走代理
+host, aaanovel.com, 全球策略
+
 ********************************/
-
-
 
 const $ = new Env("XiaoMaoImprisonNovel");
 
@@ -86,6 +89,49 @@ function extractPContent(htmlString) {
   );
   return strippedContents;
 }
+// 获取分页链接
+function getLinks(params) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(params, "text/html");
+  const paginationDiv = doc.querySelector("div.entry-pagination.pagination");
+  const hrefs = [];
+  if (paginationDiv) {
+    const links = paginationDiv.getElementsByTagName("a");
+    for (let i = 0; i < links.length; i++) {
+      hrefs.push(links[i].href);
+    }
+  }
+  return hrefs;
+}
+// 获取分页内容
+async function getLinkContent(params, contentList2 = []) {
+  let linksList = getLinks(params);
+  if (linksList.length) {
+    const promises = [];
+    for (let index = 0; index < linksList.length; index++) {
+      const el = linksList[index];
+      let linksOption = {
+        url: el,
+        method: "GET",
+      };
+      const promise = new Promise((resolve, reject) => {
+        $.get(linksOption, (error1, resp1, response) => {
+          if (response) {
+            const content = extractPContent(response);
+            contentList2.push(content);
+            resolve();
+          } else {
+            reject("Error");
+          }
+        });
+      });
+      promises.push(promise);
+    }
+    await Promise.all(promises);
+  }
+  return contentList2;
+}
+
 
 // 核心函数
 let titleUrl = `https://aaanovel.com/${getRandomDate()}`;
@@ -103,22 +149,64 @@ $.get(titleOption, (error1, resp1, response) => {
         url: encodeURI(contentUrl),
         method: "GET",
       };
-      $.get(contentOption, (error2, resp2, response2) => {
+      $.get(contentOption, async (error2, resp2, response2) => {
         if (response2) {
-          let contentList = extractPContent(response2);
-          if (contentList.length) {
-            let returnText = "";
-            let returnTitle = `『大师文学之${titleName}』` + "\n";
-            contentList.map((el, i) => {
-              returnText = returnText + (i != 0 ? "\n\n" : "") + el;
+          let contentList1 = await extractPContent(response2);
+          await getLinkContent(response2)
+            .then((contentList2) => {
+              let contentListAll = [];
+              contentListAll.push(contentList1);
+              contentListAll.push(...contentList2);
+              if (contentListAll.length) {
+                let textNumberTotal = 0;
+                let numberParams = {
+                  0: "一",
+                  1: "二",
+                  2: "三",
+                  3: "四",
+                  4: "五",
+                  5: "六",
+                  6: "七",
+                  7: "八",
+                  8: "九",
+                  9: "十",
+                };
+                contentListAll.map((contentList, contentIndex) => {
+                  if (contentList.length) {
+                    let returnText = "";
+                    let returnTitle = `『大师文学之${titleName}』【第${numberParams[contentIndex]}章节】`;
+                    contentList.map((el, i) => {
+                      returnText = returnText + (i != 0 ? "\n\n" : "") + el;
+                    });
+                    let returnTextLength = returnText.replace(
+                      /\s+/g,
+                      ""
+                    ).length;
+                    let convertReturnText =
+                      returnTitle +
+                      "（本章字数:" +
+                      returnTextLength +
+                      "）" +
+                      "\n\n" +
+                      returnText;
+
+                    textNumberTotal = textNumberTotal + returnTextLength;
+                    $.notify("大师文学", "读万卷书行万里路", convertReturnText);
+                  }
+                });
+                console.log(
+                  `已完成文学作品『${titleName}』的全部内容加载，共${
+                    numberParams[contentListAll.length - 1]
+                  }章节，共计字数${textNumberTotal}`
+                );
+                $done({});
+              } else {
+                getError("5012");
+              }
+            })
+            .catch((err) => {
+              getError("5013");
             });
-            let convertReturnText = returnTitle + "\n" + returnText;
-            $.notify("大师文学", "读万卷书行万里路", convertReturnText);
-            console.log(convertReturnText);
-            $done({});
-          } else {
-            getError("5012");
-          }
         } else {
           getError("5011");
         }
@@ -127,7 +215,7 @@ $.get(titleOption, (error1, resp1, response) => {
       $.notify(
         "大师文学",
         "数据获取失败❗️请重试❗️",
-        "三次刷不出来，咱要不就不看了？🙈"
+        "文章随机刷新，存在空白章节情况，三次刷不出来乃天命所致，要不咱就不看了？🙈"
       );
       $done({});
     }
@@ -145,9 +233,7 @@ function getError(err) {
   );
   $done({});
 }
-setTimeout(() => {
-  $done({});
-}, 8000);
+
 
 function Env(name) {
   // 判断当前环境是否为 Loon
