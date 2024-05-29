@@ -132,7 +132,6 @@ async function getLinkContent(params, contentList2 = []) {
   return contentList2;
 }
 
-
 // 核心函数
 let titleUrl = `https://aaanovel.com/${getRandomDate()}`;
 let titleOption = {
@@ -174,7 +173,9 @@ $.get(titleOption, (error1, resp1, response) => {
                 contentListAll.map((contentList, contentIndex) => {
                   if (contentList.length) {
                     let returnText = "";
-                    let returnTitle = `『大师文学之${titleName}』【第${numberParams[contentIndex]}章节】`;
+                    let returnTitle = `『大师文学之${titleName}』【第${
+                      numberParams[contentIndex]
+                    }章节 共${numberParams[contentListAll.length - 1]}章】`;
                     contentList.map((el, i) => {
                       returnText = returnText + (i != 0 ? "\n\n" : "") + el;
                     });
@@ -233,7 +234,6 @@ function getError(err) {
   );
   $done({});
 }
-
 
 function Env(name) {
   // 判断当前环境是否为 Loon
