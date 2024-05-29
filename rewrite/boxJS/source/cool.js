@@ -212,15 +212,11 @@ try {
             entityType: "picCategory",
           });
         }
-        if (
-          requestUrl.indexOf("topic") != -1 &&
-          parseInt(openRateStatus.toString()) == 1
-        ) {
-          ((el.open_rate = 0),
-              (el.allow_rate = 0),
-              (el.star_average_score = "0.0"),
-              (el.rating_average_score = "0.0"))
-            
+        if (parseInt(openRateStatus.toString()) == 1) {
+          (el.open_rate = 0),
+            (el.allow_rate = 0),
+            (el.star_average_score = "0.0"),
+            (el.rating_average_score = "0.0");
         }
         el.hasOwnProperty("extra_title") ? (el.extra_title = "") : "";
         el.hasOwnProperty("extra_pic") ? (el.extra_pic = "") : "";
@@ -234,12 +230,16 @@ try {
       });
     }
   } else if (
-    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/account\/loadConfig/.test(requestUrl)
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/account\/loadConfig/.test(
+      requestUrl
+    )
   ) {
     if (obj.data.length) {
       obj.data[0].entities = [];
     }
-  } else if (/^https:\/\/api[0-9]*\.coolapk\.com\/v6\/main\/init/.test(requestUrl)) {
+  } else if (
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/main\/init/.test(requestUrl)
+  ) {
     if (obj.data.length) {
       let list = [];
       obj.data.forEach((el) => {
@@ -355,7 +355,9 @@ try {
       }
     }
   } else if (
-    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/topic\/newTagDetail/.test(requestUrl)
+    /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/topic\/newTagDetail/.test(
+      requestUrl
+    )
   ) {
     function replaceStar(val, head = 0, last = 1) {
       if (!val) {
@@ -388,6 +390,9 @@ try {
       }
       obj.data.tabList = sortList(obj.data.tabList);
     }
+    if (obj.data.hasOwnProperty("selectedTab")) {
+      obj.data.selectedTab = "lastupdate_desc";
+    }
   } else if (
     /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/feed\/(replyList|replyDetail)/.test(
       requestUrl
@@ -396,7 +401,9 @@ try {
     let dealList = [];
     let getList = obj.data;
     if (
-      /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/feed\/replyDetail/.test(requestUrl)
+      /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/feed\/replyDetail/.test(
+        requestUrl
+      )
     ) {
       dealReplayList(getList.message, dealList, getList.username);
     } else {
