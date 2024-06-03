@@ -1,6 +1,6 @@
 # >  /*  修正某些错误的分流 clash版本
 # 如遇误杀/网络错误等问题，请于群聊内反馈补充
-# 更新时间 20240125
+# 更新时间 20240603
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao · TG通知频道：https://t.me/xiaomaoJT
@@ -138,3 +138,14 @@ payload:
   - DOMAIN, amdc.alipay.com, direct
   # > 京东
   - DOMAIN, gia.jd.com, direct
+  # > 网易邮箱
+  - DOMAIN, count.mail.163.com, direct
+
+  # > 收钱吧
+  - DOMAIN, sdk.open.talk.gepush.com, direct
+  - DOMAIN, sdk.open.talk.getui.com, direct
+  - DOMAIN, ads-shopping.shouqianba.com, direct
+
+  # > 字节跳动
+  - DOMAIN-SUFFIX, bytedance.com, direct
+  - DOMAIN-SUFFIX, byteimg.com, direct
