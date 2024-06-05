@@ -76,6 +76,8 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
   * > 新增[kztb脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoKuaiZhiTuBiao.js)
     >
+    > 新增[otl脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoOtterLife.js)
+    >
 
 + ##### 20240604
 
