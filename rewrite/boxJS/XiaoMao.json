@@ -894,52 +894,32 @@
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWorkProgress.js"
     },
     {
-      "id": "CoolApk",
-      "name": "酷安",
+      "id": "XiaoHongShu",
+      "name": "小红书",
       "keys": [
-        "dataBoom",
-        "privacyModel",
-        "openRate"
+        "HighType"
       ],
       "descs_html": [
-        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js\">脚本注释</a></h4>"
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXiaoHongShu.js\">脚本注释</a></h4>"
       ],
       "settings": [
         {
-          "id": "dataBoom",
-          "name": "个人数据爆表",
+          "id": "HighType",
+          "name": "图片捕获模式",
           "val": null,
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "1为开启,0为关闭"
-        },
-        {
-          "id": "privacyModel",
-          "name": "隐私模式",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "1为开启,0为关闭；已知启用后将影响话题关注、图文发布话题标签、话题内搜索功能"
-        },
-        {
-          "id": "openRate",
-          "name": "关闭话题评分",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "1为开启,0为关闭"
+          "desc": "1为原始分辨率,2为高质量压缩,3为高像素输出,4为平衡配置，默认为1"
         }
       ],
       "author": "@XiaoMao",
       "repo": "https://github.com/xiaomaoJT/QxScript",
       "icons": [
-        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/cool.png",
-        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/cool.png"
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/xiaohongshu.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/xiaohongshu.png"
       ],
-      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js"
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXiaoHongShu.js"
     }
   ]
 }
