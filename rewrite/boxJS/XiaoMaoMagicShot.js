@@ -22,7 +22,7 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMagicShot.js
 
-2、打开软件 > 自动解锁 ，若未解锁成功，手动点击左上角「恢复购买」
+2、打开软件 > 自动解锁 ，若未解锁成功，手动点击右上角「恢复购买」
 
 3、⚠️⚠️⚠️同类型解锁脚本不可共存。
 
