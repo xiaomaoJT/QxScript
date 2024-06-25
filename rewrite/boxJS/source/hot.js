@@ -99,7 +99,7 @@ var typeList = [
   { name: "B\u7ad9\u70ed\u699c", type: "bz", params: "bili" },
   { name: "\u8d34\u5427\u70ed\u699c", type: "tb", params: "baiduRY" },
   { name: "\u5fae\u535a\u70ed\u699c", type: "wb", params: "wbHot" },
-  { name: "\u6296\u97f3\u70ed\u699c", type: "gy", params: "douyinHot" },
+  { name: "\u6296\u97f3\u70ed\u699c", type: "dy", params: "douyinHot" },
   { name: "\u8c46\u74e3\u70ed\u699c", type: "db", params: "douban" },
   { name: "\u5fae\u4fe1\u70ed\u699c", type: "wx", params: "wxHot" },
   { name: "\u5c11\u6570\u6d3e\u70ed\u699c", type: "ss", params: "ssPai" },
@@ -152,7 +152,7 @@ function XiaoMaoFunction() {
         if (typeObj) {
           let option = {
             url: encodeURI(
-              "https://api.vvhan.com/api/hotlist?type=" + typeObj.params
+              "https://api.vvhan.com/api/hotlist/" + typeObj.params
             ),
             method: "GET",
             headers: {
