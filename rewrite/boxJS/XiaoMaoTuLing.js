@@ -1,10 +1,10 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-05-11
+ * @LastMod: 2024-06-26
  *
  * 
 
-\图\凌\ \终\身\v\i\p\
+\图\凌\ \终\身\v\i\p\ + \图\源\篡\改\
 
 仅供学习参考，请于下载后24小时内删除
 
@@ -20,11 +20,15 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTuLing.js
 
+2、图源篡改功能，下载1K高品质图片，自动激活
+
 ********************************
 
 [mitm]
 hostname = cloud.turingpic.com
 
 [rewrite_local]
-https:\/\/cloud\.turingpic\.com\/ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/tl.js
+https:\/\/cloud\.turingpic\.com url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/tl.js
+
+
  ***************/
