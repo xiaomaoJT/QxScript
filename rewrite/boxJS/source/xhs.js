@@ -28,7 +28,7 @@ let typeObj = {
 let HighType = 1;
 let BerserkMode = 0;
 $.read("HighType") ? (HighType = $.read("HighType")) : "";
-$.read("BerserkMode") ? (HighType = $.read("BerserkMode")) : "";
+$.read("BerserkMode") ? (BerserkMode = $.read("BerserkMode")) : "";
 
 // 去广告
 if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
@@ -253,6 +253,7 @@ if (HighType != 0) {
         obj.data.image_stickers.length
       ) {
         obj.data.image_stickers.map((el, index) => {
+          console.log("图片ID：" + el.fileid);
           $.notify(
             "🏅️小红书高清图片捕获成功",
             "标准捕获模式：" + typeObj[HighType].label,
@@ -265,22 +266,27 @@ if (HighType != 0) {
       }
     }
   } else {
-    if (/^http:\/\/sns-img-hw\.xhscdn.com\/.+?imageView2?/.test(requestUrl)) {
+    if (
+      /^http:\/\/sns-img-hw\.xhscdn\.com\/.+?imageView2\/2\/w\/(?:10[8-9]\d|1[1-9]\d{2}|[2-9]\d{3,})\/format?/.test(
+        requestUrl
+      )
+    ) {
       const regex = /http:\/\/sns-img-hw\.xhscdn\.com\/([^?]+)/;
       const match = requestUrl.match(regex);
       let imageId = null;
       if (match && match[1]) {
         imageId = match[1];
       }
+      console.log("图片ID：" + imageId);
       if (imageId) {
         $.notify(
           "🏅️小红书高清图片捕获成功",
           "狂暴捕获模式：" + typeObj[HighType].label,
-          `又有好图？我收下了！`,
+          `按需开启，未能正常触发请尝试清除小红书缓存，我 > 设置 > 通用设置 > 存储空间`,
           `http://sns-img-bd.xhscdn.com/${imageId}?${typeObj[HighType].value}`
         );
-        $done();
       }
+      $done();
     }
   }
 }

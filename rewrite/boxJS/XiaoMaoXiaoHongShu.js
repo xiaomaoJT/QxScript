@@ -28,8 +28,9 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoX
 图片捕获模式：1为原始分辨率,2为高质量压缩,3为高像素输出,4为平衡配置，默认为1，0为关闭
 图片捕获狂暴模式：1为狂暴，0为标准，默认标准。狂暴模式开启后见图就收。
 
-
 3、访问图片帖子详情，即可触发捕获，请留意通知
+
+4、内置RuCu6广告拦截
 
 
 
@@ -42,10 +43,10 @@ hostname = edith.xiaohongshu.com,www.xiaohongshu.com,sns-img-hw.xhscdn.com
 [rewrite_local]
 # 图片捕获
 https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/note\/widgets url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
-http:\/\/sns-img-hw\.xhscdn.com\/.+?imageView2 url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
+http:\/\/sns-img-hw\.xhscdn\.com\/.+?imageView2\/2\/w\/(?:10[8-9]\d|1[1-9]\d{2}|[2-9]\d{3,})\/format url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 
 
-# @RuCu6
+# @RuCu6 去广告
 # 惊喜弹窗
 ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/surprisebox\/(get_style|open|submit_action) url reject-dict
 ^https:\/\/www\.xiaohongshu\.com\/api\/marketing\/box\/trigger\? url reject-dict
