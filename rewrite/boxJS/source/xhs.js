@@ -289,6 +289,14 @@ if (HighType != 0) {
       $done();
     }
   }
+} else {
+  if (
+    /^http:\/\/sns-img-hw\.xhscdn\.com\/.+?imageView2\/2\/w\/(?:10[8-9]\d|1[1-9]\d{2}|[2-9]\d{3,})\/format?/.test(
+      requestUrl
+    )
+  ) {
+    $done();
+  }
 }
 
 $done({ body: status ? JSON.stringify(obj) : obj });
