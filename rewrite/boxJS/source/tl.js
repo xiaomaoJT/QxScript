@@ -15,7 +15,7 @@ var obj = status
 if (/^https:\/\/cloud\.turingpic\.com\/.+\/ios_download?/.test(requestUrl)) {
   if (
     obj.data &&
-    /^https:\/\/c-ssl\.duitang\.com\/uploads\/blog\/\d{6}\/\d{2}\/[A-Za-z0-9]+\.thumb\.1000_0\.(jpeg|jpg|png)?/.test(
+    /^https:\/\/c-ssl\.duitang\.com\/uploads\/.+\/\d{6}\/\d{2}\/.+\.thumb\.1000_0\.(jpeg|jpg|png)?/.test(
       obj.data
     )
   ) {
