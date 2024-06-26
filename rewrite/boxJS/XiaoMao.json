@@ -906,21 +906,21 @@
       "settings": [
         {
           "id": "HighType",
-          "name": "图片捕获模式",
+          "name": "图片捕获清晰度",
           "val": null,
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "1为原始分辨率,2为高质量压缩,3为高像素输出,4为平衡配置，默认为1"
+          "desc": "1为原始分辨率,2为高质量压缩,3为高像素输出,4为平衡配置，默认为1，0为关闭"
         },
         {
           "id": "BerserkMode",
-          "name": "狂暴模式",
+          "name": "图片捕获狂暴模式",
           "val": null,
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "1为开启，0为关闭，默认关闭。开启后见图就收。"
+          "desc": "1为狂暴，0为标准，默认标准。狂暴模式开启后见图就收。"
         }
       ],
       "author": "@XiaoMao",
