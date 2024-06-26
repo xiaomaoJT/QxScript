@@ -30,51 +30,6 @@ let BerserkMode = 0;
 $.read("HighType") ? (HighType = $.read("HighType")) : "";
 $.read("BerserkMode") ? (HighType = $.read("BerserkMode")) : "";
 
-// 图片清晰度
-if (HighType != 0) {
-  // 捕获模式
-  if (BerserkMode == 0) {
-    if (
-      /^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/note\/widgets?/.test(
-        requestUrl
-      )
-    ) {
-      if (
-        obj.data.hasOwnProperty("image_stickers") &&
-        obj.data.image_stickers.length
-      ) {
-        obj.data.image_stickers.map((el, index) => {
-          $.notify(
-            "🏅️小红书高清图片捕获成功",
-            "标准捕获模式：" + typeObj[HighType].label,
-            `共捕获图片${obj.data.image_stickers.length}张，当前第${
-              index + 1
-            }张`,
-            `http://sns-img-bd.xhscdn.com/${el.fileid}?${typeObj[HighType].value}`
-          );
-        });
-      }
-    }
-  } else {
-    if (/^http:\/\/sns-img-hw\.xhscdn.com\/.+?imageView2?/.test(requestUrl)) {
-      const regex = /http:\/\/sns-img-hw\.xhscdn\.com\/([^?]+)/;
-      const match = requestUrl.match(regex);
-      let imageId = null;
-      if (match && match[1]) {
-        imageId = match[1];
-      }
-      if (imageId) {
-        $.notify(
-          "🏅️小红书高清图片捕获成功",
-          "狂暴捕获模式：" + typeObj[HighType].label,
-          `又有好图？我收下了！`,
-          `http://sns-img-bd.xhscdn.com/${imageId}?${typeObj[HighType].value}`
-        );
-      }
-    }
-  }
-}
-
 // 去广告
 if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
   // 信息流 图片
@@ -281,6 +236,52 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
   // 搜索结果
   if (obj?.data?.items?.length > 0) {
     obj.data.items = obj.data.items.filter((i) => i.model_type === "note");
+  }
+}
+
+// 图片清晰度
+if (HighType != 0) {
+  // 捕获模式
+  if (BerserkMode == 0) {
+    if (
+      /^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/note\/widgets?/.test(
+        requestUrl
+      )
+    ) {
+      if (
+        obj.data.hasOwnProperty("image_stickers") &&
+        obj.data.image_stickers.length
+      ) {
+        obj.data.image_stickers.map((el, index) => {
+          $.notify(
+            "🏅️小红书高清图片捕获成功",
+            "标准捕获模式：" + typeObj[HighType].label,
+            `共捕获图片${obj.data.image_stickers.length}张，当前第${
+              index + 1
+            }张`,
+            `http://sns-img-bd.xhscdn.com/${el.fileid}?${typeObj[HighType].value}`
+          );
+        });
+      }
+    }
+  } else {
+    if (/^http:\/\/sns-img-hw\.xhscdn.com\/.+?imageView2?/.test(requestUrl)) {
+      const regex = /http:\/\/sns-img-hw\.xhscdn\.com\/([^?]+)/;
+      const match = requestUrl.match(regex);
+      let imageId = null;
+      if (match && match[1]) {
+        imageId = match[1];
+      }
+      if (imageId) {
+        $.notify(
+          "🏅️小红书高清图片捕获成功",
+          "狂暴捕获模式：" + typeObj[HighType].label,
+          `又有好图？我收下了！`,
+          `http://sns-img-bd.xhscdn.com/${imageId}?${typeObj[HighType].value}`
+        );
+        $done();
+      }
+    }
   }
 }
 
