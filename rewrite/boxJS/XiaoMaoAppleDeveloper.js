@@ -23,6 +23,8 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAppleDeveloper.js
 
+(访问 https://developer.apple.com/download ，或根据自动任务脚本通知来获取Cookie)
+
 
 2、⚠️ 配置文件 [task_local] 标签添加
 
@@ -194,13 +196,13 @@ $.get(option, (error1, resp1, response) => {
       list.map((item, index) => {
         betaText =
           betaText +
-          `版本类型：${item.h3 ?? ""}` +
+          `⚙️版本类型：${item.h3 ?? ""}` +
           "\n" +
-          `版本编号：${item.ul[1] ?? ""}` +
+          `🎟版本编号：${item.ul[1] ?? ""}` +
           "\n" +
-          `发布时间：${item.ul[0] ?? ""}` +
+          `⏰发布时间：${item.ul[0].replace("Released", "") ?? ""}` +
           "\n" +
-          `版本描述：${item.p ?? ""}` +
+          `🎞️版本描述：${item.p ?? ""}` +
           "\n\n";
       });
       $.notify(
@@ -210,8 +212,8 @@ $.get(option, (error1, resp1, response) => {
       );
       $.notify(
         "Beta更新",
-        `数据获取成功，点击跳转Apple Developer`,
-        betaText,
+        `共${list.length}项更新信息，点击跳转Apple Developer`,
+        "",
         "https://developer.apple.com/download"
       );
       $done({});
