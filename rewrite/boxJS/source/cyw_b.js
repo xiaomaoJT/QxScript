@@ -19,10 +19,17 @@ function Env(name) {
   };
 
   // 定义 notify 方法，用于发送通知
-  const notify = (title = "XiaoMao", subtitle = "", message = "", url = "",url2 = url) => {
+  const notify = (
+    title = "XiaoMao",
+    subtitle = "",
+    message = "",
+    url = "",
+    url2 = url
+  ) => {
     if (isLoon) $notification.post(title, subtitle, message, url);
     if (isSurge) $notification.post(title, subtitle, message, { url });
-    if (isQX) $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
+    if (isQX)
+      $notify(title, subtitle, message, { "open-url": url, "media-url": url2 });
   };
 
   // 定义 get 方法，用于发送 GET 请求
@@ -87,7 +94,24 @@ function Env(name) {
     done,
   };
 }
-let obj = JSON.parse($response.body);
+let status = isJSON($response.body);
+var obj = status
+  ? JSON.parse(
+      removeExtraSpaces($response.body)
+        .replace(/\"remain\":\w+/g, '"remain":100')
+        .replace(/\"subscription_remain\":\w+/g, '"subscription_remain":100')
+        .replace(/\"subscription_quota\":\w+/g, '"subscription_quota":50')
+        .replace(/\"addition_remain\":\w+/g, '"addition_remain":100')
+        .replace(
+          /\"subscription_quota_end_time\":\w+/g,
+          '"subscription_quota_end_time":100'
+        )
+        .replace(/\"free_remain\":\w+/g, '"free_remain":100')
+        .replace(/\"free_quota\":\w+/g, '"free_quota":50')
+        .replace(/\"switch\":\w+/g, '"switch":false')
+    )
+  : $response.body;
+
 let $XiaoMaoSvip = new Env("CaiYun");
 let appName = `XiaoMao-彩云天气Svip`;
 let XiaoMaoSvip = "";
@@ -179,4 +203,23 @@ if ($response.body) {
   $done({ body: JSON.stringify(obj) });
 } else {
   $done({});
+}
+
+function isJSON(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
+function removeExtraSpaces(jsonString) {
+  var jsonObj = JSON.parse(jsonString);
+  return JSON.stringify(jsonObj, function (key, value) {
+    if (typeof value === "string") {
+      return value.trim();
+    }
+    return value;
+  });
 }
