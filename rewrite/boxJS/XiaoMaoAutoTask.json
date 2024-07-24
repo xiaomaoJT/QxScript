@@ -1,6 +1,6 @@
 {
     "name": "XiaoMao自动任务合集",
-    "description": "XiaoMao·TG频道频道：https://t.me/xiaomaoJT 最新更新时间：20240703",
+    "description": "XiaoMao·TG频道频道：https://t.me/xiaomaoJT 最新更新时间：20240724",
     "task": [
         "event-interaction https://raw.githubusercontent.com/getsomecat/Qx/main/Net_Speed.js, tag=节点网速查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png",
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=媒体解锁查询, img-url=checkmark.seal.system",
@@ -10,6 +10,7 @@
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/switch-check-google.js, tag=谷歌送中查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Puzzle.png",
         "event-interaction https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/txt/ipinfo.txt, tag=节点位置查询, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/3icon.png",
         "event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/server-info-plus.js, tag=节点风险查询, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SaySS.png",
+        "0 0 0/4 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoPicView.js, tag=🖼️多元图片推送, img-url=https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/pic.png, enabled=true",
         "0 0 1 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAppleDeveloper.js, tag=XiaoMao_Beta更新, img-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Apple.png, enabled=true",
         "0 0 22 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoImprisonNovel.js, tag=🔞XiaoMao_大师文学, img-url=graduationcap.fill.system, enabled=true",
         "0 0 9 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoShangHaiMetro.js, tag=🚇XiaoMao_上海地铁实时信息查询, img-url=tram.fill.system, enabled=true",
