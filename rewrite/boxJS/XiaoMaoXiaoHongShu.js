@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-06-26
+ * @LastMod: 2024-07-26
  *
  * 
 
@@ -38,13 +38,19 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoX
 
 
 [mitm]
-hostname = edith.xiaohongshu.com,www.xiaohongshu.com,sns-img-hw.xhscdn.com
+hostname = edith.xiaohongshu.com,www.xiaohongshu.com,sns-img-hw.xhscdn.com,fe.xiaohongshu.com
 
 [rewrite_local]
 # 图片捕获
 https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/note\/widgets url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 http:\/\/sns-img-hw\.xhscdn\.com\/.+?imageView2\/2\/w\/(?:10[8-9]\d|1[1-9]\d{2}|[2-9]\d{3,})\/format url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 
+# 去广告
+https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/system_service\/splash_config url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
+https:\/\/fe\.xiaohongshu\.com\/api\/feresource\/v1\/web url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
+https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/system_service\/config url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
+https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/system_service\/splash_async_optimization url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
+https:\/\/www\.xiaohongshu\.com\/api\/sns\/v3\/system_service\/flag_exp url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 
 # @RuCu6 去广告
 # 惊喜弹窗

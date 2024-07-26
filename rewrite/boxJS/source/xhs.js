@@ -131,20 +131,6 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
       delete obj.data[i];
     }
   }
-} else if (url.includes("/v2/system_service/splash_config")) {
-  // 开屏广告
-  if (obj?.data?.ads_groups?.length > 0) {
-    for (let i of obj.data.ads_groups) {
-      i.start_time = 3818332800; // Unix 时间戳 2090-12-31 00:00:00
-      i.end_time = 3818419199; // Unix 时间戳 2090-12-31 23:59:59
-      if (i?.ads?.length > 0) {
-        for (let ii of i.ads) {
-          ii.start_time = 3818332800; // Unix 时间戳 2090-12-31 00:00:00
-          ii.end_time = 3818419199; // Unix 时间戳 2090-12-31 23:59:59
-        }
-      }
-    }
-  }
 } else if (url.includes("/v2/user/followings/followfeed")) {
   // 关注页信息流 可能感兴趣的人
   if (obj?.data?.items?.length > 0) {
@@ -227,16 +213,69 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
         if (item?.related_ques) {
           delete item.related_ques;
         }
+        if(item?.advanced_widgets_groups && item.advanced_widgets_groups?.groups && item.advanced_widgets_groups.groups.length){
+          item.advanced_widgets_groups.groups[0].fetch_types = item.advanced_widgets_groups[0].fetch_types.filter(el => el != 'ads_goods_cards' && el != 'ads_comment_component' && el != 'ads_engage_bar')
+        }
         newItems.push(item);
       }
     }
     obj.data = newItems;
+    obj.data.
   }
 } else if (url.includes("/v10/search/notes")) {
   // 搜索结果
   if (obj?.data?.items?.length > 0) {
     obj.data.items = obj.data.items.filter((i) => i.model_type === "note");
   }
+} else if (url.includes("v2/system_service/splash_config")) {
+  obj.data.bidding_ads = [];
+  obj.data.ads_groups = [];
+  obj.data.per_day_max_show = 0;
+  obj.data.min_interval = 100000000000000000000000;
+  obj.data.hot_interval = 100000000000000000000000;
+} else if (url.includes("feresource/v1/web")) {
+  obj.data.resources = obj.data.resources.filter(
+    (el) => el.name != "ad-printing"
+  );
+} else if (url.includes("v1/system_service/config")) {
+  obj.data.home_banner = [];
+  obj.data.isL28DUser = true;
+  obj.data.tabbar.tabs = obj.data.tabbar.tabs.filter(
+    (el) => el.title != "购买"
+  );
+} else if (url.includes("v2/system_service/splash_async_optimization")) {
+  obj.data.ads_id = "-1";
+} else if (url.includes("v3/system_service/flag_exp")) {
+  obj.flags.shequ.ads_rs_dag_multi_channel = false;
+  obj.flags.shequ.feed_ads_use_basic_gender = false;
+  obj.flags.shequ.auction_skip_same_advertiser_ads = false;
+  obj.flags.shequ.enable_fas_hamster_ads_fg = false;
+  obj.flags.shequ.ads_search_relevance_rule_4_leads = 0;
+  obj.flags.shequ.search_ads_query_bidword_synonymy_v2 = 0;
+  obj.flags.shequ.enable_ads_fg = false;
+  obj.flags.shequ.enable_ads_log = false;
+  obj.flags.shequ.feed_zprofile_ads_move = false;
+  obj.flags.shequ.ads_search_relevance_entity_filter_new_ad = 0;
+  obj.flags.shequ.is_delete_ads_feature = false;
+  obj.flags.shequ.feed_ads_first_rank_mlp_in_lambda = false;
+  obj.flags.shequ.ads_business_topic_config = 0;
+  obj.flags.shequ.feed_ads_lambda_request_limit = 0;
+  obj.flags.shequ.homefeed_ads_video_cover_exp = 0;
+  obj.flags.shequ.ads_search_retrieval_query_correction = 0;
+  obj.flags.shequ.feed_ads_cpc_max_response_size = 0;
+  obj.flags.shequ.hf_ad_tips = 0;
+  obj.flags.shequ.feed_ads_gcpm_first_limit = 0;
+  obj.flags.shequ.ads_search_relevance_brand_filter_v3 = 0;
+  obj.flags.shequ.homefeed_ads_image_cover_exp = 0;
+  obj.flags.shequ.ads_search_relevance_entity_beauty_unlook = 0;
+  obj.flags.shequ.move_ads_second_jump = 0;
+  obj.flags.shequ.enable_ads_vf = 0;
+  obj.flags.shequ.search_ads_auction_cost_base = 0;
+  obj.flags.shequ.ads_search_query_session_strategy_v2_exp = 0;
+  obj.flags.shequ.ads_search_retrieval_use_grab_ranking = 0;
+  obj.flags.shequ.search_ads_ugsp_reserve_price_coef = 0;
+  obj.flags.shequ.change_ads_requestid_switch = false;
+  obj.flags.shequ["ads-feed-adpv-log-flag"] = false;
 }
 
 // 图片清晰度
