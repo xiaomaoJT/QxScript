@@ -192,35 +192,36 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
 } else if (url.includes("/v6/homefeed")) {
   if (obj?.data?.length > 0) {
     // 信息流广告
-    let newItems = [];
-    for (let item of obj.data) {
-      if (item?.model_type === "live_v2") {
-        // 信息流-直播
-        continue;
-      } else if (item.hasOwnProperty("ads_info")) {
-        // 信息流-赞助
-        continue;
-      } else if (item.hasOwnProperty("card_icon")) {
-        // 信息流-带货
-        continue;
-      } else if (item?.note_attributes?.includes("goods")) {
-        // 信息流-商品
-        continue;
-      } else if (item.hasOwnProperty("is_ads") && item.is_ads) {
-        // 广告标识
-        continue;
-      } else {
-        if (item?.related_ques) {
-          delete item.related_ques;
+    obj.data = obj.data
+      .map((item) => {
+        if (
+          item?.model_type != "live_v2" &&
+          !item.hasOwnProperty("ads_info") &&
+          !item.hasOwnProperty("card_icon") &&
+          !item?.note_attributes?.includes("goods") &&
+          !item?.is_ads
+        ) {
+          if (item?.related_ques) {
+            delete item.related_ques;
+          }
+          if (
+            item?.advanced_widgets_groups &&
+            item.advanced_widgets_groups?.groups &&
+            item.advanced_widgets_groups.groups.length &&
+            item.advanced_widgets_groups.groups[0]?.fetch_types
+          ) {
+            item.advanced_widgets_groups.groups[0].fetch_types =
+              item.advanced_widgets_groups.groups[0].fetch_types.filter(
+                (el) => !el.includes("ads") && !el.includes("goods")
+              );
+          }
+
+          return {
+            ...item,
+          };
         }
-        if(item?.advanced_widgets_groups && item.advanced_widgets_groups?.groups && item.advanced_widgets_groups.groups.length){
-          item.advanced_widgets_groups.groups[0].fetch_types = item.advanced_widgets_groups[0].fetch_types.filter(el => el != 'ads_goods_cards' && el != 'ads_comment_component' && el != 'ads_engage_bar')
-        }
-        newItems.push(item);
-      }
-    }
-    obj.data = newItems;
-    obj.data.
+      })
+      .filter(Boolean);
   }
 } else if (url.includes("/v10/search/notes")) {
   // 搜索结果
