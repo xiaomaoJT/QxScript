@@ -46,6 +46,9 @@ https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/note\/widgets url script-respon
 http:\/\/sns-img-hw\.xhscdn\.com\/.+?imageView2\/2\/w\/(?:10[8-9]\d|1[1-9]\d{2}|[2-9]\d{3,})\/format url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 
 # 去广告
+# 信息流加载优化@xiaomao
+^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v6\/homefeed url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
+^https:\/\/www\.xiaohongshu\.com\/api\/sns\/(v1\/ads\/resource|v2\/hey\/\w+\/hey_gallery) url reject-dict
 https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/system_service\/splash_config url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 https:\/\/fe\.xiaohongshu\.com\/api\/feresource\/v1\/web url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/system_service\/config url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
@@ -74,8 +77,6 @@ https:\/\/.+\.xiaohongshu\.com\/api(\/v\d+)?\/(collect|spider|data) url reject
 ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v3\/note\/guide\? url reject-dict
 ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v4\/followfeed\? url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v5\/recommend\/user\/follow_recommend\? url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
-# 信息流加载优化@xiaomao
-^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v6\/homefeed\? url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
-^https:\/\/www\.xiaohongshu\.com\/api\/sns\/(v1\/ads\/resource|v2\/hey\/\w+\/hey_gallery) url reject-dict
+
 
 ********************************/
