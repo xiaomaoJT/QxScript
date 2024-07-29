@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-07-22
+ * @LastMod: 2024-07-29
  *
  * 
 彩/云/天/气/S/v/i/p /+/ /彩/云/天/气/p/r/o/ /s/v/i/p/ /+/ /去/广/告
@@ -28,9 +28,10 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoC
 ********************************
 
 [mitm]
-hostname = biz.caiyunapp.com,biz.cyapi.cn,cdn-w.caiyunapp.com,ad.cyapi.cn,wrapper.cyapi.cn,starplucker.cyapi.cn
+hostname = biz.caiyunapp.com,biz.cyapi.cn,cdn-w.caiyunapp.com,ad.cyapi.cn,wrapper.cyapi.cn,starplucker.cyapi.cn,api.caiyunapp.com
 
 [rewrite_local]
+https:\/\/(wrapper|api)\.(cyapi|caiyunapp)\.(cn|com)\/v1\/activity url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw_b.js
 https?:\/\/biz\.(caiyunapp|cyapi)\.(com|cn)\/(membership_rights|v2\/user) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw_b.js
 https:\/\/cdn-w\.caiyunapp\.com\/p\/app\/activity url reject
 https:\/\/biz\.cyapi\.cn\/p\/v1\/entries url reject-dict
