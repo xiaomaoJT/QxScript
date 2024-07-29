@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-07-26
+ * @LastMod: 2024-07-29
  *
  * 
 
@@ -38,7 +38,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoX
 
 
 [mitm]
-hostname = edith.xiaohongshu.com,www.xiaohongshu.com,sns-img-hw.xhscdn.com,fe.xiaohongshu.com
+hostname = *.xiaohongshu.com,sns-img-hw.xhscdn.com
 
 [rewrite_local]
 # 图片捕获
@@ -51,6 +51,7 @@ https:\/\/fe\.xiaohongshu\.com\/api\/feresource\/v1\/web url script-response-bod
 https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/system_service\/config url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/system_service\/splash_async_optimization url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
 https:\/\/www\.xiaohongshu\.com\/api\/sns\/v3\/system_service\/flag_exp url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/xhs.js
+https:\/\/.+\.xiaohongshu\.com\/api(\/v\d+)?\/(collect|spider|data) url reject
 
 # @RuCu6 去广告
 # 惊喜弹窗

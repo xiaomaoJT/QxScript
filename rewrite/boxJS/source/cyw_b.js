@@ -200,6 +200,17 @@ if ($response.body) {
     obj.result.svip_expired_at = XiaoMaoEndTime;
     obj.result.wt.vip.svip_expired_at = XiaoMaoEndTime;
   }
+  if (
+    /^https:\/\/(wrapper|api)\.(cyapi|caiyunapp)\.(cn|com)\/v1\/activity?/.test(
+      requestUrl
+    )
+  ) {
+    if (obj.hasOwnProperty("activities")) {
+      obj.activities = obj.activities.filter(
+        (el) => !(el && el.name && el.name.includes("ai"))
+      );
+    }
+  }
   $done({ body: JSON.stringify(obj) });
 } else {
   $done({});
