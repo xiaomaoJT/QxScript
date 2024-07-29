@@ -196,6 +196,7 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
       .map((item) => {
         if (
           item?.model_type != "live_v2" &&
+          item?.model_type != "advertisement" &&
           !item.hasOwnProperty("ads_info") &&
           !item.hasOwnProperty("card_icon") &&
           !item?.note_attributes?.includes("goods") &&
