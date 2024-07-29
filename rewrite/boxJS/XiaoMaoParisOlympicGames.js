@@ -511,7 +511,7 @@ $.get(option, (error1, resp1, res) => {
       });
     }
 
-    let listContent = "\n\n" + "🆚2024巴黎奥运会-今日赛程" + "\n\n";
+    let listContent = "\n\n" + "🆚2024巴黎奥运会-进行中赛程" + "\n\n";
 
     try {
       $.get(option2, (error2, resp2, res2) => {
