@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-07-29
+ * @LastMod: 2024-08-01
  *
  * 
 
@@ -481,8 +481,8 @@ $.get(option, (error1, resp1, res) => {
   if (response && response?.tplData?.data?.header) {
     let resHeader = response.tplData.data.header;
     let resTabsList = response.tplData.data.tabsList[0].data.medalList[0];
-    let notifyTitle = "巴黎奥运会";
-    let notifySubtitle = response.tplData.data.shareInfo.abstract;
+    let notifyTitle = "🇫🇷巴黎奥运会";
+    let notifySubtitle = "🏟️" + response.tplData.data.shareInfo.abstract;
 
     let notifyContent =
       `「${getEmojiByCountry(resHeader.rankInfo.country)}」「${
@@ -506,7 +506,9 @@ $.get(option, (error1, resp1, res) => {
           ).padStart(2, " ")}」「🥈${String(el.silver).padStart(
             2,
             " "
-          )}」「🥉${String(el.bronze).padStart(2, " ")}」` +
+          )}」「🥉${String(el.bronze).padStart(2, " ")}」「🏅${String(
+            el.total
+          ).padStart(2, " ")}」` +
           "\n";
       });
     }
