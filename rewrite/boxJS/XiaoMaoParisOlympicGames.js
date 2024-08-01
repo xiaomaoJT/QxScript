@@ -452,15 +452,15 @@ function getEmojiByCountry(country) {
   return "🏳️‍🌈" + country;
 }
 function padToSixChineseChars(input) {
-  const targetLength = 7;
+  const targetLength = 6;
   const paddingChar = "　";
   const currentLength = input.length;
   if (currentLength < targetLength) {
     const paddingLength = targetLength - currentLength;
-    const paddedString = "" + paddingChar.repeat(paddingLength);
+    const paddedString = "" + paddingChar.repeat(paddingLength) + " ";
     return paddedString;
   }
-  return "";
+  return " ";
 }
 const $ = new Env("XiaoMaoParisOlympicGames");
 
@@ -489,7 +489,11 @@ $.get(option, (error1, resp1, res) => {
         resHeader.rankInfo.rank
       }」「🥇${resHeader.medalInfo.gold}」「🥈${
         resHeader.medalInfo.silver
-      }」「🥉${resHeader.medalInfo.bronze}」` +
+      }」「🥉${resHeader.medalInfo.bronze}」「🏅${
+        parseInt(resHeader.medalInfo.gold) +
+        parseInt(resHeader.medalInfo.silver) +
+        parseInt(resHeader.medalInfo.bronze)
+      }」` +
       "\n\n" +
       "🎖️2024巴黎奥运会-奖牌榜" +
       "\n\n";
