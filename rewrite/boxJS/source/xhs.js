@@ -55,7 +55,7 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
       }
     }
     // 写入持久化存储
-    if (isQuanX) {
+    if (typeof $task !== "undefined") {
       $prefs.removeValueForKey("redBookLivePhoto");
       $prefs.setValueForKey(
         JSON.stringify(obj.data[0].note_list[0].images_list),
@@ -74,7 +74,7 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
   let livePhoto;
   let newDatas = [];
   // 读取持久化存储
-  if (isQuanX) {
+  if (typeof $task !== "undefined") {
     livePhoto = JSON.parse($prefs.valueForKey("redBookLivePhoto"));
   } else {
     livePhoto = JSON.parse($persistentStore.read("redBookLivePhoto"));
