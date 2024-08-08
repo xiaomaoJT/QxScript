@@ -21,10 +21,6 @@
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiSignReward.js
 
 2、⚠️ 配置文件 [task_local] 标签添加
-
-// 签到奖励领取
-0 9 * * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiSignReward.js, tag=✍️XiaoMao_阿里云盘奖励领取, img-url=https://raw.githubusercontent.com/shoujiqiyuan/PokemonGOforQuanX/master/IconSet/Z029.png, enabled=true
-
 // 每日签到
 0 8 * * * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ali_sign_auto2.js, tag=阿里云签到, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png, enabled=true
 
@@ -278,13 +274,12 @@ if (
     $.notify(
       "XiaoMao阿里云盘",
       "签到临时Token获取成功！",
-      "Token时效较短，快前往自动任务执行签到奖励批量领取吧！",
+      "正在执行奖励自动领取，请等待结束通知！",
       ""
     );
-    $done({});
+    getAllReward();
   }
 }
-getAllReward();
 
 function getError(info) {
   $.notify(
@@ -296,9 +291,6 @@ function getError(info) {
   $done({});
 }
 
-setTimeout(() => {
-  $done({});
-}, 30000);
 
 function Env(name) {
   // 判断当前环境是否为 Loon
