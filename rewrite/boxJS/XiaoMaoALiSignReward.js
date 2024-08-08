@@ -20,7 +20,7 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiSignReward.js
 
-2、签到奖励手动领取一次后触发自动领取「领取完可关闭脚本」
+2、签到奖励手动领取一次后触发自动领取「自动从第一天领取到当天」「领取完可关闭脚本」
 
 3、⚠️ 配置文件 [task_local] 标签添加
 // 每日签到
@@ -220,7 +220,7 @@ const getAllReward = async () => {
       $.notify(
         "XiaoMao阿里云盘！",
         "奖励领取执行完成！",
-        "请查看日志检查领取状态！",
+        "请刷新App签到页面或查看日志检查领取状态！",
         ""
       );
       $.done({});
@@ -275,8 +275,8 @@ if (
     $.write(headers["x-timestamp"], "x-timestamp");
     $.notify(
       "XiaoMao阿里云盘",
-      "签到临时Token获取成功！",
-      "正在执行奖励自动领取，请等待结束通知！",
+      "Token获取成功！正在执行奖励自动领取！",
+      "签到临时Token获取成功！正在执行奖励自动领取，请等待结束通知！",
       ""
     );
     getAllReward();
