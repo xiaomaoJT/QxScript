@@ -298,7 +298,7 @@ function getError(info) {
 
 setTimeout(() => {
   $done({});
-}, 5000);
+}, 30000);
 
 function Env(name) {
   // 判断当前环境是否为 Loon
