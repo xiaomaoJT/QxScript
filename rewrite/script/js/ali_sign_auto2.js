@@ -6,8 +6,10 @@
  * 
  * 签到奖励领取机制：考虑到部分会员权益想按需领取，平日到月底第三天均不会自动领取奖励
  * 增加奖励激活留存通知
- * 月底倒数第三天自动领取全部奖励
- * 月底最后三天 自动每天领取奖励
+ * 
+ * 自动领取已失效
+ * 自动领取已失效
+ * 自动领取已失效
  * 
  * 基于@Sliverkiss修改
  * 感谢@chavyleung提供的Env，以及@Sliverkiss、@zqzess、@lowking三位大佬的脚本用来抄袭
@@ -91,7 +93,7 @@ var directiveSignInCount = "";
 
 //脚本入口函数main()
 async function main() {
-  console.log("\n================== 任务 ==================\n");
+  // console.log("\n================== 任务 ==================\n");
   for (let user of userList) {
     // console.log(`🔷账号${user.index} >> Start work`);
     // console.log(`随机延迟${user.getRandomTime()}ms`);
@@ -100,68 +102,17 @@ async function main() {
     directiveAccessKey = accessKey;
     if (user.ckStatus) {
       //签到
-      let { signInCount, xumt } = await user.signCheckin(accessKey);
-      directiveXumt = xumt;
-      directiveSignInCount = signInCount;
-
-      //查询奖励状态信息
-      await user.getSignInfo(directiveAccessKey, directiveXumt);
-      //奖励
-      await getAllReward(user);
+      await user.signCheckin(accessKey);
+      DoubleLog(
+        "⚠️签到奖励领取已失效，请使用「✍️XiaoMao_阿里云盘奖励领取」脚本进行领取！\n"
+      );
+      DoubleLog(
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiSignReward.js"
+      );
     } else {
       //将ck过期消息存入消息数组
       $.notifyMsg.push(`❌账号${user.index} >> Check ck error!`);
     }
-  }
-}
-
-//获取奖励
-async function getAllReward(user) {
-  let lastDay = getLastDay();
-  let nowDay = getGoneDay();
-  if (nowDay == lastDay) {
-    $.notifyMsg.push("\n🎟还有三天就月底了，已自动领取积攒签到奖励～\n");
-    async function timeMagic(index) {
-      return new Promise((reslove) => {
-        setTimeout(async () => {
-          await user.getMainReword(
-            directiveAccessKey,
-            (index + 1).toString(),
-            directiveXumt
-          );
-          await user.getReword(
-            directiveAccessKey,
-            (index + 1).toString(),
-            directiveXumt
-          );
-          reslove();
-        }, 300 + parseInt(Math.random() * 10 * index));
-      });
-    }
-    for (let index = 0; index < getCountDays() - 2; index++) {
-      await timeMagic(index);
-    }
-  } else if (
-    parseInt(nowDay.substr(nowDay.lastIndexOf("/") + 1, 2)) >
-    parseInt(lastDay.substr(lastDay.lastIndexOf("/") + 1, 2))
-  ) {
-    $.notifyMsg.push("\n🎟距离月底少于3天了，已自动领取今天签到奖励～\n");
-    await user.getMainReword(
-      directiveAccessKey,
-      directiveSignInCount,
-      directiveXumt
-    );
-    await user.getReword(
-      directiveAccessKey,
-      directiveSignInCount,
-      directiveXumt
-    );
-  } else if (
-    parseInt(nowDay.substr(nowDay.lastIndexOf("/") + 1, 2)) <
-    parseInt(lastDay.substr(lastDay.lastIndexOf("/") + 1, 2))
-  ) {
-    $.notifyMsg.push("\n🎟时间还早呢，签到奖励按需自行领取吧～");
-    $.notifyMsg.push("🎟未领取将在月底最后三天全部自动领取～\n");
   }
 }
 
@@ -270,124 +221,14 @@ class UserInfo {
       //打印
       if (rewards.length > 0) {
         // $.log(`签到天数:${signInCount}=> ${subtitle}`);
-        DoubleLog(`用户: ${$.nick_name} > 第${signInCount}天`);
-        DoubleLog(`签到奖励: ${rewards[0].name}`);
-        DoubleLog(`备份奖励: ${rewards[1].name}`);
+        DoubleLog(`用户: ${$.nick_name} - 第${signInCount}天\n`);
+        // DoubleLog(`签到奖励: ${rewards[0].name}`);
+        // DoubleLog(`备份奖励: ${rewards[1].name}`);
       }
       //今日是否已签到
       $.signMsg =
         (isReward ? `🎉${result.title}签到成功!` : `️⚠️今天已经签到过了`) || "";
       return { signInCount, xumt };
-    } catch (e) {
-      throw e;
-    }
-  }
-  // 领取主奖励
-  async getMainReword(authorization, signInCount, xumt) {
-    try {
-      const options = {
-        url: `https://member.aliyundrive.com/v1/activity/sign_in_reward`,
-        headers: {
-          "Content-Type": "application/json",
-          accept: "application/json, text/plain, */*",
-          Authorization: authorization,
-          "x-canary": this.ADrivreInfo.headers["x-canary"],
-          "x-umt": xumt,
-          origin: "https://pages.aliyundrive.com",
-          "x-ua": xumt,
-          "user-agent": this.ADrivreInfo.headers["user-agent"],
-          referer: "https://pages.aliyundrive.com/",
-        },
-        body: JSON.stringify({
-          signInDay: parseInt(signInCount),
-        }),
-      };
-      //post方法
-      let { result, message } = await this.Request(options);
-      //打印领取详情
-      $.log(
-        result && !message
-          ? `🎉第${signInCount}天主奖励: ${result.description}领取成功!`
-          : `❌第${signInCount}天主奖励: ${message}`
-      );
-    } catch (e) {
-      throw e;
-    }
-  }
-  //领取备份奖励
-  async getReword(authorization, signInCount, xumt) {
-    try {
-      const options = {
-        url: `https://member.aliyundrive.com/v2/activity/sign_in_task_reward?_rx-s=mobile`,
-        headers: {
-          "Content-Type": "application/json",
-          accept: "application/json, text/plain, */*",
-          Authorization: authorization,
-          "x-canary": this.ADrivreInfo.headers["x-canary"],
-          "x-umt": xumt,
-          origin: "https://pages.aliyundrive.com",
-          "x-ua": xumt,
-          "user-agent": this.ADrivreInfo.headers["user-agent"],
-          referer: "https://pages.aliyundrive.com/",
-        },
-        body: JSON.stringify({
-          signInDay: parseInt(signInCount),
-        }),
-      };
-      //post方法
-      let { result, message } = await this.Request(options);
-      //打印领取详情
-      $.log(
-        result && !message
-          ? `🎉第${signInCount}天备份奖励: ${result.description}领取成功!`
-          : `❌第${signInCount}天备份奖励: ${message}`
-      );
-    } catch (e) {
-      throw e;
-    }
-  }
-
-  // 验证奖励是否被激活
-  async getSignInfo(authorization, xumt) {
-    try {
-      const options = {
-        url: `https://member.alipan.com/v2/activity/sign_in_info`,
-        headers: {
-          "Content-Type": "application/json",
-          accept: "application/json, text/plain, */*",
-          Authorization: authorization,
-          "x-canary": this.ADrivreInfo.headers["x-canary"],
-          "x-umt": xumt,
-          origin: "https://pages.aliyundrive.com",
-          "x-ua": xumt,
-          "user-agent": this.ADrivreInfo.headers["user-agent"],
-          referer: "https://pages.aliyundrive.com/",
-        },
-        body: JSON.stringify({}),
-      };
-      //post方法
-      let { result, message } = await this.Request(options);
-      $.openUrl = null;
-      if (!message) {
-        let rewardsList = result.rewards.filter(
-          (e) =>
-            e.status != "finished" &&
-            e.status != "verification" &&
-            e.position < 3
-        );
-        if (rewardsList.length) {
-          rewardsList.map((e) => {
-            return DoubleLog(
-              "🚨🚨奖励：" + e.name + " " + "激活失败，点击通知打开云盘查看！"
-            );
-          });
-          $.openUrl = result.action;
-        } else {
-          DoubleLog("🌹🌹今天的奖励已全部激活成功！");
-        }
-      } else {
-        DoubleLog("🚨🚨奖励完成情况获取失败！");
-      }
     } catch (e) {
       throw e;
     }
@@ -428,11 +269,11 @@ async function getCookie() {}
 function DoubleLog(data) {
   if ($.isNode()) {
     if (data) {
-      console.log(`${data}`);
+      // console.log(`${data}`);
       $.notifyMsg.push(`${data}`);
     }
   } else {
-    console.log(`${data}`);
+    // console.log(`${data}`);
     $.notifyMsg.push(`${data}`);
   }
 }
