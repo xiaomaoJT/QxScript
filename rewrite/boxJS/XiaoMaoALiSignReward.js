@@ -20,7 +20,9 @@
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoALiSignReward.js
 
-2、⚠️ 配置文件 [task_local] 标签添加
+2、签到奖励手动领取一次后触发自动领取「领取完可关闭脚本」
+
+3、⚠️ 配置文件 [task_local] 标签添加
 // 每日签到
 0 8 * * * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ali_sign_auto2.js, tag=阿里云签到, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png, enabled=true
 
