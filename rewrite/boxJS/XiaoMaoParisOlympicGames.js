@@ -1,11 +1,14 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-08-01
+ * @LastMod: 2024-08-09
  *
  * 
 
 
 \巴\黎\奥\运\会\ 
+\奖\牌\榜\
+\中\国\榜\
+\进\行\中\赛\程\
 
 
 
@@ -451,8 +454,8 @@ function getEmojiByCountry(country) {
   }
   return "🏳️‍🌈" + country;
 }
-function padToSixChineseChars(input) {
-  const targetLength = 6;
+function padToSixChineseChars(input, Length = 6) {
+  const targetLength = Length;
   const paddingChar = "　";
   const currentLength = input.length;
   if (currentLength < targetLength) {
@@ -476,6 +479,12 @@ let option2 = {
   url: "https://tiyu.baidu.com/al/major/home?match=2024%E5%B9%B4%E5%B7%B4%E9%BB%8E%E5%A5%A5%E8%BF%90%E4%BC%9A&tab=%E8%B5%9B%E7%A8%8B&&async_source=h5&tab_type=single&from=baidu_shoubai_na&request__node__params=1&getAll=1",
   method: "GET",
 };
+
+let option3 = {
+  url: "https://gw.m.163.com/newsapp-olympic/api/v1/medal/country?country=29",
+  method: "GET",
+};
+
 $.get(option, (error1, resp1, res) => {
   let response = JSON.parse(res);
   if (response && response?.tplData?.data?.header) {
@@ -517,36 +526,71 @@ $.get(option, (error1, resp1, res) => {
       });
     }
 
-    let listContent = "\n\n" + "🆚2024巴黎奥运会-进行中赛程" + "\n\n";
+    let listCountry = "\n\n" + "🎖️2024巴黎奥运会-中国榜" + "\n\n";
 
     try {
-      $.get(option2, (error2, resp2, res2) => {
+      $.get(option3, (error2, resp2, res2) => {
         let response2 = JSON.parse(res2);
-        if (response2 && response2?.tplData?.data?.tabsList) {
-          let list =
-            response2.tplData.data.tabsList[0].dateList[0].scheduleList.filter(
-              (el) => el.eventStatusId == "1"
-            );
+        if (response2 && response2?.data?.medalList?.length) {
+          let list = response2.data.medalList;
           if (list.length) {
             list.map((el) => {
-              listContent =
-                listContent +
-                `[${el.startTime}]「${el.matchName}」(${el.participant})` +
-                "\n" +
-                el.desc +
-                "\n\n";
+              listCountry =
+                listCountry +
+                `「${
+                  el.disciplineName +
+                  "」" +
+                  padToSixChineseChars(el.disciplineName, 8)
+                }「第${String(el.rank).padStart(2, " ")}名」「🥇${String(
+                  el.gold
+                ).padStart(2, " ")}」「🥈${String(el.silver).padStart(
+                  2,
+                  " "
+                )}」「🥉${String(el.bronze).padStart(2, " ")}」「🏅${String(
+                  el.total
+                ).padStart(2, " ")}」` +
+                "\n";
             });
           }
-
-          $.log(notifyContent + listContent);
-          $.notify(notifyTitle, notifySubtitle, notifyContent + listContent);
-          $done({});
+          getListContent();
         }
       });
     } catch (error) {
-      $.log(notifyContent);
-      $.notify(notifyTitle, notifySubtitle, notifyContent + listContent);
-      $done({});
+      getListContent();
+    }
+
+    function getListContent() {
+      let listContent =
+        listCountry + "\n\n" + "🆚2024巴黎奥运会-进行中赛程" + "\n\n";
+      try {
+        $.get(option2, (error2, resp2, res2) => {
+          let response2 = JSON.parse(res2);
+          if (response2 && response2?.tplData?.data?.tabsList) {
+            let list =
+              response2.tplData.data.tabsList[0].dateList[0].scheduleList.filter(
+                (el) => el.eventStatusId == "1"
+              );
+            if (list.length) {
+              list.map((el) => {
+                listContent =
+                  listContent +
+                  `[${el.startTime}]「${el.matchName}」(${el.participant})` +
+                  "\n" +
+                  el.desc +
+                  "\n\n";
+              });
+            }
+
+            $.log(notifyContent + listContent);
+            $.notify(notifyTitle, notifySubtitle, notifyContent + listContent);
+            $done({});
+          }
+        });
+      } catch (error) {
+        $.log(notifyContent);
+        $.notify(notifyTitle, notifySubtitle, notifyContent + listContent);
+        $done({});
+      }
     }
   } else {
     getError("5001");
