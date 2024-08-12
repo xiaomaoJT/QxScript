@@ -66,11 +66,24 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字或本页的更新时间为准。
 >
-> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***717*** 次
+> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***718*** 次
 >
-> ***最新更新时间 2024.08.09 18:03***
+> ***最新更新时间 2024.08.12 10:00***
 
 
+
++ ##### 20240812
+
+  * > 新增[kct脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoKettlebellCraftTraining.js)
+    >
+    > 新增[spy脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSwipey.js)
+    >
+    > 新增[ld脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoLouder.js)
+    >
+    > 新增[mta脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMotivation2.js)
+    >
+    > 新增[aam脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAllAreaMeasurement.js)
+    >
 
 + ##### 20240808
 
