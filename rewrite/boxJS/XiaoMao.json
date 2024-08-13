@@ -958,6 +958,53 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/pic.png"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoPicView.js"
+    },
+    {
+      "id": "XiaoMaoCool",
+      "name": "酷安",
+      "keys": [
+        "dataBoom",
+        "privacyModel",
+        "openRate"
+      ],
+      "descs_html": [
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js\">脚本注释</a></h4>"
+      ],
+      "settings": [
+        {
+          "id": "dataBoom",
+          "name": "数据爆表",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "开启数据爆表，1为开启，0为关闭，默认开启"
+        },
+        {
+          "id": "privacyModel",
+          "name": "隐私模式",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "开启话题标题隐私打码，1为开启，0为关闭，默认关闭，本功能将影响搜索和动态发布功能"
+        },{
+          "id": "openRate",
+          "name": "话题评分",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "关闭话题评分，1为关闭，0为开启，默认开启"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/cool.png",
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/cool.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCool.js"
     }
   ]
 }
