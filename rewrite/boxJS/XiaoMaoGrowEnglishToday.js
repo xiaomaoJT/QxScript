@@ -137,7 +137,7 @@ $.get(option, (err, resp, response) => {
     let obj = JSON.parse(response);
     if (obj.success) {
       $.notify(
-        "🏝XiaoMao_每日一言(中英文)",
+        "🏝每日一言",
         obj.data.en,
         obj.data.zh,
         encodeURI(obj.data.pic)
