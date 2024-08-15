@@ -27,7 +27,7 @@
 
 
 单独脚本地址：
-https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoGrowToday.js
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoGrowEnglishToday.js
 
 ********************************/
 
