@@ -273,10 +273,14 @@ $.get(option, (error1, resp1, response) => {
         $.log(returnText + downloadLinkText);
         $done({});
       } else {
-        getError("获取内容为空！");
+        getError("设备型号『 " + DeviceInformation + " 』获取内容为空！");
       }
     } else {
-      getError("设备型号设置错误，请检查BoxJs设备信息是否填写正确");
+      getError(
+        "BoxJs设备型号『 " +
+          DeviceInformation +
+          " 』设置错误，请确认型号是否正确！"
+      );
     }
   } else {
     getError("请求内容失败");
@@ -292,3 +296,7 @@ function getError(err) {
   );
   $done({});
 }
+
+setTimeout(() => {
+  getError("请求超时，请稍后再试～");
+}, 10000);
