@@ -226,7 +226,6 @@ let option = {
 };
 $.get(option, (error1, resp1, response) => {
   if (response) {
-    console.log(response)
     let versionList = getDateList(response);
     if (!versionList.device?.includes("404")) {
       if (versionList.firmwareData.length) {
