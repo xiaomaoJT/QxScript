@@ -1014,7 +1014,7 @@
         "DeviceInformation"
       ],
       "descs_html": [
-        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAppleUpdateVerification.js\">脚本注释</a></h4><br/><h4>示例<p>「iPhone 15 Pro Max」👉 [iPhone16,2]</p><p>「iPad Air 11-inch (M2)」👉 [iPad14,8]</p><p>「MacBook Air (13-inch, M3, 2024)」👉 [Mac15,12]</p><p>「Apple Watch Series 5 (44mm, LTE)」👉 [Watch5,4]</p><p>「Apple Vision Pro」👉 [RealityDevice14,1]</p><p>「Apple TV 4K」👉 [AppleTV6,2]</p><p>「HomePod mini」👉 [AudioAccessory5,1]</p><p>「iPod touch 7」👉 [iPod9,1]</p></h4>"
+        "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAppleUpdateVerification.js\">脚本注释</a></h4><br/><h4><p>设备型号示例</p><p>「iPhone 15 Pro Max」👉 [iPhone16,2]</p><p>「iPad Air 11-inch (M2)」👉 [iPad14,8]</p><p>「MacBook Air (13-inch, M3, 2024)」👉 [Mac15,12]</p><p>「Apple Watch Series 5 (44mm, LTE)」👉 [Watch5,4]</p><p>「Apple Vision Pro」👉 [RealityDevice14,1]</p><p>「Apple TV 4K」👉 [AppleTV6,2]</p><p>「HomePod mini」👉 [AudioAccessory5,1]</p><p>「iPod touch 7」👉 [iPod9,1]</p></h4>"
       ],
       "settings": [
         {
@@ -1024,7 +1024,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "默认为「iPhone16,2」"
+          "desc": "默认设备iPhone 15 Pro Max 👉「iPhone16,2」"
         }
       ],
       "author": "@XiaoMao",
