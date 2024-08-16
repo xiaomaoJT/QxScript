@@ -41,7 +41,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMao.
 
 3、⚠️ QX > 请求列表(三横杠按钮) > 右上角加号 > 文本方式添加代码
 
-0 0 2 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAppleUpdateVerification.js, tag=XiaoMao_Apple验证通道, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/apple.png, enabled=false
+0 0 2 * * ? https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAppleUpdateVerification.js, tag=XiaoMao_Apple验证通道, img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/apple.png, enabled=true
 
 
 
