@@ -166,14 +166,14 @@ function convertToChineseDate(dateStr) {
 function getDateList(htmlString) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, "text/html");
-  const rows = doc.querySelectorAll("tr.firmware");
+  const rows = doc?.querySelectorAll("tr.firmware");
   const device = doc
     .querySelector("title")
     ?.textContent.replace("Choose an IPSW for the ", "")
     .replace("Choose an OTA for the ", "")
     .replace(" / IPSW Downloads", "");
   let deviceName = "";
-  const tdSequence = rows[0].querySelectorAll("td").length == 5 ? 0 : 1;
+  const tdSequence = rows[0]?.querySelectorAll("td").length == 5 ? 0 : 1;
   const firmwareData = Array.from(rows).map((row) => {
     deviceName == ""
       ? (deviceName = row
@@ -226,6 +226,7 @@ let option = {
 };
 $.get(option, (error1, resp1, response) => {
   if (response) {
+    console.log(response)
     let versionList = getDateList(response);
     if (!versionList.device?.includes("404")) {
       if (versionList.firmwareData.length) {
