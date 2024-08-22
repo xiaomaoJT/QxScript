@@ -103,7 +103,7 @@ let dataBoomStatus = 1;
 $.read("dataBoom") ? (dataBoomStatus = $.read("dataBoom")) : "";
 let privacyModelStatus = 0;
 $.read("privacyModel") ? (privacyModelStatus = $.read("privacyModel")) : "";
-let openRateStatus = 0;
+let openRateStatus = 1;
 $.read("openRate") ? (openRateStatus = $.read("openRate")) : "";
 try {
   if (
