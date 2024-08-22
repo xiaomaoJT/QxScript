@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-07-21
+ * @LastMod: 2024-08-22
  *
  * 
 
@@ -149,7 +149,7 @@ $.get(option, (err, resp, response) => {
     let resultText = "";
     if (subArr.length) {
       let adReg = /\d+\./;
-      let shopReg = /猫超|包邮|券|买\d件|拍\d件/;
+      let shopReg = /猫超|包邮|付|拍|秒杀|斤|加购|叠|凑|券|买\d件|拍\d件/;
       subArr.forEach((el) => {
         let textUrlStart = el.indexOf('href="');
         let textUrlEnd = el.indexOf('"target');
