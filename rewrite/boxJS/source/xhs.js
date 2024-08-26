@@ -200,7 +200,9 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
           !item.hasOwnProperty("ads_info") &&
           !item.hasOwnProperty("card_icon") &&
           !item?.note_attributes?.includes("goods") &&
-          !item?.is_ads
+          !item?.is_ads &&
+          item?.type == "video" &&
+          item?.title?.indexOf("这尺度") != -1
         ) {
           if (item?.related_ques) {
             delete item.related_ques;
