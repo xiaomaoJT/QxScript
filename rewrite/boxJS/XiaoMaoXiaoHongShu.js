@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-07-29
+ * @LastMod: 2024-08-26
  *
  * 
 
@@ -30,7 +30,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoX
 
 3、访问图片帖子详情，即可触发捕获，请留意通知
 
-4、内置RuCu6广告拦截
+4、内置RuCu6广告拦截+XiaoMao去广告
 
 
 
