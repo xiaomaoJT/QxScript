@@ -194,7 +194,7 @@ const timeMagic = async (index) => {
   return new Promise((reslove) => {
     setTimeout(async () => {
       await getMainReword((index + 1).toString());
-      await getReword((index + 1).toString());
+      // await getReword((index + 1).toString());
       reslove();
     }, 300 + parseInt(Math.random() * 10 * index));
   });
