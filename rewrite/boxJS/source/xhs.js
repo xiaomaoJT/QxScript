@@ -205,20 +205,24 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
           if (item?.related_ques) {
             delete item.related_ques;
           }
-          // if (
-          //   item?.advanced_widgets_groups &&
-          //   item.advanced_widgets_groups?.groups &&
-          //   item.advanced_widgets_groups.groups.length &&
-          //   item.advanced_widgets_groups.groups[0]?.fetch_types
-          // ) {
-          //   item.advanced_widgets_groups.groups[0].fetch_types =
-          //     item.advanced_widgets_groups.groups[0].fetch_types.filter(
-          //       (el) => !el.includes("ads") && !el.includes("goods")
-          //     );
-          // }
+          if (
+            item?.advanced_widgets_groups &&
+            item.advanced_widgets_groups?.groups &&
+            item.advanced_widgets_groups.groups.length &&
+            item.advanced_widgets_groups.groups[0]?.fetch_types
+          ) {
+            item.advanced_widgets_groups.groups[0].fetch_types =
+              item.advanced_widgets_groups.groups[0].fetch_types.filter(
+                (el) => !el.includes("ads") && !el.includes("goods")
+              );
+          }
 
           if (
-            !(item?.type == "video" && item?.title?.indexOf("这尺度") != -1)
+            !(
+              item?.type == "video" &&
+              (item?.title?.indexOf("这尺度") != -1 ||
+                item?.title?.indexOf("乳腺畅通") != -1)
+            )
           ) {
             return {
               ...item,
