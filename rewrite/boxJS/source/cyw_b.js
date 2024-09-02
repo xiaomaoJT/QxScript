@@ -211,6 +211,11 @@ if ($response.body) {
       );
     }
   }
+
+  if (/^https:\/\/biz\.cyapi\.cn\/api\/v1\/user_detail?/.test(requestUrl)) {
+    obj.vip_info.svip.is_auto_renewal = true;
+    obj.vip_info.svip.expires_time = XiaoMaoEndTime;
+  }
   $done({ body: JSON.stringify(obj) });
 } else {
   $done({});
