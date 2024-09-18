@@ -213,8 +213,6 @@ if ($response.body) {
     obj.vip_info.trial_svip.is_recharge_vip = false;
     // obj.vip_info.trial_svip.received_time = new Date().getTime();
     obj.vip_info.trial_svip.expires_time = XiaoMaoEndTime;
-
-    console.log("11111");
   }
 
   if (/^https:\/\/biz\.cyapi\.cn\/p\/v1\/vip_info?/.test(requestUrl)) {
@@ -226,8 +224,6 @@ if ($response.body) {
     obj.trial_svip.is_recharge_vip = false;
     // obj.trial_svip.received_time = new Date().getTime();
     obj.trial_svip.expires_time = XiaoMaoEndTime;
-
-    console.log("2222");
   }
   $done({ body: JSON.stringify(obj) });
 }
