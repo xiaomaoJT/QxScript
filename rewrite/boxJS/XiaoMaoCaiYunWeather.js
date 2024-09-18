@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-09-02
+ * @LastMod: 2024-09-18
  *
  * 
 彩/云/天/气/S/v/i/p /+/ /彩/云/天/气/p/r/o/ /s/v/i/p/ /+/ /去/广/告
@@ -42,5 +42,6 @@ https:\/\/starplucker\.cyapi\.cn\/v3\/notification\/message_center url reject
 https:\/\/starplucker\.cyapi\.cn\/v3\/config\/cypage\/home\/conditions\/local url reject
 https:\/\/starplucker\.cyapi\.cn\/v3 url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw_b.js
 https:\/\/biz\.cyapi\.cn\/api\/v1\/user_detail url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw_b.js
+https:\/\/biz\.cyapi\.cn\/p\/v1\/vip_info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/cyw_b.js
 
  ***************/
