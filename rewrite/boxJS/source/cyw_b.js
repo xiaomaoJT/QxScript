@@ -117,21 +117,7 @@ let appName = `XiaoMao-彩云天气Svip`;
 let XiaoMaoSvip = "";
 let XiaoMaoEndTime = null;
 let SvipDate = "";
-!(async () => {
-  await XiaoMaoFunction();
-})()
-  .catch((err) => {
-    $XiaoMaoSvip.error(err);
-    setTimeout(() => {
-      $XiaoMaoSvip.done();
-    }, 3000);
-  })
-  .finally(() => {
-    console.log(appName + "设置成功");
-    setTimeout(() => {
-      $XiaoMaoSvip.done();
-    }, 5000);
-  });
+
 function getGoneDay(n = 0, yearFlag = true) {
   let myDate = new Date();
   myDate.setDate(myDate.getDate() - n);
@@ -146,6 +132,7 @@ function getGoneDay(n = 0, yearFlag = true) {
     (day < 10 ? "0" + day : day);
   return result;
 }
+
 function XiaoMaoFunction() {
   if (
     $XiaoMaoSvip.read("CaiYunSvipYear") &&
@@ -179,6 +166,8 @@ function XiaoMaoFunction() {
   }
   XiaoMaoEndTime = new Date(XiaoMaoSvip).getTime() / 1000;
 }
+
+XiaoMaoFunction();
 if ($response.body) {
   let requestUrl = $request.url;
   if (
@@ -186,20 +175,23 @@ if ($response.body) {
       requestUrl
     )
   ) {
-    obj.result.is_vip = true;
-    obj.result.vip_type = "s";
-    obj.result.svip_given = 365;
-    obj.result.wt.svip_given = 365;
-    obj.result.is_primary = false;
-    obj.result.is_visitor = false;
-    obj.result.is_xy_vip = true;
-    obj.result.vip_expired_at = XiaoMaoEndTime;
-    obj.result.xy_svip_expire = XiaoMaoEndTime;
-    obj.result.xy_vip_expire = XiaoMaoEndTime;
-    obj.result.wt.vip.expired_at = XiaoMaoEndTime;
-    obj.result.svip_expired_at = XiaoMaoEndTime;
-    obj.result.wt.vip.svip_expired_at = XiaoMaoEndTime;
+    if (obj?.result) {
+      obj.result.is_vip = true;
+      obj.result.vip_type = "s";
+      obj.result.svip_given = 365;
+      obj.result.wt.svip_given = 365;
+      obj.result.is_primary = false;
+      obj.result.is_visitor = false;
+      obj.result.is_xy_vip = true;
+      obj.result.vip_expired_at = XiaoMaoEndTime;
+      obj.result.xy_svip_expire = XiaoMaoEndTime;
+      obj.result.xy_vip_expire = XiaoMaoEndTime;
+      obj.result.wt.vip.expired_at = XiaoMaoEndTime;
+      obj.result.svip_expired_at = XiaoMaoEndTime;
+      obj.result.wt.vip.svip_expired_at = XiaoMaoEndTime;
+    }
   }
+
   if (
     /^https:\/\/(wrapper|api)\.(cyapi|caiyunapp)\.(cn|com)\/v1\/activity?/.test(
       requestUrl
@@ -213,12 +205,31 @@ if ($response.body) {
   }
 
   if (/^https:\/\/biz\.cyapi\.cn\/api\/v1\/user_detail?/.test(requestUrl)) {
-    obj.vip_info.svip.is_auto_renewal = true;
+    obj.vip_info.vip.is_auto_renewal = false;
+    obj.vip_info.vip.expires_time = XiaoMaoEndTime;
+    obj.vip_info.svip.is_auto_renewal = false;
     obj.vip_info.svip.expires_time = XiaoMaoEndTime;
+    obj.vip_info.trial_svip.is_auto_renewal = false;
+    obj.vip_info.trial_svip.is_recharge_vip = false;
+    // obj.vip_info.trial_svip.received_time = new Date().getTime();
+    obj.vip_info.trial_svip.expires_time = XiaoMaoEndTime;
+
+    console.log("11111");
+  }
+
+  if (/^https:\/\/biz\.cyapi\.cn\/p\/v1\/vip_info?/.test(requestUrl)) {
+    obj.vip.is_auto_renewal = false;
+    obj.vip.expires_time = XiaoMaoEndTime;
+    obj.svip.is_auto_renewal = false;
+    obj.svip.expires_time = XiaoMaoEndTime;
+    obj.trial_svip.is_auto_renewal = false;
+    obj.trial_svip.is_recharge_vip = false;
+    // obj.trial_svip.received_time = new Date().getTime();
+    obj.trial_svip.expires_time = XiaoMaoEndTime;
+
+    console.log("2222");
   }
   $done({ body: JSON.stringify(obj) });
-} else {
-  $done({});
 }
 
 function isJSON(str) {
