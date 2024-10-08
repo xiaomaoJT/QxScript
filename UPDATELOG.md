@@ -74,9 +74,11 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 + ##### 20241008
 
-  * > 更新[vs脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoVideoScript.js)
+  * > 新增[vs脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoVideoScript.js)
     >
-    > 更新[em脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoExpensesManager.js)
+    > 新增[em脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoExpensesManager.js)
+    >
+    > 新增[wm脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWaterMark.js)
     >
 
 + ##### 20240920
