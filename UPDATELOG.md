@@ -80,6 +80,8 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
     >
     > 新增[wm脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWaterMark.js)
     >
+    > 新增[ftfw脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoFastingTrackerForWomen.js)
+    >
 
 + ##### 20240920
 
