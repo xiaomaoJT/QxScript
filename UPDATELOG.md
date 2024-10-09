@@ -68,9 +68,17 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***756*** 次
 >
-> ***最新更新时间 2024.10.08 10:40***
+> ***最新更新时间 2024.10.09 15:15***
 
 
++ ##### 20241008
+
+  * > 新增[ta脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoTodayApp.js)
+    >
+    > 新增[plm脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoPicLoom.js)
+    >
+    > 新增[ths脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoThoughts.js)
+    >
 
 + ##### 20241008
 
