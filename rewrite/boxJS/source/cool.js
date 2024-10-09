@@ -399,7 +399,7 @@ try {
     )
   ) {
     let dealList = [];
-    let getList = obj.data;
+    let getList = obj.data.filter((e) => e.entityType != "card"); // 过滤推广
     if (
       /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/feed\/replyDetail/.test(
         requestUrl
