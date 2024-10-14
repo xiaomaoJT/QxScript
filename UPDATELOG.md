@@ -79,6 +79,8 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
     >
     > 新增[pot脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoPomodoroTime.js)
     >
+    > 新增[mix2脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMix2.js)
+    >
 
 + ##### 20241011
 
