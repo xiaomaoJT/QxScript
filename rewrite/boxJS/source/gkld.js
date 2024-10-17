@@ -6,6 +6,8 @@ var obj = status
         .replace(/\"isAuth\":false/g, '"isAuth":true')
         .replace(/\"isValid\":\w+/g, '"isValid":1')
         .replace(/\"isValid\":\"0\"/g, '"isValid":1')
+        .replace(/\"isSubscribe\":\w+/g, '"isSubscribe":1')
+        .replace(/\"isSubscribe\":\"0\"/g, '"isSubscribe":1')
         .replace(/\"isAuth\":\w+/g, '"isAuth":1')
         .replace(/\"isAuth\":\"0\"/g, '"isAuth":1')
         .replace(/\"isVip\":\w+/g, '"isVip":1')
@@ -14,8 +16,8 @@ var obj = status
         .replace(/\"vipGrade\":\"0\"/g, '"vipGrade":2')
         .replace(/\"vipExpire\":\w+/g, '"vipExpire":1726411565000')
         .replace(/\"vipExpire\":\"0\"/g, '"vipExpire":1726411565000')
+        .replace(/\"jobBianzhiOpt\":\w+/g, '"jobBianzhiOpt":1')
         .replace(/\"jobBianzhiOpt\":0/g, '"jobBianzhiOpt":1')
-        .replace(/\"status\":\w+/g, '"status":1')
     )
   : $response.body;
 if (
@@ -44,12 +46,35 @@ if (
     },
   ];
 } else if (
+  /^https:\/\/api\.gongkaoleida\.com\/api\/v5_4_5\/sets\/getFilterPackage?/.test(
+    requestUrl
+  )
+) {
+  function setGrade(list) {
+    list.forEach((el) => {
+      if (el.hasOwnProperty("vipGrade")) {
+        el.vipGrade = 0;
+      }
+      if (el.hasOwnProperty("childList")) {
+        setGrade(el.childList);
+      }
+      if (el.hasOwnProperty("hotRecommendation")) {
+        setGrade(el.hotRecommendation);
+      }
+    });
+  }
+  setGrade(obj.data.list);
+} else if (
+  /^https:\/\/api\.gongkaoleida\.com\/api\/home\/v5\/index?/.test(requestUrl)
+) {
+  obj.data.needAuth = [];
+} else if (
   /^https:\/\/api\.gongkaoleida\.com\/api\/v.+\/sets\/getFilterResult?/.test(
     requestUrl
   )
 ) {
-  obj.data.jobStaff.vipGrade = 2;
-  obj.data.articleStaff.vipGrade = 2;
+  obj.data.jobStaff.vipGrade = 0;
+  obj.data.articleStaff.vipGrade = 0;
 } else if (
   /^https:\/\/api\.gongkaoleida\.com\/api\/v.+\/exam\/getExamList?/.test(
     requestUrl
