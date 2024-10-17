@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2024-07-05
+ * @LastMod: 2024-10-17
  *
 
 
@@ -23,7 +23,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoG
 ********************************
 
 [mitm]
-hostname = errlog.umeng.com, api.gongkaoleida.com
+hostname = errlog.umeng.com, api.gongkaoleida.com,report.gongkaoleida.com
 
 [rewrite_local]
 https:\/\/api\.gongkaoleida\.com\/api url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/gkld.js
@@ -31,4 +31,5 @@ https:\/\/errlog\.umeng\.com\/api\/crashsdk\/logcollect url reject
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/my\/index url reject
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/sets\/getAllTips url reject
 https:\/\/api\.gongkaoleida\.com\/api\/v.+\/ad\/info url reject
+https:\/\/report\.gongkaoleida\.com url reject
  ***************/
