@@ -66,10 +66,17 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字或本页的更新时间为准。
 >
-> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***788*** 次
+> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***789*** 次
 >
-> ***最新更新时间 2024.11.14 09:35***
+> ***最新更新时间 2024.11.15 11:00***
 
+
++ ##### 20241115
+
+  * > 新增[ml脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMedicationList.js)
+    >
+    > 新增[si脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSleepIn.js)
+    >
 
 + ##### 20241114
 
