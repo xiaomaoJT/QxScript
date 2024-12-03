@@ -66,11 +66,27 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字或本页的更新时间为准。
 >
-> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***802*** 次
+> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***803*** 次
 >
-> ***最新更新时间 2024.12.02 15:48***
+> ***最新更新时间 2024.12.03 10:00***
 
 
++ ##### 20241203
+
+  * > 新增[aim脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAimly.js)
+    >
+    > 新增[ptc脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoPantryCheck.js)
+    >
+    > 新增[qs2脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoQuitSmoking2.js)
+    >
+    > 新增[pls脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoPostureLetics.js)
+    >
+    > 新增[ctct脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoContact.js)
+    >
+    > 新增[cb脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoCountryBeen.js)
+    >
+    > 新增[sfsl脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoSharedFamilyShoppingList.js)
+    >
 
 + ##### 20241202
 
