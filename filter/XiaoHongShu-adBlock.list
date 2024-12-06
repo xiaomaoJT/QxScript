@@ -8,7 +8,7 @@
 # 建议搭配XiaoMao_XiaoHongShu重写使用 
 # https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXiaoHongShu.js
 
-# 更新时间 20240813
+# 更新时间 20241206
 
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
@@ -17,6 +17,7 @@
 # XiaoMao机器人：https://t.me/Xiao_MaoMao_bot
 # XiaoMao仓库：https://github.com/xiaomaoJT/QxScript
 
+host, edith.xiaohongshu.com, direct
 ip-cidr, 111.0.43.226/24, reject
 ip-cidr, 81.69.116.86/24, reject
 ip-cidr, 117.185.25.254/24, reject
