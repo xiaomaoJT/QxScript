@@ -28,7 +28,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoR
 hostname = runjs.work
 
 [rewrite_local]
-https:\/\/runjs\.work\/transformer\/users\/me url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/XiaoMaoRunJs.js
+https:\/\/runjs\.work\/transformer\/users\/me url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoRunJs.js
 
 ********************************/
 
