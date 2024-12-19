@@ -30,7 +30,7 @@ let BerserkMode = 0;
 let MaskWords = []
 $.read("HighType") ? (HighType = $.read("HighType")) : "";
 $.read("BerserkMode") ? (BerserkMode = $.read("BerserkMode")) : "";
-$.read("MaskWords") ? (MaskWords = $.read("HighType").split(',')) : "";
+$.read("MaskWords") ? (MaskWords = $.read("HighType").split(',').filter(item => item!== "")) : "";
 
 // 去广告
 if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
