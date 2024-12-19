@@ -925,12 +925,12 @@
         },
         {
           "id": "MaskWords",
-          "name": "屏蔽标题字眼",
+          "name": "屏蔽膈应字眼",
           "val": null,
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "将匹配屏幕让你反感的标题字眼，多个用英文,隔开"
+          "desc": "将屏蔽让你反感的标题、用户字眼，多个用英文,隔开"
         }
       ],
       "author": "@XiaoMao",

@@ -223,7 +223,14 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
               );
           }
 
-          if (!MaskWords?.some((ele) => item?.title?.includes(ele))) {
+          if (
+            !MaskWords?.some(
+              (ele) =>
+                item?.display_title?.includes(ele) ||
+                item?.title?.includes(ele) ||
+                item?.user?.nickname?.includes(ele)
+            )
+          ) {
             return {
               ...item,
             };
