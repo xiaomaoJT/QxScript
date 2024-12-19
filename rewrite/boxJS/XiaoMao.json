@@ -898,7 +898,8 @@
       "name": "小红书图片捕获",
       "keys": [
         "HighType",
-        "BerserkMode"
+        "BerserkMode",
+        "MaskWords"
       ],
       "descs_html": [
         "<h4 align=\"center\">脚本配置请查看<a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXiaoHongShu.js\">脚本注释</a></h4>"
@@ -921,6 +922,15 @@
           "autoGrow": true,
           "rows": 1,
           "desc": "1为狂暴，0为标准，默认标准。狂暴模式开启后见图就收。"
+        },
+        {
+          "id": "MaskWords",
+          "name": "屏蔽标题字眼",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "将匹配屏幕让你反感的标题字眼，多个用,隔开"
         }
       ],
       "author": "@XiaoMao",
