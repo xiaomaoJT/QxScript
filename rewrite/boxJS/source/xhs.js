@@ -27,8 +27,10 @@ let typeObj = {
 };
 let HighType = 1;
 let BerserkMode = 0;
+let MaskWords = []
 $.read("HighType") ? (HighType = $.read("HighType")) : "";
 $.read("BerserkMode") ? (BerserkMode = $.read("BerserkMode")) : "";
+$.read("MaskWords") ? (MaskWords = $.read("HighType").split(',')) : "";
 
 // 去广告
 if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
@@ -220,8 +222,7 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
           if (
             !(
               item?.type == "video" &&
-              (item?.title?.indexOf("这尺度") != -1 ||
-                item?.title?.indexOf("乳腺畅通") != -1)
+              !(MaskWords?.some(item => item?.title?.includes(item)))
             )
           ) {
             return {
