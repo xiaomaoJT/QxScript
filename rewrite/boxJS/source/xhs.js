@@ -222,7 +222,7 @@ if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
           if (
             !(
               item?.type == "video" &&
-              !(MaskWords?.some(item => item?.title?.includes(item)))
+              !(MaskWords?.some(ele => item?.title?.includes(ele)))
             )
           ) {
             return {
