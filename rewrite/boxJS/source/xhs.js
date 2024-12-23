@@ -31,7 +31,7 @@ let MaskWords = [];
 $.read("HighType") ? (HighType = $.read("HighType")) : "";
 $.read("BerserkMode") ? (BerserkMode = $.read("BerserkMode")) : "";
 $.read("MaskWords")
-  ? (MaskWords = $.read("HighType")
+  ? (MaskWords = $.read("MaskWords")
       .split(",")
       .filter((item) => item !== ""))
   : "";
