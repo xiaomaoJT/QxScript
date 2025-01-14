@@ -255,6 +255,17 @@ try {
             };
             el.extraDataArr = objTem;
             el.extraData = JSON.stringify(objTem);
+            if(el.title.includes('首页')){
+              const topicIndex =  el.entities.findIndex(t => t.title == "话题")
+              if(topicIndex != -1){
+                const insertItem = el.entities.splice(topicIndex,1)
+                const hotIndex = el.entities.findIndex(t => t.title == "热榜")
+                el.entities.splice(hotIndex+1,0,...insertItem)
+              }
+            }
+          }
+          if(el.entityTemplate == "textCard" && el.title.includes('热门搜索')){
+            el.entities = []
           }
           list.push(el);
         }
