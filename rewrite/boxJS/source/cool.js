@@ -200,7 +200,7 @@ try {
     /^https:\/\/api[0-9]*\.coolapk\.com\/v6\/page\/dataList/.test(requestUrl)
   ) {
     if (obj.data.length) {
-      obj.data.forEach((el) => {
+      obj.data = obj.data.map((el) => {
         if (
           el.entityTemplate == "imageSquareScrollCard" &&
           requestUrl.indexOf("COOLPIC") != -1
@@ -227,6 +227,10 @@ try {
         el.hasOwnProperty("extra_entities") ? (el.extra_entities = []) : "";
         el.hasOwnProperty("extra_fromApi") ? (el.extra_fromApi = "") : "";
         el.hasOwnProperty("goodsListInfo") ? delete el.goodsListInfo : "";
+      
+        if(el.entityTemplate != "sponsorCard"){
+          return el;
+        }
       });
     }
   } else if (
