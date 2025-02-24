@@ -30,10 +30,10 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoY
 
 
 [mitm]
-hostname = api.revenuecat.com
+hostname = api.revenuecat.com,api.rc-backup.com
 
 [rewrite_local]
-https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/yo.js
-https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/yo.js
+https:\/\/(api|rc)\.(rc-backup|revenuecat|visionarytech)\.(com|ltd)\/v1\/(subscribers|receipts) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/yo.js
+https:\/\/(api|rc)\.(rc-backup|revenuecat|visionarytech)\.(com|ltd)\/v1\/(subscribers|receipts) url script-response-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/yo.js
 
 ********************************/
