@@ -8,7 +8,7 @@
 # 建议搭配XiaoMao_XiaoHongShu重写使用 
 # https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoXiaoHongShu.js
 
-# 更新时间 20241206
+# 更新时间 20250305
 
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
@@ -20,7 +20,10 @@
 host, edith.xiaohongshu.com, direct
 ip-cidr, 111.0.43.226/24, reject
 ip-cidr, 81.69.116.86/24, reject
+ip-cidr, 106.15.179.162/24, reject
+ip-cidr, 1.13.112.169/24, reject
 ip-cidr, 117.185.25.254/24, reject
+ip-cidr, 101.227.133.99/24, reject
 ip-cidr, 117.147.204.18/24, reject
 ip-cidr, 101.227.133.99/24, reject
 ip-cidr, 115.227.40.11/24, reject
