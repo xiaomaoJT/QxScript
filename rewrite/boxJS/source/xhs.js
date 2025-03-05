@@ -300,7 +300,7 @@ if (HighType != 0) {
   // 捕获模式
   if (BerserkMode == 0) {
     if (
-      /^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/note\/widgets?/.test(
+      /^https:\/\/.+\.xiaohongshu\.com\/api\/sns\/v2\/note\/widgets?/.test(
         requestUrl
       )
     ) {
