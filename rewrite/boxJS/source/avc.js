@@ -97,7 +97,21 @@ function Env(name) {
 
 const $ = new Env("XiaoMaoAvCode");
 let requestUrl = $request.url;
-let avCode = requestUrl.split("%23")[1];
+let matcheUrl = null;
+if (requestUrl.includes("baidu")) {
+  const uuidRegex =
+    /^^https:\/\/m\.baidu\.com\/s\?from=[^&]+&word=av%23[-a-zA-Z0-9]+$/gi;
+  matcheUrl = requestUrl.match(uuidRegex);
+} else {
+  const uuidRegex =
+    /^^http(s?):\/\/(?:[a-zA-Z0-9-]+\.)?google\.[a-zA-Z.]+\/search\b[^?]*\?.*?\bq=av%23([a-zA-Z0-9-]+)/gi;
+  matcheUrl = requestUrl.match(uuidRegex);
+}
+if (!matcheUrl && matcheUrl.length) {
+  getError("匹配出错了～");
+  return;
+}
+let avCode = matcheUrl[0].split("%23")[1];
 if (avCode) {
   let mainOption = {
     url: encodeURI(
