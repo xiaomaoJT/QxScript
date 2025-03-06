@@ -194,5 +194,5 @@ function getError(params = "") {
   $done();
 }
 setTimeout(() => {
-  getError("超时终止，请检查代理网络或稍后再试～");
+  $done();
 }, 8000);
