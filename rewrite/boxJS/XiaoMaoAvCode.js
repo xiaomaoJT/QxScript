@@ -20,14 +20,17 @@
 
 使用方法：
 
-1、1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
+1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAvCode.js
+
+2、支持\百\度\引\擎\，及www开头的谷歌域名
 
 
 [mitm]
-hostname = m.baidu.com
+hostname = m.baidu.com,www.google.*
 
 [rewrite_local]
 ^https:\/\/m\.baidu\.com\/s\?from=[^&]+&word=av%23[-a-zA-Z0-9]+$ url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/avc.js
+^https:\/\/(?:[a-zA-Z0-9-]+\.)*google\.[a-zA-Z]+\/search\b[^?]*\?.*?\bq=av%23([a-zA-Z0-9-]+) url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/avc.js
 
 ********************************/
