@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2025-03-06
+ * @LastMod: 2025-03-07
  *
  * 
 
@@ -27,10 +27,10 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoA
 
 
 [mitm]
-hostname = m.baidu.com,www.google.*
+hostname = m.baidu.com,www.baidu.com,www.google.*
 
 [rewrite_local]
-^https:\/\/m\.baidu\.com\/s\?from=[^&]+&word=av%23[-a-zA-Z0-9]+$ url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/avc.js
+^https:\/\/(m|www)\.baidu\.com\/s\?.*?\b(word|wd)=av%23[-a-zA-Z0-9]+(?![^\s&]) url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/avc.js
 ^http(s?):\/\/(?:[a-zA-Z0-9-]+\.)?google\.[a-zA-Z.]+\/search\b[^?]*\?.*?\bq=av%23([a-zA-Z0-9-]+) url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/avc.js
 
 ********************************/
