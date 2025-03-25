@@ -1,12 +1,12 @@
 
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2025-03-12
+ * @LastMod: 2025-03-17
  *
  * 
 
 
-\M\u\s\i\c\D\o\w\n\l\o\a\d\
+\O\h\m\s\
 
 
 仅供学习参考，请于下载后24小时内删除
@@ -21,7 +21,7 @@
 
 使用方法：
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
-https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMusicDownload.js
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoOhms.js
 
 2、打开软件 > 设置 > 点击「恢复购买」
 
@@ -34,7 +34,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoM
 hostname = api.revenuecat.com,api.rc-backup.com
 
 [rewrite_local]
-https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers|receipts) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/mud.js
-https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers|receipts) url script-response-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/mud.js
+https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers|receipts) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/ohms.js
+https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers|receipts) url script-response-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/ohms.js
 
 ********************************/
