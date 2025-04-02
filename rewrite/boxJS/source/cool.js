@@ -156,7 +156,7 @@ try {
               );
             }
           }
-          if(obj.data[i].entityTemplate == "listCard" && obj.data[i].entityTemplate == "sponsorCard"){
+          if(obj.data[i].entityTemplate == "listCard" || obj.data[i].entityTemplate == "sponsorCard"){
             obj.data.splice(i, 1);
           }
         }else if (
