@@ -146,23 +146,20 @@ try {
     if (obj.data.length) {
       let i = obj.data.length;
       while (i--) {
-        if (
-          obj.data[i].hasOwnProperty("entityTemplate") &&
-          obj.data[i].entityTemplate == "imageCarouselCard_1"
-        ) {
-          if (obj.data[i].hasOwnProperty("entities")) {
-            obj.data[i].entities = obj.data[i].entities.filter(
-              (el) =>
-                (el.title != "jd" && el.title.indexOf("今日酷安") != -1) ||
-                el.title.indexOf("众测") != -1
-            );
+        if(obj.data[i].hasOwnProperty("entityTemplate")){
+          if(obj.data[i].entityTemplate == "imageCarouselCard_1"){
+            if (obj.data[i].hasOwnProperty("entities")) {
+              obj.data[i].entities = obj.data[i].entities.filter(
+                (el) =>
+                  (el.title != "jd" && el.title.indexOf("今日酷安") != -1) ||
+                  el.title.indexOf("众测") != -1
+              );
+            }
           }
-        } else if (
-          obj.data[i].hasOwnProperty("entityTemplate") &&
-          obj.data[i].entityTemplate == "listCard"
-        ) {
-          obj.data.splice(i, 1);
-        } else if (
+          if(obj.data[i].entityTemplate == "listCard" && obj.data[i].entityTemplate == "sponsorCard"){
+            obj.data.splice(i, 1);
+          }
+        }else if (
           obj.data[i].hasOwnProperty("extra_title") &&
           obj.data[i].extraTitle != ""
         ) {
