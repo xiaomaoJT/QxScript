@@ -25,9 +25,10 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoJ
 ********************************
 
 [mitm]
-hostname = mv-ps.xdplt.com
+hostname = mv-ps.xdplt.com,api.helix.ymxiaoze.top
 
 [rewrite_local]
+https:\/\/api\.helix\.ymxiaoze\.top\/v1\/apple\/subscriptions url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/jpfyg.js
 https:\/\/mv-ps\.xdplt\.com url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/jpfyg.js
 
 
