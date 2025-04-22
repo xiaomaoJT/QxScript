@@ -5,7 +5,7 @@ var obj = status
   ? JSON.parse(
       removeExtraSpaces($response.body)
         .replace(/"isSuccess":\w+/g, '"isSuccess":true')
-        .replace(/"code":-?\d+/g, '"code":1')
+        .replace(/"code":-\d+/g, '"code":1')
     )
   : $response.body;
 
