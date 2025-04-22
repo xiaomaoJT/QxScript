@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2025-04-07
+ * @LastMod: 2025-04-22
  *
  * 
 
@@ -23,9 +23,9 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoW
 ********************************
 
 [mitm]
-hostname = bzpp2.iwzbz.com
+hostname = *.iwzbz.com
 
 [rewrite_local]
-https:\/\/bzpp[0-9]+\.iwzbz\.com\/api\/v1.1\/user\/getvipinfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wzbz.js
+https:\/\/.+\.iwzbz\.com\/api url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/wzbz.js
 
  ***************/
