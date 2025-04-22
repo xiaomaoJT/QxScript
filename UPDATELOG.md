@@ -71,6 +71,10 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 > ***最新更新时间 2025.04.22 09:40***
 
 
++ ##### 20250422
+
+  * > 新增[aer脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAudioExtractor.js)
+    >
 
 + ##### 20250421
 
