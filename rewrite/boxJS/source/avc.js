@@ -100,11 +100,11 @@ let requestUrl = $request.url;
 let matcheUrl = null;
 if (requestUrl.includes("baidu")) {
   const uuidRegex =
-    /^https:\/\/(m|www)\.baidu\.com\/s\?.*?\b(word|wd)=av%23[-a-zA-Z0-9]+(?![^\s&])/gi;
+    /^https:\/\/(?:m|www)\.baidu\.com\/s\?.*?[?&](?:word|wd)=(?:av)%23[^&]+/gi;
   matcheUrl = requestUrl.match(uuidRegex);
 } else {
   const uuidRegex =
-    /^http(s?):\/\/(?:[a-zA-Z0-9-]+\.)?google\.[a-zA-Z.]+\/search\b[^?]*\?.*?\bq=av%23([a-zA-Z0-9-]+)/gi;
+    /^https?:\/\/(?:[a-zA-Z0-9-]+\.)?google\.[a-zA-Z.]+\/search\?[^&]*q=(av)%23([^&]+)/gi;
   matcheUrl = requestUrl.match(uuidRegex);
 }
 if (!matcheUrl && matcheUrl.length) {
