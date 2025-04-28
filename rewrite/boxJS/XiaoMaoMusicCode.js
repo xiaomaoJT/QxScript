@@ -5,7 +5,7 @@
  * 
 
 
-\车\牌\影\片\搜\索\
+\音\乐\搜\索\
 
 
 仅供学习参考，请于下载后24小时内删除
@@ -21,18 +21,18 @@
 使用方法：
 
 1、QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
-https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAvCode.js
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoMusicCode.js
 
 2、支持\百\度\引\擎\，及www开头的谷歌域名
 
-3、使用 百度或谷歌 搜索 av#车牌号 即可快速发车
+3、使用百度或谷歌 搜索框输入 “md#音乐名或歌手名” 或 “ml#音乐名或歌手名” 即可搜索音乐
 
 
 [mitm]
 hostname = m.baidu.com,www.baidu.com,www.google.*
 
 [rewrite_local]
-^https:\/\/(?:m|www)\.baidu\.com\/s\?.*?[?&](?:word|wd)=(?:av)%23[^&]+ url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/avc.js
-^https?:\/\/(?:[a-zA-Z0-9-]+\.)?google\.[a-zA-Z.]+\/search\?[^&]*q=(av)%23([^&]+) url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/avc.js
+^https:\/\/(?:m|www)\.baidu\.com\/s\?.*?[?&](?:word|wd)=(?:md|ml)%23[^&]+ url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/muc.js
+^https?:\/\/(?:[a-zA-Z0-9-]+\.)?google\.[a-zA-Z.]+\/search\?[^&]*q=(md|ml)%23([^&]+) url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/muc.js
 
 ********************************/
