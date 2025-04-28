@@ -25,6 +25,8 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoA
 
 2、支持\百\度\引\擎\，及www开头的谷歌域名
 
+3、使用 百度或谷歌 搜索 av#车牌号 即可快速发车
+
 
 [mitm]
 hostname = m.baidu.com,www.baidu.com,www.google.*
