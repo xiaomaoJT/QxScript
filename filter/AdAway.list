@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站
-# 更新时间 20240715
+# 更新时间 20250508
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao · TG通知频道：https://t.me/xiaomaoJT
@@ -13,7 +13,15 @@
 # > 某些APP要清除缓存或者重新安装APP，拦截广告才会生效！  
 # > */  
 
-
+# 韩剧TV
+HOST,mi.gdt.qq.com,REJECT
+HOST,adsmind.ugdtimg.com,REJECT
+HOST,pgdt.ugdtimg.com,REJECT
+HOST,v2mi.gdt.qq.com,REJECT
+HOST,da.bridgeturbo.com,REJECT
+HOST,adx-os.bridgeturbo.com,REJECT
+HOST,adx-bj.anythinktech.com,REJECT
+HOST,mobads.baidu.com,REJECT
 # 虎牙直播
 HOST-SUFFIX, v1d.szbdyd.com, REJECT
 # x1hub

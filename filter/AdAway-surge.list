@@ -1,5 +1,5 @@
 # >  /*  修正某些被分流到外面的国内网站 Surge版本
-# 更新时间 20230907
+# 更新时间 20250508
 # 小版本更新请查看更新日志 ｜ 或加入xiaomao组织⬇️
 # 微信公众号 【小帽集团】
 # XiaoMao · TG通知频道：https://t.me/xiaomaoJT
@@ -24,6 +24,15 @@
 # > */  
 
 
+# 韩剧TV
+DOMAIN,mi.gdt.qq.com,REJECT
+DOMAIN,adsmind.ugdtimg.com,REJECT
+DOMAIN,pgdt.ugdtimg.com,REJECT
+DOMAIN,v2mi.gdt.qq.com,REJECT
+DOMAIN,da.bridgeturbo.com,REJECT
+DOMAIN,adx-os.bridgeturbo.com,REJECT
+DOMAIN,adx-bj.anythinktech.com,REJECT
+DOMAIN,mobads.baidu.com,REJECT
 #广州地铁乘车码 
 DOMAIN, apis.alenable.com, reject
 #朵朵校友圈
