@@ -1,6 +1,6 @@
 /**************************
  *  * @Author: XiaoMao
- * @LastMod: 2023-09-24
+ * @LastMod: 2025-05-14
  *
  * 
 
@@ -30,10 +30,10 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoP
 
 
 [mitm]
-hostname = api.revenuecat.com
+hostname = api.revenuecat.com,api.rc-backup.com
 
 [rewrite_local]
-https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/pi.js
-https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/pi.js
+https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers|receipts) url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/pi.js
+https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers|receipts) url script-response-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/pi.js
 
 ********************************/
