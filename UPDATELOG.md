@@ -68,8 +68,17 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***887*** 次
 >
-> ***最新更新时间 2025.05.26 10:30***
+> ***最新更新时间 2025.06.02 14:40***
 
+
++ ##### 20250602
+
+  * > 新增[inc脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoInCue.js)
+    >
+    > 新增[dip脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoDietPal.js)
+    >
+    > 新增[bar脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoBarometer.js)
+    >
 
 + ##### 20250526
 
