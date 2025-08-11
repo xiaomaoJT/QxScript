@@ -17,19 +17,21 @@
 # XiaoMao机器人：https://t.me/Xiao_MaoMao_bot
 # XiaoMao仓库：https://github.com/xiaomaoJT/QxScript
 
-host, edith.xiaohongshu.com, direct
-ip-cidr, 111.0.43.226/24, reject
-ip-cidr, 81.69.116.86/24, reject
-ip-cidr, 106.15.179.162/24, reject
-ip-cidr, 1.13.112.169/24, reject
-ip-cidr, 117.185.25.254/24, reject
-ip-cidr, 101.227.133.99/24, reject
-ip-cidr, 117.147.204.18/24, reject
-ip-cidr, 101.227.133.99/24, reject
-ip-cidr, 115.227.40.11/24, reject
-ip-cidr, 120.26.214.249/24, reject
-ip-cidr, 119.29.29.98/24, reject
-host, rn-resource-app.xiaohongshu.com, reject
-host, fe.xiaohongshu.com, reject
-host, referee.xiaohongshu.com, reject
 host, ads-img-al.xhscdn.com, reject
+host, ads-img-qc.xhscdn.com, reject
+host, ads-video-al.xhscdn.com, reject
+host, ads-video-qc.xhscdn.com, reject
+host, growth-img.xhscdn.com, reject
+host, sns-webpic.xhscdn.com, reject
+host, ci.xiaohongshu.com, direct
+host, edith.xiaohongshu.com, direct
+host, miniprogram.xiaohongshu.com, direct
+host, pages.xiaohongshu.com, direct
+host, picasso-static.xiaohongshu.com, direct
+host, so.xiaohongshu.com, direct
+host, rec.xiaohongshu.com, direct
+host, live-room.xiaohongshu.com, direct
+host, www.xiaohongshu.com, direct
+ip-cidr, 119.29.29.80/28, reject
+host-suffix, xiaohongshu.com, reject
+host-suffix, redbascket.com, reject
