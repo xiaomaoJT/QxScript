@@ -68,8 +68,13 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***889*** 次
 >
-> ***最新更新时间 2025.06.11 14:45***
+> ***最新更新时间 2025.08.15 15:40***
 
+
++ ##### 20250815
+
+  * > 新增[wt脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoWaterTracker.js)
+    >
 
 + ##### 20250611
 
