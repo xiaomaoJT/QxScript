@@ -29,6 +29,7 @@ var DEFAULT_TOKEN = "";
 
 var PATH_API = '/tgbot/v1/api';
 var PATH_SAVE = '/tgbot/v1/save';
+var PATH_POLL = '/tgbot/v1/poll';
 
 var JSON_HEADERS = {
   'Content-Type': 'application/json; charset=utf-8',
@@ -37,8 +38,65 @@ var JSON_HEADERS = {
 };
 
 // ============================================================
+// 服务端辅助
+// ============================================================
+
+// 调用 Telegram Bot API，返回 Promise
+function tgCall(token, method, payload) {
+  var body = payload || {};
+  delete body.__token;
+  return $task
+    .fetch({
+      url: 'https://api.telegram.org/bot' + token + '/' + method,
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      opts: { redirection: true },
+    })
+    .then(function (r) {
+      try {
+        return r.body ? JSON.parse(r.body) : { ok: false };
+      } catch (e) {
+        return { ok: false, description: String(r.body).slice(0, 200) };
+      }
+    });
+}
+
+// 在规则中匹配命令或按钮 callback_data
+function matchRule(rules, key) {
+  var k = String(key == null ? '' : key);
+  if (k.charAt(0) === '/') k = k.slice(1);
+  k = k.toLowerCase();
+  for (var i = 0; i < rules.length; i++) {
+    var f = String((rules[i] && rules[i].key) || '');
+    if (f.charAt(0) === '/') f = f.slice(1);
+    if (f.toLowerCase() === k) return rules[i];
+  }
+  return null;
+}
+
+// ============================================================
 // 面板 HTML
 // ============================================================
+// gt: 外层拼接辅助。生成内层 JS 代码中的双引号字符串。
+// 必须定义在 PANEL_HTML 之前——拼接时就会用到。
+function gt(s) {
+  return String(s).replace(/\\\\"/g, '"');
+}
+
+
+// ============================================================
+// UI 片段：存在 $prefs，避免在 JS 字符串里嵌套 HTML 造成转义地狱
+// ============================================================
+var SNIPPETS = {
+  sw: '<div class=switch id=sw><span class=sw></span><span class=sl><b>自动回复</b><span>开启后，面板会持续读取消息并按规则自动回复</span></span></div>',
+  msgEmpty: '<div class=empty>暂无消息。点下方按钮读取，或开启自动回复</div>',
+  ruleEmpty: '<div class=empty>还没有回复规则</div>'
+};
+try {
+  $prefs.setValueForKey(JSON.stringify(SNIPPETS), 'tgbot_snippets');
+} catch (e) {}
+
 var PANEL_HTML = [
 '<!DOCTYPE html>',
 '<html lang=zh-CN><head><meta charset=utf-8>',
@@ -146,6 +204,26 @@ var PANEL_HTML = [
 '.sg button.on{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04211f;border-color:transparent}',
 '.toast{background:rgba(22,27,34,.96);border:1px solid var(--accent);color:var(--txt);box-shadow:0 8px 28px rgba(0,0,0,.5)}',
 'input[type=checkbox]{accent-color:var(--accent)}',
+'.btn.kb{background:linear-gradient(135deg,#a78bfa,#38bdf8);color:#0b1120;font-weight:600;box-shadow:0 3px 14px rgba(167,139,250,.3)}',
+'.switch{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);margin-bottom:12px}',
+'.switch .sw{width:44px;height:26px;border-radius:999px;background:#2b313a;position:relative;flex:0 0 auto;cursor:pointer;transition:.2s}',
+'.switch .sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#6b7480;transition:.2s}',
+'.switch.on .sw{background:linear-gradient(135deg,var(--accent),var(--accent2))}',
+'.switch.on .sw::after{left:21px;background:#04211f}',
+'.switch .sl{flex:1 1 auto;min-width:0}',
+'.switch .sl b{display:block;font-size:14px;font-weight:600;color:var(--txt)}',
+'.switch .sl span{font-size:11.5px;color:var(--txt2)}',
+'.msg{background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}',
+'.msg.cb{border-left:2px solid var(--accent2)}',
+'.msg .mh{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt2);margin-bottom:5px;flex-wrap:wrap;max-width:100%}',
+'.msg .mh .nm{color:var(--accent);font-weight:600;font-size:12.5px}',
+'.msg .mh .tm{margin-left:auto;font-variant-numeric:tabular-nums}',
+'.msg textarea{background:#0b0f14;border:1px solid var(--line);color:var(--txt);border-radius:9px;padding:9px 10px;font:14px/1.5 inherit;width:100%;min-height:64px;resize:vertical}',
+'.msg .mh .del{display:inline-block;background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.35);border-radius:6px;padding:2px 9px;font-size:13px;cursor:pointer;line-height:1.4;flex:0 0 auto;margin-left:auto;min-width:28px}',
+'.msg .tx{font-size:13.5px;color:var(--txt);word-break:break-word;overflow-wrap:anywhere;white-space:pre-wrap}',
+'.msg .kd{display:inline-block;font-size:11px;padding:1px 7px;border-radius:6px;background:rgba(56,189,248,.14);color:#38bdf8;border:1px solid rgba(56,189,248,.24)}',
+'.msg .rl{display:inline-block;font-size:11px;padding:1px 7px;border-radius:6px;background:rgba(74,222,128,.13);color:#4ade80}',
+'.msg .fkey{width:100%;background:#0b0f14;border:1px solid var(--line);color:var(--txt);border-radius:9px;padding:8px 10px;font:14px/1.4 inherit;margin-bottom:6px}',
 
 '.sg{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}',
 '.sg button{flex:0 0 auto;padding:5px 11px;border-radius:999px;border:1px solid #e0e4e8;background:#fff;font-size:12px;cursor:pointer}',
@@ -156,7 +234,9 @@ var PANEL_HTML = [
 '<div class=tabs>',
 '<div class="tab on" data-t=basic>连接</div>',
 '<div class=tab data-t=cmd>快捷指令</div>',
+'<div class=tab data-t=reply>指令回复</div>',
 '<div class=tab data-t=kb>消息按钮</div>',
+'<div class=tab data-t=inbox>互动消息</div>',
 '<div class=tab data-t=send>测试发送</div>',
 '<div class=tab data-t=info>Bot 信息</div>',
 '</div>',
@@ -166,16 +246,21 @@ var PANEL_HTML = [
 '<script>',
 '(function(){',
 'var BASE="/tgbot/v1";',
-'var token="", cmds=[], kbRows=[[]], botInfo=null, lastMsgId=null;',
+'var token="", cmds=[], kbRows=[[]], botInfo=null, lastMsgId=null, rules=[], inbox=[], autoReply=false, pollTimer=null;',
+'try{rules=JSON.parse(localStorage.getItem("tg_rules")||"[]")||[];if(!Array.isArray(rules))rules=[]}catch(e){rules=[]}',
+'try{autoReply=localStorage.getItem("tg_auto")==="1"}catch(e){autoReply=false}',
 'try{token=localStorage.getItem("tg_token")||""}catch(e){}',
 'try{cmds=JSON.parse(localStorage.getItem("tg_cmds")||"[]")||[];if(!Array.isArray(cmds))cmds=[]}catch(e){cmds=[]}',
 'try{kbRows=JSON.parse(localStorage.getItem("tg_kb")||"[[]]")||[[]];if(!Array.isArray(kbRows)||!kbRows.length)kbRows=[[]]}catch(e){kbRows=[[]]}',
 'function $(id){return document.getElementById(id)}',
-'function save(){try{localStorage.setItem("tg_token",token);localStorage.setItem("tg_cmds",JSON.stringify(cmds));localStorage.setItem("tg_kb",JSON.stringify(kbRows))}catch(e){}}',
+'function save(){try{localStorage.setItem("tg_token",token);localStorage.setItem("tg_cmds",JSON.stringify(cmds));localStorage.setItem("tg_kb",JSON.stringify(kbRows));localStorage.setItem("tg_rules",JSON.stringify(rules));localStorage.setItem("tg_auto",autoReply?"1":"0")}catch(e){}}',
 'function h(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}',
 'function q(s){return String(s==null?"":s).replace(/"/g,"&quot;")}',
 // gt: 在外层单引号串中写内层双引号 HTML 时的辅助（还原被转义的引号）
 'function gt(s){return String(s).replace(/\\\\"/g,String.fromCharCode(34))}',
+// SNIP：HTML 片段，由服务端注入在脚本末尾的 window.SNIP 读取
+'var SNIP={sw:"",msgEmpty:"",ruleEmpty:""};',
+'try{if(typeof window.SNIPDATA==="string"){var o=JSON.parse(window.SNIPDATA);if(o&&o.sw)SNIP=o}}catch(e){}',
 'function out(t){var el=$("out");if(el)el.textContent=typeof t==="string"?t:JSON.stringify(t,null,2)}',
 'function toast(m){var t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove("on")},1800)}',
 'function busy(b){var st=$("st");if(st)st.textContent=b?"请求中…":"本机服务"}',
@@ -309,7 +394,7 @@ var PANEL_HTML = [
 '    \'    <input type=checkbox id=prev2 style="width:auto;min-width:0;flex:0 0 auto"> 允许预览（Link Preview）\',',
 '    \'  </label>\',',
 '    \'</div>\',',
-'    \'<div class=row><button class=btn id=send>发送</button><button class="btn sec" id=sendkb>带按钮发送</button></div>\',',
+'    \'<div class=row><button class=btn id=send>发送</button><button class="btn kb" id=sendkb>带按钮发送</button></div>\',',
 '    \'<div class=row style="margin-top:8px"><button class="btn warn" id=delmsg>删除上一条消息</button></div></div>\',',
       '      "<div class=card><div class=ctitle>按钮预览</div><div class=kbb>"+prev+"</div></div>",',
 '    \'<div class=out id=out></div>\'',
@@ -347,6 +432,114 @@ var PANEL_HTML = [
 '    \'<div class=out id=out></div>\'',
 '  ].join("");',
 '};',
+'// ==================== 指令回复页 ====================',
+'panes.reply=function(){',
+'  var rows=rules.map(function(r,i){',
+'    return gt("<div class=msg><div class=mh><span class=nm>#")+q(h(r.key||"?"))',
+'      +gt("</span><span>自动回复</span><button class=del data-i=")+i+gt(">×</button></div>")',
+'      +gt("<div class=f><input class=fkey data-k=")+i',
+'      +gt(" value="+String.fromCharCode(34))+q(h(r.key||""))+gt(String.fromCharCode(34))',
+'      +gt(" placeholder="+String.fromCharCode(34)+"命令 或 按钮 data"+String.fromCharCode(34)+"></div>")',
+'      +gt("<textarea data-t2=")+i',
+'      +gt(" rows=3 placeholder="+String.fromCharCode(34)+"发 /命令 或点击同名按钮时回复这段话"+String.fromCharCode(34)+">")+h(r.reply||"")+"</textarea></div></div>";',
+'  }).join("");',
+'  return [',
+'    SNIP.sw.replace("class=switch","class=switch"+(autoReply?" on":"")),',
+'    "<div class=card><div class=ctitle>回复规则<span class=n>"+rules.length+"</span></div>",',
+'    "<div class=hint>这里配的是「指令对应的回复内容」。用户在 Telegram 发 /命令，或点击 callback_data 同名的按钮时，Bot 会自动回这段话。</div>",',
+'    rows ? rows : SNIP.ruleEmpty,',
+'    "<button class=btn sec style=width:100% id=addr>+ 添加规则</button>",',
+'    "<div class=row style=margin-top:8px><button class=btn sec id=fromcmd>从快捷指令生成</button></div></div>",',
+'    "<div class=out id=out></div>",',
+'  ].join("");',
+'};',
+'panes.inbox=function(){',
+'  var box=inbox.length ? inbox.map(function(it){',
+'    var isCb=it.kind==="callback";',
+'    var badge=isCb ? gt("<span class=kd>按钮 "+q(h(it.text||""))+"</span>") : "";',
+'    var body=isCb ? (gt("<div class=tx>")+"点击了按钮 "+q(h(it.text||""))+"</div>")',
+'                   : (gt("<div class=tx>")+q(h(it.text||""))+"</div>");',
+'    return gt("<div class=\\"msg ")+(isCb?"cb":"")+gt("\\"><div class=mh>")',
+'      +gt("<span class=nm>")+q(h(it.from_name||"未知"))+gt("</span>")',
+'      +badge',
+'      +(it.replied?gt("<span class=rl>已回复</span>"):"")',
+'      +gt("<span class=tm>")+fmtTime(it.date)+gt("</span></div>")',
+'      +body+"</div>";',
+'  }).join("") : SNIP.msgEmpty;',
+'  return [',
+'    "<div class=card><div class=ctitle>消息收件箱<span class=n>"+inbox.length+"</span></div>",',
+'    "<div class=hint>读取 Bot 收到的消息与按钮点击事件。开启自动回复后，面板打开期间会持续轮询并响应。</div>",',
+'    box,',
+'    "<div class=row><button class=btn id=readnow>立即读取</button></div>",',
+'    "<button class=btn warn style=width:100%;margin-top:8px id=clearinbox>清空列表</button></div>",',
+'    "<div class=out id=out></div>",',
+'  ].join("");',
+'};',
+// ==================== 互动消息页 ====================
+'panes.inbox=function(){',
+'  var box=inbox.length ? inbox.map(function(it){',
+'    var isCb=it.kind==="callback";',
+'    var badge=isCb ? gt("<span class=kd>按钮 "+q(h(it.text||""))+"</span>") : "";',
+'    var body=isCb',
+'      ? gt("<div class=tx>")+"点击了按钮 "+q(h(it.text||""))+"</div>"',
+'      : gt("<div class=tx>")+q(h(it.text||""))+"</div>";',
+'    return gt("<div class=\\\"msg ")+(isCb?"cb":"")+gt("\\\"><div class=mh>")',
+'      +gt("<span class=nm>")+q(h(it.from_name||"未知"))+gt("</span>")',
+'      +badge',
+'      +(it.replied?gt("<span class=rl>已回复</span>"):"")',
+'      +gt("<span class=tm>")+fmtTime(it.date)+gt("</span></div>")',
+'      +body+"</div>";',
+'  }).join("") : gt("<div class=empty>暂无消息。点下方按钮读取，或开启自动回复</div>");',
+'  return [',
+'    \'<div class=card><div class=ctitle>消息收件箱 <span class=n>\'+inbox.length+\'</span></div>\',',
+'    \'<div class=hint>读取 Bot 收到的消息与按钮点击事件。开启自动回复后，面板打开期间会持续轮询并响应。</div>\',',
+'    box,',
+'    \'<div class=row><button class=btn id=readnow>立即读取</button></div>\',',
+'    \'<button class="btn warn" style="width:100%;margin-top:8px" id=clearinbox>清空列表</button></div>\',',
+'    \'<div class=out id=out></div>\'',
+'  ].join("");',
+'};',
+'function fmtTime(ts){',
+// 本地查找规则（生成规则时避免重复）
+'function matchLocal(key){',
+'  var k=String(key||"").replace(/^\\//,"").toLowerCase();',
+'  for(var i=0;i<rules.length;i++){',
+'    var f=String((rules[i]&&rules[i].key)||"").replace(/^\\//,"").toLowerCase();',
+'    if(f===k) return rules[i];',
+'  }',
+'  return null;',
+'}',
+'  if(!ts)return "";',
+'  var d=new Date(ts*1000);',
+'  function p(n){return n<10?"0"+n:""+n}',
+'  return p(d.getMonth()+1)+"-"+p(d.getDate())+" "+p(d.getHours())+":"+p(d.getMinutes())+":"+p(d.getSeconds());',
+'}',
+'// 调用本机 poll 接口：读取消息 + 可选自动应答',
+'function pollOnce(reset){',
+'  return fetch(BASE+"/poll",{',
+'    method:"POST",',
+'    headers:{"Content-Type":"application/json"},',
+'    body:JSON.stringify({__token:token,rules:rules,auto:autoReply,chat_id:localStorage.getItem("tg_chat")||"",reset:!!reset})',
+'  }).then(function(r){return r.json()}).then(function(j){',
+'    if(j && j.ok && j.items && j.items.length){',
+'      inbox = j.items.concat(inbox).slice(0,50);',
+'      if(cur==="inbox") render();',
+'      return j.items.length;',
+'    }',
+'    return 0;',
+'  }).catch(function(){ return -1; });',
+'}',
+'function startPolling(){',
+'  if(pollTimer) clearInterval(pollTimer);',
+'  pollTimer=setInterval(function(){',
+'    if(!token) return;',
+'    pollOnce(false).then(function(n){',
+'      if(n>0) $("st").textContent="收到 "+n+" 条";',
+'    });',
+'  },4000);',
+'  pollOnce(false);',
+'}',
+'function stopPolling(){ if(pollTimer){clearInterval(pollTimer);pollTimer=null;} }',
 'var cur="basic";',
 'function render(){$("pane").innerHTML=panes[cur]();bind();}',
 'function bind(){',
@@ -428,6 +621,55 @@ var PANEL_HTML = [
 '        out(r); cmds=[]; save(); render(); toast("已清除");',
 '      });',
 '    };',
+'  }',
+'  if(cur==="reply"){',
+'    if($("sw"))$("sw").onclick=function(){',
+'      autoReply=!autoReply; save();',
+'      if(autoReply){ if(!token){toast("请先填写 Token");autoReply=false;save();} else startPolling(); }',
+'      else stopPolling();',
+'      render();',
+'      toast(autoReply?"自动回复已开启":"自动回复已关闭");',
+'    };',
+'    $("addr").onclick=function(){',
+'      rules.push({key:"",reply:""}); save(); render();',
+'      var ks=document.querySelectorAll(".msg input,.msg input[data-k]");',
+'    };',
+'    var ks=document.querySelectorAll("[data-k]"), i2;',
+'    for(i2=0;i2<ks.length;i2++){',
+'      ks[i2].oninput=function(){rules[+this.getAttribute("data-k")].key=this.value; save()};',
+'    }',
+'    var ts=document.querySelectorAll("[data-t2]"), j2;',
+'    for(j2=0;j2<ts.length;j2++){',
+'      ts[j2].oninput=function(){rules[+this.getAttribute("data-t2")].reply=this.value; save()};',
+'    }',
+'    var ds=document.querySelectorAll(".msg .del"), k2;',
+'    for(k2=0;k2<ds.length;k2++){',
+'      ds[k2].onclick=function(){rules.splice(+this.getAttribute("data-i"),1); save(); render()};',
+'    }',
+'    $("fromcmd").onclick=function(){',
+'      var added=0;',
+'      cmds.forEach(function(c){',
+'        if(!c.command) return;',
+'        var key=c.command.trim().replace(/^\\//,"");',
+'        if(!key) return;',
+'        if(matchLocal(key)) return;',
+'        rules.push({key:key, reply:c.description||("已触发 "+key)});',
+'        added++;',
+'      });',
+'      save(); render();',
+'      toast(added?("已生成 "+added+" 条"):"没有新规则可生成");',
+'    };',
+'  }',
+'  if(cur==="inbox"){',
+'    $("readnow").onclick=function(){',
+'      if(!needTok())return;',
+'      out("读取中…");',
+'      pollOnce(false).then(function(n){',
+'        out(n>0?("收到 "+n+" 条新消息"):"没有新消息");',
+'        if(n>0) render();',
+'      });',
+'    };',
+'    $("clearinbox").onclick=function(){ inbox=[]; render(); toast("已清空"); };',
 '  }',
 '  if(cur==="kb"){',
 '    $("addrow").onclick=function(){kbRows.push([]);save();render()};',
@@ -552,6 +794,8 @@ var PANEL_HTML = [
 '  };',
 '}',
 'render();',
+// 若已开启自动回复，进入面板即恢复轮询
+'if(autoReply && token) startPolling();',
 '})();',
 '<' + '/script>',
 '</body></html>',
@@ -577,6 +821,180 @@ try {
       $prefs.setValueForKey(sm[1], 'tgbot_token');
     }
     $done({ status: 'HTTP/1.1 200 OK', headers: JSON_HEADERS, body: JSON.stringify({ ok: true }) });
+  } else if (path.indexOf(PATH_POLL) === 0) {
+    // ===== 收件箱 + 自动应答引擎 =====
+    // 面板周期性调用。QX 脚本单次执行上限约 10s，故用 timeout:0 立即返回，
+    // 不做长轮询；offset 游标存 $prefs 跨请求保持，避免重复处理。
+    var pBody = {};
+    try {
+      pBody = $request.body ? JSON.parse($request.body) : {};
+    } catch (e) {
+      pBody = {};
+    }
+    var pToken = pBody.__token || savedToken || DEFAULT_TOKEN;
+    var pRules = Array.isArray(pBody.rules) ? pBody.rules : [];
+    var pChat = pBody.chat_id || '';
+    var pAuto = !!pBody.auto;
+    var pReset = !!pBody.reset;
+
+    if (pReset) {
+      try {
+        $prefs.setValueForKey('0', 'tgbot_offset');
+      } catch (e) {
+        /* 忽略 */
+      }
+    }
+
+    if (!pToken) {
+      $done({
+        status: 'HTTP/1.1 401 Unauthorized',
+        headers: JSON_HEADERS,
+        body: JSON.stringify({ ok: false, error_code: 401, description: 'missing bot token' }),
+      });
+    } else {
+      var curOffset = 0;
+      try {
+        curOffset = parseInt($prefs.valueForKey('tgbot_offset') || '0', 10) || 0;
+      } catch (e) {
+        curOffset = 0;
+      }
+
+      $task
+        .fetch({
+          url: 'https://api.telegram.org/bot' + pToken + '/getUpdates',
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            offset: curOffset,
+            timeout: 0,
+            limit: 20,
+            allowed_updates: ['message', 'callback_query'],
+          }),
+          opts: { redirection: true },
+        })
+        .then(function (resp) {
+          var upd = { ok: false, result: [] };
+          try {
+            upd = resp.body ? JSON.parse(resp.body) : upd;
+          } catch (e) {
+            /* 保持默认 */
+          }
+
+          if (!upd.ok) {
+            $done({ status: 'HTTP/1.1 200 OK', headers: JSON_HEADERS, body: JSON.stringify(upd) });
+            return;
+          }
+
+          var updates = Array.isArray(upd.result) ? upd.result : [];
+          var items = [];
+          var maxId = curOffset;
+
+          for (var i = 0; i < updates.length; i++) {
+            var u = updates[i];
+            if (u.update_id >= maxId) maxId = u.update_id + 1;
+
+            if (u.message) {
+              var m = u.message;
+              items.push({
+                kind: 'message',
+                update_id: u.update_id,
+                message_id: m.message_id,
+                chat_id: m.chat ? m.chat.id : null,
+                chat_title: m.chat ? (m.chat.title || '') : '',
+                from_name: m.from ? (m.from.first_name || m.from.username || '未知') : '未知',
+                date: m.date,
+                text: m.text || '',
+                replied: false,
+              });
+            } else if (u.callback_query) {
+              var cq = u.callback_query;
+              items.push({
+                kind: 'callback',
+                update_id: u.update_id,
+                cb_id: cq.id,
+                chat_id: cq.message ? (cq.message.chat ? cq.message.chat.id : null) : null,
+                message_id: cq.message ? cq.message.message_id : null,
+                from_name: cq.from ? (cq.from.first_name || cq.from.username || '未知') : '未知',
+                date: cq.message ? cq.message.date : 0,
+                text: cq.data || '',
+                replied: false,
+              });
+            }
+          }
+
+          if (maxId > curOffset) {
+            try {
+              $prefs.setValueForKey(String(maxId), 'tgbot_offset');
+            } catch (e) {
+              /* 忽略 */
+            }
+          }
+
+          function finish() {
+            $done({
+              status: 'HTTP/1.1 200 OK',
+              headers: JSON_HEADERS,
+              body: JSON.stringify({ ok: true, items: items, offset: maxId }),
+            });
+          }
+
+          if (!pAuto || !pRules.length || !items.length) {
+            finish();
+            return;
+          }
+
+          // ---- 依次处理，串行避免超出脚本时限 ----
+          var chain = Promise.resolve();
+          items.forEach(function (it) {
+            chain = chain.then(function () {
+              if (pChat && String(it.chat_id) !== String(pChat)) return;
+
+              if (it.kind === 'callback') {
+                // 先 answerCallbackQuery，消除按钮上的加载动画
+                var ack = { callback_query_id: it.cb_id };
+                var r0 = matchRule(pRules, it.text);
+                if (r0 && r0.reply) ack.text = String(r0.reply).slice(0, 200);
+                return tgCall(pToken, 'answerCallbackQuery', ack).then(function () {
+                  it.replied = true;
+                  if (r0 && r0.reply) {
+                    return tgCall(pToken, 'sendMessage', {
+                      chat_id: it.chat_id,
+                      text: r0.reply,
+                    }).then(function () {});
+                  }
+                });
+              }
+
+              var txt = String(it.text || '');
+              if (txt.charAt(0) !== '/') return;
+              var cmd = txt.split(/\s+/)[0].slice(1);
+              var rule = matchRule(pRules, cmd);
+              if (!rule || !rule.reply) return;
+              return tgCall(pToken, 'sendMessage', {
+                chat_id: it.chat_id,
+                text: rule.reply,
+              }).then(function () {
+                it.replied = true;
+              });
+            });
+          });
+
+          chain = chain.catch(function () {
+            /* 单条失败不阻断整体 */
+          });
+          chain.then(finish);
+        })
+        .catch(function (err) {
+          $done({
+            status: 'HTTP/1.1 200 OK',
+            headers: JSON_HEADERS,
+            body: JSON.stringify({
+              ok: false,
+              description: 'getUpdates 失败：' + (err && err.error ? err.error : '未知'),
+            }),
+          });
+        });
+    }
   } else if (path.indexOf(PATH_API) === 0) {
     var tgMethod = path.slice(PATH_API.length).replace(/^\//, '');
     if (!tgMethod) {
@@ -649,6 +1067,8 @@ try {
       }
     }
   } else {
+    // 面板页面：注入 SNIPDATA（HTML 片段），避免前端再写嵌套 HTML 字符串
+    var inject = '<script>window.SNIPDATA=' + JSON.stringify(JSON.stringify(SNIPPETS)) + ';</' + 'script>';
     $done({
       status: 'HTTP/1.1 200 OK',
       headers: {
@@ -656,7 +1076,7 @@ try {
         'Cache-Control': 'no-store',
         'Connection': 'Close',
       },
-      body: PANEL_HTML,
+      body: PANEL_HTML.replace('<div class=hd>', inject + '<div class=hd>'),
     });
   }
 } catch (e) {
