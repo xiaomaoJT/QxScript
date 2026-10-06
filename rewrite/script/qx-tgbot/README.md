@@ -90,30 +90,68 @@ Telegram Bot API **官方不返回 CORS 头**，浏览器会直接拦截响应�
 
 | 页签 | 能力 | API |
 |---|---|---|
-| **连接** | Token / ChatID 配置、连通性验证 | `getMe` |
-| **快捷指令** | 增删改、保存到 Bot、读取现有、清除 | `setMyCommands` / `getMyCommands` / `deleteMyCommands` |
-| **消息按钮** | 可视化编辑 InlineKeyboard（多行多列）、设置 callback_data、实时预览 | → `reply_markup` |
-| **测试发送** | 任意文本、MarkdownV2 / HTML、纯文本或带按钮发送 | `sendMessage` |
+| **连接** | Token / ChatID 配置、连通性验证、已连接 Bot 摘要、清除 Token | `getMe` |
+| **快捷指令** | 增删改、序号标注、输入即保存、读取现有、清除全部 | `setMyCommands` / `getMyCommands` / `deleteMyCommands` |
+| **消息按钮** | 可视化编辑 InlineKeyboard、多行多列、每行可删、5 种预设布局、实时预览 | → `reply_markup` |
+| **测试发送** | 常用表情快插、MarkdownV2 / HTML、静默发送、关闭预览、**删除上一条消息** | `sendMessage` / `deleteMessage` |
+| **Bot 信息** | ID、用户名、语言、可加入群组、内联查询、Web App 等能力 | `getMe` |
+
+### 消息按钮预设
+
+「消息按钮」页提供 5 种一键预设：**单列**（纵向菜单）、**两列**、**三列**、**宫格**（2×3）、以及关闭预设的「取消」。预设只是填入布局，之后仍可逐个点击编辑。
+
+### 测试发送增强
+
+- 12 个常用表情一键插入光标处
+- **禁用通知**：勾选后 `disable_notification=true`，静默发送
+- **允许预览**：勾选后 `disable_web_page_preview=true`
+- **删除上一条消息**：发送成功后记住 `message_id`，可一键撤回（`deleteMessage`）
 
 按钮布局中，行内只有一个按钮时自动占满整行，与 Telegram 实际展示一致。
 
-Token 与配置仅存本机，不上传任何第三方服务器。
+Token 与配置仅存本机（localStorage + QX `$prefs` 双写），不上传任何第三方服务器。
 
 ---
 
 ## 已验证项
 
-- 外层脚本与内联 JS 双层语法检查通过
+全部经无头 Chrome + CDP 实测：
+
+- 外层脚本与内联 JS **双层**语法检查通过
 - 四条路由单测：面板页 / API 代理 / 无 token 401 / save 存取 token
 - `__token` 剥离 5 种位置组合（含末尾无逗号边界），均保证转发合法 JSON
-- 无头 Chrome 实测四页签渲染；CDP 实测 `scrollWidth == innerWidth`，无横向溢出
+- **快捷指令**：添加 2 条 → 2 个输入框；删除第 1 条 → 剩 `BBB`（确认删对）且已持久化
+- **消息按钮**：加行 / 删行 / 宫格预设（6 按钮 2 行）均正确并持久化
+- **测试发送**：表情插入、复选框、删除消息按钮就位
+- **Bot 信息**：刷新按钮与空态提示正常
+- CDP 实测 `scrollWidth == innerWidth`，**无横向溢出**
 
 ### 开发中踩到的坑（供后续维护参考）
 
-1. **多层字符串转义**：面板 HTML 嵌在 JS 字符串里时，Python 风格的 `\"` 混入 JS 会直接语法报错。约定 **HTML 属性用双引号、生成的 JS 字符串用单引号**，两者不交叉。
-2. **正则剥离 JSON 字段不可靠**：`__token` 在末尾时正则会留下悬空逗号，导致转发非法 JSON。改用 `JSON.parse` → `delete` → `JSON.stringify`。
-3. **`input` 默认最小宽度撑破容器**：移动端需 `min-width:0` + `max-width:100%`，否则横向溢出。
-4. **顶层 `return`**：部分 JS 宿主不合法，用 if/else 嵌套替代。
+1. **面板 HTML 双层嵌套的引号地狱**（本项目最大的坑）
+   面板 HTML 要作为**字符串**塞进 JS 源码，等于「JS 里嵌 JS 字符串嵌 HTML」。
+   - 约定：**HTML 属性用双引号，生成的 JS 字符串用单引号**，两者不交叉
+   - 数组 `.join('')` 优于跨元素字符串续行——`value=''` 里的单引号会提前闭合字符串
+   - **不要用模板字符串**：`${}` 会在外层就被求值，而变量只在浏览器侧存在
+   - 出现深层嵌套时，改用 `gt()` 辅助函数统一还原引号，别硬拼转义
+
+2. **静默 bug 模式**：`rows` 算出来了但忘放进 `return` 数组，语法完全合法、
+   `node --check` 全绿、浏览器也不报错——只是输入框永远不渲染。
+   **必须用 CDP 真实点击验证**，不能只靠语法检查。
+
+3. **内存改动未持久化**：`render()` 会从 localStorage 重读，所以 `push`/`splice`
+   之后必须 `save()`，否则刷新后改动丢失（表现为"删了又回来"）。
+
+4. **正则剥离 JSON 字段不可靠**：`__token` 在末尾时正则会留下悬空逗号，
+   导致转发非法 JSON。改用 `JSON.parse` → `delete` → `JSON.stringify`。
+
+5. **`input` 默认最小宽度撑破容器**：移动端需 `min-width:0` + `max-width:100%`。
+
+6. **别信截图，判断布局要靠 CDP**：无头模式下视口宽度（500/756px）与
+   `--window-size` 截图裁剪不一致，会造成"文字被截断"的**假象**。
+   实测 `document.documentElement.scrollWidth <= innerWidth` 才可信。
+
+7. **顶层 `return`**：部分 JS 宿主不合法，用 if/else 嵌套替代。
 
 ---
 
