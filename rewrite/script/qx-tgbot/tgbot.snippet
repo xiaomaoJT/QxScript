@@ -1,0 +1,20 @@
+; ============================================================
+; TGBot 配置面板 — Quantumult X 配置片段
+; 用法：把本文件放到 iCloud Drive/Quantumult X/Scripts 或用 [rewrite_remote] 引用
+; ============================================================
+
+[rewrite_local]
+
+; ---- 1) 劫持目标网站：注入 TGBot 配置面板 ----
+; 把 example.com 换成你自己的域名。
+; 注意：目标站点必须是 https，且该域名要写进 [mitm] 的 hostname。
+^https?://xiaomaotgbot\.com/ url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/refs/heads/main/rewrite/script/qx-tgbot/tgbot-panel-inject.js
+
+; ---- 2) 本地 CORS 代理：让面板能调用 Telegram Bot API ----
+; Telegram 官方未提供 CORS 头，浏览器会拦截响应。
+; 这条规则由 Quantumult X 在本地代替浏览器请求 Telegram 并补齐 CORS 头。
+^https://api\.telegram\.org/bot url script-echo-response https://raw.githubusercontent.com/xiaomaoJT/QxScript/refs/heads/main/rewrite/script/qx-tgbot/tgbot-cors.js
+
+[mitm]
+; 目标站点必须在这里声明，否则无法解密/改写
+hostname = xiaomaotgbot.com, *.xiaomaotgbot.com, api.telegram.org
