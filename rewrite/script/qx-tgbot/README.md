@@ -1,72 +1,69 @@
-# Quantumult X 劫持网站实现 TGBot 配置面板
+# Quantumult X TGBot 配置面板
 
-通过 QX 重写功能劫持任意网站页面，注入一个 Telegram Bot 配置面板，支持**快捷指令**、**消息按钮**、**测试发送**。
+在 Quantumult X 上管理 Telegram Bot：**快捷指令**、**消息按钮**、**测试发送**。
 
-已在无头浏览器中实测通过：四个页签均正常渲染，被劫持的原页面内容完好无损。
+## 两种方案
 
----
-
-## ⚠️ 关于 www.xiaomao.tgbot.com
-
-你想劫持的域名 **目前在公网并不存在**：
-
-```
-权威 NS (ns51.domaincontrol.com) 查询  → 空
-Google DNS 8.8.8.8 查询                → 空
-```
-
-而 `tgbot.com` 本身是 Vercel 托管的第三方站点（*"TGBot - Ranked Telegram Crypto Bots"*，加密货币交易机器人排行榜），**并非你的站点，你也没有它的控制权**。
-
-> 本机 `dig` 出的 `198.18.x.x` 是代理软件的 fake-IP 假象，不代表域名真实存在。
-
-**但这不影响方案落地** —— 面板功能与该域名毫无依赖关系，你可以把它注入到任意一个你能正常访问的 HTTPS 页面（自己的站点、测试页都行）。
-
----
-
-## 核心原理
-
-```
-浏览器页面  ──①注入面板──▶  被劫持的站点 HTML
-    │
-    └─②fetch──▶ api.telegram.org/bot<token>/sendMessage
-                      │
-              ③QX 拦截（script-echo-response）
-                      │
-              ④$task.fetch 由 QX 本地发真实请求
-                      │
-              ⑤补齐 CORS 响应头 ──▶ 浏览器放行
-```
-
-**为什么必须有第 ③④⑤步**：Telegram Bot API 官方**不返回 CORS 头**，浏览器会直接拦截响应，面板拿不到数据。所以需要 QX 在本地做一层代理并注入 `Access-Control-Allow-Origin: *`。
-
-两条重写规则各司其职：
-
-| 规则 | 脚本 | 作用 |
+| | **方案 A：本机服务**（推荐） | **方案 B：劫持网页** |
 |---|---|---|
-| `^https?://你的域名/` | `script-response-body` | 劫持 HTML，注入面板 |
-| `^https://api\.telegram\.org/bot` | `script-echo-response` | 本地代理 + CORS 注入 |
+| 需要域名 | ❌ 不需要 | ✅ 需要 |
+| 需要 MITM 证书 | ❌ 不需要 | ✅ 需要，且要信任 |
+| 劫持他人网站 | ❌ 不需要 | 需要你有控制权的站点 |
+| 跨域问题 | 无（同源） | 需额外 CORS 代理规则 |
+| 配置复杂度 | 一行 | 三条规则 + 证书 |
+
+**没有域名？直接用方案 A。** 它不需要域名、不需要证书、不劫持任何网站。
 
 ---
 
-## 部署步骤
+## 方案 A：本机服务（推荐）
+
+### 1. 添加配置
+
+主配置里加入（`tgbot.snippet` 已备好）：
+
+```ini
+[http_backend]
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/refs/heads/main/rewrite/script/qx-tgbot/tgbot-backend.js, tag=tgbot, path=^/tgbot/v1/, enabled=true
+```
+
+### 2. 打开面板
+
+Safari 访问：
+
+```
+http://127.0.0.1:9999/tgbot/v1/
+```
+
+同一局域网的其他设备可用 `http://quantumult-x:9999/tgbot/v1/`。
+
+> 需在 QX「设置 → MITM」里**生成证书**（本方案不需信任，只是 QX 启用本地服务的开关）。
+
+### 3. 填写信息
+
+「连接」页填入：
+
+- **Bot Token**：从 [@BotFather](https://t.me/BotFather) 获取
+- **Chat ID**：你的数字 ID，或群组 `@channelusername`
+
+点「验证连接」确认 Token 有效。
+
+Token 会同时存入浏览器 localStorage 和 QX 的 `$prefs`，刷新不丢失。
+
+---
+
+## 方案 B：劫持网页
+
+需要你有一个**自己控制的 HTTPS 域名**（当前 snippet 配置为 `xiaomaotgbot.com`）。
 
 ### 1. 放置脚本
 
-把两个 `.js` 文件上传到 iCloud Drive（QX 配置里指向的目录）：
+两个脚本下载到 `iCloud Drive/Quantumult X/Scripts/`：
 
-```
-iCloud Drive/Quantumult X/Scripts/
-├── tgbot-panel-inject.js
-└── tgbot-cors.js
-```
+- `tgbot-panel-inject.js` — 注入面板
+- `tgbot-cors.js` — 本地 CORS 代理
 
-### 2. 改 snippet 中的域名
-
-打开 `tgbot.snippet`，把两处 `example.com` 换成你的实际域名。
-
-### 3. 导入配置
-
-QX → 配置 → 当前配置 → 右上角「+」→ 添加 `rewrite_local` 规则，或直接编辑主配置粘贴：
+### 2. 配置规则
 
 ```ini
 [rewrite_local]
@@ -77,71 +74,62 @@ QX → 配置 → 当前配置 → 右上角「+」→ 添加 `rewrite_local` �
 hostname = 你的域名, *.你的域名, api.telegram.org
 ```
 
-### 4. 安装证书
+### 3. 信任证书
 
-QX → 设置 → MITM → 生成证书 → 装到 iOS「设置 → 通用 → 关于本机 → 证书信任设置」里**打开信任**。
+QX → 设置 → MITM → 生成证书 → 装到 iOS「设置 → 通用 → 关于本机 → 证书信任设置」并**打开信任**。
 
-> ⚠️ 不开信任证书，HTTPS 解密不生效，规则不会触发。
+> 不信任证书，HTTPS 无法解密，规则不生效。
 
-### 5. 使用
+### 为什么需要那条 CORS 规则
 
-打开被劫持的网站 → 页面右下角出现 **⚙ 悬浮按钮** → 点击进入面板。
-
-**「连接」页**填入：
-- **Bot Token**：从 [@BotFather](https://t.me/BotFather) 获取
-- **Chat ID**：你自己的数字 ID，或群组 `@channelusername`
-
-点「验证连接 getMe」确认 Token 有效。
+Telegram Bot API **官方不返回 CORS 头**，浏览器会直接拦截响应。所以必须由 QX 在本地代发请求并注入 `Access-Control-Allow-Origin: *`。
 
 ---
 
 ## 面板功能
 
-| 页签 | 能力 | 对应 API |
+| 页签 | 能力 | API |
 |---|---|---|
 | **连接** | Token / ChatID 配置、连通性验证 | `getMe` |
-| **快捷指令** | 增删改指令与描述、保存到 Bot、读取现有、清除 | `setMyCommands` / `getMyCommands` / `deleteMyCommands` |
-| **消息按钮** | 可视化编辑 InlineKeyboard 布局（多行多列）、设置 callback_data、实时预览 | 本地布局 → `reply_markup` |
-| **测试发送** | 任意文本、MarkdownV2/HTML 解析模式、纯文本或带按钮发送 | `sendMessage` |
+| **快捷指令** | 增删改、保存到 Bot、读取现有、清除 | `setMyCommands` / `getMyCommands` / `deleteMyCommands` |
+| **消息按钮** | 可视化编辑 InlineKeyboard（多行多列）、设置 callback_data、实时预览 | → `reply_markup` |
+| **测试发送** | 任意文本、MarkdownV2 / HTML、纯文本或带按钮发送 | `sendMessage` |
 
-Token 和配置只存在**本机 localStorage**，不上传任何服务器。
+按钮布局中，行内只有一个按钮时自动占满整行，与 Telegram 实际展示一致。
 
-按钮布局的行内单按钮会自动占满整行，与 Telegram 实际展示一致。
+Token 与配置仅存本机，不上传任何第三方服务器。
 
 ---
 
 ## 已验证项
 
 - 外层脚本与内联 JS 双层语法检查通过
-- 注入后 HTML 结构完整（div 开闭平衡 37/37）
-- 无头 Chrome 实测：四个页签渲染正常，原页面内容不受影响
-- 异常安全：注入失败时 `catch` 兜底原样返回，**绝不破坏宿主页**
+- 四条路由单测：面板页 / API 代理 / 无 token 401 / save 存取 token
+- `__token` 剥离 5 种位置组合（含末尾无逗号边界），均保证转发合法 JSON
+- 无头 Chrome 实测四页签渲染；CDP 实测 `scrollWidth == innerWidth`，无横向溢出
+
+### 开发中踩到的坑（供后续维护参考）
+
+1. **多层字符串转义**：面板 HTML 嵌在 JS 字符串里时，Python 风格的 `\"` 混入 JS 会直接语法报错。约定 **HTML 属性用双引号、生成的 JS 字符串用单引号**，两者不交叉。
+2. **正则剥离 JSON 字段不可靠**：`__token` 在末尾时正则会留下悬空逗号，导致转发非法 JSON。改用 `JSON.parse` → `delete` → `JSON.stringify`。
+3. **`input` 默认最小宽度撑破容器**：移动端需 `min-width:0` + `max-width:100%`，否则横向溢出。
+4. **顶层 `return`**：部分 JS 宿主不合法，用 if/else 嵌套替代。
 
 ---
 
 ## 常见问题
 
-**面板没出现**
-检查三点：域名是否写进 `[mitm] hostname`、证书是否已信任、规则是否匹配（QX 重写要求响应体非空）。
+**面板打不开**
+QX 未运行；或 `path` 正则与访问路径不匹配（须为 `^/tgbot/v1/`）。
 
-**点「验证连接」报 CORS 错误**
-第二条 `api.telegram.org` 规则没生效。确认 `$task.fetch` 可用（需 QX ≥ 1.0.14）。
+**提示 missing bot token**
+「连接」页填 Token 后先点「保存」。
 
-**`sendMessage` 返回 400**
-多半是 Chat ID 不对。Bot 必须先在目标会话中收到过一条消息，才能向该会话发消息。
+**sendMessage 返回 400**
+多半是 Chat ID 不对。Bot 必须先在目标会话中收到过一条消息，才能向其发送。
 
 **MarkdownV2 报 400**
-特殊字符需转义（如 `*`、`.`、`-`），建议先用「默认」模式测试。
+特殊字符需转义（`*`、`.`、`-` 等），建议先用「默认」模式测试。
 
----
-
-## 附：想直接用 http_backend？
-
-QX 还支持在 `127.0.0.1:9999` 起本地服务，完全不依赖任何网站：
-
-```ini
-[http_backend]
-tgbot-api.js, tag=botapi, path=^/botapi/
-```
-
-这种方式更干净（不用劫持任何页面），但面板需改为访问本地地址，且不能与页面注入方案混用。核心 API 调用逻辑与本方案一致。
+**setMyCommands 无效**
+命令不能带 `/` 前缀（面板会自动去除），且描述不可为空。
