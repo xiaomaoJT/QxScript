@@ -4,7 +4,7 @@
  * 签名算法分析实验台（逆向辅助）
  *
  * [rewrite_local]
- * ^https?:// url script-request-header sign_lab.js
+ * ^https?:// url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/sign_lab.js
  *
  * [mitm]
  * hostname = *
@@ -283,14 +283,16 @@ function buildPathRegex(path) {
 }
 
 // 生成"可复制的专属配置"引导文本（捕获真实 host/path 后给出）
+// file 传完整远程地址（资源引入方式，QX 直接拉取执行）
 function buildConfigGuide(host, path, file, qxType, scriptCfg) {
   const esc = host.replace(/\./g, '\\.');
+  const name = file.split('/').pop();
   return [
-    '【' + file + ' · 捕获到目标】',
+    '【' + name + ' · 捕获到目标】',
     'host = ' + host,
     'path = ' + path,
     '',
-    '复制下面这段到 QX 配置 + 脚本顶部，即可锁定你的专属目标：',
+    '复制下面这段到 QX 配置，即可锁定你的专属目标（脚本名已是完整远程地址，QX 资源引入直接拉取）：',
     '',
     '[rewrite_local]',
     '^https?://' + esc + '/ url ' + qxType + ' ' + file,
@@ -298,10 +300,9 @@ function buildConfigGuide(host, path, file, qxType, scriptCfg) {
     '[mitm]',
     'hostname = ' + host,
     '',
-    '// ' + file + ' 配置区',
+    '// ' + name + ' 配置区',
     scriptCfg,
     '',
-    '（资源引入方式：把上面脚本名换成你的远程订阅地址）',
   ].join('\n');
 }
 
@@ -364,7 +365,7 @@ if (!hitHost) {
   if (!$prefs.valueForKey(gk)) {
     $prefs.setValueForKey('1', gk);
     const g = buildConfigGuide(
-      host, _path, 'sign_lab.js', 'script-request-header',
+      host, _path, 'https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/sign_lab.js', 'script-request-header',
       "hosts: ['" + host + "'],\n  pathFilter: " + buildPathRegex(_path) + ','
     );
     console.log('[sign_lab] ' + g);
