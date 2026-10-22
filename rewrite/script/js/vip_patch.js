@@ -25,6 +25,38 @@ const CONFIG = {
   discoveryMode: false, // 未配置规则时：false=静默放行（默认）；true=把捕获到的 host/path + 可复制配置打到 QX 日志（不弹窗）
 };
 
+//==================== BoxJS 实时配置（覆盖式单条规则，免改代码）====================
+// 配合 BoxJS 订阅 rewrite/boxJS/XiaoMaoReverseTools.json 使用
+function readBox(key, def, type) {
+  let raw = null;
+  try { if (typeof $prefs !== 'undefined' && $prefs) raw = $prefs.valueForKey(key); } catch (e) {}
+  const empty = raw === null || raw === undefined || String(raw).trim() === '';
+  const s = empty ? '' : String(raw).trim();
+  try {
+    switch (type) {
+      case 'bool': return empty ? def : /^(1|true|yes|on)$/i.test(s);
+      case 'int': { if (empty) return def; const n = parseInt(s, 10); return isNaN(n) ? def : n; }
+      case 'list': {
+        const src = empty ? (Array.isArray(def) ? def.join('\n') : String(def == null ? '' : def)) : s;
+        return src.split(/[,\n]/).map((x) => x.trim()).filter(Boolean);
+      }
+      case 'regex': {
+        if (empty) return def;
+        if (s.charAt(0) === '/') {
+          const m = s.match(/^\/(.*)\/([gimsuy]*)$/);
+          return m ? new RegExp(m[1], m[2] || 'i') : new RegExp(s, 'i');
+        }
+        return new RegExp(s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+      }
+      case 'json': { if (empty) return def; try { return JSON.parse(s); } catch (e) { return def; } }
+      default: return empty ? def : s;
+    }
+  } catch (e) { return def; }
+}
+
+CONFIG.discoveryMode = readBox('vipDiscovery', CONFIG.discoveryMode, 'bool');
+CONFIG.notify = readBox('vipNotify', true, 'bool');
+
 //==================== 规则配置区 ====================
 
 const RULES = [
@@ -82,6 +114,29 @@ const RULES = [
   //   },
   // },
 ];
+
+//==================== BoxJS 一键规则（免改代码，由订阅参数生成，插入到 RULES 最前）====================
+(function applyBoxRule() {
+  const h = readBox('vipHost', '', 'str');
+  if (!h) return; // 未填域名则不启用本卡片规则，仍可用内联 RULES
+  const rule = {
+    name: 'BoxJS一键配置',
+    host: h,
+    path: readBox('vipPath', '', 'regex') || /\/.*/i,
+    vipFields: readBox('vipVipFields', ['is_vip', 'isVip', 'vip', 'is_member', 'isMember', 'is_pro', 'isPro', 'isPay', 'is_pay'], 'list'),
+    timeFields: readBox('vipTimeFields', [], 'list'),
+    timeValue: readBox('vipTimeValue', '2099-12-31', 'str'),
+    typeFields: {},
+    patches: [],
+    deletes: readBox('vipDeleteFields', [], 'list'),
+  };
+  const lvl = readBox('vipLevelFields', [], 'list');
+  const lvlVal = readBox('vipLevelValue', 9, 'int');
+  lvl.forEach((f) => { rule.typeFields[f] = lvlVal; });
+  const whole = readBox('vipWholeJson', null, 'json');
+  if (whole && typeof whole === 'object') rule.whole = whole;
+  RULES.unshift(rule);
+})();
 
 //==================== 引擎（一般不用改）=====================
 

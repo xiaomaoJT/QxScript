@@ -83,7 +83,34 @@ hostname = api.target.com, cdn.target.com
 **默认是「未配置态」（静默放行）**
 四个脚本的 `hosts` / 规则 `host` 默认都是空的，**不会处理任何数据、也不会弹任何通知**，请求原样放行。要看到捕获到的目标域名，需要把脚本顶部的 `CONFIG.discoveryMode` 改成 `true`：开启后，脚本只把命中的 `host` + `path` 以及一段**可直接复制的专属配置**（含 `[rewrite_local]` + `[mitm] hostname` + 脚本内 `hosts`/`RULES`）打到 **QX 日志（不弹窗）**。把它填进脚本配置区，就锁定到你的目标了。
 
+### BoxJS 可视化配置（免改代码，推荐）
+
+上面的 `CONFIG.discoveryMode` 只是示例，四个脚本**所有可配置项都已接入 BoxJS**，你完全不用去改脚本源码——在 BoxJS 里点几下就能改。
+
+**第一步：订阅 BoxJS 配置**
+
+```
+# QX > BoxJS > 右上角 + > 添加订阅 > 粘贴下面这个地址
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.json
+```
+
+订阅后你会看到 4 张卡片：**签名还原 / 响应分析 / 会员解锁 / 广告拦截**，每张卡片里的参数都能直接改，改完**下次请求即时生效**。
+
+**第二步：按卡片填参数（常用项）**
+
+| 卡片 | 关键参数 | 作用 |
+| :--- | :--- | :--- |
+| 签名还原 | `signlabHosts` / `signlabSignKeys` / `signlabSaltDict` / `signlabAlgos` | 目标域名；签名字段名；盐值字典；限定算法（如只试 `md5` 大幅提速） |
+| 签名还原 | `signlabOrders` / `signlabJoins` / `signlabSaltPos` | 参数排序 / 拼接方式 / 盐位置（`pre`/`post`/`both`），精准收窄穷举空间 |
+| 响应分析 | `inspHosts` / `inspOnlyVip` / `inspExport` | 目标域名；只显示会员类字段；输出 `text` 或 `json` |
+| 响应分析 | `inspKeywords` / `inspMaxFields` / `inspShowPath` | 关键字；最多展示条数；是否显示完整 JSON 路径 |
+| 会员解锁 | `vipHost` / `vipVipFields` / `vipTimeFields` / `vipTimeValue` / `vipWholeJson` | 目标域名；置 true 的字段；到期字段；远期时间；整体替换 JSON |
+| 广告拦截 | `adHost` / `adAction` / `adListPath` / `adAdFlag` / `adPattern` | 目标域名；动作；数组路径；广告标记字段；正则 |
+
+> 每条参数在 BoxJS 里都带中文说明。所有值留空即退回脚本内置默认值，**不订阅也不会报错**（脚本自动降级为内置默认）。
+
 ---
+
 
 ### 标准工作流分步
 

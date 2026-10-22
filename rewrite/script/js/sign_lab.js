@@ -45,6 +45,67 @@ const CONFIG = {
   maxCandidates: 60,
 };
 
+//==================== BoxJS 实时配置（覆盖内置默认值）====================
+// 配合 BoxJS 订阅 rewrite/boxJS/XiaoMaoReverseTools.json 使用：
+// 在 BoxJS 里改参数 → 脚本下次运行即生效，无需改代码。
+function readBox(key, def, type) {
+  let raw = null;
+  try { if (typeof $prefs !== 'undefined' && $prefs) raw = $prefs.valueForKey(key); } catch (e) {}
+  const empty = raw === null || raw === undefined || String(raw).trim() === '';
+  const s = empty ? '' : String(raw).trim();
+  try {
+    switch (type) {
+      case 'bool': return empty ? def : /^(1|true|yes|on)$/i.test(s);
+      case 'int': { if (empty) return def; const n = parseInt(s, 10); return isNaN(n) ? def : n; }
+      case 'list': {
+        const src = empty ? (Array.isArray(def) ? def.join('\n') : String(def == null ? '' : def)) : s;
+        return src.split(/[,\n]/).map((x) => x.trim()).filter(Boolean);
+      }
+      case 'regex': {
+        if (empty) return def;
+        if (s.charAt(0) === '/') {
+          const m = s.match(/^\/(.*)\/([gimsuy]*)$/);
+          return m ? new RegExp(m[1], m[2] || 'i') : new RegExp(s, 'i');
+        }
+        return new RegExp(s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+      }
+      case 'json': { if (empty) return def; try { return JSON.parse(s); } catch (e) { return def; } }
+      case 'kv': {
+        const src = empty ? (Array.isArray(def) ? def.join('\n') : String(def == null ? '' : def)) : s;
+        const o = {};
+        src.split(/[,\n]/).forEach((p) => { const i = p.indexOf('='); if (i > 0) o[p.slice(0, i).trim()] = p.slice(i + 1).trim(); });
+        return o;
+      }
+      default: return empty ? def : s;
+    }
+  } catch (e) { return def; }
+}
+
+// 用 BoxJS 订阅里的值覆盖内置默认；未配置则保持内置默认（向后兼容）
+CONFIG.hosts = readBox('signlabHosts', CONFIG.hosts, 'list');
+CONFIG.pathFilter = readBox('signlabPathFilter', CONFIG.pathFilter, 'regex');
+CONFIG.signKeys = readBox('signlabSignKeys', CONFIG.signKeys, 'list');
+CONFIG.tsKeys = readBox('signlabTsKeys', CONFIG.tsKeys, 'list');
+CONFIG.saltDict = readBox('signlabSaltDict', CONFIG.saltDict, 'list');
+CONFIG.maxCandidates = readBox('signlabMaxCandidates', CONFIG.maxCandidates, 'int');
+CONFIG.notify = readBox('signlabNotify', CONFIG.notify, 'bool');
+CONFIG.discoveryMode = readBox('signlabDiscovery', CONFIG.discoveryMode, 'bool');
+CONFIG.useBoxJs = readBox('signlabUseBoxJs', CONFIG.useBoxJs, 'bool');
+
+// 能力增强：筛选穷举空间（不配置则全开，行为与原版一致）
+const BOX_ALGOS = readBox('signlabAlgos', 'md5,sha1,sha256,hmac-md5,hmac-sha1,hmac-sha256', 'list');
+const BOX_ORDERS = readBox('signlabOrders', 'dict,raw', 'list');
+const BOX_JOINS = readBox('signlabJoins', 'k=v&', 'list');
+const BOX_SALTPOS = (readBox('signlabSaltPos', 'both', 'str') || 'both').toLowerCase();
+const BOX_OUTCASE = (readBox('signlabOutCase', 'lower', 'str') || 'lower').toLowerCase();
+const JOIN_MAP = {
+  'k=v&': { name: 'k=v&k=v', fn: (k, v) => k + '=' + v },
+  'v&v': { name: 'v&v', fn: (k, v) => String(v) },
+  'k&v': { name: 'k&v', fn: (k, v) => k + String(v) },
+  'kv拼接': { name: 'kv拼接', fn: (k, v) => k + v },
+  '无分隔': { name: '无分隔', fn: (k, v) => k + v },
+};
+
 //==================== 内联 Crypto（已用 Node crypto 63 例对拍通过）=====================
 
 // 经过 Node crypto 逐字节对拍的 SHA 家族实现（含 HMAC）
@@ -436,32 +497,33 @@ for (const k of keys) {
 const pKeys = Object.keys(signParams).sort();
 const pKeysRaw = Object.keys(signParams);
 
-// 候选组合
+// 候选组合（排序/拼接/盐位置均来自 BoxJS 配置，未配则全开）
 function* candidates() {
-  const orders = [
-    { name: '字典序', keys: pKeys },
-    { name: '原始序', keys: pKeysRaw },
-    { name: '逆序', keys: pKeys.slice().reverse() },
-  ];
-  const joins = [
-    { name: 'k=v&k=v', fn: (k, v) => k + '=' + v },
-    { name: 'v&v', fn: (k, v) => String(v) },
-    { name: 'k&v', fn: (k, v) => k + String(v) },
-    { name: 'kv拼接', fn: (k, v) => k + v },
-    { name: '无分隔', fn: (k, v) => k + v },
-  ];
+  const orders = BOX_ORDERS.map((nm) => {
+    if (nm === 'reverse') return { name: '逆序', keys: pKeys.slice().reverse() };
+    if (nm === 'raw') return { name: '原始序', keys: pKeysRaw };
+    return { name: '字典序', keys: pKeys };
+  }).filter(Boolean);
+  const joins = BOX_JOINS.map((nm) => JOIN_MAP[nm]).filter(Boolean);
+  if (!joins.length) joins.push(JOIN_MAP['k=v&']);
+
   for (const o of orders) {
     for (const j of joins) {
       for (const salt of CONFIG.saltDict) {
         const body = o.keys.map((k) => j.fn(k, signParams[k])).join(j.name === 'k=v&k=v' ? '&' : '');
-        yield {
-          order: o.name,
-          join: j.name,
-          salt: salt,
-          body: body,
-          pre: salt + body,
-          post: body + salt,
-        };
+        const variants = [];
+        if (BOX_SALTPOS !== 'post') variants.push({ pre: salt + body, post: body });
+        if (BOX_SALTPOS !== 'pre') variants.push({ pre: body, post: body + salt });
+        for (const v of variants) {
+          yield {
+            order: o.name,
+            join: j.name,
+            salt: salt,
+            body: body,
+            pre: v.pre,
+            post: v.post,
+          };
+        }
       }
     }
   }
@@ -470,9 +532,10 @@ function* candidates() {
 const target = signVal.toLowerCase();
 const hits = [];
 let tried = 0;
+const algos = BOX_ALGOS.filter((a) => HASHES[a]);
 for (const c of candidates()) {
   tried++;
-  for (const algo of Object.keys(HASHES)) {
+  for (const algo of algos) {
     // HMAC 走 key 通道（用盐值当 key，同时试 pre/post 两种拼法）；
     // 普通 hash 只算 input 本身，盐已包含在 c.pre / c.post 里
     const isHmac = algo.indexOf('hmac-') === 0;
@@ -498,6 +561,7 @@ for (const c of candidates()) {
     }
   }
   if (hits.length >= 5) break;
+  if (tried >= CONFIG.maxCandidates) break;
 }
 
 const lines = [];
@@ -524,7 +588,7 @@ if (hits.length) {
     lines.push('    原文: ' + (h.variant === 'pre' ? h.salt + h.body : h.body + h.salt));
   });
 } else {
-  lines.push('❌ 未命中，已尝试 ' + tried + ' 组 × ' + Object.keys(HASHES).length + ' 算法');
+  lines.push('❌ 未命中，已尝试 ' + tried + ' 组 × ' + algos.length + ' 算法');
   lines.push('');
   lines.push('下一步：');
   lines.push('  1. 扩充 CONFIG.saltDict（试试 App 里硬编码的 key）');

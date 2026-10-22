@@ -36,6 +36,48 @@ const CONFIG = {
   valueHints: ['vip', '会员', 'svip', 'premium', '已购', '永久', 'forever', 'pro'],
 };
 
+//==================== BoxJS 实时配置（覆盖内置默认值）====================
+// 配合 BoxJS 订阅 rewrite/boxJS/XiaoMaoReverseTools.json 使用
+function readBox(key, def, type) {
+  let raw = null;
+  try { if (typeof $prefs !== 'undefined' && $prefs) raw = $prefs.valueForKey(key); } catch (e) {}
+  const empty = raw === null || raw === undefined || String(raw).trim() === '';
+  const s = empty ? '' : String(raw).trim();
+  try {
+    switch (type) {
+      case 'bool': return empty ? def : /^(1|true|yes|on)$/i.test(s);
+      case 'int': { if (empty) return def; const n = parseInt(s, 10); return isNaN(n) ? def : n; }
+      case 'list': {
+        const src = empty ? (Array.isArray(def) ? def.join('\n') : String(def == null ? '' : def)) : s;
+        return src.split(/[,\n]/).map((x) => x.trim()).filter(Boolean);
+      }
+      case 'regex': {
+        if (empty) return def;
+        if (s.charAt(0) === '/') {
+          const m = s.match(/^\/(.*)\/([gimsuy]*)$/);
+          return m ? new RegExp(m[1], m[2] || 'i') : new RegExp(s, 'i');
+        }
+        return new RegExp(s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+      }
+      default: return empty ? def : s;
+    }
+  } catch (e) { return def; }
+}
+
+CONFIG.hosts = readBox('inspHosts', CONFIG.hosts, 'list');
+CONFIG.pathFilter = readBox('inspPathFilter', CONFIG.pathFilter, 'regex');
+CONFIG.saveBody = readBox('inspSaveBody', CONFIG.saveBody, 'bool');
+CONFIG.maxDepth = readBox('inspMaxDepth', CONFIG.maxDepth, 'int');
+CONFIG.notify = readBox('inspNotify', CONFIG.notify, 'bool');
+CONFIG.discoveryMode = readBox('inspDiscovery', CONFIG.discoveryMode, 'bool');
+CONFIG.keywords = readBox('inspKeywords', CONFIG.keywords, 'list');
+CONFIG.valueHints = readBox('inspValueHints', CONFIG.valueHints, 'list');
+const INSP_ONLYVIP = readBox('inspOnlyVip', false, 'bool');
+const INSP_MAXFIELDS = readBox('inspMaxFields', 40, 'int');
+const INSP_SHOWPATH = readBox('inspShowPath', true, 'bool');
+const INSP_EXPORT = (readBox('inspExport', 'text', 'str') || 'text').toLowerCase();
+const VIP_KW = /vip|member|pro|pay|subscribe|subscription|privilege|unlock|expire|deadline|trial|forever|ismember|ispro|ispay|vipend|viptype|membertype|usertype/i;
+
 //==================== 引擎 ====================
 
 function matchHost(ruleHost, host) {
@@ -150,7 +192,10 @@ function main() {
 
   function kwIn(key) {
     const k = String(key).toLowerCase().replace(/[_\-\s]/g, '');
-    return CONFIG.keywords.some((w) => k.indexOf(w.toLowerCase().replace(/[_\-\s]/g, '')) >= 0);
+    for (const w of CONFIG.keywords) {
+      if (k.indexOf(w.toLowerCase().replace(/[_\-\s]/g, '')) >= 0) return w;
+    }
+    return null;
   }
 
   function valHint(v) {
@@ -182,6 +227,8 @@ function main() {
       const vh = valHint(v);
 
       if ((keyHit || vh) && !seen.has(p)) {
+        // 只看会员类：仅保留「会员相关关键字命中」或「值本身可疑（布尔/权益文案/时间戳）」
+        if (INSP_ONLYVIP && !(keyHit && VIP_KW.test(keyHit)) && !vh) continue;
         seen.add(p);
         found.push({
           path: p,
@@ -202,16 +249,20 @@ function main() {
 
   const lines = [];
   lines.push('URL: ' + url.slice(0, 120));
-  lines.push('命中字段：' + found.length + ' 个');
-  lines.push('');
-  found.slice(0, 40).forEach((f, i) => {
-    lines.push(
-      (i + 1) + '. ' + f.path +
-      '\n     值 = ' + JSON.stringify(f.value) +
-      '  [' + f.reason + ']'
-    );
-  });
-  if (found.length > 40) lines.push('... 其余 ' + (found.length - 40) + ' 个见日志');
+  if (INSP_EXPORT === 'json') {
+    lines.push(JSON.stringify(found.slice(0, INSP_MAXFIELDS), null, 2));
+  } else {
+    lines.push('命中字段：' + found.length + ' 个');
+    lines.push('');
+    found.slice(0, INSP_MAXFIELDS).forEach((f, i) => {
+      lines.push(
+        (i + 1) + '. ' + (INSP_SHOWPATH ? f.path : f.key) +
+        '\n     值 = ' + JSON.stringify(f.value) +
+        '  [' + f.reason + ']'
+      );
+    });
+    if (found.length > INSP_MAXFIELDS) lines.push('... 其余 ' + (found.length - INSP_MAXFIELDS) + ' 个见日志');
+  }
 
   const out = lines.join('\n');
   console.log('[inspector]\n' + out);
