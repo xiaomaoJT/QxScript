@@ -16,6 +16,11 @@
  *
  */
 
+//==================== 运行配置 ====================
+const CONFIG = {
+  discoveryMode: false, // 未配置规则时：false=静默放行（默认）；true=把捕获到的 host/path + 可复制配置打到 QX 日志（不弹窗）
+};
+
 //==================== 规则配置区 ====================
 
 const RULES = [
@@ -164,25 +169,32 @@ for (const r of RULES) {
   break;
 }
 
-// 没命中任何已配置规则时，捕获真实 host/path 输出可复制配置，引导你自己配
+// 没命中任何已配置规则时：
+// - discoveryMode=false（默认）→ 静默放行，不弹通知、不刷日志
+// - discoveryMode=true → 仅把捕获到的 host/path + 可复制配置打到 QX 日志（不弹窗），供你之后锁定目标
+const _setupKey = 'adBlock_setup_hint';
 if (!hit) {
-  const gk = 'adblock_guide_' + host;
-  if (!$prefs.valueForKey(gk)) {
-    $prefs.setValueForKey('1', gk);
-    const scriptCfg =
-      "RULES: [\n" +
-      "  {\n" +
-      "    name: '我的去广告',\n" +
-      "    host: '" + host + "',\n" +
-      "    path: " + buildPathRegex(_path) + ",\n" +
-      "    action: 'remove_ads',\n" +
-      "    listPath: 'data.list',\n" +
-      "    adFlag: 'is_ad',\n" +
-      "  },\n" +
-      "]";
-    const g = buildConfigGuide(host, _path, 'https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ad_block.js', 'script-response-body', scriptCfg);
-    console.log('[ad_block] ' + g);
-    if (typeof $notify === 'function') $notify('ad_block · 配置引导', host, g.slice(0, 900));
+  if (CONFIG.discoveryMode) {
+    const _gk = 'adBlock_cap_' + host;
+    if (!$prefs.valueForKey(_gk)) {
+      $prefs.setValueForKey('1', _gk);
+      const scriptCfg =
+        "RULES: [\n" +
+        "  {\n" +
+        "    name: '我的去广告',\n" +
+        "    host: '" + host + "',\n" +
+        "    path: " + buildPathRegex(_path) + ",\n" +
+        "    action: 'remove_ads',\n" +
+        "    listPath: 'data.list',\n" +
+        "    adFlag: 'is_ad',\n" +
+        "  },\n" +
+        "]";
+      const g = buildConfigGuide(host, _path, 'https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ad_block.js', 'script-response-body', scriptCfg);
+      console.log('[ad_block · 发现] ' + g);
+    }
+  } else if (!$prefs.valueForKey(_setupKey)) {
+    $prefs.setValueForKey('1', _setupKey);
+    console.log('[ad_block] 未配置规则，已静默放行。把 RULES 里 host 改成目标域名后生效；开启 CONFIG.discoveryMode=true 可在 QX 日志查看捕获到的 host/path。');
   }
 }
 
