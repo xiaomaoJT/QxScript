@@ -18,7 +18,7 @@
 
 > 部分脚本功能请见脚本内说明
 >
-> [QX去广告视频教程](https://t.me/xiaomaoJT/540)
+> [QX去广告视频教程](https://t.me/ListenToMao/540)
 
 **[目录位置：script](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite/script)**
 

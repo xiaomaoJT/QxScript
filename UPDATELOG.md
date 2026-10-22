@@ -9,8 +9,8 @@
 ##### 🎟 XiaoMao频道 · 群组
 
 <div align="center">
-<a href="https://t.me/xiaomaoJT" target="_blank">
-<img src=https://img.shields.io/badge/Telegram-XiaoMao频道-blue alt=github style="margin-bottom: 5px;" />
+<a href="https://t.me/ListenToMao" target="_blank">
+<img src=https://img.shields.io/badge/Telegram-XiaoMao%E9%A2%91%E9%81%93-blue alt=github style="margin-bottom: 5px;" />
 </a>
 <a href="https://t.me/hSuMjrQppKE5MWU9" target="_blank">
 <img src=https://img.shields.io/badge/Telegram-XiaoMao%E7%BE%A4%E8%81%8A-red alt=github style="margin-bottom: 5px;" />
@@ -43,6 +43,7 @@
 若无解析器，请在配置（右下角风车 > 配置文件 > 编辑）中[general]下添加以下代码
 
 resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js
+
 ```
 
 > **针对已引用xiaomao懒人规则，因配置无法远程更新，可选用以下两种方式更新**。
@@ -68,7 +69,66 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***889*** 次
 >
-> ***最新更新时间 2025.08.15 15:40***
+> ***最新更新时间 2026.10.22 09:10***
+
+
++ ##### 20261022
+
+  * > 新增[每日早报](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/daily_brief.js)
+    >
+    > 天气 + 节假日倒计时 + 摸鱼进度 + 每日一句，多源兜底，失败自动降级
+    >
+    > 零依赖，`30 8 * * *` 定时触发
+
+  * > 新增[订阅到期管家](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/sub_expire.js)
+    >
+    > 域名 / 服务器 / 会员到期阶梯提醒，同一天同进度只提醒一次
+    >
+    > 12 月 1 日自动推送年度订阅汇总
+
+  * > 新增[网站宕机监控](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/site_monitor.js)
+    >
+    > 定时探测，连续失败 N 次才报警（防网络抖动），恢复时给出故障时长
+    >
+    > 支持页面关键词校验，可识破 HTTP 200 劫持页；含免打扰时段
+
+  * > 新增[响应体分析器](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/resp_inspector.js)
+    >
+    > 逆向辅助：递归扫描响应，自动标出所有会员 / 权限字段及完整 JSON 路径
+    >
+    > 非 JSON 响应给出 Protobuf / 加密提示，不破坏原始流
+
+  * > 新增[通用广告拦截引擎](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ad_block.js)
+    >
+    > 四种动作：删广告项 / 清空列表 / 改字段 / 正则替换
+    >
+    > 非 JSON 响应自动跳过，不会破坏二进制流
+
+  * > 新增[通用解锁引擎](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/vip_patch.js)
+    >
+    > 批量打通 VIP 布尔、时间、等级字段；支持按 key 递归改写，不关心层级
+    >
+    > 支持整体替换响应模式；非 JSON 自动跳过
+
+  * > 新增[签名算法分析实验台](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/sign_lab.js)
+    >
+    > 自动穷举 MD5/SHA1/SHA256/HMAC × 3 种排序 × 5 种拼接 × 盐值前置/后置
+    >
+    > 内联纯 JS crypto 实现，已用 Node `crypto` 63 组测试向量逐字节对拍通过
+    >
+    > 命中后缓存到 `$prefs`，BoxJS 可读；未命中时给出下一步排查建议
+
+  * > 新增[TGBot 配置面板](https://github.com/xiaomaoJT/QxScript/tree/main/rewrite/script/qx-tgbot)
+    >
+    > 跑在 QX 上的 Telegram Bot 管理面板，无需域名 / 证书 / 公网
+    >
+    > 指令管理 / 自动回复 / 消息按钮可视化 / 互动消息收件箱 / 测试发送
+    >
+    > 面板与 API 同源，绕开 Telegram 无 CORS 头的问题
+
+  * > 仓库文档重构：README 美化、新增脚本说明 [`rewrite/script/UTILS.md`](https://github.com/xiaomaoJT/QxScript/blob/main/rewrite/script/UTILS.md)
+    >
+    > Telegram 频道链接更新为 https://t.me/ListenToMao
 
 
 + ##### 20250815
@@ -2277,7 +2337,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
     >
     > 自定义版懒人规则新增bing策略及分流
     >
-    > 默认开启udp开放式（仅拒绝80，443端口），说明：https://t.me/xiaomaoJT/418
+    > 默认开启udp开放式（仅拒绝80，443端口），说明：https://t.me/ListenToMao/418
 
 
 + ##### 20230314【重要更新·须知】
