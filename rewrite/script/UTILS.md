@@ -15,14 +15,20 @@
 
 ## 快速配置
 
-以「每日早报」为例，其余同理：
+三个脚本均为定时任务，直接复制对应 `[task_local]` 到 QX 配置即可运行：
 
 ```ini
-[task_local]
+# 每日早报（每天 08:30）
 30 8 * * * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/daily_brief.js, tag=每日早报, enabled=true
+
+# 订阅到期管家（每天 09:00）
+0 9 * * * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/sub_expire.js, tag=订阅到期管家, enabled=true
+
+# 网站宕机监控（每 10 分钟）
+*\/10 * * * * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/site_monitor.js, tag=网站监控, enabled=true
 ```
 
-每个脚本头部的注释块里都写了对应的 `[task_local]` 配置，直接复制粘贴即可。
+每个脚本头部的注释块里也都写了对应的 `[task_local]` 配置，直接复制粘贴即可。
 
 ## 使用说明
 

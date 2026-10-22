@@ -1,5 +1,6 @@
 /**
  * @Author: XiaoMao
+ * 文件地址：https://github.com/xiaomaoJT/QxScript/blob/main/rewrite/script/js/vip_patch.js
  * 通用会员解锁引擎（QX rewrite）
  *
  * [rewrite_local]
@@ -25,7 +26,7 @@ const RULES = [
   // ===== 示例1：常见"用户信息"接口，一次性打通常见字段 =====
   {
     name: '用户信息解锁',
-    host: '*', // '*' = 匹配所有主机；也支持 '*.example.com' / 'api.*.com' 通配
+    host: '', // 留空 = 未配置；改成你的目标 host 才生效（支持 '*.example.com' / 'api.*.com'）
     path: /\/user\/(info|profile|center)/i,
 
     // 快捷开关：这些字段会被置为 truthy 值（true / 1）
@@ -58,7 +59,7 @@ const RULES = [
   // ===== 示例2：权益列表，把 locked 全开 =====
   {
     name: '权益列表',
-    host: '*',
+    host: '',
     path: /\/privilege|benefit|rights/i,
     patches: [
       // { path: 'data.list', transform: 'unlockAll' },
@@ -68,7 +69,7 @@ const RULES = [
   // ===== 示例3：整体替换（返回一个已付费模板）=====
   // {
   //   name: '整体替换',
-  //   host: '*',
+  //   host: '',
   //   path: /\/entitlement/i,
   //   whole: {
   //     code: 0,
@@ -80,8 +81,8 @@ const RULES = [
 //==================== 引擎（一般不用改）=====================
 
 function matchHost(ruleHost, host) {
-  // 空 / '*' → 匹配所有主机（通用模式）
-  if (!ruleHost || ruleHost === '*') return true;
+  // 仅显式填 '*' 才全匹配；留空视为"未配置"，不在此兜底
+  if (ruleHost === '*') return true;
   // 前缀 '*.'(如 '*.example.com') → 后缀匹配（含多级子域）
   if (ruleHost.indexOf('*.') === 0) {
     const suffix = ruleHost.slice(1); // '.example.com'
@@ -99,6 +100,36 @@ function matchHost(ruleHost, host) {
     return re.test(host);
   }
   return host === ruleHost;
+}
+
+// 路径前两段生成可复制正则（去掉动态 id，用户可再微调）
+function buildPathRegex(path) {
+  const segs = path.split('/').filter(Boolean).slice(0, 2);
+  const lit = segs.map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('\\/');
+  return '/' + lit + '/i';
+}
+
+// 生成"可复制的专属配置"引导文本（捕获真实 host/path 后给出）
+function buildConfigGuide(host, path, file, qxType, scriptCfg) {
+  const esc = host.replace(/\./g, '\\.');
+  return [
+    '【' + file + ' · 捕获到目标】',
+    'host = ' + host,
+    'path = ' + path,
+    '',
+    '复制下面这段到 QX 配置 + 脚本顶部，即可锁定你的专属目标：',
+    '',
+    '[rewrite_local]',
+    '^https?://' + esc + '/ url ' + qxType + ' ' + file,
+    '',
+    '[mitm]',
+    'hostname = ' + host,
+    '',
+    '// ' + file + ' 配置区',
+    scriptCfg,
+    '',
+    '（资源引入方式：把上面脚本名换成你的远程订阅地址）',
+  ].join('\n');
 }
 
 function pick(obj, path) {
@@ -203,13 +234,36 @@ const url = $request.url;
 // QX 的 JSC 没有 URL 全局对象，用正则提取
 let host = (url.match(/^https?:\/\/([^\/?#]+)/) || [])[1] || url;
 host = host.split(':')[0];
+const _path = (url.match(/^https?:\/\/[^\/?#]+([^?#]*)/) || [,'/'])[1] || '/';
 
 let hit = null;
 for (const r of RULES) {
+  if (!r.host) continue; // 未配置 host 的规则跳过，仅作引导
   if (!matchHost(r.host, host)) continue;
   if (r.path && !r.path.test(url)) continue;
   hit = r;
   break;
+}
+
+// 没命中任何已配置规则时，捕获真实 host/path 输出可复制配置，引导你自己配
+if (!hit) {
+  const gk = 'vippatch_guide_' + host;
+  if (!$prefs.valueForKey(gk)) {
+    $prefs.setValueForKey('1', gk);
+    const scriptCfg =
+      "RULES: [\n" +
+      "  {\n" +
+      "    name: '我的解锁',\n" +
+      "    host: '" + host + "',\n" +
+      "    path: " + buildPathRegex(_path) + ",\n" +
+      "    vipFields: ['is_vip', 'vip', 'is_member'],\n" +
+      "    timeFields: ['expire_time', 'vip_expire_time'],\n" +
+      "  },\n" +
+      "]";
+    const g = buildConfigGuide(host, _path, 'vip_patch.js', 'script-response-body', scriptCfg);
+    console.log('[vip_patch] ' + g);
+    if (typeof $notify === 'function') $notify('vip_patch · 配置引导', host, g.slice(0, 900));
+  }
 }
 
 function main() {

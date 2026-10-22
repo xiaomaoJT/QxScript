@@ -20,8 +20,8 @@
 
 | 项目 | 内容 |
 | :--- | :--- |
-| QuantumultX | 1.5.0-830（兼容 Surge / Loon） |
-| iOS | 18.6.1（兼容其他版本） |
+| QuantumultX | 1.9.0-953（兼容 Surge / Loon） |
+| iOS | 27.0（兼容其他版本） |
 | 适配设备 | iPhone / iPad / Mac M 芯片 |
 | 懒人版本 | 4.2 中英文双版 |
 
@@ -39,60 +39,11 @@
 
 ---
 
-## 新增：实用脚本
+## 新增内容
 
-零依赖，复制 `[task_local]` 配置即可用。详见 [`rewrite/script/UTILS.md`](rewrite/script/UTILS.md)。
+近期新增的**实用脚本、逆向分析工具链、TGBot 配置面板**已单独整理成文档：
 
-| 脚本 | 功能 | 触发周期 |
-| :--- | :--- | :--- |
-| `daily_brief.js` | 每日早报：天气 + 节假日倒计时 + 摸鱼进度 + 每日一句 | `30 8 * * *` |
-| `sub_expire.js` | 订阅到期管家：域名 / 服务器 / 会员到期提醒，12 月年度汇总 | `0 9 * * *` |
-| `site_monitor.js` | 网站宕机监控：故障报警、恢复通知、防劫持、免打扰时段 | `*\/10 * * * *` |
-
-```ini
-[task_local]
-30 8 * * * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/daily_brief.js, tag=每日早报, enabled=true
-```
-
-## 新增：逆向分析工具链
-
-面向安全研究的通用工具，**规则由你配置，不内置任何具体目标**。
-
-| 脚本 | 用途 | 类型 |
-| :--- | :--- | :--- |
-| `resp_inspector.js` | 响应体分析：自动标出所有会员 / 权限字段及完整 JSON 路径 | `script-response-body` |
-| `ad_block.js` | 广告拦截引擎：删广告项 / 清空列表 / 改字段 / 正则替换 | `script-response-body` |
-| `vip_patch.js` | 通用解锁引擎：批量打通 VIP 布尔、时间、等级字段 | `script-response-body` |
-| `sign_lab.js` | 签名还原：自动穷举 MD5/SHA1/SHA256/HMAC × 排序 × 拼接 × 盐值位置 | `script-request-header` |
-
-**推荐工作流**
-
-```
-resp_inspector.js   定位哪个字段控制会员状态
-      ↓
-vip_patch.js        改字段，验证是否纯客户端校验
-      ↓
-sign_lab.js         若服务端校验，还原签名算法
-      ↓
-自行构造请求         完成闭环
-```
-
-`sign_lab.js` 内联 MD5 / SHA1 / SHA256 / HMAC 纯 JS 实现（QX 无内置 crypto），
-已用 Node `crypto` **63 组测试向量逐字节对拍通过**；还原结论缓存到 `$prefs`，BoxJS 可读。
-
-## 新增：TGBot 配置面板
-
-跑在 QuantumultX 上的 Telegram Bot 管理面板，**无需域名、无需证书、无需公网**。
-
-```ini
-[rewrite_local]
-^http://127.0.0.1:9999/tgbot/v1/ url script-echo-response tgbot-backend.js
-```
-
-访问 `http://127.0.0.1:9999/tgbot/v1/` 打开面板。面板与 API 同源，彻底绕开 Telegram 无 CORS 头的问题。
-
-**能力**：快捷指令 / 指令自动回复 / 消息按钮可视化编辑 / 互动消息收件箱 / 测试发送 / Bot 信息。
-详见 [`rewrite/script/qx-tgbot/README.md`](rewrite/script/qx-tgbot/README.md)。
+👉 **[新增内容 · 脚本与工具链](NEW.md)**
 
 ---
 
