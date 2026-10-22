@@ -20,18 +20,14 @@
           "id": "AppID",
           "name": "AppID",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "百度翻译API-AppID"
         },
         {
           "id": "securityKey",
           "name": "securityKey",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "百度翻译API-securityKey"
         }
       ],
@@ -60,36 +56,28 @@
           "id": "CaiYunSvipYear",
           "name": "Svip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "Svip过期时间-年份 如：2023"
         },
         {
           "id": "CaiYunSvipMonth",
           "name": "Svip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "Svip过期时间-月份 如：10"
         },
         {
           "id": "CaiYunSvipDay",
           "name": "Svip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "Svip过期时间-日期 如：10"
         },
         {
           "id": "CaiYunToken",
           "name": "会员有效Token",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 2,
+          "type": "input",
           "desc": "填入会员Token"
         }
       ],
@@ -118,36 +106,28 @@
           "id": "BaiDuSvipYear",
           "name": "Svip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "Svip过期时间-年份 如：2023"
         },
         {
           "id": "BaiDuSvipMonth",
           "name": "Svip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "Svip过期时间-月份 如：10"
         },
         {
           "id": "BaiDuSvipDay",
           "name": "Svip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "Svip过期时间-日期 如：10"
         },
         {
           "id": "BaiDuLevel",
           "name": "会员等级",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "会员等级 范围1～10"
         }
       ],
@@ -178,55 +158,53 @@
           "id": "ButterVipYear",
           "name": "vip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-年份 如：2023"
         },
         {
           "id": "ButterVipMonth",
           "name": "vip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-月份 如：10"
         },
         {
           "id": "ButterVipDay",
           "name": "vip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-日期 如：10"
         },
         {
           "id": "ButterFollowing",
           "name": "关注数",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "关注的人数量 如：100000"
         },
         {
           "id": "ButterFollowers",
           "name": "粉丝数",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "粉丝数量 如：100000"
         },
         {
           "id": "ButterModel",
           "name": "全部模版资源解锁",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "解锁将失去部分能力 具体见脚本介绍 1:解锁 0:默认关闭"
+          "val": "0",
+          "type": "radios",
+          "desc": "解锁将失去部分能力 具体见脚本介绍 1:解锁 0:默认关闭",
+          "items": [
+            {
+              "key": "1",
+              "label": "解锁(开)"
+            },
+            {
+              "key": "0",
+              "label": "默认关闭(关)"
+            }
+          ]
         }
       ],
       "author": "@XiaoMao",
@@ -253,27 +231,21 @@
           "id": "KaJiVipYear",
           "name": "vip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-年份 如：2023"
         },
         {
           "id": "KaJiVipMonth",
           "name": "vip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-月份 如：10"
         },
         {
           "id": "KaJiVipDay",
           "name": "vip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-日期 如：10"
         }
       ],
@@ -302,36 +274,28 @@
           "id": "WpsVipYear",
           "name": "vip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-年份 如：2023"
         },
         {
           "id": "WpsVipMonth",
           "name": "vip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-月份 如：10"
         },
         {
           "id": "WpsVipDay",
           "name": "vip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-日期 如：10"
         },
         {
           "id": "WpsCloudSpace",
           "name": "云空间总量 - 大小",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "云空间总量 GB"
         }
       ],
@@ -360,37 +324,39 @@
           "id": "ScanningAlmightyVipYear",
           "name": "vip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-年份 如：2023"
         },
         {
           "id": "ScanningAlmightyVipMonth",
           "name": "vip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-月份 如：10"
         },
         {
           "id": "ScanningAlmightyVipDay",
           "name": "vip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-日期 如：10"
         },
         {
           "id": "ScanningAlmightySuper",
           "name": "是否开启至尊",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "0 为不开启；1 为开启"
+          "val": "0",
+          "type": "radios",
+          "desc": "0 为不开启；1 为开启",
+          "items": [
+            {
+              "key": "1",
+              "label": "开启至尊"
+            },
+            {
+              "key": "0",
+              "label": "不开启"
+            }
+          ]
         }
       ],
       "author": "@XiaoMao",
@@ -417,27 +383,21 @@
           "id": "XMindVipYear",
           "name": "vip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-年份 如：2023"
         },
         {
           "id": "XMindVipMonth",
           "name": "vip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-月份 如：10"
         },
         {
           "id": "XMindVipDay",
           "name": "vip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-日期 如：10"
         }
       ],
@@ -465,27 +425,21 @@
           "id": "HotListVipYear",
           "name": "vip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-年份 如：2023"
         },
         {
           "id": "HotListVipMonth",
           "name": "vip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-月份 如：10"
         },
         {
           "id": "HotListVipDay",
           "name": "vip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-日期 如：10"
         }
       ],
@@ -513,27 +467,21 @@
           "id": "DuiTangSvipYear",
           "name": "svip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "svip过期时间-年份 如：2023"
         },
         {
           "id": "DuiTangSvipMonth",
           "name": "svip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "svip过期时间-月份 如：10"
         },
         {
           "id": "DuiTangSvipDay",
           "name": "svip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "svip过期时间-日期 如：10"
         }
       ],
@@ -568,90 +516,100 @@
           "id": "ALiCloudVipYear",
           "name": "vip过期时间 - 年份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-年份 如：2023"
         },
         {
           "id": "ALiCloudVipMonth",
           "name": "vip过期时间 - 月份",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-月份 如：10"
         },
         {
           "id": "ALiCloudVipDay",
           "name": "vip过期时间 - 日期",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "vip过期时间-日期 如：10"
         },
         {
           "id": "ALiCloudSpace",
           "name": "空间总量 - 大小",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "空间总量 TB"
         },
         {
           "id": "ALiCloudIcon",
           "name": "图标排版 - 合并横排按钮",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "1为开启,0为关闭"
+          "val": "0",
+          "type": "radios",
+          "desc": "1为开启,0为关闭",
+          "items": [
+            {
+              "key": "1",
+              "label": "开启"
+            },
+            {
+              "key": "0",
+              "label": "关闭"
+            }
+          ]
         },
         {
           "id": "ALiCloudLink",
           "name": "m3u8临时链接提取",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "1为开启,0为关闭，默认关闭"
+          "val": "0",
+          "type": "radios",
+          "desc": "1为开启,0为关闭，默认关闭",
+          "items": [
+            {
+              "key": "1",
+              "label": "开启"
+            },
+            {
+              "key": "0",
+              "label": "关闭"
+            }
+          ]
         },
         {
           "id": "ALiCloudDistinct",
           "name": "视频在线播放清晰度解锁",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "1为开启,0为关闭，默认开启"
+          "val": "1",
+          "type": "radios",
+          "desc": "1为开启,0为关闭，默认开启",
+          "items": [
+            {
+              "key": "1",
+              "label": "开启"
+            },
+            {
+              "key": "0",
+              "label": "关闭"
+            }
+          ]
         },
         {
           "id": "ALiCloudNo",
           "name": "注册排名",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "输入数字，默认第1名。"
         },
         {
           "id": "ALiCloudText1",
           "name": "昵称底下 - 描述文字",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "默认字样为 第一体验官"
         },
         {
           "id": "ALiCloudText2",
           "name": "超级会员右边 - 按钮文字",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "默认字样为 第一股东"
         }
       ],
@@ -679,27 +637,21 @@
           "id": "YouJiaProvince",
           "name": "省级行政区（拼音）",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "【必填】输入省级简称拼音 如广东：guangdong"
         },
         {
           "id": "YouJiaCity",
           "name": "市级行政区（拼音）",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "【非必填】输入市级简称拼音 如深圳：shenzhen"
         },
         {
           "id": "YouJiaArea",
           "name": "区级行政区（拼音）",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "【非必填】输入区级简称拼音 如南山：nanshan"
         }
       ],
@@ -728,26 +680,32 @@
           "name": "热榜集合(多个以+号间隔)",
           "val": null,
           "type": "textarea",
+          "desc": "【填入热榜缩写】如 虎扑热榜+微博热榜+百度热榜：hp+wb+bd",
           "autoGrow": true,
-          "rows": 1,
-          "desc": "【填入热榜缩写】如 虎扑热榜+微博热榜+百度热榜：hp+wb+bd"
+          "rows": 2
         },
         {
           "id": "HotUrl",
           "name": "热榜原始地址显示",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "1为显示,0为隐藏"
+          "val": "0",
+          "type": "radios",
+          "desc": "1为显示,0为隐藏",
+          "items": [
+            {
+              "key": "1",
+              "label": "显示"
+            },
+            {
+              "key": "0",
+              "label": "隐藏"
+            }
+          ]
         },
         {
           "id": "HotLength",
           "name": "热榜显示数量",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "默认全显示，显示10条请输入 10"
         }
       ],
@@ -775,18 +733,18 @@
           "name": "星座集合(多个以+号间隔)",
           "val": null,
           "type": "textarea",
+          "desc": "【填入星座拼音】如 ♊️双子座+♎️天秤座：shuangzi+tiancheng",
           "autoGrow": true,
-          "rows": 1,
-          "desc": "【填入星座拼音】如 ♊️双子座+♎️天秤座：shuangzi+tiancheng"
+          "rows": 2
         },
         {
           "id": "HoroscopeTime",
           "name": "星座查询范围(多个以+号间隔)",
           "val": null,
           "type": "textarea",
+          "desc": "【填入首字母（大写）】如 今日运势+明日运势：D+T",
           "autoGrow": true,
-          "rows": 1,
-          "desc": "【填入首字母（大写）】如 今日运势+明日运势：D+T"
+          "rows": 2
         }
       ],
       "author": "@XiaoMao",
@@ -811,9 +769,7 @@
           "id": "EFHelloIndex",
           "name": "课程解锁进度",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "按解锁输入数字 如解锁第一章节，输入 1"
         }
       ],
@@ -843,45 +799,53 @@
           "id": "startWorkTime",
           "name": "上班时间",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "输入时间 如 09:00"
         },
         {
           "id": "endWorkTime",
           "name": "下班时间",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "输入时间 如 18:00"
         },
         {
           "id": "restWorkTime",
           "name": "午休时间",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "输入时长 如 2"
         },
         {
           "id": "restMonthType",
           "name": "月休类型",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "输入类型数字 如 3；（1-单休周六 2-单休周日 3-双休 4-不休）"
+          "val": "3",
+          "type": "radios",
+          "desc": "输入类型数字 如 3；（1-单休周六 2-单休周日 3-双休 4-不休）",
+          "items": [
+            {
+              "key": "1",
+              "label": "单休(周六)"
+            },
+            {
+              "key": "2",
+              "label": "单休(周日)"
+            },
+            {
+              "key": "3",
+              "label": "双休"
+            },
+            {
+              "key": "4",
+              "label": "不休"
+            }
+          ]
         },
         {
           "id": "moneyTotal",
           "name": "月收入金额",
           "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "输入工资 如 3000"
         }
       ],
@@ -908,29 +872,57 @@
         {
           "id": "HighType",
           "name": "图片捕获清晰度",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "1为原始分辨率,2为高质量压缩,3为高像素输出,4为平衡配置，默认为1，0为关闭"
+          "val": "1",
+          "type": "radios",
+          "desc": "1为原始分辨率,2为高质量压缩,3为高像素输出,4为平衡配置，默认为1，0为关闭",
+          "items": [
+            {
+              "key": "0",
+              "label": "关闭"
+            },
+            {
+              "key": "1",
+              "label": "原始分辨率"
+            },
+            {
+              "key": "2",
+              "label": "高质量压缩"
+            },
+            {
+              "key": "3",
+              "label": "高像素输出"
+            },
+            {
+              "key": "4",
+              "label": "平衡配置"
+            }
+          ]
         },
         {
           "id": "BerserkMode",
           "name": "图片捕获狂暴模式",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "1为狂暴，0为标准，默认标准。狂暴模式开启后见图就收。"
+          "val": "0",
+          "type": "radios",
+          "desc": "1为狂暴，0为标准，默认标准。狂暴模式开启后见图就收。",
+          "items": [
+            {
+              "key": "1",
+              "label": "狂暴模式"
+            },
+            {
+              "key": "0",
+              "label": "标准模式"
+            }
+          ]
         },
         {
           "id": "MaskWords",
           "name": "屏蔽膈应字眼",
           "val": null,
           "type": "textarea",
+          "desc": "将屏蔽让你反感的标题、用户字眼，多个用英文,隔开",
           "autoGrow": true,
-          "rows": 1,
-          "desc": "将屏蔽让你反感的标题、用户字眼，多个用英文,隔开"
+          "rows": 2
         }
       ],
       "author": "@XiaoMao",
@@ -954,11 +946,31 @@
         {
           "id": "picType",
           "name": "图片类型",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "1为风景,2为二次元,3为福利姬（电脑）,4为福利姬（手机），默认为随机输出"
+          "val": "random",
+          "type": "radios",
+          "desc": "1为风景,2为二次元,3为福利姬（电脑）,4为福利姬（手机），默认为随机输出",
+          "items": [
+            {
+              "key": "random",
+              "label": "随机输出(默认)"
+            },
+            {
+              "key": "1",
+              "label": "风景"
+            },
+            {
+              "key": "2",
+              "label": "二次元"
+            },
+            {
+              "key": "3",
+              "label": "福利姬(电脑)"
+            },
+            {
+              "key": "4",
+              "label": "福利姬(手机)"
+            }
+          ]
         }
       ],
       "author": "@XiaoMao",
@@ -984,29 +996,53 @@
         {
           "id": "dataBoom",
           "name": "数据爆表",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "开启数据爆表，1为开启，0为关闭，默认开启"
+          "val": "1",
+          "type": "radios",
+          "desc": "开启数据爆表，1为开启，0为关闭，默认开启",
+          "items": [
+            {
+              "key": "1",
+              "label": "开启"
+            },
+            {
+              "key": "0",
+              "label": "关闭"
+            }
+          ]
         },
         {
           "id": "privacyModel",
           "name": "隐私模式",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "开启话题标题隐私打码，1为开启，0为关闭，默认关闭，本功能将影响搜索和动态发布功能"
+          "val": "0",
+          "type": "radios",
+          "desc": "开启话题标题隐私打码，1为开启，0为关闭，默认关闭，本功能将影响搜索和动态发布功能",
+          "items": [
+            {
+              "key": "1",
+              "label": "开启"
+            },
+            {
+              "key": "0",
+              "label": "关闭"
+            }
+          ]
         },
         {
           "id": "openRate",
           "name": "话题评分",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "关闭话题评分，1为关闭，0为开启，默认开启"
+          "val": "0",
+          "type": "radios",
+          "desc": "关闭话题评分，1为关闭，0为开启，默认开启",
+          "items": [
+            {
+              "key": "0",
+              "label": "开启评分(默认)"
+            },
+            {
+              "key": "1",
+              "label": "关闭评分"
+            }
+          ]
         }
       ],
       "author": "@XiaoMao",
@@ -1031,9 +1067,7 @@
           "id": "DeviceInformation",
           "name": "设备型号",
           "val": "iPhone16,2",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
+          "type": "input",
           "desc": "默认设备iPhone 15 Pro Max 👉「iPhone16,2」"
         }
       ],
