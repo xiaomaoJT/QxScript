@@ -32,17 +32,23 @@
 | `vip_patch.js` | 通用解锁引擎：批量打通 VIP 布尔、时间、等级字段 | `script-response-body` | [查看](https://github.com/xiaomaoJT/QxScript/blob/main/rewrite/script/js/vip_patch.js) |
 | `sign_lab.js` | 签名还原：自动穷举 MD5/SHA1/SHA256/HMAC × 排序 × 拼接 × 盐值位置 | `script-request-header` | [查看](https://github.com/xiaomaoJT/QxScript/blob/main/rewrite/script/js/sign_lab.js) |
 
-**推荐工作流**
+**推荐工作流（标准顺序）**
 
 ```
-resp_inspector.js   定位哪个字段控制会员状态
+[第 0 步·可选] 发现模式  不知道目标 host？先在 BoxJS 把对应卡片『发现模式』=1，脚本会抓 host/path 并给可复制配置
       ↓
-vip_patch.js        改字段，验证是否纯客户端校验
+① resp_inspector.js   定位哪个字段控制会员状态（产出字段地图）
       ↓
-sign_lab.js         若服务端校验，还原签名算法
+② vip_patch.js        改字段，验证是否纯客户端校验
       ↓
-自行构造请求         完成闭环
+③ sign_lab.js         若服务端校验，还原签名算法（拿到算法才能合法构造请求）
+      ↓
+④ ad_block.js         顺手去广告（任意阶段，可选）
+      ↓
+自行构造请求           完成闭环
 ```
+
+> 顺序要点：先用 Inspector 看清服务端返回 → 用 VipPatch 试改响应验证 → 若服务端还校验签名，用 SignLab 还原算法 → 自己就能合法构造带签请求。AdBlock 随时可加。
 
 ---
 
@@ -50,7 +56,7 @@ sign_lab.js         若服务端校验，还原签名算法
 
 **前置条件**
 1. 安装并信任 QX 的 MITM 证书：`设置 → HTTPS 解密 → 安装证书`，再去系统「关于本机 → 证书信任设置」里把 QX 根证书开关打开。
-2.（可选但推荐）订阅 BoxJS，让还原结论、抓取到的响应能跨运行缓存：在 QX 的 BoxJS 配置里加入 `rewrite/boxJS/XiaoMao.json`。
+2.（可选但推荐）订阅 BoxJS，让还原结论、抓取到的响应能跨运行缓存：在 QX 的 BoxJS 配置里加入 `rewrite/boxJS/XiaoMaoReverseTools.json`（逆向工具箱专属订阅，不污染主订阅 `XiaoMao.json`）。
 
 **加载方式一：一键引用（推荐，最省事）**
 QX 的「重写 → 规则资源 → 引用」只能解析**配置片段**（含 `[rewrite_local]` / `[mitm]` 小节的文本），**不能直连纯 JS 脚本**——直接引用那四个 `.js` 会报「返回内容并未包含相关重写规则」。
@@ -81,11 +87,13 @@ hostname = api.target.com, cdn.target.com
 > 这里的 `hostname` 决定 QX 抓哪些域名的明文。研究时先填目标域名；**不要长期留 `*`**，否则所有流量都会被这四个脚本拦截，开销很大。
 
 **默认是「未配置态」（静默放行）**
-四个脚本的 `hosts` / 规则 `host` 默认都是空的，**不会处理任何数据、也不会弹任何通知**，请求原样放行。要看到捕获到的目标域名，需要把脚本顶部的 `CONFIG.discoveryMode` 改成 `true`：开启后，脚本只把命中的 `host` + `path` 以及一段**可直接复制的专属配置**（含 `[rewrite_local]` + `[mitm] hostname` + 脚本内 `hosts`/`RULES`）打到 **QX 日志（不弹窗）**。把它填进脚本配置区，就锁定到你的目标了。
+四个脚本的「目标域名」默认都是空的，**不会处理任何数据**。为免你完全没感觉，首次进入未配置态会**弹一次通知**告诉你「脚本已加载但未配置、去 BoxJS 填目标域名、用完请关掉 MITM」；之后不再打扰。
+想自动抓取目标 host/path，在 BoxJS 对应卡片把**『发现模式』设为 1** 即可：开启后，脚本只把命中的 `host` + `path` 以及一段**可直接复制的专属配置**（含 `[rewrite_local]` + `[mitm] hostname` + 脚本内 `hosts`/`RULES`）打到 **QX 日志（不弹窗）**。把它填进 BoxJS 的「目标域名」，就锁定到你的目标了。
+> ⚠️ 研究完毕请**及时关闭**：把 BoxJS「目标域名」留空、或把 QX 的 MITM `hostname` 改回具体域名 / 关掉对应重写，不要长期挂着 `*` 抓全量流量。
 
 ### BoxJS 可视化配置（免改代码，推荐）
 
-上面的 `CONFIG.discoveryMode` 只是示例，四个脚本**所有可配置项都已接入 BoxJS**，你完全不用去改脚本源码——在 BoxJS 里点几下就能改。
+上面的「发现模式」和「目标域名」等都只是示例，四个脚本**所有可配置项（含发现模式、目标域名、盐值、字段名、动作等）都已接入 BoxJS**，你完全不用去改脚本源码——在 BoxJS 里点几下就能改。
 
 **第一步：订阅 BoxJS 配置**
 
@@ -115,7 +123,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoR
 ### 标准工作流分步
 
 #### ① resp_inspector.js — 先看服务端到底返回了哪些字段
-1. 在脚本 `CONFIG.hosts` 填上目标域名（或先开 `CONFIG.discoveryMode = true` 用未配置态，让它捕获后给你可复制配置）。
+1. 在 BoxJS『响应分析』卡片的「目标域名」填上目标域名（或先开『发现模式』=1 用未配置态，让它捕获后给你可复制配置，再把捕获到的 host 填进「目标域名」）。
 2. 打开 App，进入「我的 / 会员中心」触发接口。
 3. 脚本递归扫描响应，把 `vip` / `member` / `expire` / `level` / `auth` 等可疑字段标出来，并给出**完整 JSON 路径**（如 `data.vip_info.is_vip`、`data.user.expire_time`）。
 4. 想反复比对时，把 `CONFIG.saveBody` 改成 `true`，原始响应会存进 `$prefs`（key：`respInspectorBody`）。
@@ -214,7 +222,7 @@ https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoR
 
 ### 捕获引导：从「空白」到「专属配置」
 
-四个脚本都内置了"捕获 + 引导"，但要**先开启 `CONFIG.discoveryMode = true`** 才会输出（默认是静默放行，不弹窗也不刷日志）。
+四个脚本都内置了"捕获 + 引导"，在 BoxJS 对应卡片把**『发现模式』设为 1** 即会输出（默认是静默放行；未配置态下还会**首次弹一次通知**提醒你去配置，看完即可去配）。
 
 开启后，当你还没锁定目标（默认 `hosts=[]` 或 `host=''`）时，脚本命中真实请求后，会在 **QX 日志（不弹窗）** 里输出一段可直接复制的配置，例如 `sign_lab.js` 捕获到 `api.target.com/api/user/info` 后给出：
 
@@ -242,6 +250,7 @@ hosts: ['api.target.com'],
 
 ### 注意事项
 - 这些脚本改的是**你本地客户端看到的响应**，不改变服务端数据；请在你自己的授权测试范围内使用。
+- ⚠️ **用完及时关**：研究完毕后，把 BoxJS「目标域名」留空、或把 MITM `hostname` 改回具体域名 / 关闭对应重写，不要长期挂着 `*` 抓全量流量。未配置态首次会弹一次提醒，看到就说明脚本在跑、该去配目标了。
 - 不要长期把 `mitm hostname` 设为 `*`：四个脚本会拦截所有流量，既泄露隐私又浪费性能。
 - 抓不到明文？先检查 MITM 证书是否安装并信任；非 HTTPS 或证书钉扎（certificate pinning）的接口 QX 无法解密。
 - `sign_lab.js` 的穷举有组合数上限（`maxCandidates`），若未命中可扩充 `saltDict` / `signKeys`，或把目标接口的盐值、拼接方式已知部分直接写进配置。
