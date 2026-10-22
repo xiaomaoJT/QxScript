@@ -52,7 +52,19 @@ sign_lab.js         若服务端校验，还原签名算法
 1. 安装并信任 QX 的 MITM 证书：`设置 → HTTPS 解密 → 安装证书`，再去系统「关于本机 → 证书信任设置」里把 QX 根证书开关打开。
 2.（可选但推荐）订阅 BoxJS，让还原结论、抓取到的响应能跨运行缓存：在 QX 的 BoxJS 配置里加入 `rewrite/boxJS/XiaoMao.json`。
 
-**通用加载方式（资源引入）**
+**加载方式一：一键引用（推荐，最省事）**
+QX 的「重写 → 规则资源 → 引用」只能解析**配置片段**（含 `[rewrite_local]` / `[mitm]` 小节的文本），**不能直连纯 JS 脚本**——直接引用那四个 `.js` 会报「返回内容并未包含相关重写规则」。
+
+我提供了一个打包好的 conf 包装文件（后缀虽是 `.js`，内容却是配置片段），引用它即可一次性挂上四个脚本：
+
+```
+# QX > 右下角风车 > 重写 > 规则资源 > 引用以下脚本 > 打开资源解析器
+https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js
+```
+
+> 引用的是**包装 conf**，不是四个 `.js` 脚本本体。默认 `hostname = *` 会抓取全部流量做"捕获引导"；研究具体 App 时，把 conf 里的 `hostname` 改成该 App 域名、并把脚本 `CONFIG.hosts` 填成同一域名即可锁定目标。
+
+**加载方式二：手动粘贴（想精确控制时）**
 四个脚本都通过完整远程地址加载，直接复制下面这段到 QX 的 `[rewrite_local]`，`[mitm]` 里填上你要研究的域名即可：
 
 ```ini
