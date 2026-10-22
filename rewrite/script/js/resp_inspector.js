@@ -4,10 +4,10 @@
  * 拦截响应 → 递归扫描 → 标出所有会员/权限相关字段及完整 JSON 路径
  *
  * [rewrite_local]
- * ^https?://api\.example\.com/ url script-response-body resp_inspector.js
+ * ^https?:// url script-response-body resp_inspector.js
  *
  * [mitm]
- * hostname = api.example.com
+ * hostname = *
  *
  * 说明：
  * 1. 零依赖。命中后自动分析，结果通过通知 + 日志输出
@@ -17,7 +17,7 @@
  */
 
 const CONFIG = {
-  hosts: ['api.example.com'], // 要分析的主机，支持 '*.example.com'
+  hosts: ['*'], // 留空 [] 或填 '*' = 匹配所有主机（通用模式）；也支持 '*.example.com' / 'api.*.com' 通配
   pathFilter: null, // 如 /\/user\/info/i，只分析匹配的路径
   saveBody: false, // 是否保存原始响应到 $prefs（key: respInspectorBody）
   maxDepth: 8, // 递归深度上限
@@ -36,9 +36,23 @@ const CONFIG = {
 //==================== 引擎 ====================
 
 function matchHost(ruleHost, host) {
+  // 空 / '*' → 匹配所有主机（通用模式）
+  if (!ruleHost || ruleHost === '*') return true;
+  // 前缀 '*.'(如 '*.example.com') → 后缀匹配（含多级子域）
   if (ruleHost.indexOf('*.') === 0) {
-    const suffix = ruleHost.slice(1);
+    const suffix = ruleHost.slice(1); // '.example.com'
     return host === suffix.slice(1) || host.endsWith(suffix);
+  }
+  // 任意位置 '*' 通配（如 'api.*.com' 'a*.example.com'）
+  if (ruleHost.indexOf('*') >= 0) {
+    const re = new RegExp(
+      '^' +
+        ruleHost
+          .replace(/[.+?^${}()|[\]\\]/g, '\\$&') // 转义正则元字符
+          .replace(/\*/g, '[^.]*') + // '*' = 任意非点字符段
+        '$'
+    );
+    return re.test(host);
   }
   return host === ruleHost;
 }
