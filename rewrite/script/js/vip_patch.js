@@ -310,6 +310,14 @@ for (const r of RULES) {
 // - discoveryMode=true → 仅把捕获到的 host/path + 可复制配置打到 QX 日志（不弹窗），供你之后锁定目标
 const _setupKey = 'vipPatch_setup_hint';
 if (!hit) {
+  // 首次进入未配置态：弹一次提醒（告知当前状态 + 用完及时关掉 MITM），避免只在日志里没人看到
+  if (!$prefs.valueForKey(_setupKey)) {
+    $prefs.setValueForKey('1', _setupKey);
+    const modeTxt = CONFIG.discoveryMode
+      ? '发现模式已开启：会在 QX 日志打印捕获到的 host/path（不弹窗）。拿到目标后请在 BoxJS 关掉『发现模式』并填『目标域名』；研究完毕请及时关闭 MITM / 本工具，勿长期用 * 抓全量流量。'
+      : '未配置规则（目标域名为空），当前静默放行（不处理任何响应）。请到 BoxJS『会员解锁』卡片的『目标域名』填入你的目标 host 锁定目标；研究完毕请及时关闭 MITM / 本工具，勿长期用 * 抓全量流量。';
+    $notify('逆向工具箱 · 未配置提醒（仅提示一次）', host, modeTxt.slice(0, 900));
+  }
   if (CONFIG.discoveryMode) {
     const _gk = 'vipPatch_cap_' + host;
     if (!$prefs.valueForKey(_gk)) {
@@ -327,9 +335,8 @@ if (!hit) {
       const g = buildConfigGuide(host, _path, 'https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/vip_patch.js', 'script-response-body', scriptCfg);
       console.log('[vip_patch · 发现] ' + g);
     }
-  } else if (!$prefs.valueForKey(_setupKey)) {
-    $prefs.setValueForKey('1', _setupKey);
-    console.log('[vip_patch] 未配置规则，已静默放行。把 RULES 里 host 改成目标域名后生效；开启 CONFIG.discoveryMode=true 可在 QX 日志查看捕获到的 host/path。');
+  } else {
+    console.log('[vip_patch] 未配置规则，已静默放行。到 BoxJS『会员解锁』卡片填『目标域名』后生效；开启『发现模式』可在 QX 日志查看捕获到的 host/path。');
   }
 }
 

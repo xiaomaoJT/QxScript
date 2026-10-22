@@ -426,6 +426,14 @@ const hitPath = !CONFIG.pathFilter || CONFIG.pathFilter.test(url);
 // - discoveryMode=true → 仅把捕获到的 host/path + 可复制配置打到 QX 日志（不弹窗），供你之后锁定目标
 const _setupKey = 'signLab_setup_hint';
 if (!hitHost) {
+  // 首次进入未配置态：弹一次提醒（告知当前状态 + 用完及时关掉 MITM），避免只在日志里没人看到
+  if (!$prefs.valueForKey(_setupKey)) {
+    $prefs.setValueForKey('1', _setupKey);
+    const modeTxt = CONFIG.discoveryMode
+      ? '发现模式已开启：会在 QX 日志打印捕获到的 host/path（不弹窗）。拿到目标后请在 BoxJS 关掉『发现模式』并填『目标域名』；研究完毕请及时关闭 MITM / 本工具，勿长期用 * 抓全量流量。'
+      : '未配置目标域名，当前静默放行（不处理任何请求）。请到 BoxJS『签名还原』卡片的『目标域名』填入你的目标 host 锁定目标；研究完毕请及时关闭 MITM / 本工具，勿长期用 * 抓全量流量。';
+    $notify('逆向工具箱 · 未配置提醒（仅提示一次）', host, modeTxt.slice(0, 900));
+  }
   if (CONFIG.discoveryMode) {
     const _gk = 'signLab_cap_' + host;
     if (!$prefs.valueForKey(_gk)) {
@@ -436,9 +444,8 @@ if (!hitHost) {
       );
       console.log('[sign_lab · 发现] ' + g);
     }
-  } else if (!$prefs.valueForKey(_setupKey)) {
-    $prefs.setValueForKey('1', _setupKey);
-    console.log('[sign_lab] 未配置 hosts，已静默放行。把 CONFIG.hosts 填入目标域名后生效；开启 CONFIG.discoveryMode=true 可在 QX 日志查看捕获到的 host/path。');
+  } else {
+    console.log('[sign_lab] 未配置目标域名，已静默放行。到 BoxJS『签名还原』卡片填『目标域名』后生效；开启『发现模式』可在 QX 日志查看捕获到的 host/path。');
   }
 }
 

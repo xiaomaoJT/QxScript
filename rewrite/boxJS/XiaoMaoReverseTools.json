@@ -11,8 +11,8 @@
       "keys": [
         "signlabHosts",
         "signlabPathFilter",
-        "signlabNotify",
         "signlabDiscovery",
+        "signlabNotify",
         "signlabSignKeys",
         "signlabTsKeys",
         "signlabSaltDict",
@@ -25,7 +25,11 @@
         "signlabOutCase"
       ],
       "descs_html": [
-        "<h4 align=\"center\">激活方式：QX 重写 → 规则资源 → 引用 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js\">XiaoMaoReverseTools.js</a></h4><br/><h5 align=\"left\">本卡片仅用于配置参数，所有改动即时生效（下次请求即按新参数穷举）。</h5>"
+        "<h4 align=\"center\">激活：QX → 重写 → 规则资源 → 引用 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js\">XiaoMaoReverseTools.js</a></h4>",
+        "<b>作用：</b>拦截请求，自动穷举 算法 × 排序 × 拼接 × 盐位置，还原签名算法（MD5 / SHA1 / SHA256 / HMAC）。<br/>",
+        "<b>工作流位置：</b>第 3 步。先 resp_inspector 找响应字段 → 再 vip_patch 验证 → 最后 sign_lab 还原签名 → 自行构造合法请求。<br/>",
+        "<b>怎么锁定目标：</b>在『目标域名』填你的 host；不知道 host 就先留空 + 打开『发现模式』，脚本会把真实 host/path 打到 QX 日志，复制即用。<br/>",
+        "<b>注意：</b>未配置时默认静默放行；首次运行会弹<b>一次</b>提醒（告知状态 + 用完请关掉 MITM），之后不再打扰。所有改动下次请求即时生效，无需改脚本源码。"
       ],
       "settings": [
         {
@@ -35,7 +39,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 2,
-          "desc": "要还原签名的域名，多个用逗号分隔。如 api.xx.com,*.xx.com。留空=未配置（脚本静默放行，开启发现模式可抓 host）"
+          "desc": "要还原签名的请求所属域名。多个用英文逗号分隔，例如：api.xx.com,*.xx.com。支持通配：*.example.com（含子域）、api.*.com（任意段）、精确匹配。留空=未配置态：脚本只捕获真实 host/path 并打日志，不处理数据。填进来后脚本才会对命中请求穷举算法。"
         },
         {
           "id": "signlabPathFilter",
@@ -44,16 +48,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "仅对该路径正则生效，如 /api/ 或 /user/info。留空=全部路径。支持 /正则/ 写法"
-        },
-        {
-          "id": "signlabNotify",
-          "name": "结论弹通知",
-          "val": "1",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "还原出算法/未命中时是否弹通知：1 开 / 0 关"
+          "desc": "只对匹配该路径正则的请求生效，用来缩小穷举范围。例如 /api/ 或 /user/info。支持 /正则/ 写法（如 /\\/user\\/\\d+/）。留空=全部路径都处理。建议填具体的签名接口路径，避免无关请求浪费性能。"
         },
         {
           "id": "signlabDiscovery",
@@ -62,7 +57,16 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "未配置域名时，是否把捕获到的 host/path 打到 QX 日志（不弹窗）：1 开 / 0 关"
+          "desc": "仅在你还没填『目标域名』时生效。填 1=开启：脚本命中任意请求后，把真实 host + path 以及一段可直接复制的专属配置（[rewrite_local]+[mitm]+脚本配置）打到 QX 日志（不弹窗），用来锁定目标。填 0=关闭（默认），未配置时静默放行、不刷日志。每个 host 只记录一次，不会刷屏。"
+        },
+        {
+          "id": "signlabNotify",
+          "name": "结论弹通知",
+          "val": "1",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "还原出算法（命中）或尝试完毕仍未命中时，是否用 QX 通知弹出结论。填 1=弹（默认）；0=不弹，只写日志。调试阶段建议开，稳定后可关掉避免打扰。"
         },
         {
           "id": "signlabSignKeys",
@@ -71,7 +75,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 2,
-          "desc": "签名字段名候选（小写比较），逗号分隔。识别不到就加接口里的实际参数名"
+          "desc": "待还原的签名字段名候选（小写比较，逗号分隔）。脚本会扫描请求里是否包含这些参数名，命中即作为『待还原的签名』。内置常用：sign,sig,signature,token,mac,hash,check,verify,sk。如果目标用的不是这些名字（如 app_sign、x-signature），把它加进来。"
         },
         {
           "id": "signlabTsKeys",
@@ -80,7 +84,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "时间戳字段候选，逗号分隔（部分签名会把它拼进去）"
+          "desc": "时间戳/随机数字段候选（逗号分隔）。很多签名会把 timestamp/nonce 拼进待签名串。内置：timestamp,ts,time,nonce,t。如果目标的随机数是 rand/requestId 之类，加进来。"
         },
         {
           "id": "signlabSaltDict",
@@ -89,7 +93,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 3,
-          "desc": "参与签名的盐值/密钥候选，逗号或换行分隔。把 App 里硬编码的 key 加进来能大幅提升命中率"
+          "desc": "参与签名的盐值/密钥候选（逗号或换行分隔）。权重最高——盐不对算法再对也还原不出来。请把 App 里硬编码的 key 加进来（如 app_secret、client_secret、接口专属 salt）；空字符串 '' 表示『无盐』也会试。内置常见占位：salt,secret,key,appkey,123456,android,ios 等。"
         },
         {
           "id": "signlabMaxCandidates",
@@ -98,7 +102,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "性能上限保护：最多尝试多少组组合，默认 60。太小可能漏、太大更慢"
+          "desc": "性能保护上限：穷举最多尝试多少组『算法×排序×拼接×盐位置』组合，默认 60。设太小可能漏掉正解，设太大每次请求更慢（甚至超时）。已识别签名后不必调大；未命中且盐字典很大时可适当加。"
         },
         {
           "id": "signlabUseBoxJs",
@@ -107,7 +111,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "是否把还原成功的算法缓存到 BoxJS：1 开 / 0 关（关掉每次都重算）"
+          "desc": "是否把『还原成功的算法配置』缓存到 BoxJS（key: signLabResult），下次同参数直接复用、免重算。填 1=开启（默认）；0=关闭，每次都重新穷举。想重新推导时把它临时关掉或清 $prefs 的 signLabResult。"
         },
         {
           "id": "signlabAlgos",
@@ -116,7 +120,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 2,
-          "desc": "穷举时尝试的算法，逗号分隔。明确算法后可只留一个（如 md5）大幅提速"
+          "desc": "穷举时尝试的哈希/签名算法（逗号分隔）。内置：md5,sha1,sha256,hmac-md5,hmac-sha1,hmac-sha256。如果你已经知道算法（比如抓包看到 md5 调用），只留一个能大幅提速、降低组合数。"
         },
         {
           "id": "signlabOrders",
@@ -125,7 +129,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "参与签名的参数排序：dict(字典序)/raw(原始序)/reverse(逆序)，逗号分隔"
+          "desc": "参与签名的参数排序方式（逗号分隔，可多选）：dict=字典序、raw=原始顺序、reverse=逆序。不同 App 拼接顺序不同，本项帮你快速试不同顺序。默认 dict,raw 两种都试。"
         },
         {
           "id": "signlabJoins",
@@ -134,7 +138,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 2,
-          "desc": "键值拼接方式：k=v&(k=v&k=v)/v&v/k&v/kv拼接/无分隔，逗号分隔"
+          "desc": "键值对的拼接格式（逗号分隔，可多选）：k=v&（如 a=1&b=2）、v&v（只拼值 1&2）、k&v（a1b2）、kv拼接（ab）、无分隔。默认 k=v&。配合『盐位置』决定最终待签名串。"
         },
         {
           "id": "signlabSaltPos",
@@ -143,7 +147,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "盐值位置：pre(前置)/post(后置)/both(都试)，默认 both"
+          "desc": "盐值放在待签名串的哪里：pre=前置、post=后置、both=两种都试（默认）。部分算法还会把盐夹在中间或前后都加，可先用 both 试探，命中后锁定一种提速。"
         },
         {
           "id": "signlabOutCase",
@@ -152,7 +156,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "显示用大小写：lower/upper（不影响比对，比对恒忽略大小写）"
+          "desc": "结论日志里哈希值的展示大小写：lower=小写（默认）、upper=大写。仅影响『显示』，比对过程恒忽略大小写，填错不影响还原结果。"
         }
       ],
       "author": "@XiaoMao",
@@ -169,10 +173,10 @@
       "keys": [
         "inspHosts",
         "inspPathFilter",
+        "inspDiscovery",
         "inspSaveBody",
         "inspMaxDepth",
         "inspNotify",
-        "inspDiscovery",
         "inspKeywords",
         "inspValueHints",
         "inspOnlyVip",
@@ -181,7 +185,11 @@
         "inspExport"
       ],
       "descs_html": [
-        "<h4 align=\"center\">激活方式：QX 重写 → 规则资源 → 引用 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js\">XiaoMaoReverseTools.js</a></h4><br/><h5 align=\"left\">扫描响应体，标出所有会员/权益/时间字段及完整 JSON 路径。</h5>"
+        "<h4 align=\"center\">激活：QX → 重写 → 规则资源 → 引用 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js\">XiaoMaoReverseTools.js</a></h4>",
+        "<b>作用：</b>拦截响应，递归扫描并标出所有会员/权益/时间字段，给出<b>完整 JSON 路径</b>（如 data.vip.is_vip）。<br/>",
+        "<b>工作流位置：</b>第 1 步（最先跑，产出『字段地图』给后面用）。<br/>",
+        "<b>怎么锁定目标：</b>『目标域名』填 host；或留空 + 开『发现模式』让它抓 host。<br/>",
+        "<b>用法：</b>打开 App 会员页触发接口 → 看日志里的字段路径 → 抄到 vip_patch / sign_lab 配置里。<br/><b>注意：</b>未配置时首次运行会弹一次提醒（告知状态 + 用完请关掉 MITM）。"
       ],
       "settings": [
         {
@@ -191,7 +199,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 2,
-          "desc": "要分析的域名，多个逗号分隔。留空=未配置（静默放行）"
+          "desc": "要扫描分析的响应所属域名。多个逗号分隔，支持通配（*.example.com / api.*.com）。留空=未配置态：静默放行，不分析。填进来后脚本才对命中响应递归扫描。"
         },
         {
           "id": "inspPathFilter",
@@ -200,34 +208,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "仅分析该路径正则，如 /user/info。留空=全部路径"
-        },
-        {
-          "id": "inspSaveBody",
-          "name": "保存响应体",
-          "val": "0",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "是否把原始响应存到 $prefs（key: respInspectorBody）反复比对：1 开 / 0 关"
-        },
-        {
-          "id": "inspMaxDepth",
-          "name": "递归深度",
-          "val": "8",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "JSON 递归扫描的最大深度，默认 8"
-        },
-        {
-          "id": "inspNotify",
-          "name": "弹通知",
-          "val": "1",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "命中字段时是否弹通知：1 开 / 0 关"
+          "desc": "只分析匹配该路径正则的响应，如 /user/info、/member/center。留空=全部路径。填了能避免无关接口刷屏，精准定位会员页响应。"
         },
         {
           "id": "inspDiscovery",
@@ -236,7 +217,34 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "未配置域名时把捕获到的 host/path 打到日志：1 开 / 0 关"
+          "desc": "仅在你还没填『目标域名』时生效。填 1=开启：命中任意响应后，把真实 host + path 和可直接复制的专属配置打到 QX 日志（不弹窗），帮你锁定目标。填 0=关闭（默认），未配置时静默放行。每个 host 只记录一次。"
+        },
+        {
+          "id": "inspSaveBody",
+          "name": "保存响应体",
+          "val": "0",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "是否把原始响应全文存到 $prefs（key: respInspectorBody），方便之后反复比对、离线分析。填 1=保存；0=不保存（默认）。响应较大时建议按需开启，分析完关掉。"
+        },
+        {
+          "id": "inspMaxDepth",
+          "name": "递归深度",
+          "val": "8",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "JSON 递归扫描的最大层级，默认 8。层级很深的结构可调大（如 12）以免漏掉嵌套字段；层级浅的可调小提速。超过该深度的子节点不再扫描。"
+        },
+        {
+          "id": "inspNotify",
+          "name": "弹通知",
+          "val": "1",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "命中可疑字段时是否弹 QX 通知。填 1=弹（默认）；0=只写日志。字段很多时通知容易被截断，建议主要看日志，或配合『最多展示』限制条数。"
         },
         {
           "id": "inspKeywords",
@@ -245,7 +253,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 3,
-          "desc": "字段名命中即标注的关键字（大小写不敏感），逗号分隔"
+          "desc": "字段名命中即标注的关键字（大小写不敏感，逗号分隔）。如 vip、member、expire、pay、subscribe、level、auth、trial 等。目标用了生僻命名（如 svip_flag、is_payed）就加进来。"
         },
         {
           "id": "inspValueHints",
@@ -254,7 +262,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 2,
-          "desc": "这些值本身很可疑（布尔 true/会员文案等），逗号分隔"
+          "desc": "这些值本身很可疑、命中即标注：布尔 true、会员类文案（vip/会员/svip/premium/永久/forever/pro）、日期时间戳等。逗号分隔。用于『字段名没暴露、但值是会员态』的情况。"
         },
         {
           "id": "inspOnlyVip",
@@ -263,7 +271,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "1=只展示会员/权益/过期相关字段，过滤掉普通关键字命中；0=全部"
+          "desc": "填 1=只看会员/权益/过期相关字段，过滤掉普通关键字（如普通 description、普通 level）的误报；0=全部命中都显示（默认）。想快速聚焦核心字段时开这个。"
         },
         {
           "id": "inspMaxFields",
@@ -272,7 +280,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "最多展示多少个命中字段，默认 40（避免刷屏）"
+          "desc": "通知/日志里最多展示多少个命中字段，默认 40。设小一点避免刷屏；设大一点（如 100）避免漏掉深层字段。超过部分在日志里提示『其余 N 个见日志』。"
         },
         {
           "id": "inspShowPath",
@@ -281,7 +289,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "1=显示完整 JSON 路径（如 data.vip.is_vip）；0=只显示字段名"
+          "desc": "填 1=显示完整 JSON 路径（如 data.vip_info.is_vip，方便直接抄去写解锁规则，默认）；0=只显示字段名（更紧凑）。强烈建议保持 1，路径是后续 vip_patch 的填写依据。"
         },
         {
           "id": "inspExport",
@@ -290,7 +298,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "日志输出格式：text(可读文本)/json(便于复制存档)"
+          "desc": "日志输出格式：text=可读文本（每条字段一行，适合人看）；json=结构化 JSON 数组（适合复制存档、二次处理）。调试看 text，要存档或喂给其它工具用 json。"
         }
       ],
       "author": "@XiaoMao",
@@ -307,6 +315,7 @@
       "keys": [
         "vipHost",
         "vipPath",
+        "vipDiscovery",
         "vipVipFields",
         "vipTimeFields",
         "vipTimeValue",
@@ -314,11 +323,14 @@
         "vipLevelValue",
         "vipDeleteFields",
         "vipWholeJson",
-        "vipNotify",
-        "vipDiscovery"
+        "vipNotify"
       ],
       "descs_html": [
-        "<h4 align=\"center\">激活方式：QX 重写 → 规则资源 → 引用 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js\">XiaoMaoReverseTools.js</a></h4><br/><h5 align=\"left\">免改代码的一条规则：填域名+字段即可解锁。也可在内联 RULES 写多条高级规则。</h5>"
+        "<h4 align=\"center\">激活：QX → 重写 → 规则资源 → 引用 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js\">XiaoMaoReverseTools.js</a></h4>",
+        "<b>作用：</b>一条规则 = 一个 host + 路径 + 字段改写，把 is_vip / expire_time / level 改成已付费状态。<br/>",
+        "<b>工作流位置：</b>第 2 步（用 resp_inspector 找到的字段路径来改）。<br/>",
+        "<b>怎么锁定目标：</b>『目标域名』填 host（留空则不启用本卡片规则，仍可用脚本内 RULES）；或开『发现模式』抓 host。<br/>",
+        "<b>三种模式：</b>改字段 / 删字段 / 整体替换响应。<br/><b>注意：</b>未配置时首次运行会弹一次提醒（告知状态 + 用完请关掉 MITM）。"
       ],
       "settings": [
         {
@@ -328,7 +340,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 2,
-          "desc": "要解锁的域名。留空=不启用本卡片规则（仍可用脚本内联 RULES）"
+          "desc": "要解锁的域名。填进来才会生成『本卡片的一键规则』（插到脚本 RULES 最前）。支持通配（*.example.com / api.*.com）。留空=不启用本卡片规则（脚本内置 RULES 仍可生效）。不知道 host 就先开『发现模式』抓。"
         },
         {
           "id": "vipPath",
@@ -337,79 +349,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "匹配的路径正则，如 /user/info。留空=该域名全部路径"
-        },
-        {
-          "id": "vipVipFields",
-          "name": "VIP 字段",
-          "val": "is_vip,isVip,vip,is_member,isMember,is_pro,isPro,isPay,is_pay",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 2,
-          "desc": "置为 true 的布尔字段名，逗号分隔"
-        },
-        {
-          "id": "vipTimeFields",
-          "name": "到期字段",
-          "val": "expire_time,expireTime,vip_expire_time,vipExpireTime,expired_at,expiredAt,deadline,end_time,endTime,member_end_time,memberEndTime,subscription_end",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 2,
-          "desc": "置为远期时间的字段名，逗号分隔"
-        },
-        {
-          "id": "vipTimeValue",
-          "name": "远期时间",
-          "val": "2099-12-31",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "到期字段统一改成的时间，如 2099-12-31 或 now+3650d"
-        },
-        {
-          "id": "vipLevelFields",
-          "name": "等级字段",
-          "val": "level,vip_level,member_level,user_level",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "等级字段名，逗号分隔"
-        },
-        {
-          "id": "vipLevelValue",
-          "name": "等级值",
-          "val": "9",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "等级字段统一改成的数值，如 9"
-        },
-        {
-          "id": "vipDeleteFields",
-          "name": "删除字段",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 2,
-          "desc": "要删除的字段路径（点号分隔），逗号分隔。如 data.pay_wall,data.ad_config"
-        },
-        {
-          "id": "vipWholeJson",
-          "name": "整体替换",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 3,
-          "desc": "整体替换响应：填一个 JSON 对象作为整个响应体（如 {\"code\":0,\"data\":{\"vip\":true}}）；留空=不启用"
-        },
-        {
-          "id": "vipNotify",
-          "name": "弹通知",
-          "val": "1",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "解锁生效时是否弹通知：1 开 / 0 关"
+          "desc": "本规则匹配的路径正则，如 /user/info、/member/center。留空=该域名下所有路径都命中。用来把解锁只限制在会员接口，避免误改其它接口。"
         },
         {
           "id": "vipDiscovery",
@@ -418,7 +358,79 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "未配置域名时把捕获到的 host/path 打到日志：1 开 / 0 关"
+          "desc": "仅在你还没填『目标域名』时生效。填 1=开启：命中任意响应后，把真实 host + path 和一段可直接复制的 vip 规则（含 RULES 片段）打到 QX 日志（不弹窗），帮你起手。填 0=关闭（默认），未配置时静默放行。"
+        },
+        {
+          "id": "vipVipFields",
+          "name": "VIP 字段",
+          "val": "is_vip,isVip,vip,is_member,isMember,is_pro,isPro,isPay,is_pay",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 2,
+          "desc": "要置为 true（或 1）的布尔/状态字段名（逗号分隔）。命中即把该字段在所有层级改成真值。内置常用：is_vip,isVip,vip,is_member,isMember,is_pro,isPro,isPay,is_pay。目标字段名不同就替换或追加。"
+        },
+        {
+          "id": "vipTimeFields",
+          "name": "到期字段",
+          "val": "expire_time,expireTime,vip_expire_time,vipExpireTime,expired_at,expiredAt,deadline,end_time,endTime,member_end_time,memberEndTime,subscription_end",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 2,
+          "desc": "要置为远期时间的字段名（逗号分隔），如 expire_time、vip_expire_time、deadline、end_time、member_end_time。脚本会自动按原值量级（秒/毫秒）填成远期时间戳。内置一批常见名。"
+        },
+        {
+          "id": "vipTimeValue",
+          "name": "远期时间",
+          "val": "2099-12-31",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "到期字段统一改成的时间。支持两种写法：固定日期 '2099-12-31'（默认），或相对写法 'now+3650d'（当前时间加 N 天）。时间字段被改成这个值即视为『永久有效』。"
+        },
+        {
+          "id": "vipLevelFields",
+          "name": "等级字段",
+          "val": "level,vip_level,member_level,user_level",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "等级/类型字段名（逗号分隔），如 level、vip_level、member_level、user_level。配合『等级值』一起用。"
+        },
+        {
+          "id": "vipLevelValue",
+          "name": "等级值",
+          "val": "9",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "等级字段统一改成的数值，如 9（最高级）、1（基础会员）。与『等级字段』配对。填数字即可。"
+        },
+        {
+          "id": "vipDeleteFields",
+          "name": "删除字段",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 2,
+          "desc": "要直接删除的字段路径（点号分隔，逗号分隔多个），如 data.pay_wall、data.ad_config。有些接口靠『字段不存在』来判定未付费，删掉它即可解锁。留空=不删。"
+        },
+        {
+          "id": "vipWholeJson",
+          "name": "整体替换",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 3,
+          "desc": "整体替换整个响应体：填一个 JSON 对象作为完整响应（如 {code:0,data:{vip:true,expire_time:4102444800}}）。优先级最高，会直接覆盖原响应。留空=不启用，走上面的字段改写逻辑。"
+        },
+        {
+          "id": "vipNotify",
+          "name": "弹通知",
+          "val": "1",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "解锁生效（有字段被改/有整体替换）时是否弹 QX 通知。填 1=弹（默认）；0=只写日志。"
         }
       ],
       "author": "@XiaoMao",
@@ -435,6 +447,7 @@
       "keys": [
         "adHost",
         "adPath",
+        "adDiscovery",
         "adAction",
         "adListPath",
         "adAdFlag",
@@ -443,11 +456,14 @@
         "adValue",
         "adPattern",
         "adReplacement",
-        "adNotify",
-        "adDiscovery"
+        "adNotify"
       ],
       "descs_html": [
-        "<h4 align=\"center\">激活方式：QX 重写 → 规则资源 → 引用 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js\">XiaoMaoReverseTools.js</a></h4><br/><h5 align=\"left\">免改代码的一条规则：删广告项/清空列表/改字段/正则替换。</h5>"
+        "<h4 align=\"center\">激活：QX → 重写 → 规则资源 → 引用 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js\">XiaoMaoReverseTools.js</a></h4>",
+        "<b>作用：</b>一条规则去广告：删广告项 / 清空列表 / 改字段 / 正则替换。<br/>",
+        "<b>工作流位置：</b>任意阶段（可选，顺手做）。<br/>",
+        "<b>怎么锁定目标：</b>『目标域名』填 host（留空则不启用本卡片规则）；或开『发现模式』抓 host。<br/>",
+        "<b>四种动作：</b>remove_ads / empty_list / set_field / regex。<br/><b>注意：</b>未配置时首次运行会弹一次提醒（告知状态 + 用完请关掉 MITM）。"
       ],
       "settings": [
         {
@@ -457,7 +473,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 2,
-          "desc": "要拦截广告的域名。留空=不启用本卡片规则（仍可用脚本内联 RULES）"
+          "desc": "要拦截广告的域名。填进来才会生成『本卡片的一键规则』（插到脚本 RULES 最前）。支持通配。留空=不启用本卡片规则（脚本内置 RULES 仍可生效）。不知道 host 就先开『发现模式』抓。"
         },
         {
           "id": "adPath",
@@ -466,88 +482,7 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "匹配的路径正则，如 /feed/list。留空=该域名全部路径"
-        },
-        {
-          "id": "adAction",
-          "name": "动作",
-          "val": "remove_ads",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "remove_ads(删广告项)/empty_list(清空列表)/set_field(改字段)/regex(正则替换)"
-        },
-        {
-          "id": "adListPath",
-          "name": "数组路径",
-          "val": "data.list",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "广告所在数组的 JSON 路径，点号分隔，如 data.list"
-        },
-        {
-          "id": "adAdFlag",
-          "name": "广告标记字段",
-          "val": "is_ad",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "为真即判定为广告的标记字段名，如 is_ad"
-        },
-        {
-          "id": "adAdType",
-          "name": "广告类型值",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "按类型值判定时填，如 1（item.type===1 即广告）。留空=不按类型"
-        },
-        {
-          "id": "adFieldPath",
-          "name": "改字段路径",
-          "val": "data.ad_duration",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "set_field 动作时改写的字段路径，如 data.ad_duration"
-        },
-        {
-          "id": "adValue",
-          "name": "改字段值",
-          "val": "0",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "set_field 动作时写入的值（文本，如 0 或 \"\"）"
-        },
-        {
-          "id": "adPattern",
-          "name": "正则",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "regex 动作的正则，如 splash_ad"
-        },
-        {
-          "id": "adReplacement",
-          "name": "替换为",
-          "val": null,
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "regex 动作的替换文本，留空=删除匹配内容"
-        },
-        {
-          "id": "adNotify",
-          "name": "弹通知",
-          "val": "1",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "拦截生效时是否弹通知：1 开 / 0 关"
+          "desc": "本规则匹配的路径正则，如 /feed/list、/splash。留空=该域名所有路径都命中。建议精确填广告接口路径，避免误伤正常内容。"
         },
         {
           "id": "adDiscovery",
@@ -556,7 +491,88 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 1,
-          "desc": "未配置域名时把捕获到的 host/path 打到日志：1 开 / 0 关"
+          "desc": "仅在你还没填『目标域名』时生效。填 1=开启：命中任意响应后，把真实 host + path 和一段可直接复制的去广告规则打到 QX 日志（不弹窗），帮你起手。填 0=关闭（默认），未配置时静默放行。"
+        },
+        {
+          "id": "adAction",
+          "name": "动作",
+          "val": "remove_ads",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "本规则用什么方式去广告：remove_ads（按标记删数组项）、empty_list（直接清空整个数组）、set_field（改某个字段值，如关掉倒计时）、regex（正则替换，适合 JS/CSS 等非 JSON 响应）。默认 remove_ads。"
+        },
+        {
+          "id": "adListPath",
+          "name": "数组路径",
+          "val": "data.list",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "广告所在『数组』的 JSON 路径（点号分隔），如 data.list、data.ads、data.items。remove_ads / empty_list 动作需要它来定位要处理的数组。"
+        },
+        {
+          "id": "adAdFlag",
+          "name": "广告标记字段",
+          "val": "is_ad",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "判定『这是一条广告』的标记字段名，为真即删。如 is_ad、isAd、ad_flag。remove_ads 动作用。目标用别的标记（如 is_promotion）就改它。"
+        },
+        {
+          "id": "adAdType",
+          "name": "广告类型值",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "按『类型值』判定广告时填，如 1（即 item.type===1 视为广告）。填数字或字符串；留空=不按类型判定，只用『广告标记字段』。remove_ads 动作用。"
+        },
+        {
+          "id": "adFieldPath",
+          "name": "改字段路径",
+          "val": "data.ad_duration",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "set_field 动作时，要改写的字段路径（点号分隔），如 data.ad_duration、data.show_banner。配合『改字段值』一起用。"
+        },
+        {
+          "id": "adValue",
+          "name": "改字段值",
+          "val": "0",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "set_field 动作时写入的值（文本）。如把倒计时改成 0、把开关改成 false（填 false）、把文案改成空（填 \"\"）。按目标需要的类型填。注意这里按文本写入，需要数字就填 0。"
+        },
+        {
+          "id": "adPattern",
+          "name": "正则",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "regex 动作要匹配/删除的原文（正则），如 splash_ad、ad_config。命中即做替换。非 JSON 响应（JS/CSS/HTML）去广告用这个最方便。"
+        },
+        {
+          "id": "adReplacement",
+          "name": "替换为",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "regex 动作的替换文本。留空=删除匹配到的内容；填了就用它替换。例如把某段广告脚本替换成空或占位。"
+        },
+        {
+          "id": "adNotify",
+          "name": "弹通知",
+          "val": "1",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 1,
+          "desc": "拦截生效（有广告被删/列表被清/字段被改/正则替换完成）时是否弹 QX 通知。填 1=弹（默认）；0=只写日志。广告很多时建议关掉免得刷屏。"
         }
       ],
       "author": "@XiaoMao",
