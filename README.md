@@ -10,7 +10,6 @@
 <a href="https://github.com/xiaomaoJT/QxScript" target="_blank">
 <img src="https://img.shields.io/badge/GitHub-QxScript-181717?style=flat-square&logo=github" alt="GitHub" />
 </a>
-<img src="https://komarev.com/ghpvc/?username=xiaomaoJT&style=flat-square" alt="Visitor" />
 
 </div>
 
