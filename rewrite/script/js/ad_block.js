@@ -21,6 +21,37 @@ const CONFIG = {
   discoveryMode: false, // 未配置规则时：false=静默放行（默认）；true=把捕获到的 host/path + 可复制配置打到 QX 日志（不弹窗）
 };
 
+//==================== BoxJS 实时配置（覆盖式单条规则，免改代码）====================
+// 配合 BoxJS 订阅 rewrite/boxJS/XiaoMaoReverseTools.json 使用
+function readBox(key, def, type) {
+  let raw = null;
+  try { if (typeof $prefs !== 'undefined' && $prefs) raw = $prefs.valueForKey(key); } catch (e) {}
+  const empty = raw === null || raw === undefined || String(raw).trim() === '';
+  const s = empty ? '' : String(raw).trim();
+  try {
+    switch (type) {
+      case 'bool': return empty ? def : /^(1|true|yes|on)$/i.test(s);
+      case 'int': { if (empty) return def; const n = parseInt(s, 10); return isNaN(n) ? def : n; }
+      case 'list': {
+        const src = empty ? (Array.isArray(def) ? def.join('\n') : String(def == null ? '' : def)) : s;
+        return src.split(/[,\n]/).map((x) => x.trim()).filter(Boolean);
+      }
+      case 'regex': {
+        if (empty) return def;
+        if (s.charAt(0) === '/') {
+          const m = s.match(/^\/(.*)\/([gimsuy]*)$/);
+          return m ? new RegExp(m[1], m[2] || 'i') : new RegExp(s, 'i');
+        }
+        return new RegExp(s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+      }
+      default: return empty ? def : s;
+    }
+  } catch (e) { return def; }
+}
+
+CONFIG.discoveryMode = readBox('adDiscovery', CONFIG.discoveryMode, 'bool');
+CONFIG.notify = readBox('adNotify', true, 'bool');
+
 //==================== 规则配置区 ====================
 
 const RULES = [
@@ -64,6 +95,31 @@ const RULES = [
     replacement: '',
   },
 ];
+
+//==================== BoxJS 一键规则（免改代码，由订阅参数生成，插入到 RULES 最前）====================
+(function applyBoxRule() {
+  const h = readBox('adHost', '', 'str');
+  if (!h) return; // 未填域名则不启用本卡片规则，仍可用内联 RULES
+  const rule = {
+    name: 'BoxJS一键配置',
+    host: h,
+    path: readBox('adPath', '', 'regex') || /\/.*/i,
+    action: readBox('adAction', 'remove_ads', 'str'),
+    listPath: readBox('adListPath', 'data.list', 'str'),
+    adFlag: readBox('adAdFlag', 'is_ad', 'str'),
+    fieldPath: readBox('adFieldPath', 'data.ad_duration', 'str'),
+    value: readBox('adValue', '0', 'str'),
+    pattern: readBox('adPattern', '', 'str'),
+    replacement: readBox('adReplacement', '', 'str'),
+    flags: 'g',
+  };
+  const adTypeRaw = readBox('adAdType', '', 'str');
+  if (adTypeRaw !== '') {
+    const n = Number(adTypeRaw);
+    if (!isNaN(n)) rule.adType = n; else rule.adTypeStr = adTypeRaw;
+  }
+  RULES.unshift(rule);
+})();
 
 //==================== 引擎（一般不用改）=====================
 
