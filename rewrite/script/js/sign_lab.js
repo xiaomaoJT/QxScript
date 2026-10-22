@@ -31,6 +31,7 @@ const CONFIG = {
   boxJsKey: 'signLabResult',
   pathFilter: null, // 如 /\/api\//i
   notify: true,
+  discoveryMode: false, // 未配置态是否把捕获到的 host/path + 可复制配置打到 QX 日志（不弹窗）
   // 签名字段名候选（小写比较）
   signKeys: ['sign', 'sig', 'signature', 'token', 'mac', 'hash', 'check', 'verify', 'sk'],
   // 时间戳字段候选（有些签名会把它拼进去）
@@ -359,17 +360,24 @@ const _path = (url.match(/^https?:\/\/[^\/?#]+([^?#]*)/) || [,'/'])[1] || '/';
 const hitHost = CONFIG.hosts.length > 0 && CONFIG.hosts.some((h) => matchHost(h, host));
 const hitPath = !CONFIG.pathFilter || CONFIG.pathFilter.test(url);
 
-// 没锁定到任何 host 时，捕获真实 host/path 输出可复制配置，引导你自己配
+// 未锁定到任何 host 时：
+// - discoveryMode=false（默认）→ 静默放行，不弹通知、不刷日志
+// - discoveryMode=true → 仅把捕获到的 host/path + 可复制配置打到 QX 日志（不弹窗），供你之后锁定目标
+const _setupKey = 'signLab_setup_hint';
 if (!hitHost) {
-  const gk = 'signLab_guide_' + host;
-  if (!$prefs.valueForKey(gk)) {
-    $prefs.setValueForKey('1', gk);
-    const g = buildConfigGuide(
-      host, _path, 'https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/sign_lab.js', 'script-request-header',
-      "hosts: ['" + host + "'],\n  pathFilter: " + buildPathRegex(_path) + ','
-    );
-    console.log('[sign_lab] ' + g);
-    if (CONFIG.notify) $notify('sign_lab · 配置引导', host, g.slice(0, 900));
+  if (CONFIG.discoveryMode) {
+    const _gk = 'signLab_cap_' + host;
+    if (!$prefs.valueForKey(_gk)) {
+      $prefs.setValueForKey('1', _gk);
+      const g = buildConfigGuide(
+        host, _path, 'https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/sign_lab.js', 'script-request-header',
+        "hosts: ['" + host + "'],\n  pathFilter: " + buildPathRegex(_path) + ','
+      );
+      console.log('[sign_lab · 发现] ' + g);
+    }
+  } else if (!$prefs.valueForKey(_setupKey)) {
+    $prefs.setValueForKey('1', _setupKey);
+    console.log('[sign_lab] 未配置 hosts，已静默放行。把 CONFIG.hosts 填入目标域名后生效；开启 CONFIG.discoveryMode=true 可在 QX 日志查看捕获到的 host/path。');
   }
 }
 

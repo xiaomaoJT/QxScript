@@ -62,7 +62,7 @@ QX 的「重写 → 规则资源 → 引用」只能解析**配置片段**（含
 https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoReverseTools.js
 ```
 
-> 引用的是**包装 conf**，不是四个 `.js` 脚本本体。默认 `hostname = *` 会抓取全部流量做"捕获引导"；研究具体 App 时，把 conf 里的 `hostname` 改成该 App 域名、并把脚本 `CONFIG.hosts` 填成同一域名即可锁定目标。
+> 引用的是**包装 conf**，不是四个 `.js` 脚本本体。默认 `hostname = *` 会抓取全部流量；脚本处于未配置态时**静默放行、不弹任何通知**。研究具体 App 时，把 conf 里的 `hostname` 改成该 App 域名、并把脚本 `CONFIG.hosts` 填成同一域名即可锁定目标。
 
 **加载方式二：手动粘贴（想精确控制时）**
 四个脚本都通过完整远程地址加载，直接复制下面这段到 QX 的 `[rewrite_local]`，`[mitm]` 里填上你要研究的域名即可：
@@ -80,15 +80,15 @@ hostname = api.target.com, cdn.target.com
 
 > 这里的 `hostname` 决定 QX 抓哪些域名的明文。研究时先填目标域名；**不要长期留 `*`**，否则所有流量都会被这四个脚本拦截，开销很大。
 
-**默认是「未配置态」**
-四个脚本的 `hosts` / 规则 `host` 默认都是空的，**不会处理任何数据**，只做「捕获 + 引导」：运行后会在日志里打印你真实命中的 `host` 和 `path`，并给出一段**可直接复制的专属配置**（含 `[rewrite_local]` + `[mitm] hostname` + 脚本内 `hosts`/`RULES`）。把它填进脚本配置区，就锁定到你的目标了。
+**默认是「未配置态」（静默放行）**
+四个脚本的 `hosts` / 规则 `host` 默认都是空的，**不会处理任何数据、也不会弹任何通知**，请求原样放行。要看到捕获到的目标域名，需要把脚本顶部的 `CONFIG.discoveryMode` 改成 `true`：开启后，脚本只把命中的 `host` + `path` 以及一段**可直接复制的专属配置**（含 `[rewrite_local]` + `[mitm] hostname` + 脚本内 `hosts`/`RULES`）打到 **QX 日志（不弹窗）**。把它填进脚本配置区，就锁定到你的目标了。
 
 ---
 
 ### 标准工作流分步
 
 #### ① resp_inspector.js — 先看服务端到底返回了哪些字段
-1. 在脚本 `CONFIG.hosts` 填上目标域名（或先用未配置态，让它捕获后给你可复制配置）。
+1. 在脚本 `CONFIG.hosts` 填上目标域名（或先开 `CONFIG.discoveryMode = true` 用未配置态，让它捕获后给你可复制配置）。
 2. 打开 App，进入「我的 / 会员中心」触发接口。
 3. 脚本递归扫描响应，把 `vip` / `member` / `expire` / `level` / `auth` 等可疑字段标出来，并给出**完整 JSON 路径**（如 `data.vip_info.is_vip`、`data.user.expire_time`）。
 4. 想反复比对时，把 `CONFIG.saveBody` 改成 `true`，原始响应会存进 `$prefs`（key：`respInspectorBody`）。
@@ -187,7 +187,9 @@ hostname = api.target.com, cdn.target.com
 
 ### 捕获引导：从「空白」到「专属配置」
 
-四个脚本都内置了"捕获 + 引导"：当你还没锁定目标（默认 `hosts=[]` 或 `host=''`）时，脚本命中真实请求后，会在**日志 + 通知**里输出一段可直接复制的配置，例如 `sign_lab.js` 捕获到 `api.target.com/api/user/info` 后给出：
+四个脚本都内置了"捕获 + 引导"，但要**先开启 `CONFIG.discoveryMode = true`** 才会输出（默认是静默放行，不弹窗也不刷日志）。
+
+开启后，当你还没锁定目标（默认 `hosts=[]` 或 `host=''`）时，脚本命中真实请求后，会在 **QX 日志（不弹窗）** 里输出一段可直接复制的配置，例如 `sign_lab.js` 捕获到 `api.target.com/api/user/info` 后给出：
 
 ```
 【sign_lab.js · 捕获到目标】
@@ -207,7 +209,7 @@ hosts: ['api.target.com'],
   pathFilter: /\/api\/user/i,
 ```
 
-把 `hosts: ['api.target.com']` 那段填回脚本配置区，就完成了"专属配置"。每个 host 只引导一次（已存 `$prefs`），不会刷屏。
+把 `hosts: ['api.target.com']` 那段填回脚本配置区，就完成了"专属配置"。每个 host 只记录一次（已存 `$prefs`），不会重复刷屏。
 
 ---
 
