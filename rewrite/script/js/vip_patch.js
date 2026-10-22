@@ -3,10 +3,10 @@
  * 通用会员解锁引擎（QX rewrite）
  *
  * [rewrite_local]
- * ^https?://api\.example\.com/ url script-response-body vip_patch.js
+ * ^https?:// url script-response-body vip_patch.js
  *
  * [mitm]
- * hostname = api.example.com
+ * hostname = *
  *
  * 说明：
  * 1. 零依赖，一条规则 = 一个 host + path + 若干字段改写
@@ -25,7 +25,7 @@ const RULES = [
   // ===== 示例1：常见"用户信息"接口，一次性打通常见字段 =====
   {
     name: '用户信息解锁',
-    host: 'api.example.com',
+    host: '*', // '*' = 匹配所有主机；也支持 '*.example.com' / 'api.*.com' 通配
     path: /\/user\/(info|profile|center)/i,
 
     // 快捷开关：这些字段会被置为 truthy 值（true / 1）
@@ -58,7 +58,7 @@ const RULES = [
   // ===== 示例2：权益列表，把 locked 全开 =====
   {
     name: '权益列表',
-    host: 'api.example.com',
+    host: '*',
     path: /\/privilege|benefit|rights/i,
     patches: [
       // { path: 'data.list', transform: 'unlockAll' },
@@ -68,7 +68,7 @@ const RULES = [
   // ===== 示例3：整体替换（返回一个已付费模板）=====
   // {
   //   name: '整体替换',
-  //   host: 'api.example.com',
+  //   host: '*',
   //   path: /\/entitlement/i,
   //   whole: {
   //     code: 0,
@@ -80,10 +80,23 @@ const RULES = [
 //==================== 引擎（一般不用改）=====================
 
 function matchHost(ruleHost, host) {
+  // 空 / '*' → 匹配所有主机（通用模式）
   if (!ruleHost || ruleHost === '*') return true;
+  // 前缀 '*.'(如 '*.example.com') → 后缀匹配（含多级子域）
   if (ruleHost.indexOf('*.') === 0) {
-    const suffix = ruleHost.slice(1);
+    const suffix = ruleHost.slice(1); // '.example.com'
     return host === suffix.slice(1) || host.endsWith(suffix);
+  }
+  // 任意位置 '*' 通配（如 'api.*.com' 'a*.example.com'）
+  if (ruleHost.indexOf('*') >= 0) {
+    const re = new RegExp(
+      '^' +
+        ruleHost
+          .replace(/[.+?^${}()|[\]\\]/g, '\\$&') // 转义正则元字符
+          .replace(/\*/g, '[^.]*') + // '*' = 任意非点字符段
+        '$'
+    );
+    return re.test(host);
   }
   return host === ruleHost;
 }

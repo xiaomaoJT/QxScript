@@ -3,10 +3,10 @@
  * 签名算法分析实验台（逆向辅助）
  *
  * [rewrite_local]
- * ^https?://api\.example\.com/ url script-request-header sign_lab.js
+ * ^https?:// url script-request-header sign_lab.js
  *
  * [mitm]
- * hostname = api.example.com
+ * hostname = *
  *
  * 说明：
  * 1. 零依赖，内联 MD5 / SHA1 / SHA256 / HMAC（QX 无内置 crypto）
@@ -22,7 +22,7 @@
  */
 
 const CONFIG = {
-  hosts: ['api.example.com'],
+  hosts: ['*'], // 留空 [] 或填 '*' = 匹配所有主机（通用模式）；也支持 '*.example.com' / 'api.*.com' 通配
   // BoxJS 缓存：把上次还原成功的算法配置存下来，下次同参数直接复用
   // 需要配合 BoxJS 订阅（rewrite/boxJS/XiaoMao.json）使用
   useBoxJs: true,
@@ -252,9 +252,23 @@ const HASHES = {
 //==================== 参数提取 ====================
 
 function matchHost(ruleHost, host) {
+  // 空 / '*' → 匹配所有主机（通用模式）
+  if (!ruleHost || ruleHost === '*') return true;
+  // 前缀 '*.'(如 '*.example.com') → 后缀匹配（含多级子域）
   if (ruleHost.indexOf('*.') === 0) {
-    const suffix = ruleHost.slice(1);
+    const suffix = ruleHost.slice(1); // '.example.com'
     return host === suffix.slice(1) || host.endsWith(suffix);
+  }
+  // 任意位置 '*' 通配（如 'api.*.com' 'a*.example.com'）
+  if (ruleHost.indexOf('*') >= 0) {
+    const re = new RegExp(
+      '^' +
+        ruleHost
+          .replace(/[.+?^${}()|[\]\\]/g, '\\$&') // 转义正则元字符
+          .replace(/\*/g, '[^.]*') + // '*' = 任意非点字符段
+        '$'
+    );
+    return re.test(host);
   }
   return host === ruleHost;
 }
