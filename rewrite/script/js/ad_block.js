@@ -3,10 +3,10 @@
  * 通用广告拦截引擎（QX rewrite）
  *
  * [rewrite_local]
- * ^https?://api\.example\.com/ url script-response-body ad_block.js
+ * ^https?:// url script-response-body ad_block.js
  *
  * [mitm]
- * hostname = api.example.com
+ * hostname = *
  *
  * 说明：
  * 1. 零依赖，配置化规则，加目标只需在 RULES 里加一条
@@ -21,7 +21,7 @@ const RULES = [
   // 示例1：信息流列表，删掉标记为广告的项
   {
     name: '信息流去广告',
-    host: 'api.example.com', // 精确匹配，支持 '*.example.com'
+    host: '*', // '*' = 匹配所有主机；也支持 '*.example.com' / 'api.*.com' 通配
     path: /\/feed\/list/i, // 匹配 URL 路径
     action: 'remove_ads',
     listPath: 'data.list', // 数组所在路径，点号分隔
@@ -32,7 +32,7 @@ const RULES = [
   // 示例2：开屏/启动页广告，直接清空
   {
     name: '开屏广告',
-    host: 'api.example.com',
+    host: '*',
     path: /\/splash/i,
     action: 'empty_list',
     listPath: 'data.ads',
@@ -41,7 +41,7 @@ const RULES = [
   // 示例3：改字段（如关闭倒计时、隐藏 Banner）
   {
     name: '启动倒计时',
-    host: 'api.example.com',
+    host: '*',
     path: /\/config/i,
     action: 'set_field',
     fieldPath: 'data.ad_duration',
@@ -51,7 +51,7 @@ const RULES = [
   // 示例4：正则替换，适合非 JSON 响应
   {
     name: '文本替换',
-    host: 'static.example.com',
+    host: '*',
     path: /\.js$/i,
     action: 'regex',
     pattern: 'splash_ad',
@@ -62,10 +62,23 @@ const RULES = [
 //==================== 引擎（一般不用改）=====================
 
 function matchHost(ruleHost, host) {
+  // 空 / '*' → 匹配所有主机（通用模式）
   if (!ruleHost || ruleHost === '*') return true;
+  // 前缀 '*.'(如 '*.example.com') → 后缀匹配（含多级子域）
   if (ruleHost.indexOf('*.') === 0) {
-    const suffix = ruleHost.slice(1);
+    const suffix = ruleHost.slice(1); // '.example.com'
     return host === suffix.slice(1) || host.endsWith(suffix);
+  }
+  // 任意位置 '*' 通配（如 'api.*.com' 'a*.example.com'）
+  if (ruleHost.indexOf('*') >= 0) {
+    const re = new RegExp(
+      '^' +
+        ruleHost
+          .replace(/[.+?^${}()|[\]\\]/g, '\\$&') // 转义正则元字符
+          .replace(/\*/g, '[^.]*') + // '*' = 任意非点字符段
+        '$'
+    );
+    return re.test(host);
   }
   return host === ruleHost;
 }
