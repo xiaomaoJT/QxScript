@@ -1078,6 +1078,156 @@
         "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/apple.png"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/XiaoMaoAppleUpdateVerification.js"
+    },
+    {
+      "id": "AH",
+      "name": "AH Cookie捕获",
+      "keys": [
+        "AHCookies",
+        "AHLatest",
+        "AHCount",
+        "AHCapture",
+        "AHNotify",
+        "AHMax",
+        "AHClear",
+        "AHLimit",
+        "AHOnlyHot",
+        "AHGuestCookie"
+      ],
+      "descs_html": [
+        "<h3 align=\"center\">AH 多登录态 Cookie 抓取</h3>",
+        "<p><b>作用：</b>配合重写脚本 <code>ah_check_cookie.js</code> 捕获 AH 登录态 Cookie，支持多个账号/登录态同时保存。</p>",
+        "<p><b>怎么用：</b>① 在下方把「捕获开关」保持开启 → ② 在 AH App 登录 → ③ 脚本自动抓到 Cookie 写入本卡片 → ④ 从「全部Cookie」或「最近Cookie」复制使用。换账号重复 ②③ 即可追加。</p>",
+        "<p><b>多登录态：</b>「全部Cookie」是一份 JSON 列表，每条含时间戳、session 片段、完整 cookie；按 session 去重，同一登录态重抓只更新不重复。条数上限见「最大保存数」。</p>",
+        "<p><b>复制：</b>「最近Cookie」字段就是最新一条的完整 Cookie，点开全选复制最方便。</p>",
+        "<p><b>清空：</b>需要清空时把「清空指令」切到 1，下次抓包会自动清空并把该开关复位为 0。</p>",
+        "<p><b>脚本/规则：</b>重写规则与脚本见 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js\">ah_check_cookie.js</a> 头部注释。</p>"
+      ],
+      "settings": [
+        {
+          "id": "AHCookies",
+          "name": "全部Cookie(只读/可复制)",
+          "val": "[]",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 6,
+          "desc": "脚本自动写入的 JSON 数组：每条含 t(时间戳)、s(session片段)、c(完整cookie)。按 session 去重，新的在前；一般不用手改，点开全选可复制。"
+        },
+        {
+          "id": "AHLatest",
+          "name": "最近Cookie(可直接复制)",
+          "val": "",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 4,
+          "desc": "最近一次捕获到的完整 Cookie，点开全选即可复制使用；换账号登录后会自动更新为最新一条。"
+        },
+        {
+          "id": "AHCount",
+          "name": "已捕获数量",
+          "val": "0",
+          "type": "input",
+          "desc": "脚本自动写入：当前已保存的登录态 Cookie 条数，一般不用手改。"
+        },
+        {
+          "id": "AHCapture",
+          "name": "捕获开关",
+          "val": "1",
+          "type": "radios",
+          "desc": "1=开启捕获(默认)，0=关闭。关闭后脚本直接放行、不抓取不写入。抓完建议关闭。",
+          "items": [
+            {
+              "key": "1",
+              "label": "开启(默认)"
+            },
+            {
+              "key": "0",
+              "label": "关闭"
+            }
+          ]
+        },
+        {
+          "id": "AHNotify",
+          "name": "通知开关",
+          "val": "1",
+          "type": "radios",
+          "desc": "1=推送通知(默认)，0=静默。抓到/未登录/Cookie过短/清空时会提示；同源状态去重，不重复轰炸。",
+          "items": [
+            {
+              "key": "1",
+              "label": "开启(默认)"
+            },
+            {
+              "key": "0",
+              "label": "静默"
+            }
+          ]
+        },
+        {
+          "id": "AHMax",
+          "name": "最大保存数",
+          "val": "20",
+          "type": "number",
+          "desc": "最多保留多少条登录态 Cookie，默认20。超出后最旧的会被自动裁掉。"
+        },
+        {
+          "id": "AHClear",
+          "name": "清空指令",
+          "val": "0",
+          "type": "radios",
+          "desc": "切到 1 后，下次抓包会清空全部 Cookie/最近Cookie/数量，并自动把本开关复位为 0。",
+          "items": [
+            {
+              "key": "0",
+              "label": "正常(默认)"
+            },
+            {
+              "key": "1",
+              "label": "执行清空"
+            }
+          ]
+        },
+        {
+          "id": "AHLimit",
+          "name": "请求数量 LIMIT",
+          "val": "10",
+          "type": "number",
+          "desc": "本脚本(ah_catch.js)每次抓取多少个 App，默认10。0=抓取全部(最多999，请求多、耗时久、易触发风控)，请谨慎。实际抓取数量还受「只抓热门」开关影响：开启时从热门App里取前N个。"
+        },
+        {
+          "id": "AHOnlyHot",
+          "name": "只抓热门App",
+          "val": "1",
+          "type": "radios",
+          "desc": "默认开启：只抓取 isHot=true 的热门 App。关闭(选0)则抓取页面中解析到的全部 App(含非热门)，数量更多、耗时更久。",
+          "items": [
+            {
+              "key": "1",
+              "label": "只抓热门(默认)"
+            },
+            {
+              "key": "0",
+              "label": "抓全部"
+            }
+          ]
+        },
+        {
+          "id": "AHGuestCookie",
+          "name": "访客Cookie(可选)",
+          "val": null,
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 2,
+          "desc": "不登录也能领访客兑换码所用的访客 Cookie。留空则用脚本内置默认访客Cookie；若访客码失效，可从 Postman 抓一份新的填这里覆盖。"
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://ah.app/api/icons/6807537708?v=7f85689094b3",
+        "https://ah.app/api/icons/6807537708?v=7f85689094b3"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js"
     }
   ]
 }
