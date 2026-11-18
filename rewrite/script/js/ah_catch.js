@@ -206,11 +206,13 @@ function dec(h) {
       // ---- 3) 汇总推送：序号+名称 / 链接 / 剩余 / 兑换码(只列码,游客在前,每个换行) ----
       var lines = [];
       results.forEach(function (r, idx) {
-        lines.push("[" + (idx + 1) + "] " + r.appName);
+        if (idx > 0) lines.push("━━━━━━━━━━━━━━");   // 每个 App 之间的分隔符
+        lines.push("📱 [" + (idx + 1) + "] " + r.appName);
         // 链接取自 /zh-hans 的 redeemUrl(r.originUrl)，转成 App Store 详情页形式；取不到再退回各兑换链接
         var link = appStoreLink(r.originUrl, r.guest.url, r.users[0] && r.users[0].url);
-        if (link) lines.push("链接: " + link);
-        lines.push("剩余: " + (r.codesLeft != null ? r.codesLeft : "-"));
+        if (link) lines.push("🔗 链接: " + link);
+        lines.push("📊 剩余: " + (r.codesLeft != null ? r.codesLeft : "-"));
+        lines.push("🎟️ 兑换码:");
         // 兑换码只显示码本身，不显示 session；游客码在前，其后依次登录码，每个单独一行
         if (r.guest.code) lines.push(r.guest.code);
         r.users.forEach(function (u) { if (u.code) lines.push(u.code); });
