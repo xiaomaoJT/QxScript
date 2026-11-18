@@ -2,6 +2,10 @@
  * AH 热门兑换码抓取 (QX 运行脚本 / 简单加密版)
  * 登录 Cookie 来自 BoxJS「AH」卡片 AHCookies（由 ah_check_cookie.js 抓取）
  * 支持多登录态循环、失效检测、访客码对比，LIMIT/访客Cookie 可在卡片配置
+ *
+ * 自动任务 (QX > 任务 > [task_local])：复制下面整行即可
+ * 0 0 1 1 * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_catch.js, tag=AH 兑换码抓取, img-url=https://ah.app/api/icons/6807537708?v=7f85689094b3, enabled=false
+ * 说明：enabled=false 表示默认关闭，需到任务里手动开启/点运行；若要定时每天跑，把 cron 改成 0 8 * * * 并设 enabled=true
  */
 
 // ===== 轻量混淆解码：4 位十六进制一组，异或 90 还原 =====
