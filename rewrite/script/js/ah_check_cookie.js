@@ -8,8 +8,8 @@
  * 1、QX > 重写 > 规则资源 > 引用本脚本并开启资源解析器；[mitm] 打开对应域名
  * 2、在 AH 登录，脚本捕获 ah_session 登录态 Cookie
  *    真实登录 Cookie 一般在 https://ah.app/zh-hans 的请求头里
- * 3、★ 规则只匹配 /zh-hans 页面请求（登录 Cookie 就在它的请求头里），避免一个页面加载触发几十次
- * 4、脚本内还有三重去重：完全相同 Cookie 直接静默放行、相同 session 只刷新不弹通知、同源提示去重
+ * 3、规则匹配 ah.app 全部路径（实测收窄到 /zh-hans 会匹配不稳定、不触发，故用通配）
+ * 4、★ 脚本内三重去重保证不重复骚扰：完全相同 Cookie 静默放行、相同 session 静默刷新不弹通知、同源提示去重
  * 5、脚本同时会跳过 .jpg/.png/.css/.js 等静态资源，双保险
  * 6、多登录态：换账号重新登录即可再抓一条，按 session 自动去重、可设上限
  * 7、捕获结果写入 BoxJS 订阅 XiaoMao.json 的「AH」卡片：
@@ -22,7 +22,7 @@
 hostname = ah.app
 
  [rewrite_local]
-^https?:\/\/[^/]*ah\.app\/zh\-hans url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js
+^https?:\/\/[^/]*ah\.app url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js
 
  ********************************/
 
