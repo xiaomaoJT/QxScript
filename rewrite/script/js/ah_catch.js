@@ -204,7 +204,7 @@ function dec(h) {
         var link = null;
         for (var q = 0; q < r.users.length; q++) { if (r.users[q].url) { link = r.users[q].url; break; } }
         link = link || r.guest.url || r.originUrl;
-        if (link) lines.push("链接: " + String(link).replace("https://apps.apple.com/redeem?ctx=offercodes&", ""));
+        if (link) lines.push("链接: " + String(link));
         lines.push("");
       });
       notify(dec('275f007a001b002a002a0012002f0034002e007a62c9538c5bd6624a'), "已抓 " + results.length + " 个App / " + cookies.length + " 个登录态" +
