@@ -47,6 +47,43 @@ function dec(h) {
     }
     return "";
   }
+  // 单元格值：空值显示 -，对象/数组取其可读字段，过长截断，避免通知过长
+  function cellVal(v) {
+    if (v === null || v === undefined || v === "") return "-";
+    if (Object.prototype.toString.call(v) === "[object Array]") {
+      v = v.map(function (x) { return cellVal(x); }).join("/");
+    } else if (Object.prototype.toString.call(v) === "[object Object]") {
+      // 常见结构：{name/title/label/value/text: ...}，取第一个存在的
+      var keys = ["name", "title", "label", "value", "text", "desc"];
+      for (var i = 0; i < keys.length; i++) {
+        if (v[keys[i]] !== undefined && v[keys[i]] !== null && v[keys[i]] !== "") { v = v[keys[i]]; break; }
+      }
+      if (Object.prototype.toString.call(v) === "[object Object]") {
+        try { v = JSON.stringify(v); } catch (e) { v = "[object]"; }
+      }
+    }
+    var s = String(v);
+    return s.length > 40 ? s.slice(0, 40) + "…" : s;
+  }
+  // createdAt 可能是时间戳(秒/毫秒)或日期字符串，统一成 YYYY-MM-DD 或原字符串
+  function fmtDate(v) {
+    if (v === null || v === undefined || v === "") return "-";
+    if (Object.prototype.toString.call(v) === "[object Object]") v = cellVal(v);
+    var s = String(v);
+    if (/^\d+$/.test(s)) {
+      var n = Number(s);
+      if (n > 1e12) { /* 毫秒，直接用 */ }
+      else if (n > 1e9) { n *= 1000; } /* 秒 */
+      else return s;
+      try {
+        var d = new Date(n);
+        var p = function (x) { return ("0" + x).slice(-2); };
+        return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+      } catch (e) { return s; }
+    }
+    var mm = s.match(/^\d{4}-\d{2}-\d{2}/);
+    return mm ? mm[0] : s;
+  }
   var sleep = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
   function qxFetch(url, opts) {
     opts = opts || {};
@@ -187,14 +224,20 @@ function dec(h) {
         active = active.filter(function (c) { return !invalidMark[c.s]; });
 
         results.push({
-          appName: app.appName, id: app.id, codesLeft: app.codesLeft,
+          appName: app.appName, id: app.id, codesLeft: app.codesLeft, total: app.total,
+          createdAt: app.createdAt, platform: app.platform,
+          duration: app.duration, offerType: app.offerType,
           originUrl: app.redeemUrl, guest: guest, users: userResults
         });
 
         console.log("\n----------------------------------");
         console.log("📱 应用名称: " + app.appName);
         console.log("🆔 App ID: " + app.id);
-        console.log("🔢 剩余兑换码: " + app.codesLeft);
+        console.log("🔢 剩余/总数: " + cellVal(app.codesLeft) + " / " + cellVal(app.total));
+        console.log("📅 上架时间: " + fmtDate(app.createdAt));
+        console.log("💻 平台: " + cellVal(app.platform));
+        console.log("⏳ 权益时长: " + cellVal(app.duration));
+        console.log("🎁 优惠类型: " + cellVal(app.offerType));
         console.log("👤 游客码: " + (guest.code || "无"));
         userResults.forEach(function (x, k) {
           console.log("🔑 登录码[" + x.s + "]: " + (x.code || "无"));
@@ -211,7 +254,10 @@ function dec(h) {
         // 链接取自 /zh-hans 的 redeemUrl(r.originUrl)，转成 App Store 详情页形式；取不到再退回各兑换链接
         var link = appStoreLink(r.originUrl, r.guest.url, r.users[0] && r.users[0].url);
         if (link) lines.push("🔗 链接: " + link);
-        lines.push("📊 剩余: " + (r.codesLeft != null ? r.codesLeft : "-"));
+        lines.push("📊 剩余/总数: " + cellVal(r.codesLeft) + " / " + cellVal(r.total));
+        lines.push("📅 上架: " + fmtDate(r.createdAt));
+        lines.push("💻 平台: " + cellVal(r.platform));
+        lines.push("⏳ 时长: " + cellVal(r.duration) + " | 🎁 类型: " + cellVal(r.offerType));
         lines.push("🎟️ 兑换码:");
         // 兑换码只显示码本身，不显示 session；游客码在前，其后依次登录码，每个单独一行
         if (r.guest.code) lines.push(r.guest.code);
