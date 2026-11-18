@@ -8,9 +8,11 @@
  * 1、QX > 重写 > 规则资源 > 引用本脚本并开启资源解析器；[mitm] 打开对应域名
  * 2、在 AH 登录，脚本捕获 ah_session 登录态 Cookie
  *    真实登录 Cookie 一般在 https://ah.app/zh-hans 的请求头里
- * 3、脚本会自动跳过 .jpg/.png/.css/.js 等静态资源，避免图片请求的残缺 Cookie 误报
- * 4、多登录态：换账号重新登录即可再抓一条，按 session 自动去重、可设上限
- * 5、捕获结果写入 BoxJS 订阅 XiaoMao.json 的「AH」卡片：
+ * 3、★ 规则只匹配 /zh-hans 页面请求（登录 Cookie 就在它的请求头里），避免一个页面加载触发几十次
+ * 4、脚本内还有三重去重：完全相同 Cookie 直接静默放行、相同 session 只刷新不弹通知、同源提示去重
+ * 5、脚本同时会跳过 .jpg/.png/.css/.js 等静态资源，双保险
+ * 6、多登录态：换账号重新登录即可再抓一条，按 session 自动去重、可设上限
+ * 7、捕获结果写入 BoxJS 订阅 XiaoMao.json 的「AH」卡片：
  *      AHCookies  = 全部 Cookie（JSON 数组，可复制）
  *      AHLatest   = 最近一条完整 Cookie（方便直接复制）
  *      AHCount    = 已捕获数量
@@ -20,7 +22,7 @@
 hostname = ah.app
 
  [rewrite_local]
-^https?:\/\/[^/]*ah\.app\/ url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js
+^https?:\/\/[^/]*ah\.app\/zh\-hans url script-request-header https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js
 
  ********************************/
 
@@ -102,6 +104,13 @@ function dec(h) {
   var m = cookie.match(RE_SESS);
   var sess = m ? m[1] : "";
 
+  // ---- ★ 完全相同的 Cookie 直接静默放行：同一个登录态在一次页面加载里会伴随几十个请求，内容一模一样就没必要重复处理 ----
+  var prevLatest = read(K_LATEST);
+  if (prevLatest && String(prevLatest) === cookie) {
+    $done({});
+    return;
+  }
+
   console.log("[ah] " + url + " | Cookie长度=" + cookie.length + " Session长度=" + sess.length);
 
   // ---- 未检测到登录态 session ----
@@ -136,10 +145,12 @@ function dec(h) {
   write(String(arr.length), K_COUNT);
   write("", K_TIP);
 
-  if (notifyOn) {
-    var tpl = dup ? dec('76a2545676215f0f605b5da866ae65eaff520009003f002900290033003500340060007a002100090027007400740074ff53305800505bd6652e007a00190035003500310033003f007a5da8526d65eaff5653b552175fda533b721d5957526c3058') : dec('65ea76215f0f605b007a00190035003500310033003f007a5da84f875b02ff520009003f002900290033003500340060007a002100090027007400740074ff533058005053b552175fda007a00180035002200100009007a533b721d007a001b002a002a0012002f0034002e00190035003500310033003f0029007a5957526c3058');
-    notify(dup ? dec('2621fe55007a001b002a002a0012002f0034002e007a76215f0f605b5da866ae65ea') : dec('275f007a001b002a002a0012002f0034002e007a76215f0f605b5da8630f83ed'), dec('5da85b02513f007a00180035002200100009007a00ed007a001b002a002a0012002f0034002e007a533b721d'),
-      tpl.replace("{S}", sess.substring(0, 12)) + "\n" + dec('5f0952175da84f875b02007a') + arr.length);
+  // ---- 通知：只有真正新增登录态才弹；相同 session 只静默刷新存储，不弹通知 ----
+  if (notifyOn && !dup) {
+    notify(dec('275f007a001b002a002a0012002f0034002e007a76215f0f605b5da8630f83ed'), dec('5da85b02513f007a00180035002200100009007a00ed007a001b002a002a0012002f0034002e007a533b721d'),
+      dec('65ea76215f0f605b007a00190035003500310033003f007a5da84f875b02ff520009003f002900290033003500340060007a002100090027007400740074ff533058005053b552175fda007a00180035002200100009007a533b721d007a001b002a002a0012002f0034002e00190035003500310033003f0029007a5957526c3058').replace("{S}", sess.substring(0, 12)) + "\n" + dec('5f0952175da84f875b02007a') + arr.length);
+  } else if (dup) {
+    console.log("[ah] 相同 session 已静默刷新: " + sess.substring(0, 12));
   }
 
   console.log(dec('0067006700670067006700670067006700670067007a001b002a002a0012002f0034002e007a76215f0f605b007a00190035003500310033003f007a0067006700670067006700670067006700670067'));
