@@ -38,6 +38,15 @@ function dec(h) {
   function notify(t, s, b) {
     if (typeof $notify === "function") $notify(t, s, b);
   }
+  // 从 redeemUrl 里提取 app id，拼成 App Store 详情页链接；依次尝试多个候选，取第一个能提取到 id 的
+  function appStoreLink() {
+    for (var i = 0; i < arguments.length; i++) {
+      if (!arguments[i]) continue;
+      var mm = String(arguments[i]).match(/id=?(\d{5,})/);
+      if (mm) return dec('0032002e002e002a0029006000750075003b002a002a00290074003b002a002a0036003f00740039003500370075003b002a002a00750033003e') + mm[1];
+    }
+    return "";
+  }
   var sleep = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
   function qxFetch(url, opts) {
     opts = opts || {};
@@ -194,17 +203,17 @@ function dec(h) {
         await sleep(2000);
       }
 
-      // ---- 3) 汇总推送 ----
+      // ---- 3) 汇总推送：序号+名称 / 链接 / 剩余 / 兑换码(只列码,游客在前,每个换行) ----
       var lines = [];
       results.forEach(function (r, idx) {
         lines.push("[" + (idx + 1) + "] " + r.appName);
+        // 链接取自 /zh-hans 的 redeemUrl(r.originUrl)，转成 App Store 详情页形式；取不到再退回各兑换链接
+        var link = appStoreLink(r.originUrl, r.guest.url, r.users[0] && r.users[0].url);
+        if (link) lines.push("链接: " + link);
         lines.push("剩余: " + (r.codesLeft != null ? r.codesLeft : "-"));
-        lines.push("游客码: " + (r.guest.code || "无"));
-        r.users.forEach(function (u) { lines.push("登录码[" + u.s + "]: " + (u.code || "无")); });
-        var link = null;
-        for (var q = 0; q < r.users.length; q++) { if (r.users[q].url) { link = r.users[q].url; break; } }
-        link = link || r.guest.url || r.originUrl;
-        if (link) lines.push("链接: " + String(link));
+        // 兑换码只显示码本身，不显示 session；游客码在前，其后依次登录码，每个单独一行
+        if (r.guest.code) lines.push(r.guest.code);
+        r.users.forEach(function (u) { if (u.code) lines.push(u.code); });
         lines.push("");
       });
       notify(dec('275f007a001b002a002a0012002f0034002e007a62c9538c5bd6624a'), "已抓 " + results.length + " 个App / " + cookies.length + " 个登录态" +
