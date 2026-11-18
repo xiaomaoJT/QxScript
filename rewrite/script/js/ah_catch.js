@@ -1,10 +1,10 @@
 /*
- * AH 热门兑换码抓取 (QX 运行脚本 / 简单加密版)
- * 登录 Cookie 来自 BoxJS「AH」卡片 AHCookies（由 ah_check_cookie.js 抓取）
+ * 热门兑换码抓取 (QX 运行脚本 / 简单加密版)
+ * 登录 Cookie 来自 BoxJS「AH」卡片 AppHuntCookies（由 ah_check_cookie.js 抓取）
  * 支持多登录态循环、失效检测、访客码对比，LIMIT/访客Cookie 可在卡片配置
  *
  * 自动任务 (QX > 任务 > [task_local])：复制下面整行即可
- * 0 0 1 1 * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_catch.js, tag=AH 兑换码抓取, img-url=https://ah.app/api/icons/6807537708?v=7f85689094b3, enabled=false
+ * 0 0 1 1 * https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_catch.js, tag=兑换码抓取, img-url=https://apphunt.app/api/icons/6807537708?v=7f85689094b3, enabled=false
  * 说明：enabled=false 表示默认关闭，需到任务里手动开启/点运行；若要定时每天跑，把 cron 改成 0 8 * * * 并设 enabled=true
  */
 
@@ -109,16 +109,16 @@ function dec(h) {
   function randEmail() {
     return dec('002f0029003f0028') + randStr(8) + EMAIL_DOMAIN;
   }
-  // 由 sessionToken 组装登录 Cookie：保留游客 Cookie 的追踪字段，把身份段换成 ah_session
+  // 由 sessionToken 组装登录 Cookie：保留游客 Cookie 的追踪字段，把身份段换成 apphunt_session
   function buildCookieFromToken(token, guestCk) {
     var base = String(guestCk || GUEST_DEFAULT);
     // 去掉游客身份段，保留 flow/day/_fbp/_ga 等
     var parts = base.split(";").map(function (x) { return String(x).trim(); })
-      .filter(function (x) { return x && x.indexOf("ah_guest=") !== 0 && x.indexOf("ah_session=") !== 0; });
-    parts.push("ah_session=" + token);
+      .filter(function (x) { return x && x.indexOf(dec('003b002a002a0032002f0034002e0005003d002f003f0029002e0067')) !== 0 && x.indexOf(dec('003b002a002a0032002f0034002e00050029003f002900290033003500340067')) !== 0; });
+    parts.push(dec('003b002a002a0032002f0034002e00050029003f002900290033003500340067') + token);
     return parts.join("; ");
   }
-  // 调用本地注册接口，返回 {ok, token, email, err}
+  // 调用注册接口，返回 {ok, token, email, err}
   async function autoRegister() {
     var email = randEmail();
     var password = "pw" + randStr(10);
@@ -166,7 +166,7 @@ function dec(h) {
         var an = parseInt(read(K_AUTONUM), 10);
         var AUTO_NUM = (isNaN(an) || an < 1) ? 1 : an;   // 默认生成 1 个账号
         if (AUTO_NUM > 20) AUTO_NUM = 20;
-        console.log("自动模式开启：准备注册 " + AUTO_NUM + " 个账号 " + REGISTER_URL);
+        console.log("自动模式开启：准备注册 " + AUTO_NUM + " 个账号 (register)");
         var autoCookies = [];
         for (var ai = 0; ai < AUTO_NUM; ai++) {
           try {
@@ -190,17 +190,17 @@ function dec(h) {
         var autoMerge = (mergeRaw === 1 || mergeRaw === "1" || mergeRaw === true || mergeRaw === "true");
         cookies = autoMerge ? autoCookies.concat(cookies) : autoCookies;
         autoAllFail = (autoCookies.length === 0);
-        notify(dec('d864dd4c007a001b002a002a0012002f0034002e007a81b052f26cb251d67e8967c6'), "成功 " + autoOk + " / 失败 " + autoFail,
-          dec('5da881b052f27545624a76215f0f605b007a00190035003500310033003f007a5e2c52fa513f62c9538c3058') + "\n" + REGISTER_URL);
+        notify("🤖 自动注册结果", "成功 " + autoOk + " / 失败 " + autoFail,
+          "已自动生成登录态 Cookie 并加入抓取 (register)。");
         console.log("自动注册完成：成功 " + autoOk + " / 失败 " + autoFail);
       }
 
       // 没有登录 Cookie：提示去登录，并说明不登录也能拿访客兑换码
       if (cookies.length === 0) {
         if (autoMode && autoAllFail) {
-          notify(dec('26fafe55007a001b002a002a0012002f0034002e007a81b052f26cb251d6513290b2596b8d7f'), dec('5da8905a56846e625bf86a7b5f55'), dec('6776576a6cb251d663ff53b967708f8e568467536512007a0029003f00290029003300350034000e00350031003f0034ff5667766b7b4e9f4f2575726e625bf88ef14ea762c9538cff526e625bf8785b4e9753b598dc538cff53305800508bad689a67bf6cb251d6675752fb007a0032002e002e002a0029006000750075003600350039003b0036003200350029002e00600062006a0062006a0075003b002a00330075003b002f002e003200750028003f003d00330029002e003f0028007a6675547c53b57572ff414e0553b5512995b781b052f26a7b5f55ff5665637572007a003b002a002a0032002f0034002e000500390032003f00390031000500390035003500310033003f007400300029007a621152f262c9538c007a00190035003500310033003f007a54545831513f533b721d3058'));
+          notify("⚠️ 自动注册全部失败", dec('5da8905a56846e625bf86a7b5f55'), "注册接口未返回有效 sessionToken，本次仅使用游客身份抓取（游客码仍可领取）。\n请检查 register 是否可用；也可关闭自动模式，改用配套 Cookie 抓取脚本手动抓取 Cookie 后填入卡片。");
         } else {
-          notify(dec('2716007a001b002a002a0012002f0034002e007a6770689a6d11526a76215f0f007a00190035003500310033003f'), dec('4e5776215f0f4e0580a798dc538c8be55bf8510b6338785b'), dec('5f095217677062c9526a76215f0f605b007a00190035003500310033003f30588bad51125772007a001b002a002a0012002f0034002e007a001b002a002a007a76215f0fff5651d77572919751c381406776007a003b002a002a0032002f0034002e000500390032003f00390031000500390035003500310033003f007400300029007a62c9538c76215f0f605b305800508bae6654ff404e5776215f0f4e0553b54ebf51b78be55bf88ef14ea783ed538c526a8be55bf8510b6338785bff56814067764e974f407ebd7eb75c478b8f6e625bf862c9538c3058'));
+          notify("❌ 未检测到登录 Cookie", dec('4e5776215f0f4e0580a798dc538c8be55bf8510b6338785b'), "当前未抓到登录态 Cookie。请先在应用内登录，再用配套 Cookie 抓取脚本抓取登录态。\n说明：不登录也可以凭访客身份获取到访客兑换码，脚本仍会继续尝试游客抓取。");
         }
       }
 
@@ -258,7 +258,7 @@ function dec(h) {
           "sec-fetch-mode": "cors",
           "sec-fetch-site": "same-origin",
           "user-agent": UA,
-          "x-ah-page": PAGE_VAL
+          [dec('00220077003b002a002a0032002f0034002e0077002a003b003d003f')]: PAGE_VAL
         };
 
         async function reveal(cookieVal) {
@@ -343,22 +343,22 @@ function dec(h) {
         r.users.forEach(function (u) { if (u.code) lines.push(u.code); });
         lines.push("");
       });
-      notify(dec('275f007a001b002a002a0012002f0034002e007a62c9538c5bd6624a'), "已抓 " + results.length + " 个App / " + cookies.length + " 个登录态" +
+      notify("✅ 抓取完成", "已抓 " + results.length + " 个App / " + cookies.length + " 个登录态" +
              (invalid.length ? " / " + invalid.length + " 个失效" : ""), lines.join("\n").trim());
 
       // 失效 Cookie：明确提示用户去删除（列出 session 片段与原因）
       if (invalid.length) {
-        var ib = dec('4ebf4e5176215f0f605b75cb4f66596b6512ff568bad526a007a001800350022001000093056001b002a002a0012002f0034002e3057533b721d76de3056513290b200190035003500310033003f305791966353007a0029003f00290029003300350034007a721d6bef527a963e5ba35ece673b76b4ff56624c62d030566e5f7a20635d4ebe30578be44e60007a006b007a5454919765ea76215f0f62c9538cff40');
+        var ib = "以下登录态疑似失效，请到 BoxJS 卡片的「全部Cookie」里按 session 片段删除对应条目，或把「清空指令」设为 1 后重新登录抓取：";
         invalid.forEach(function (x, idx) {
           ib += "\n" + (idx + 1) + ". session: " + x.s + " | 原因: " + x.reason;
         });
-        notify(dec('26fafe55007a001b002a002a0012002f0034002e007a538b73ea596b6512007a00190035003500310033003fff568bad527a963e'), dec('8bad526a533b721d527a963e596b651276215f0f605b5454919765ea62c9538c'), ib);
+        notify("⚠️ 发现失效 Cookie，请删除", dec('8bad526a533b721d527a963e596b651276215f0f605b5454919765ea62c9538c'), ib);
       }
 
       $done();
     } catch (e) {
       console.log("脚本出错: " + e);
-      notify(dec('2716007a001b002a002a0012002f0034002e007a62c9538c51a09543'), (e && e.message) || String(e), "");
+      notify("❌ 抓取出错", (e && e.message) || String(e), "");
       $done();
     }
   })();

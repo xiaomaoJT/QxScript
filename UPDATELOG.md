@@ -67,26 +67,26 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 
 > 小帽语：日常更新如**节点订阅更新**、**去广告分流更新**、**去广告重写更新**将不推送更新提示及更新日志，请自行QX软件内开启对应资源的默认更新即可自动获取，最新更新时间以首页或对应资源内说明文字或本页的更新时间为准。
 >
-> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***890*** 次
+> 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***891*** 次
 >
-> ***最新更新时间 2026.11.18 15:09***
+> ***最新更新时间 2026.11.18 15:24***
 
 
 + ##### 20261118
 
-  * > 新增 [AH Cookie 抓取器](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js)
+  * > 新增 [Cookie 抓取器](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js)
     >
     > 重写脚本监听登录态，多登录态按 session 去重保存，同一 Cookie 重复触发静默放行不骚扰
     >
     > 结果写入 BoxJS「AH」卡片，可开关通知、设上限、下发清空指令
 
-  * > 新增 [AH 兑换码抓取脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_catch.js)
+  * > 新增 [兑换码抓取脚本](https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_catch.js)
     >
     > 多登录态循环领取，访客码对比自动识别失效 Cookie；支持热门筛选、数量上限、失效提示删除
     >
     > 输出 App Store 链接 + 剩余/总数 + 上架时间/平台/时长/类型，支持定时自动任务（默认关闭）
     >
-    > 新增自动模式：本地注册接口批量生成登录态，可配置数量、是否归入 Cookie 组（默认否，仅用生成 Cookie）
+    > 新增自动模式：注册接口批量生成登录态，可配置数量、是否归入 Cookie 组（默认否，仅用生成 Cookie）
 
   * > BoxJS 订阅 XiaoMao.json 新增「AH」配置卡片，全部参数可视化配置
 

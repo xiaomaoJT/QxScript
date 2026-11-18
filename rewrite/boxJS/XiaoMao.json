@@ -1081,35 +1081,35 @@
     },
     {
       "id": "AH",
-      "name": "AH Cookie捕获",
+      "name": "Cookie捕获",
       "keys": [
-        "AHCookies",
-        "AHLatest",
-        "AHCount",
-        "AHCapture",
-        "AHNotify",
-        "AHMax",
-        "AHClear",
-        "AHLimit",
-        "AHOnlyHot",
-        "AHGuestCookie",
-        "AHAutoMode",
-        "AHAutoNum",
-        "AHAutoMerge"
+        "AppHuntCookies",
+        "AppHuntLatest",
+        "AppHuntCount",
+        "AppHuntCapture",
+        "AppHuntNotify",
+        "AppHuntMax",
+        "AppHuntClear",
+        "AppHuntLimit",
+        "AppHuntOnlyHot",
+        "AppHuntGuestCookie",
+        "AppHuntAutoMode",
+        "AppHuntAutoNum",
+        "AppHuntAutoMerge"
       ],
       "descs_html": [
-        "<h3 align=\"center\">AH 多登录态 Cookie 抓取</h3>",
-        "<p><b>作用：</b>配合重写脚本 <code>ah_check_cookie.js</code> 捕获 AH 登录态 Cookie，支持多个账号/登录态同时保存。</p>",
-        "<p><b>怎么用：</b>① 在下方把「捕获开关」保持开启 → ② 在 AH App 登录 → ③ 脚本自动抓到 Cookie 写入本卡片 → ④ 从「全部Cookie」或「最近Cookie」复制使用。换账号重复 ②③ 即可追加。</p>",
+        "<h3 align=\"center\">多登录态 Cookie 抓取</h3>",
+        "<p><b>作用：</b>配合重写脚本 <code>ah_check_cookie.js</code> 捕获登录态 Cookie，支持多个账号/登录态同时保存。</p>",
+        "<p><b>怎么用：</b>① 在下方把「捕获开关」保持开启 → ② 在应用内登录 → ③ 脚本自动抓到 Cookie 写入本卡片 → ④ 从「全部Cookie」或「最近Cookie」复制使用。换账号重复 ②③ 即可追加。</p>",
         "<p><b>多登录态：</b>「全部Cookie」是一份 JSON 列表，每条含时间戳、session 片段、完整 cookie；按 session 去重，同一登录态重抓只更新不重复。条数上限见「最大保存数」。</p>",
         "<p><b>复制：</b>「最近Cookie」字段就是最新一条的完整 Cookie，点开全选复制最方便。</p>",
         "<p><b>清空：</b>需要清空时把「清空指令」切到 1，下次抓包会自动清空并把该开关复位为 0。</p>",
         "<p><b>脚本/规则：</b>重写规则与脚本见 <a href=\"https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js\">ah_check_cookie.js</a> 头部注释。</p>",
-        "<p><b>自动模式(高级/默认关闭)：</b>开启「自动模式」后，运行脚本会请求本地注册接口，随机生成账号并用返回的 sessionToken 自动组装 Cookie，无需先手动抓登录态。全部失败会自动退回游客模式并提示。</p>"
+        "<p><b>自动模式(高级/默认关闭)：</b>开启「自动模式」后，运行脚本会请求注册接口，随机生成账号并用返回的 sessionToken 自动组装 Cookie，无需先手动抓登录态。全部失败会自动退回游客模式并提示。</p>"
       ],
       "settings": [
         {
-          "id": "AHCookies",
+          "id": "AppHuntCookies",
           "name": "全部Cookie(只读/可复制)",
           "val": "[]",
           "type": "textarea",
@@ -1118,7 +1118,7 @@
           "desc": "脚本自动写入的 JSON 数组：每条含 t(时间戳)、s(session片段)、c(完整cookie)。按 session 去重，新的在前；一般不用手改，点开全选可复制。"
         },
         {
-          "id": "AHLatest",
+          "id": "AppHuntLatest",
           "name": "最近Cookie(可直接复制)",
           "val": "",
           "type": "textarea",
@@ -1127,14 +1127,14 @@
           "desc": "最近一次捕获到的完整 Cookie，点开全选即可复制使用；换账号登录后会自动更新为最新一条。"
         },
         {
-          "id": "AHCount",
+          "id": "AppHuntCount",
           "name": "已捕获数量",
           "val": "0",
           "type": "input",
           "desc": "脚本自动写入：当前已保存的登录态 Cookie 条数，一般不用手改。"
         },
         {
-          "id": "AHCapture",
+          "id": "AppHuntCapture",
           "name": "捕获开关",
           "val": "1",
           "type": "radios",
@@ -1151,7 +1151,7 @@
           ]
         },
         {
-          "id": "AHNotify",
+          "id": "AppHuntNotify",
           "name": "通知开关",
           "val": "1",
           "type": "radios",
@@ -1168,14 +1168,14 @@
           ]
         },
         {
-          "id": "AHMax",
+          "id": "AppHuntMax",
           "name": "最大保存数",
           "val": "20",
           "type": "number",
           "desc": "最多保留多少条登录态 Cookie，默认20。超出后最旧的会被自动裁掉。"
         },
         {
-          "id": "AHClear",
+          "id": "AppHuntClear",
           "name": "清空指令",
           "val": "0",
           "type": "radios",
@@ -1192,14 +1192,14 @@
           ]
         },
         {
-          "id": "AHLimit",
+          "id": "AppHuntLimit",
           "name": "请求数量 LIMIT",
           "val": "10",
           "type": "number",
           "desc": "本脚本(ah_catch.js)每次抓取多少个 App，默认10。0=抓取全部(最多999，请求多、耗时久、易触发风控)，请谨慎。实际抓取数量还受「只抓热门」开关影响：开启时从热门App里取前N个。"
         },
         {
-          "id": "AHOnlyHot",
+          "id": "AppHuntOnlyHot",
           "name": "只抓热门App",
           "val": "1",
           "type": "radios",
@@ -1216,7 +1216,7 @@
           ]
         },
         {
-          "id": "AHGuestCookie",
+          "id": "AppHuntGuestCookie",
           "name": "访客Cookie(可选)",
           "val": null,
           "type": "textarea",
@@ -1225,11 +1225,11 @@
           "desc": "不登录也能领访客兑换码所用的访客 Cookie。留空则用脚本内置默认访客Cookie；若访客码失效，可从 Postman 抓一份新的填这里覆盖。"
         },
         {
-          "id": "AHAutoMode",
+          "id": "AppHuntAutoMode",
           "name": "自动模式(默认关闭)",
           "val": "0",
           "type": "radios",
-          "desc": "默认关闭。开启(选1)后，ah_catch.js 会调用本地注册接口，用随机生成的 email/password/name 注册账号，并用返回的 sessionToken 自动组装登录 Cookie 参与兑换码抓取（无需先手动抓 Cookie）。若全部注册失败，会自动退回游客模式并弹通知提示，可改用下方手动 Cookie 流程。",
+          "desc": "默认关闭。开启(选1)后，ah_catch.js 会调用注册接口，用随机生成的 email/password/name 注册账号，并用返回的 sessionToken 自动组装登录 Cookie 参与兑换码抓取（无需先手动抓 Cookie）。若全部注册失败，会自动退回游客模式并弹通知提示，可改用下方手动 Cookie 流程。",
           "items": [
             {
               "key": "0",
@@ -1242,14 +1242,14 @@
           ]
         },
         {
-          "id": "AHAutoNum",
+          "id": "AppHuntAutoNum",
           "name": "自动生成账号数",
           "val": "1",
           "type": "number",
           "desc": "自动模式开启时，每次运行注册多少个账号（1~20，默认1）。每个账号生成的登录态会在本轮抓取中各领一次兑换码。数量越大请求越多、越耗时。仅在自动模式开启时生效。"
         },
         {
-          "id": "AHAutoMerge",
+          "id": "AppHuntAutoMerge",
           "name": "是否归入Cookie组",
           "val": "0",
           "type": "radios",
@@ -1269,8 +1269,8 @@
       "author": "@XiaoMao",
       "repo": "https://github.com/xiaomaoJT/QxScript",
       "icons": [
-        "https://ah.app/api/icons/6807537708?v=7f85689094b3",
-        "https://ah.app/api/icons/6807537708?v=7f85689094b3"
+        "https://apphunt.app/api/icons/6807537708?v=7f85689094b3",
+        "https://apphunt.app/api/icons/6807537708?v=7f85689094b3"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js"
     }
