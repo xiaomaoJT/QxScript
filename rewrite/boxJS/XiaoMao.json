@@ -1273,6 +1273,178 @@
         "https://apphunt.app/api/icons/6807537708?v=7f85689094b3"
       ],
       "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/ah_check_cookie.js"
+    },
+    {
+      "id": "FreeCodes",
+      "name": "免费码速报",
+      "keys": [
+        "FreeCodeEndpoint",
+        "FreeCodeLimit",
+        "FreeCodeSource",
+        "FreeCodeSort",
+        "FreeCodePlatform",
+        "FreeCodeMinRemain",
+        "FreeCodeChunk",
+        "FreeCodeNotify",
+        "FreeCodeHideLink"
+      ],
+      "descs_html": [
+        "<h3 align=\"center\">免费兑换码速报</h3>",
+        "<p><b>作用：</b>公共查询接口抓取免费兑换码，无需登录、无需 Cookie。按剩余码排序，自动过滤已领完（剩余为0）的条目。</p>",
+        "<p><b>使用：</b>在 QX <code>[task_local]</code> 添加定时任务运行 <code>free_codes.js</code>（脚本头部有整行示例，tag=免费码速报）。开启后到点自动推送，结果先发一条摘要，再按每片条数发明细。</p>",
+        "<p><b>数据来源：</b>默认拉取全部 App（分页自动完成），并用「精选/热门/趋势」三个榜单给条目打标签；这四个接口都是公开的，无需鉴权。接口地址可在下方覆盖。</p>",
+        "<p><b>兑换：</b>每条给出纯码与兑换链接；部分码是通用口令（如 GETFREEAPP），在 App Store 用兑换链接或到应用内输入即可。点「详情」进 App Store 页面。</p>",
+        "<p><b>标签说明：</b>🔥热门 / ⭐精选 / 📈趋势，来自三个榜单的最新 top 列表，随时间变动。</p>"
+      ],
+      "settings": [
+        {
+          "id": "FreeCodeEndpoint",
+          "name": "接口地址",
+          "val": "https://enchanted-rabbit-307.convex.cloud/api/query",
+          "type": "input",
+          "desc": "Convex 查询接口地址，一般不用改。仅在数据源迁移时替换。"
+        },
+        {
+          "id": "FreeCodeLimit",
+          "name": "输出条数",
+          "val": "10",
+          "type": "number",
+          "desc": "每轮推送多少条，默认10。0=输出全部（约160条，会发很多条通知，谨慎）。"
+        },
+        {
+          "id": "FreeCodeSource",
+          "name": "数据来源范围",
+          "val": "0",
+          "type": "radios",
+          "desc": "0=全部App(默认)；1=仅精选；2=仅热门；3=仅趋势；4=三榜合并(去重)。筛选后再按排序方式与条数输出。",
+          "items": [
+            {
+              "key": "0",
+              "label": "全部(默认)"
+            },
+            {
+              "key": "1",
+              "label": "仅精选"
+            },
+            {
+              "key": "2",
+              "label": "仅热门"
+            },
+            {
+              "key": "3",
+              "label": "仅趋势"
+            },
+            {
+              "key": "4",
+              "label": "三榜合并"
+            }
+          ]
+        },
+        {
+          "id": "FreeCodeSort",
+          "name": "排序方式",
+          "val": "2",
+          "type": "radios",
+          "desc": "2=热门优先(默认，精选/热门/趋势排前，再按剩余码)；0=剩余码多优先；1=最新上架；3=评分高优先。",
+          "items": [
+            {
+              "key": "2",
+              "label": "热门优先(默认)"
+            },
+            {
+              "key": "0",
+              "label": "剩余码多优先"
+            },
+            {
+              "key": "1",
+              "label": "最新上架"
+            },
+            {
+              "key": "3",
+              "label": "评分高优先"
+            }
+          ]
+        },
+        {
+          "id": "FreeCodePlatform",
+          "name": "平台过滤",
+          "val": "0",
+          "type": "radios",
+          "desc": "0=全部(默认)；1=仅iOS(含iOS的多平台也保留)；2=仅Android；3=仅多平台(含2种及以上)。",
+          "items": [
+            {
+              "key": "0",
+              "label": "全部(默认)"
+            },
+            {
+              "key": "1",
+              "label": "仅iOS"
+            },
+            {
+              "key": "2",
+              "label": "仅Android"
+            },
+            {
+              "key": "3",
+              "label": "仅多平台"
+            }
+          ]
+        },
+        {
+          "id": "FreeCodeMinRemain",
+          "name": "最少剩余码",
+          "val": "1",
+          "type": "number",
+          "desc": "剩余码低于此值的条目会被过滤，默认1（即过滤掉已领完的0）。调大可只看余量充足的热门。"
+        },
+        {
+          "id": "FreeCodeChunk",
+          "name": "每片条数",
+          "val": "6",
+          "type": "number",
+          "desc": "每条明细通知里放几个 App，默认6。太小通知条数多，太大单条通知长。"
+        },
+        {
+          "id": "FreeCodeNotify",
+          "name": "通知开关",
+          "val": "1",
+          "type": "radios",
+          "desc": "1=推送通知(默认)；0=静默，只写日志不推送。",
+          "items": [
+            {
+              "key": "1",
+              "label": "开启(默认)"
+            },
+            {
+              "key": "0",
+              "label": "静默"
+            }
+          ]
+        },
+        {
+          "id": "FreeCodeHideLink",
+          "name": "隐藏兑换长链接",
+          "val": "0",
+          "type": "radios",
+          "desc": "0=显示兑换链接(默认)；1=隐藏，只保留纯码和详情链接，通知更清爽。",
+          "items": [
+            {
+              "key": "0",
+              "label": "显示(默认)"
+            },
+            {
+              "key": "1",
+              "label": "隐藏"
+            }
+          ]
+        }
+      ],
+      "author": "@XiaoMao",
+      "repo": "https://github.com/xiaomaoJT/QxScript",
+      "icons": [
+        "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/icon/apple.png"
+      ],
+      "script": "https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/script/js/free_codes.js"
     }
   ]
 }
