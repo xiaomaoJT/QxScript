@@ -1278,7 +1278,6 @@
       "id": "FreeCodes",
       "name": "免费码速报",
       "keys": [
-        "FreeCodeEndpoint",
         "FreeCodeLimit",
         "FreeCodeSource",
         "FreeCodeSort",
@@ -1292,18 +1291,11 @@
         "<h3 align=\"center\">免费兑换码速报</h3>",
         "<p><b>作用：</b>公共查询接口抓取免费兑换码，无需登录、无需 Cookie。按剩余码排序，自动过滤已领完（剩余为0）的条目。</p>",
         "<p><b>使用：</b>在 QX <code>[task_local]</code> 添加定时任务运行 <code>free_codes.js</code>（脚本头部有整行示例，tag=免费码速报）。开启后到点自动推送，结果先发一条摘要，再按每片条数发明细。</p>",
-        "<p><b>数据来源：</b>默认拉取全部 App（分页自动完成），并用「精选/热门/趋势」三个榜单给条目打标签；这四个接口都是公开的，无需鉴权。接口地址可在下方覆盖。</p>",
+        "<p><b>数据来源：</b>默认拉取全部 App（分页自动完成），并用「精选/热门/趋势」三个榜单给条目打标签；数据源已内置于脚本，无需鉴权也无需手动填写。</p>",
         "<p><b>兑换：</b>每条给出纯码与兑换链接；部分码是通用口令（如 GETFREEAPP），在 App Store 用兑换链接或到应用内输入即可。点「详情」进 App Store 页面。</p>",
         "<p><b>标签说明：</b>🔥热门 / ⭐精选 / 📈趋势，来自三个榜单的最新 top 列表，随时间变动。</p>"
       ],
       "settings": [
-        {
-          "id": "FreeCodeEndpoint",
-          "name": "接口地址",
-          "val": "https://enchanted-rabbit-307.convex.cloud/api/query",
-          "type": "input",
-          "desc": "Convex 查询接口地址，一般不用改。仅在数据源迁移时替换。"
-        },
         {
           "id": "FreeCodeLimit",
           "name": "输出条数",

@@ -17,8 +17,8 @@ function dec(h) {
 
 (function () {
   // ---- BoxJS 配置键（与 XiaoMao.json 的 FreeCode* 对应）----
-  var K_ENDPOINT = dec('001c0028003f003f00190035003e003f001f0034003e002a003500330034002e'),
-      K_LIMIT = dec('001c0028003f003f00190035003e003f0016003300370033002e'),
+  // 接口地址内置于脚本（加密），不作为可配置项，避免暴露
+  var K_LIMIT = dec('001c0028003f003f00190035003e003f0016003300370033002e'),
       K_SOURCE = dec('001c0028003f003f00190035003e003f00090035002f00280039003f'),
       K_SORT = dec('001c0028003f003f00190035003e003f000900350028002e'),
       K_PLATFORM = dec('001c0028003f003f00190035003e003f000a0036003b002e003c003500280037'),
@@ -134,7 +134,7 @@ function dec(h) {
   }
 
   async function main() {
-    var endpoint = read(K_ENDPOINT, DEFAULT_ENDPOINT);
+    var endpoint = DEFAULT_ENDPOINT;
     var limit = readInt(K_LIMIT, 10);
     var source = readInt(K_SOURCE, 0);
     var sortMode = readInt(K_SORT, 2);
