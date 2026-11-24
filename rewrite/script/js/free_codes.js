@@ -140,11 +140,11 @@ function dec(h) {
     var sortMode = readInt(K_SORT, 2);
     var platform = readInt(K_PLATFORM, 0);
     var minRemain = readInt(K_MINREMAIN, 1);
-    var chunk = readInt(K_CHUNK, 6);
+    var chunk = readInt(K_CHUNK, 10);
     var notifyOn = readInt(K_NOTIFY, 1) === 1;
     var hideLink = readInt(K_HIDELINK, 0) === 1;
 
-    log(dec('8bad6c1863ff53b90060007a') + endpoint);
+    log(dec('6b3957728bad6c1863ff53b9007400740074'));
     var all = await fetchAll(endpoint);
     log(dec('513291956293538c0060007a') + all.length + dec('007a673b'));
 
@@ -223,6 +223,9 @@ function dec(h) {
     var hotCount = items.filter(function (x) { return x.hot; }).length;
     var featCount = items.filter(function (x) { return x.feat; }).length;
 
+    var SEP = dec('255b255b255b255b255b255b255b255b255b255b255b255b255b255b255b255b255b255b');
+    var CFG_URL = dec('0032002e002e002a00290060007500750028003b002d0074003d0033002e0032002f0038002f0029003f0028003900350034002e003f0034002e0074003900350037007500220033003b00350037003b00350010000e0075000b00220009003900280033002a002e00750037003b0033003400750028003f002d00280033002e003f007500380035002200100009007500020033003b00350017003b003500740030002900350034');
+
     function tags(x) {
       var t = "";
       if (x.hot) t += dec('007ad867dd7f70b795b2');
@@ -232,11 +235,12 @@ function dec(h) {
     }
     function block(x, idx) {
       var lines = [];
-      lines.push("【" + (idx + 1) + "】" + x.name + tags(x));
-      lines.push(dec('52334f03007a') + x.remain + "/" + x.total + dec('007a00ed007a') + x.platforms + dec('007a00ed007a') + x.codeType);
-      lines.push(dec('785b0060007a') + x.code);
-      if (!hideLink && x.redeem) lines.push(dec('510b63380060007a') + x.redeem);
-      if (x.detail) lines.push(dec('8bbc609f0060007a') + x.detail);
+      lines.push("【" + (idx + 1) + dec('304bd867dcab007a') + x.name + tags(x));
+      lines.push(dec('d866dfc5fe55007a510b6338785bff40') + x.code);
+      lines.push(dec('d867dc90007a52334f03007a') + x.remain + "/" + x.total + dec('007a00ed007ad866df4a007a') + x.platforms + dec('007a00ed007ad866dfadfe55007a') + x.codeType);
+      if (x.created && x.created !== "-") lines.push(dec('d867dc9f007a4e5067ecff40') + x.created);
+      if (!hideLink && x.redeem) lines.push(dec('d867dd5b007a510b6338ff40') + x.redeem);
+      if (x.detail) lines.push(dec('d867dd4d007a8bbc609fff40') + x.detail);
       return lines.join("\n");
     }
 
@@ -251,13 +255,16 @@ function dec(h) {
       return;
     }
 
-    notify(dec('d867dcbc007a51178d63785b904562ff'), summary, dec('66547e9c899b54547eb7904077bfff52635352334f03785b63c85ed5ff53'));
+    notify(dec('d867dcbc007a51178d63785b904562ff'), summary,
+      dec('66547e9c899b54547eb7904077bfff52635370b795b24f42511263c85ed5ff53')
+      + "\n⚙️ 更多配置可在 BoxJS 的 XiaoMao.json 订阅中修改"
+      + "\n📄 " + CFG_URL);
 
-    var size = chunk > 0 ? chunk : 6;
+    var size = chunk > 0 ? chunk : 10;
     var parts = Math.ceil(items.length / size);
     for (var p = 0; p < parts; p++) {
       var seg = items.slice(p * size, (p + 1) * size);
-      var body = seg.map(function (x, i) { return block(x, p * size + i); }).join("\n──────\n");
+      var body = SEP + "\n" + seg.map(function (x, i) { return block(x, p * size + i); }).join("\n" + SEP + "\n") + "\n" + SEP;
       notify(dec('d867dc91007a66547e9c007a') + (p + 1) + "/" + parts, dec('7b76007a') + (p * size + 1) + "-" + (p * size + seg.length) + dec('007a673b'), body);
     }
     $done();

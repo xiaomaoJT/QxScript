@@ -69,7 +69,7 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
 >
 > 本仓自3.0版本后 于2022年12月1日起 已持续更新 ***892*** 次
 >
-> ***最新更新时间 2026.11.24 14:55***
+> ***最新更新时间 2026.11.24 15:12***
 
 
 + ##### 20261124
@@ -82,7 +82,15 @@ resource_parser_url= https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mast
     >
     > 输出纯码、兑换链接、App Store 详情、剩余/总数、平台/类型
 
-  * > BoxJS 订阅 XiaoMao.json 新增「免费码速报」配置卡片，开放接口地址/条数/来源/排序/平台/余量/分片/通知/链接显示共 9 项
+  * > 优化免费码速报通知排版：每条增加 📱/🎟️/📊 等前置图标、加长分割线、信息分行展示，默认每片 10 条
+    >
+    > 摘要通知增加「更多配置可在 BoxJS 的 XiaoMao.json 订阅中修改」及完整订阅路径
+    >
+    > 运行日志改为「正在请求接口...」，不再输出完整接口地址
+
+  * > BoxJS 订阅 XiaoMao.json 新增「免费码速报」配置卡片，开放接口地址/条数/来源/排序/平台/余量/分片/通知/链接显示共 9 项；「每片条数」默认改为 10
+
+  * > BoxJS 订阅「Cookie捕获」卡片更名为「AH兑换码」
 
 
 + ##### 20261118

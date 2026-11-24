@@ -1081,7 +1081,7 @@
     },
     {
       "id": "AH",
-      "name": "Cookie捕获",
+      "name": "AH兑换码",
       "keys": [
         "AppHuntCookies",
         "AppHuntLatest",
@@ -1398,11 +1398,11 @@
           "desc": "剩余码低于此值的条目会被过滤，默认1（即过滤掉已领完的0）。调大可只看余量充足的热门。"
         },
         {
-          "id": "FreeCodeChunk",
-          "name": "每片条数",
-          "val": "6",
-          "type": "number",
-          "desc": "每条明细通知里放几个 App，默认6。太小通知条数多，太大单条通知长。"
+      "id": "FreeCodeChunk",
+      "name": "每片条数",
+      "val": "10",
+      "type": "number",
+      "desc": "每条明细通知里放几个 App，默认10。太小通知条数多，太大单条通知长。"
         },
         {
           "id": "FreeCodeNotify",
